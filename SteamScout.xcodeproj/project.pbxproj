@@ -1,0 +1,546 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C44A80D21E356EBA00BA367B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D11E356EBA00BA367B /* AppDelegate.swift */; };
+		C44A80D41E356EBA00BA367B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D31E356EBA00BA367B /* MasterViewController.swift */; };
+		C44A80D61E356EBA00BA367B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D51E356EBA00BA367B /* DetailViewController.swift */; };
+		C44A80D91E356EBA00BA367B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A80D71E356EBA00BA367B /* Main.storyboard */; };
+		C44A80DB1E356EBA00BA367B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44A80DA1E356EBA00BA367B /* Assets.xcassets */; };
+		C44A80DE1E356EBA00BA367B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A80DC1E356EBA00BA367B /* LaunchScreen.storyboard */; };
+		C44A80E91E356EBA00BA367B /* SteamScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80E81E356EBA00BA367B /* SteamScoutTests.swift */; };
+		C44A80F41E356EBA00BA367B /* SteamScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80F31E356EBA00BA367B /* SteamScoutUITests.swift */; };
+		C44A81031E356FEC00BA367B /* Main_old.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A81011E356FEC00BA367B /* Main_old.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C44A80E51E356EBA00BA367B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C44A80C61E356EBA00BA367B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C44A80CD1E356EBA00BA367B;
+			remoteInfo = SteamScout;
+		};
+		C44A80F01E356EBA00BA367B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C44A80C61E356EBA00BA367B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C44A80CD1E356EBA00BA367B;
+			remoteInfo = SteamScout;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C44A80CE1E356EBA00BA367B /* SteamScout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamScout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C44A80D11E356EBA00BA367B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C44A80D31E356EBA00BA367B /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		C44A80D51E356EBA00BA367B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C44A80D81E356EBA00BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C44A80DA1E356EBA00BA367B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C44A80DD1E356EBA00BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C44A80DF1E356EBA00BA367B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C44A80E41E356EBA00BA367B /* SteamScoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamScoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C44A80E81E356EBA00BA367B /* SteamScoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamScoutTests.swift; sourceTree = "<group>"; };
+		C44A80EA1E356EBA00BA367B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C44A80EF1E356EBA00BA367B /* SteamScoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamScoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C44A80F31E356EBA00BA367B /* SteamScoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamScoutUITests.swift; sourceTree = "<group>"; };
+		C44A80F51E356EBA00BA367B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C44A81021E356FEC00BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_old.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C44A80CB1E356EBA00BA367B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C44A80E11E356EBA00BA367B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C44A80EC1E356EBA00BA367B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C44A80C51E356EBA00BA367B = {
+			isa = PBXGroup;
+			children = (
+				C44A80D01E356EBA00BA367B /* SteamScout */,
+				C44A80E71E356EBA00BA367B /* SteamScoutTests */,
+				C44A80F21E356EBA00BA367B /* SteamScoutUITests */,
+				C44A80CF1E356EBA00BA367B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C44A80CF1E356EBA00BA367B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C44A80CE1E356EBA00BA367B /* SteamScout.app */,
+				C44A80E41E356EBA00BA367B /* SteamScoutTests.xctest */,
+				C44A80EF1E356EBA00BA367B /* SteamScoutUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C44A80D01E356EBA00BA367B /* SteamScout */ = {
+			isa = PBXGroup;
+			children = (
+				C44A81011E356FEC00BA367B /* Main_old.storyboard */,
+				C44A80D11E356EBA00BA367B /* AppDelegate.swift */,
+				C44A80D31E356EBA00BA367B /* MasterViewController.swift */,
+				C44A80D51E356EBA00BA367B /* DetailViewController.swift */,
+				C44A80D71E356EBA00BA367B /* Main.storyboard */,
+				C44A80DA1E356EBA00BA367B /* Assets.xcassets */,
+				C44A80DC1E356EBA00BA367B /* LaunchScreen.storyboard */,
+				C44A80DF1E356EBA00BA367B /* Info.plist */,
+			);
+			path = SteamScout;
+			sourceTree = "<group>";
+		};
+		C44A80E71E356EBA00BA367B /* SteamScoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				C44A80E81E356EBA00BA367B /* SteamScoutTests.swift */,
+				C44A80EA1E356EBA00BA367B /* Info.plist */,
+			);
+			path = SteamScoutTests;
+			sourceTree = "<group>";
+		};
+		C44A80F21E356EBA00BA367B /* SteamScoutUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C44A80F31E356EBA00BA367B /* SteamScoutUITests.swift */,
+				C44A80F51E356EBA00BA367B /* Info.plist */,
+			);
+			path = SteamScoutUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C44A80CD1E356EBA00BA367B /* SteamScout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C44A80F81E356EBA00BA367B /* Build configuration list for PBXNativeTarget "SteamScout" */;
+			buildPhases = (
+				C44A80CA1E356EBA00BA367B /* Sources */,
+				C44A80CB1E356EBA00BA367B /* Frameworks */,
+				C44A80CC1E356EBA00BA367B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SteamScout;
+			productName = SteamScout;
+			productReference = C44A80CE1E356EBA00BA367B /* SteamScout.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C44A80E31E356EBA00BA367B /* SteamScoutTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C44A80FB1E356EBA00BA367B /* Build configuration list for PBXNativeTarget "SteamScoutTests" */;
+			buildPhases = (
+				C44A80E01E356EBA00BA367B /* Sources */,
+				C44A80E11E356EBA00BA367B /* Frameworks */,
+				C44A80E21E356EBA00BA367B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C44A80E61E356EBA00BA367B /* PBXTargetDependency */,
+			);
+			name = SteamScoutTests;
+			productName = SteamScoutTests;
+			productReference = C44A80E41E356EBA00BA367B /* SteamScoutTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C44A80EE1E356EBA00BA367B /* SteamScoutUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C44A80FE1E356EBA00BA367B /* Build configuration list for PBXNativeTarget "SteamScoutUITests" */;
+			buildPhases = (
+				C44A80EB1E356EBA00BA367B /* Sources */,
+				C44A80EC1E356EBA00BA367B /* Frameworks */,
+				C44A80ED1E356EBA00BA367B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C44A80F11E356EBA00BA367B /* PBXTargetDependency */,
+			);
+			name = SteamScoutUITests;
+			productName = SteamScoutUITests;
+			productReference = C44A80EF1E356EBA00BA367B /* SteamScoutUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C44A80C61E356EBA00BA367B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = dhanwada;
+				TargetAttributes = {
+					C44A80CD1E356EBA00BA367B = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					C44A80E31E356EBA00BA367B = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C44A80CD1E356EBA00BA367B;
+					};
+					C44A80EE1E356EBA00BA367B = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C44A80CD1E356EBA00BA367B;
+					};
+				};
+			};
+			buildConfigurationList = C44A80C91E356EBA00BA367B /* Build configuration list for PBXProject "SteamScout" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C44A80C51E356EBA00BA367B;
+			productRefGroup = C44A80CF1E356EBA00BA367B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C44A80CD1E356EBA00BA367B /* SteamScout */,
+				C44A80E31E356EBA00BA367B /* SteamScoutTests */,
+				C44A80EE1E356EBA00BA367B /* SteamScoutUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C44A80CC1E356EBA00BA367B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C44A80DE1E356EBA00BA367B /* LaunchScreen.storyboard in Resources */,
+				C44A81031E356FEC00BA367B /* Main_old.storyboard in Resources */,
+				C44A80DB1E356EBA00BA367B /* Assets.xcassets in Resources */,
+				C44A80D91E356EBA00BA367B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C44A80E21E356EBA00BA367B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C44A80ED1E356EBA00BA367B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C44A80CA1E356EBA00BA367B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C44A80D61E356EBA00BA367B /* DetailViewController.swift in Sources */,
+				C44A80D41E356EBA00BA367B /* MasterViewController.swift in Sources */,
+				C44A80D21E356EBA00BA367B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C44A80E01E356EBA00BA367B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C44A80E91E356EBA00BA367B /* SteamScoutTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C44A80EB1E356EBA00BA367B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C44A80F41E356EBA00BA367B /* SteamScoutUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C44A80E61E356EBA00BA367B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C44A80CD1E356EBA00BA367B /* SteamScout */;
+			targetProxy = C44A80E51E356EBA00BA367B /* PBXContainerItemProxy */;
+		};
+		C44A80F11E356EBA00BA367B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C44A80CD1E356EBA00BA367B /* SteamScout */;
+			targetProxy = C44A80F01E356EBA00BA367B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C44A80D71E356EBA00BA367B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C44A80D81E356EBA00BA367B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C44A80DC1E356EBA00BA367B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C44A80DD1E356EBA00BA367B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C44A81011E356FEC00BA367B /* Main_old.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C44A81021E356FEC00BA367B /* Base */,
+			);
+			name = Main_old.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C44A80F61E356EBA00BA367B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		C44A80F71E356EBA00BA367B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C44A80F91E356EBA00BA367B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SteamScout/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dhanwada.SteamScout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C44A80FA1E356EBA00BA367B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SteamScout/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dhanwada.SteamScout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		C44A80FC1E356EBA00BA367B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SteamScoutTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dhanwada.SteamScoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SteamScout.app/SteamScout";
+			};
+			name = Debug;
+		};
+		C44A80FD1E356EBA00BA367B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SteamScoutTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dhanwada.SteamScoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SteamScout.app/SteamScout";
+			};
+			name = Release;
+		};
+		C44A80FF1E356EBA00BA367B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = SteamScoutUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dhanwada.SteamScoutUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SteamScout;
+			};
+			name = Debug;
+		};
+		C44A81001E356EBA00BA367B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = SteamScoutUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dhanwada.SteamScoutUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SteamScout;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C44A80C91E356EBA00BA367B /* Build configuration list for PBXProject "SteamScout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C44A80F61E356EBA00BA367B /* Debug */,
+				C44A80F71E356EBA00BA367B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C44A80F81E356EBA00BA367B /* Build configuration list for PBXNativeTarget "SteamScout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C44A80F91E356EBA00BA367B /* Debug */,
+				C44A80FA1E356EBA00BA367B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C44A80FB1E356EBA00BA367B /* Build configuration list for PBXNativeTarget "SteamScoutTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C44A80FC1E356EBA00BA367B /* Debug */,
+				C44A80FD1E356EBA00BA367B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C44A80FE1E356EBA00BA367B /* Build configuration list for PBXNativeTarget "SteamScoutUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C44A80FF1E356EBA00BA367B /* Debug */,
+				C44A81001E356EBA00BA367B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C44A80C61E356EBA00BA367B /* Project object */;
+}
