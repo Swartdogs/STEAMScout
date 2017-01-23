@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C443D1871E35EFE400B27930 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C443D1861E35EFE400B27930 /* README.md */; };
 		C44A80D21E356EBA00BA367B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D11E356EBA00BA367B /* AppDelegate.swift */; };
 		C44A80D41E356EBA00BA367B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D31E356EBA00BA367B /* MasterViewController.swift */; };
 		C44A80D61E356EBA00BA367B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D51E356EBA00BA367B /* DetailViewController.swift */; };
@@ -42,6 +43,7 @@
 		27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamScout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E93E7F5A26E313A9018C132 /* Pods-SteamScout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamScout.release.xcconfig"; path = "Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout.release.xcconfig"; sourceTree = "<group>"; };
 		71422EE919DB60A15D7A3C10 /* Pods-SteamScout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamScout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout.debug.xcconfig"; sourceTree = "<group>"; };
+		C443D1861E35EFE400B27930 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C44A80CE1E356EBA00BA367B /* SteamScout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamScout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44A80D11E356EBA00BA367B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C44A80D31E356EBA00BA367B /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		C44A80C51E356EBA00BA367B = {
 			isa = PBXGroup;
 			children = (
+				C443D1861E35EFE400B27930 /* README.md */,
 				C4D61D281E35E38100320E1D /* SteamScoutUITesting */,
 				C4D61D231E35E37C00320E1D /* SteamScoutTesting */,
 				C44A80D01E356EBA00BA367B /* SteamScout */,
@@ -347,6 +350,7 @@
 			files = (
 				C44A80D61E356EBA00BA367B /* DetailViewController.swift in Sources */,
 				C44A80D41E356EBA00BA367B /* MasterViewController.swift in Sources */,
+				C443D1871E35EFE400B27930 /* README.md in Sources */,
 				C44A80D21E356EBA00BA367B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
