@@ -117,19 +117,19 @@ class MasterViewController: UITableViewController {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let continueAction = UIAlertAction(title: "Continue", style: .destructive, handler: {(action) in
-            let hud = MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
-            hud?.mode = .indeterminate
-            hud?.labelText = "Clearing Data..."
+            let hud = MBProgressHUD.showAdded(to: self.navigationController!.view, animated: true)
+            hud.mode = .indeterminate
+            hud.label.text = "Clearing Data..."
             DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async(execute: {
                 MatchStore.sharedStore.clearMatchData(type)
                 DispatchQueue.main.async(execute: {
-                    let hud = MBProgressHUD(for: self.navigationController?.view)
+                    let hud = MBProgressHUD(for: self.navigationController!.view)
                     let imageView = UIImageView(image: UIImage(named: "check"))
                     hud?.customView = imageView
                     hud?.mode = .customView
-                    hud?.labelText = "Completed"
+                    hud?.label.text = "Completed"
                     self.tableView.reloadData()
-                    hud?.hide(true, afterDelay: 1)
+                    hud?.hide(animated: true, afterDelay: 1)
                 })
             })
         })
@@ -177,19 +177,19 @@ class MasterViewController: UITableViewController {
             ac.addAction(cancelAction)
             
             let continueAction = UIAlertAction(title: "Yes", style: .default, handler: {(action) in
-                let hud = MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
-                hud?.mode = .indeterminate
-                hud?.labelText = "Exporting..."
+                let hud = MBProgressHUD.showAdded(to: self.navigationController!.view, animated: true)
+                hud.mode = .indeterminate
+                hud.label.text = "Exporting..."
                 DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async(execute: {
-                    MatchStore.sharedStore.exportNewMatchData()
+                    _ = MatchStore.sharedStore.exportNewMatchData()
                     DispatchQueue.main.async(execute: {
-                        let hud = MBProgressHUD(for: self.navigationController?.view)
+                        let hud = MBProgressHUD(for: self.navigationController!.view)
                         let imageView = UIImageView(image: UIImage(named: "check"))
                         hud?.customView = imageView
                         hud?.mode = .customView
-                        hud?.labelText = "Completed"
+                        hud?.label.text = "Completed"
                         self.tableView.reloadData()
-                        hud?.hide(true, afterDelay: 1)
+                        hud?.hide(animated: true, afterDelay: 1)
                     })
                 })
             })
@@ -199,19 +199,19 @@ class MasterViewController: UITableViewController {
     }
     
     func exportAllMatchData() {
-        let hud = MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
-        hud?.mode = .indeterminate
-        hud?.labelText = "Exporting..."
+        let hud = MBProgressHUD.showAdded(to: self.navigationController!.view, animated: true)
+        hud.mode = .indeterminate
+        hud.label.text = "Exporting..."
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async(execute: {
-            MatchStore.sharedStore.writeCSVFile()
+            _ = MatchStore.sharedStore.writeCSVFile()
             DispatchQueue.main.async(execute: {
-                let hud = MBProgressHUD(for: self.navigationController?.view)
+                let hud = MBProgressHUD(for: self.navigationController!.view)
                 let imageView = UIImageView(image: UIImage(named: "check"))
                 hud?.customView = imageView
                 hud?.mode = .customView
-                hud?.labelText = "Completed"
+                hud?.label.text = "Completed"
                 self.tableView.reloadData()
-                hud?.hide(true, afterDelay: 1)
+                hud?.hide(animated: true, afterDelay: 1)
             })
         })
     }
@@ -268,7 +268,8 @@ class MasterViewController: UITableViewController {
                 MatchStore.sharedStore.removeMatchAtIndex(indexPath.row)
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
-            MatchStore.sharedStore.saveChanges()
+            
+            _ = MatchStore.sharedStore.saveChanges()
         }
     }
 

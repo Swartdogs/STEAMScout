@@ -34,7 +34,7 @@ class ResultsTeleopViewController: UIViewController {
         for i in 0 ..< 5 {
             let data = defenseData[i].toArray(match.finalResult)
             for j in 0 ..< 5 {
-                defenses[i][j].text = data[j]
+                defenses[i]?[j].text = data[j]
             }
         }
     }
