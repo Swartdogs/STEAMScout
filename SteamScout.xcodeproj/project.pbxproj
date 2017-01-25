@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C44A80D21E356EBA00BA367B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D11E356EBA00BA367B /* AppDelegate.swift */; };
-		C44A80D41E356EBA00BA367B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D31E356EBA00BA367B /* MasterViewController.swift */; };
 		C44A80D61E356EBA00BA367B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D51E356EBA00BA367B /* DetailViewController.swift */; };
 		C44A80D91E356EBA00BA367B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A80D71E356EBA00BA367B /* Main.storyboard */; };
 		C44A80DB1E356EBA00BA367B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44A80DA1E356EBA00BA367B /* Assets.xcassets */; };
@@ -16,6 +15,27 @@
 		C44A80E91E356EBA00BA367B /* SteamScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80E81E356EBA00BA367B /* SteamScoutTests.swift */; };
 		C44A80F41E356EBA00BA367B /* SteamScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80F31E356EBA00BA367B /* SteamScoutUITests.swift */; };
 		C44A81031E356FEC00BA367B /* Main_old.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A81011E356FEC00BA367B /* Main_old.storyboard */; };
+		C44A81061E35D31100BA367B /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A81041E35D31100BA367B /* Results.storyboard */; };
+		C44A810C1E35D32500BA367B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81081E35D32500BA367B /* Event.swift */; };
+		C44A810D1E35D32500BA367B /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81091E35D32500BA367B /* EventStore.swift */; };
+		C44A810E1E35D32500BA367B /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A810A1E35D32500BA367B /* ScheduleItem.swift */; };
+		C44A810F1E35D32500BA367B /* ScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A810B1E35D32500BA367B /* ScheduleStore.swift */; };
+		C44A81191E35D32C00BA367B /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81121E35D32C00BA367B /* FinalViewController.swift */; };
+		C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81131E35D32C00BA367B /* TeamInfoViewController.swift */; };
+		C44A811B1E35D32C00BA367B /* EventSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81141E35D32C00BA367B /* EventSelectionTableViewController.swift */; };
+		C44A811C1E35D32C00BA367B /* EventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81151E35D32C00BA367B /* EventSelectionViewController.swift */; };
+		C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81161E35D32C00BA367B /* ResultsMatchInfoViewController.swift */; };
+		C44A811E1E35D32C00BA367B /* ResultsScoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81171E35D32C00BA367B /* ResultsScoringViewController.swift */; };
+		C44A811F1E35D32C00BA367B /* ResultsTeleopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81181E35D32C00BA367B /* ResultsTeleopViewController.swift */; };
+		C44A81241E35D33100BA367B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81211E35D33100BA367B /* MasterViewController.swift */; };
+		C44A81251E35D33100BA367B /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81221E35D33100BA367B /* ScheduleViewController.swift */; };
+		C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81231E35D33100BA367B /* ToolsViewController.swift */; };
+		C44A812E1E35D33800BA367B /* CustomContainerArrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81281E35D33800BA367B /* CustomContainerArrayView.swift */; };
+		C44A812F1E35D33800BA367B /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81291E35D33800BA367B /* EventCell.swift */; };
+		C44A81301E35D33800BA367B /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812A1E35D33800BA367B /* MatchCell.swift */; };
+		C44A81311E35D33800BA367B /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812B1E35D33800BA367B /* ScheduleCell.swift */; };
+		C44A81321E35D33800BA367B /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812C1E35D33800BA367B /* SelectionButton.swift */; };
+		C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812D1E35D33800BA367B /* themeDefinitions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +58,6 @@
 /* Begin PBXFileReference section */
 		C44A80CE1E356EBA00BA367B /* SteamScout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamScout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44A80D11E356EBA00BA367B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C44A80D31E356EBA00BA367B /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		C44A80D51E356EBA00BA367B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C44A80D81E356EBA00BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C44A80DA1E356EBA00BA367B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +70,27 @@
 		C44A80F31E356EBA00BA367B /* SteamScoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamScoutUITests.swift; sourceTree = "<group>"; };
 		C44A80F51E356EBA00BA367B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C44A81021E356FEC00BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_old.storyboard; sourceTree = "<group>"; };
+		C44A81051E35D31100BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Results.storyboard; sourceTree = "<group>"; };
+		C44A81081E35D32500BA367B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Event.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81091E35D32500BA367B /* EventStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventStore.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A810A1E35D32500BA367B /* ScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
+		C44A810B1E35D32500BA367B /* ScheduleStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ScheduleStore.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81121E35D32C00BA367B /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FinalViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81131E35D32C00BA367B /* TeamInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TeamInfoViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81141E35D32C00BA367B /* EventSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventSelectionTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81151E35D32C00BA367B /* EventSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventSelectionViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81161E35D32C00BA367B /* ResultsMatchInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResultsMatchInfoViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81171E35D32C00BA367B /* ResultsScoringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResultsScoringViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81181E35D32C00BA367B /* ResultsTeleopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResultsTeleopViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81211E35D33100BA367B /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MasterViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81221E35D33100BA367B /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ScheduleViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81231E35D33100BA367B /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ToolsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81281E35D33800BA367B /* CustomContainerArrayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CustomContainerArrayView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81291E35D33800BA367B /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A812A1E35D33800BA367B /* MatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MatchCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A812B1E35D33800BA367B /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ScheduleCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A812C1E35D33800BA367B /* SelectionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SelectionButton.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A812D1E35D33800BA367B /* themeDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = themeDefinitions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +141,14 @@
 		C44A80D01E356EBA00BA367B /* SteamScout */ = {
 			isa = PBXGroup;
 			children = (
-				C44A81011E356FEC00BA367B /* Main_old.storyboard */,
+				C44A81271E35D33800BA367B /* Support */,
+				C44A81201E35D33100BA367B /* MasterControllers */,
+				C44A81101E35D32C00BA367B /* DetailControllers */,
+				C44A81071E35D32500BA367B /* Models */,
+				C44A81341E35D35200BA367B /* Storyboards */,
 				C44A80D11E356EBA00BA367B /* AppDelegate.swift */,
-				C44A80D31E356EBA00BA367B /* MasterViewController.swift */,
 				C44A80D51E356EBA00BA367B /* DetailViewController.swift */,
-				C44A80D71E356EBA00BA367B /* Main.storyboard */,
 				C44A80DA1E356EBA00BA367B /* Assets.xcassets */,
-				C44A80DC1E356EBA00BA367B /* LaunchScreen.storyboard */,
 				C44A80DF1E356EBA00BA367B /* Info.plist */,
 			);
 			path = SteamScout;
@@ -129,6 +170,73 @@
 				C44A80F51E356EBA00BA367B /* Info.plist */,
 			);
 			path = SteamScoutUITests;
+			sourceTree = "<group>";
+		};
+		C44A81071E35D32500BA367B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C44A81081E35D32500BA367B /* Event.swift */,
+				C44A81091E35D32500BA367B /* EventStore.swift */,
+				C44A810A1E35D32500BA367B /* ScheduleItem.swift */,
+				C44A810B1E35D32500BA367B /* ScheduleStore.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C44A81101E35D32C00BA367B /* DetailControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C44A81111E35D32C00BA367B /* DataEntry */,
+				C44A81141E35D32C00BA367B /* EventSelectionTableViewController.swift */,
+				C44A81151E35D32C00BA367B /* EventSelectionViewController.swift */,
+				C44A81161E35D32C00BA367B /* ResultsMatchInfoViewController.swift */,
+				C44A81171E35D32C00BA367B /* ResultsScoringViewController.swift */,
+				C44A81181E35D32C00BA367B /* ResultsTeleopViewController.swift */,
+			);
+			path = DetailControllers;
+			sourceTree = "<group>";
+		};
+		C44A81111E35D32C00BA367B /* DataEntry */ = {
+			isa = PBXGroup;
+			children = (
+				C44A81121E35D32C00BA367B /* FinalViewController.swift */,
+				C44A81131E35D32C00BA367B /* TeamInfoViewController.swift */,
+			);
+			path = DataEntry;
+			sourceTree = "<group>";
+		};
+		C44A81201E35D33100BA367B /* MasterControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C44A81211E35D33100BA367B /* MasterViewController.swift */,
+				C44A81221E35D33100BA367B /* ScheduleViewController.swift */,
+				C44A81231E35D33100BA367B /* ToolsViewController.swift */,
+			);
+			path = MasterControllers;
+			sourceTree = "<group>";
+		};
+		C44A81271E35D33800BA367B /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				C44A81281E35D33800BA367B /* CustomContainerArrayView.swift */,
+				C44A81291E35D33800BA367B /* EventCell.swift */,
+				C44A812A1E35D33800BA367B /* MatchCell.swift */,
+				C44A812B1E35D33800BA367B /* ScheduleCell.swift */,
+				C44A812C1E35D33800BA367B /* SelectionButton.swift */,
+				C44A812D1E35D33800BA367B /* themeDefinitions.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		C44A81341E35D35200BA367B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C44A81041E35D31100BA367B /* Results.storyboard */,
+				C44A81011E356FEC00BA367B /* Main_old.storyboard */,
+				C44A80D71E356EBA00BA367B /* Main.storyboard */,
+				C44A80DC1E356EBA00BA367B /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C44A80DE1E356EBA00BA367B /* LaunchScreen.storyboard in Resources */,
+				C44A81061E35D31100BA367B /* Results.storyboard in Resources */,
 				C44A81031E356FEC00BA367B /* Main_old.storyboard in Resources */,
 				C44A80DB1E356EBA00BA367B /* Assets.xcassets in Resources */,
 				C44A80D91E356EBA00BA367B /* Main.storyboard in Resources */,
@@ -266,9 +375,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44A81301E35D33800BA367B /* MatchCell.swift in Sources */,
+				C44A81251E35D33100BA367B /* ScheduleViewController.swift in Sources */,
+				C44A810F1E35D32500BA367B /* ScheduleStore.swift in Sources */,
+				C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */,
+				C44A81191E35D32C00BA367B /* FinalViewController.swift in Sources */,
+				C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */,
+				C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */,
 				C44A80D61E356EBA00BA367B /* DetailViewController.swift in Sources */,
-				C44A80D41E356EBA00BA367B /* MasterViewController.swift in Sources */,
+				C44A810C1E35D32500BA367B /* Event.swift in Sources */,
+				C44A811B1E35D32C00BA367B /* EventSelectionTableViewController.swift in Sources */,
+				C44A811C1E35D32C00BA367B /* EventSelectionViewController.swift in Sources */,
+				C44A81321E35D33800BA367B /* SelectionButton.swift in Sources */,
+				C44A812F1E35D33800BA367B /* EventCell.swift in Sources */,
+				C44A810D1E35D32500BA367B /* EventStore.swift in Sources */,
+				C44A810E1E35D32500BA367B /* ScheduleItem.swift in Sources */,
+				C44A81311E35D33800BA367B /* ScheduleCell.swift in Sources */,
+				C44A812E1E35D33800BA367B /* CustomContainerArrayView.swift in Sources */,
 				C44A80D21E356EBA00BA367B /* AppDelegate.swift in Sources */,
+				C44A811E1E35D32C00BA367B /* ResultsScoringViewController.swift in Sources */,
+				C44A81241E35D33100BA367B /* MasterViewController.swift in Sources */,
+				C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */,
+				C44A811F1E35D32C00BA367B /* ResultsTeleopViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +454,14 @@
 				C44A81021E356FEC00BA367B /* Base */,
 			);
 			name = Main_old.storyboard;
+			sourceTree = "<group>";
+		};
+		C44A81041E35D31100BA367B /* Results.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C44A81051E35D31100BA367B /* Base */,
+			);
+			name = Results.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -523,6 +659,7 @@
 				C44A80FA1E356EBA00BA367B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C44A80FB1E356EBA00BA367B /* Build configuration list for PBXNativeTarget "SteamScoutTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +668,7 @@
 				C44A80FD1E356EBA00BA367B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C44A80FE1E356EBA00BA367B /* Build configuration list for PBXNativeTarget "SteamScoutUITests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +677,7 @@
 				C44A81001E356EBA00BA367B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
