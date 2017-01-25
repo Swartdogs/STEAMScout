@@ -49,7 +49,7 @@ class ScheduleItem: NSObject, NSCoding {
     init(json:JSON) {
         super.init()
         let formatter = DateFormatter()
-        formatter.locale = Locale(localeIdentifier: "en_US")
+        formatter.locale = Locale(identifier: "en_US")
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         self.desc            = json["description"].stringValue
         self.field           = json["field"].stringValue

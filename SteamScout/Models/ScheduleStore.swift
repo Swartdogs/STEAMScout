@@ -72,7 +72,7 @@ class ScheduleStore: NSObject {
         }
         schedule.sort(by: { $0.startTime!.compare($1.startTime! as Date) == .orderedAscending })
         print("Imported \(schedule.count) Schedule Items")
-        self.saveSchedule()
+        _ = self.saveSchedule()
     }
     
     func buildMatchListForGroup(_ group:Int) {

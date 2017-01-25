@@ -88,7 +88,7 @@ class EventStore: NSObject {
             allEvents.append(event)
         }
         createEventByType()
-        saveEventList()
+        _ = saveEventList()
     }
     
     func filterEventsBy(_ type:EventFilterType, compareValue:AnyObject) -> [Event] {

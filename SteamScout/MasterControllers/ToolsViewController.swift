@@ -113,7 +113,7 @@ class ToolsViewController: UIViewController {
     }
     
     @IBAction func startAdvertising(_ sender:UISwitch) {
-        if(peripheralManager?.state != CBPeripheralManagerState.poweredOn && adSwitch.isOn) {
+        if(peripheralManager?.state != .poweredOn && adSwitch.isOn) {
             adSwitch.isOn = false
             let alertController = UIAlertController(title: "Bluetooth Advertising", message: "Before you can advertise data via bluetooth, you must enable it.  Go to the settings and turn Bluetooth on to start sending data", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -130,26 +130,26 @@ class ToolsViewController: UIViewController {
     }
     
     @IBAction func getEventList(_ sender:UIButton) {
-        let hud = MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
-        hud?.labelText = "Loading..."
-        hud?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancelRequest(_:))))
+        let hud = MBProgressHUD.showAdded(to: self.navigationController!.view, animated: true)
+        hud.label.text = "Loading..."
+        hud.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancelRequest(_:))))
         self.navigationItem.leftBarButtonItem?.isEnabled = false
         EventStore.sharedStore.getEventsList({(progress) in
             DispatchQueue.main.async(execute: {
-                let hud = MBProgressHUD(for: self.navigationController?.view)
-                hud.mode = .determinate
-                hud.progress = Float(progress)
+                let hud = MBProgressHUD(for: self.navigationController!.view)
+                hud?.mode = .determinate
+                hud?.progress = Float(progress)
             })
         }, completion: {(error) in
             DispatchQueue.main.async(execute: {
-                let hud = MBProgressHUD(for: self.navigationController?.view)
+                let hud = MBProgressHUD(for: self.navigationController!.view)
                 let image = UIImage(named: error == nil ? "check" : "close")
                 let imageView = UIImageView(image: image)
                 self.navigationItem.leftBarButtonItem?.isEnabled = true
-                hud.customView = imageView
-                hud.mode = .customView
-                hud.labelText = error == nil ? "Completed" : "Error"
-                hud.hide(true, afterDelay: 1)
+                hud?.customView = imageView
+                hud?.mode = .customView
+                hud?.label.text = error == nil ? "Completed" : "Error"
+                hud?.hide(animated: true, afterDelay: 1)
             })
         })
     }
@@ -157,13 +157,13 @@ class ToolsViewController: UIViewController {
     func cancelRequest(_ sender:UITapGestureRecognizer) {
         EventStore.sharedStore.cancelRequest({
             DispatchQueue.main.async(execute: {
-                let hud = MBProgressHUD(for: self.navigationController?.view)
+                let hud = MBProgressHUD(for: self.navigationController!.view)
                 let imageView = UIImageView(image: UIImage(named: "close"))
                 self.navigationItem.leftBarButtonItem?.isEnabled = true
-                hud.customView = imageView
-                hud.mode = .customView
-                hud.labelText = "Canceled"
-                hud.hide(true, afterDelay: 1)
+                hud?.customView = imageView
+                hud?.mode = .customView
+                hud?.label.text = "Canceled"
+                hud?.hide(animated: true, afterDelay: 1)
             })
         })
     }
@@ -188,7 +188,7 @@ class ToolsViewController: UIViewController {
             if amountToSend > NOTIFY_MTU {
                 amountToSend = NOTIFY_MTU
             }
-            let chunk = Data(bytes: UnsafePointer<UInt8>((dataToSend! as NSData).bytes + sendDataIndex), count: amountToSend)
+            let chunk = Data(bytes: UnsafeRawPointer((dataToSend! as NSData).bytes + sendDataIndex), count: amountToSend)
             
             didSend = (peripheralManager?.updateValue(chunk, for: sendingCharacteristic, onSubscribedCentrals: nil))!
             
@@ -221,22 +221,22 @@ class ToolsViewController: UIViewController {
     
     @IBAction func getSchedule(_ sender:UIButton) {
         ScheduleStore.sharedStore.currentSchedule = EventStore.sharedStore.selectedEvent?.code
-        let hud = MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
-        hud?.mode = .indeterminate
-        hud?.labelText = "Loading..."
-        hud?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ToolsViewController.cancelScheduleRequest(_:))))
+        let hud = MBProgressHUD.showAdded(to: self.navigationController!.view, animated: true)
+        hud.mode = .indeterminate
+        hud.label.text = "Loading..."
+        hud.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ToolsViewController.cancelScheduleRequest(_:))))
         self.navigationItem.leftBarButtonItem?.isEnabled = false
         self.getScheduleButton.isEnabled = false
         self.buildListButton.isEnabled = false
         ScheduleStore.sharedStore.getScheduleList({ (progress:Double) in
             DispatchQueue.main.async(execute: {
-                let hud = MBProgressHUD(for: self.navigationController?.view)
-                hud.mode = .determinate
-                hud.progress = Float(progress)
+                let hud = MBProgressHUD(for: self.navigationController!.view)
+                hud?.mode = .determinate
+                hud?.progress = Float(progress)
             })
             }, completion: { (error) in
                 DispatchQueue.main.async(execute: {
-                    let hud = MBProgressHUD(for: self.navigationController?.view)
+                    let hud = MBProgressHUD(for: self.navigationController!.view)
                     let imageView = UIImageView(image: UIImage(named: error == nil ? "check" : "close"))
                     self.navigationItem.leftBarButtonItem?.isEnabled = true
                     self.getScheduleButton.isEnabled = true
@@ -244,10 +244,10 @@ class ToolsViewController: UIViewController {
                         b.isEnabled = ScheduleStore.sharedStore.currentSchedule != nil
                     }
                     self.buildListButton.isEnabled = self.selectedList > 0
-                    hud.customView = imageView
-                    hud.mode = .customView
-                    hud.labelText = error == nil ? "Completed" : "Error"
-                    hud.hide(true, afterDelay: 1)
+                    hud?.customView = imageView
+                    hud?.mode = .customView
+                    hud?.label.text = error == nil ? "Completed" : "Error"
+                    hud?.hide(animated: true, afterDelay: 1)
                 })
         })
     }
@@ -279,18 +279,18 @@ class ToolsViewController: UIViewController {
         list += " \(selectedList & 3)"
         let ac = UIAlertController(title: "Build \(list) List for event \(ScheduleStore.sharedStore.currentSchedule!)", message: "Building this list will clear the previous queue of matches.  Do you want to continue?", preferredStyle: .alert)
         let continueAction = UIAlertAction(title: "Continue", style: .destructive, handler: {(action) in
-            let hud = MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
-            hud?.mode = .indeterminate
-            hud?.labelText = "Building List"
+            let hud = MBProgressHUD.showAdded(to: self.navigationController!.view, animated: true)
+            hud.mode = .indeterminate
+            hud.label.text = "Building List"
             DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async(execute: {
                 ScheduleStore.sharedStore.buildMatchListForGroup(self.selectedList)
                 DispatchQueue.main.async(execute: {
-                    let hud = MBProgressHUD(for: self.navigationController?.view)
+                    let hud = MBProgressHUD(for: self.navigationController!.view)
                     let imageView = UIImageView(image: UIImage(named: "check"))
                     hud?.customView = imageView
                     hud?.mode = .customView
-                    hud?.labelText = "Completed"
-                    hud?.hide(true, afterDelay: 1)
+                    hud?.label.text = "Completed"
+                    hud?.hide(animated: true, afterDelay: 1)
                 })
             })
         })
@@ -305,7 +305,7 @@ class ToolsViewController: UIViewController {
     func cancelScheduleRequest(_ sender:UITapGestureRecognizer) {
         ScheduleStore.sharedStore.cancelRequest({
             DispatchQueue.main.async(execute: {
-                let hud = MBProgressHUD(for: self.navigationController?.view)
+                let hud = MBProgressHUD(for: self.navigationController!.view)
                 let imageView = UIImageView(image: UIImage(named: "close"))
                 self.navigationItem.leftBarButtonItem?.isEnabled = true
                 self.getScheduleButton.isEnabled = true
@@ -313,10 +313,10 @@ class ToolsViewController: UIViewController {
                     b.isEnabled = ScheduleStore.sharedStore.currentSchedule != nil
                 }
                 self.buildListButton.isEnabled = self.selectedList > 0
-                hud.customView = imageView
-                hud.mode = .customView
-                hud.labelText = "Canceled"
-                hud.hide(true, afterDelay: 1)
+                hud?.customView = imageView
+                hud?.mode = .customView
+                hud?.label.text = "Canceled"
+                hud?.hide(animated: true, afterDelay: 1)
             })
         })
     }
