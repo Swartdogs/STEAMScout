@@ -143,7 +143,7 @@ class ToolsViewController: UIViewController {
         }, completion: {(error) in
             DispatchQueue.main.async(execute: {
                 let hud = MBProgressHUD(for: self.navigationController!.view)
-                let image = UIImage(named: error == nil ? "check" : "close")
+                let image = UIImage(named: error == nil ? "Checkmark" : "Close")
                 let imageView = UIImageView(image: image)
                 self.navigationItem.leftBarButtonItem?.isEnabled = true
                 hud?.customView = imageView
@@ -158,7 +158,7 @@ class ToolsViewController: UIViewController {
         EventStore.sharedStore.cancelRequest({
             DispatchQueue.main.async(execute: {
                 let hud = MBProgressHUD(for: self.navigationController!.view)
-                let imageView = UIImageView(image: UIImage(named: "close"))
+                let imageView = UIImageView(image: UIImage(named: "Close"))
                 self.navigationItem.leftBarButtonItem?.isEnabled = true
                 hud?.customView = imageView
                 hud?.mode = .customView
@@ -237,7 +237,7 @@ class ToolsViewController: UIViewController {
             }, completion: { (error) in
                 DispatchQueue.main.async(execute: {
                     let hud = MBProgressHUD(for: self.navigationController!.view)
-                    let imageView = UIImageView(image: UIImage(named: error == nil ? "check" : "close"))
+                    let imageView = UIImageView(image: UIImage(named: error == nil ? "Checkmark" : "Close"))
                     self.navigationItem.leftBarButtonItem?.isEnabled = true
                     self.getScheduleButton.isEnabled = true
                     for b in self.listSelectorButtons {
@@ -286,7 +286,7 @@ class ToolsViewController: UIViewController {
                 ScheduleStore.sharedStore.buildMatchListForGroup(self.selectedList)
                 DispatchQueue.main.async(execute: {
                     let hud = MBProgressHUD(for: self.navigationController!.view)
-                    let imageView = UIImageView(image: UIImage(named: "check"))
+                    let imageView = UIImageView(image: UIImage(named: "Checkmark"))
                     hud?.customView = imageView
                     hud?.mode = .customView
                     hud?.label.text = "Completed"
@@ -306,7 +306,7 @@ class ToolsViewController: UIViewController {
         ScheduleStore.sharedStore.cancelRequest({
             DispatchQueue.main.async(execute: {
                 let hud = MBProgressHUD(for: self.navigationController!.view)
-                let imageView = UIImageView(image: UIImage(named: "close"))
+                let imageView = UIImageView(image: UIImage(named: "Close"))
                 self.navigationItem.leftBarButtonItem?.isEnabled = true
                 self.getScheduleButton.isEnabled = true
                 for b in self.listSelectorButtons {

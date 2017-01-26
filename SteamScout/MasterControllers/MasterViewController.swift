@@ -124,7 +124,7 @@ class MasterViewController: UITableViewController {
                 MatchStore.sharedStore.clearMatchData(type)
                 DispatchQueue.main.async(execute: {
                     let hud = MBProgressHUD(for: self.navigationController!.view)
-                    let imageView = UIImageView(image: UIImage(named: "check"))
+                    let imageView = UIImageView(image: UIImage(named: "Checkmark"))
                     hud?.customView = imageView
                     hud?.mode = .customView
                     hud?.label.text = "Completed"
@@ -184,7 +184,7 @@ class MasterViewController: UITableViewController {
                     _ = MatchStore.sharedStore.exportNewMatchData()
                     DispatchQueue.main.async(execute: {
                         let hud = MBProgressHUD(for: self.navigationController!.view)
-                        let imageView = UIImageView(image: UIImage(named: "check"))
+                        let imageView = UIImageView(image: UIImage(named: "Checkmark"))
                         hud?.customView = imageView
                         hud?.mode = .customView
                         hud?.label.text = "Completed"
@@ -206,7 +206,7 @@ class MasterViewController: UITableViewController {
             _ = MatchStore.sharedStore.writeCSVFile()
             DispatchQueue.main.async(execute: {
                 let hud = MBProgressHUD(for: self.navigationController!.view)
-                let imageView = UIImageView(image: UIImage(named: "check"))
+                let imageView = UIImageView(image: UIImage(named: "Checkmark"))
                 hud?.customView = imageView
                 hud?.mode = .customView
                 hud?.label.text = "Completed"
