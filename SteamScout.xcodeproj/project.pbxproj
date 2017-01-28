@@ -39,8 +39,6 @@
 		C44A81311E35D33800BA367B /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812B1E35D33800BA367B /* ScheduleCell.swift */; };
 		C44A81321E35D33800BA367B /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812C1E35D33800BA367B /* SelectionButton.swift */; };
 		C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812D1E35D33800BA367B /* themeDefinitions.swift */; };
-		C4D61D261E35E37C00320E1D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4D61D241E35E37C00320E1D /* Info.plist */; };
-		C4D61D2B1E35E38100320E1D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4D61D291E35E38100320E1D /* Info.plist */; };
 		C4D61D2D1E35E39400320E1D /* SteamScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */; };
 		C4D61D2E1E35E39F00320E1D /* SteamScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */; };
 		EF06B7CFEDC58552F68BE5D1 /* Pods_SteamScout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */; };
@@ -395,9 +393,7 @@
 				C44A80DE1E356EBA00BA367B /* LaunchScreen.storyboard in Resources */,
 				C44A81061E35D31100BA367B /* Results.storyboard in Resources */,
 				C44A81031E356FEC00BA367B /* Main_old.storyboard in Resources */,
-				C4D61D2B1E35E38100320E1D /* Info.plist in Resources */,
 				C44A80DB1E356EBA00BA367B /* Assets.xcassets in Resources */,
-				C4D61D261E35E37C00320E1D /* Info.plist in Resources */,
 				C44A80D91E356EBA00BA367B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
