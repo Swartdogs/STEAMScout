@@ -145,7 +145,7 @@ class EventStore: NSObject {
                              championship,
                              offseason]
         
-        print("\(eventsByType.count)")
+        print("There were \(eventsByType.count) event types imported")
     }
     
     func eventHeaderForSection(_ section:Int) -> String {

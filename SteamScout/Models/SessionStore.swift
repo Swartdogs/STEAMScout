@@ -49,15 +49,15 @@ class SessionStore: NSObject {
         sessionConfig.timeoutIntervalForRequest = 30.0
     }
     
-//    func getEventList(delegate:SessionStoreDelegate?) {
-//        self.delegate = delegate
-//        let url = NSURL(string: "https://frc-api.firstinspires.org/v2.0/2016/events?exludeDistrict=false")!
-//        let session = NSURLSession(configuration: sessionConfig, delegate: self, delegateQueue: nil)
-//        let request = NSMutableURLRequest(URL: url)
-//        let task = session.downloadTaskWithRequest(request)
-//        
-//        task.resume()
-//    }
+    func getEventList(delegate:SessionStoreDelegate?) {
+        self.delegate = delegate
+        let url = URL(string: "https://frc-api.firstinspires.org/v2.0/2016/events?exludeDistrict=false")!
+        let session = URLSession(configuration: sessionConfig, delegate: self, delegateQueue: nil)
+        let request = URLRequest(url: url)
+        let task = session.downloadTask(with: request)
+        
+        task.resume()
+    }
     
     func runRequest(_ type:RequestType, withDelegate delegate:SessionStoreDelegate?) {
         guard currentTask == nil else { return }
@@ -68,9 +68,12 @@ class SessionStore: NSObject {
         let request = URLRequest(url: url);
         
         currentTask = session.downloadTask(with: request)
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(5000 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
-//            self.currentTask!.resume()
-//        })
+        
+        // Swift 3
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: { [weak self] in
+            self?.currentTask?.resume()
+        })
+        
         currentTask!.resume()
     }
     
@@ -105,20 +108,19 @@ extension SessionStore: URLSessionDelegate {
 
 extension SessionStore: URLSessionTaskDelegate {
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        // FIX THIS
-//        print("\(session), \(task) did complete with error \(error)")
-//        if error == nil {
-//            self.sessionCompleteCleanup(nil, error: nil)
-//        } else if error!.userInfo[NSLocalizedDescriptionKey] as! String == "cancelled" {
-//            if let d = delegate {
-//                d.sessionStoreCanceled(self.currentRequest)
-//            }
-//            delegate = nil
-//            self.currentRequest = .none
-//            self.currentTask = nil
-//        } else {
-//            self.sessionCompleteCleanup(nil, error: error as NSError?)
-//        }
+        print("\(session), \(task) did complete with error \(error)")
+        if error == nil {
+            self.sessionCompleteCleanup(nil, error: nil)
+        } else if (error as! NSError).userInfo[NSLocalizedDescriptionKey] as! String == "cancelled" {
+            if let d = delegate {
+                d.sessionStoreCanceled(self.currentRequest)
+            }
+            delegate = nil
+            self.currentRequest = .none
+            self.currentTask = nil
+        } else {
+            self.sessionCompleteCleanup(nil, error: error as NSError?)
+        }
     }
 }
 
