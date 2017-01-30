@@ -11,7 +11,6 @@
 		C43EFFAB1E38270A00BC2BB9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA61E38270A00BC2BB9 /* Definitions.swift */; };
 		C43EFFAC1E38270A00BC2BB9 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA71E38270A00BC2BB9 /* Match.swift */; };
 		C43EFFAD1E38270A00BC2BB9 /* MatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA81E38270A00BC2BB9 /* MatchStore.swift */; };
-		C43EFFAE1E38270A00BC2BB9 /* BluetoothDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA91E38270A00BC2BB9 /* BluetoothDefinitions.swift */; };
 		C44A80D21E356EBA00BA367B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D11E356EBA00BA367B /* AppDelegate.swift */; };
 		C44A80D61E356EBA00BA367B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D51E356EBA00BA367B /* DetailViewController.swift */; };
 		C44A80D91E356EBA00BA367B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A80D71E356EBA00BA367B /* Main.storyboard */; };
@@ -69,7 +68,6 @@
 		C43EFFA61E38270A00BC2BB9 /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		C43EFFA71E38270A00BC2BB9 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		C43EFFA81E38270A00BC2BB9 /* MatchStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchStore.swift; sourceTree = "<group>"; };
-		C43EFFA91E38270A00BC2BB9 /* BluetoothDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothDefinitions.swift; sourceTree = "<group>"; };
 		C443D1861E35EFE400B27930 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C44A80CE1E356EBA00BA367B /* SteamScout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamScout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44A80D11E356EBA00BA367B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 				C43EFFA61E38270A00BC2BB9 /* Definitions.swift */,
 				C43EFFA71E38270A00BC2BB9 /* Match.swift */,
 				C43EFFA81E38270A00BC2BB9 /* MatchStore.swift */,
-				C43EFFA91E38270A00BC2BB9 /* BluetoothDefinitions.swift */,
 				C44A81081E35D32500BA367B /* Event.swift */,
 				C44A81091E35D32500BA367B /* EventStore.swift */,
 				C44A810A1E35D32500BA367B /* ScheduleItem.swift */,
@@ -484,7 +481,6 @@
 				C44A810D1E35D32500BA367B /* EventStore.swift in Sources */,
 				C44A810E1E35D32500BA367B /* ScheduleItem.swift in Sources */,
 				C43EFFAB1E38270A00BC2BB9 /* Definitions.swift in Sources */,
-				C43EFFAE1E38270A00BC2BB9 /* BluetoothDefinitions.swift in Sources */,
 				C44A81311E35D33800BA367B /* ScheduleCell.swift in Sources */,
 				C43EFFAC1E38270A00BC2BB9 /* Match.swift in Sources */,
 				C44A812E1E35D33800BA367B /* CustomContainerArrayView.swift in Sources */,

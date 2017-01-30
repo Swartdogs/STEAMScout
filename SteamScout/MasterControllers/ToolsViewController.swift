@@ -7,32 +7,7 @@
 //
 
 import UIKit
-import CoreBluetooth
 import MBProgressHUD
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l >= r
-  default:
-    return !(lhs < rhs)
-  }
-}
-
 
 class ToolsViewController: UIViewController {
     
@@ -42,32 +17,10 @@ class ToolsViewController: UIViewController {
     
     @IBOutlet var listSelectorButtons:[UIButton]!
     
-    /**
-     * represents the list the user wants to build
-     * the first 2 bits correspond to the number of the list
-     * bit 3 corresponds to the color (0 == red, 1 == blue)
-     * ex: 5 = Blue 1 ~> (5 & 4) == 1, (5 & 3) == 1
-     * ex: 3 = Red  3 ~> (5 & 4) == 0, (5 & 3) == 3
-     */
     fileprivate var selectedList = 0
-    
-    fileprivate var peripheralManager:CBPeripheralManager?
-    fileprivate var infoCharacteristic:CBMutableCharacteristic?
-    fileprivate var newDataCharacteristic:CBMutableCharacteristic?
-    fileprivate var allDataCharacteristic:CBMutableCharacteristic?
-    
-    fileprivate var dataToSend:Data?
-    fileprivate var sendDataIndex:Int = 0
-    fileprivate var sendingEOM = false
-    fileprivate var sendingCharacteristic:CBMutableCharacteristic!
-    
-    @IBOutlet var adSwitch:UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
         
         fieldLayout.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(fieldLayoutTap(_:)))
@@ -80,8 +33,6 @@ class ToolsViewController: UIViewController {
         fieldLayout.image = MatchStore.sharedStore.fieldLayout.getImage()
         self.view.backgroundColor = themeOrange
         
-        adSwitch.isOn = false
-        
         getScheduleButton.isEnabled = EventStore.sharedStore.selectedEvent != nil
         buildListButton.isEnabled = false
         selectedList = 0
@@ -93,9 +44,6 @@ class ToolsViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
-        adSwitch.isOn = false
-        peripheralManager?.stopAdvertising()
     }
 
     override func didReceiveMemoryWarning() {
@@ -110,23 +58,6 @@ class ToolsViewController: UIViewController {
         UIView.transition(with: fieldLayout, duration: 0.2, options: .transitionCrossDissolve, animations: {[weak self] in
             self?.fieldLayout.image = image
         }, completion: nil)
-    }
-    
-    @IBAction func startAdvertising(_ sender:UISwitch) {
-        if(peripheralManager?.state != .poweredOn && adSwitch.isOn) {
-            adSwitch.isOn = false
-            let alertController = UIAlertController(title: "Bluetooth Advertising", message: "Before you can advertise data via bluetooth, you must enable it.  Go to the settings and turn Bluetooth on to start sending data", preferredStyle: .alert)
-            let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(OKAction)
-            self.present(alertController, animated: true, completion: nil)
-        }
-        
-        if(adSwitch.isOn) {
-            print("Advertising")
-            peripheralManager?.startAdvertising([CBAdvertisementDataServiceUUIDsKey : [lastUpdateServiceUUID, dataServiceUUID]])
-        } else {
-            peripheralManager?.stopAdvertising()
-        }
     }
     
     @IBAction func getEventList(_ sender:UIButton) {
@@ -166,49 +97,6 @@ class ToolsViewController: UIViewController {
                 hud?.hide(animated: true, afterDelay: 1)
             })
         })
-    }
-    
-    func sendData() {
-        if sendingEOM {
-            let didSend = peripheralManager?.updateValue("<EOM>".data(using: String.Encoding.utf8)!, for: sendingCharacteristic!, onSubscribedCentrals: nil)
-            if didSend == true {
-                sendingEOM = false
-                print("Sent: EOM")
-            }
-            return
-        }
-        
-        if sendDataIndex >= dataToSend?.count {
-            return
-        }
-        
-        var didSend = true
-        while didSend {
-            var amountToSend = dataToSend!.count - sendDataIndex
-            if amountToSend > NOTIFY_MTU {
-                amountToSend = NOTIFY_MTU
-            }
-            let chunk = Data(bytes: UnsafeRawPointer((dataToSend! as NSData).bytes + sendDataIndex), count: amountToSend)
-            
-            didSend = (peripheralManager?.updateValue(chunk, for: sendingCharacteristic, onSubscribedCentrals: nil))!
-            
-            if !didSend { return }
-            
-            sendDataIndex += amountToSend
-            
-            if sendDataIndex >= dataToSend?.count {
-                sendingEOM = true
-                let eomSent = peripheralManager!.updateValue("<EOM>".data(using: String.Encoding.utf8)!, for: sendingCharacteristic, onSubscribedCentrals: nil)
-                
-                if eomSent {
-                    sendingEOM = false
-                    print("Send complete")
-                }
-                
-                return
-            }
-            
-        }
     }
     
     @IBAction func selectList(_ sender:UIButton) {
@@ -330,61 +218,4 @@ class ToolsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-}
-
-extension ToolsViewController: CBPeripheralManagerDelegate {
-    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
-        if(peripheral.state != .poweredOn) {
-            print("Peripheral manager updated state: \(peripheral.state.rawValue), \(CBPeripheralManagerState.poweredOn.rawValue)")
-            return
-        }
-        
-        print("Peripheral Manager Powered On")
-        
-        infoCharacteristic = CBMutableCharacteristic(type: lastUpdateCharacteristicUUID,
-                                               properties: .read,
-                                                    value: nil,
-                                              permissions: .readable)
-        newDataCharacteristic = CBMutableCharacteristic(type: newMatchDataCharacteristicUUID,
-                                                  properties: .notify,
-                                                       value: nil,
-                                                 permissions: .readable)
-        allDataCharacteristic = CBMutableCharacteristic(type: allMatchDataCharacteristicUUID,
-                                                  properties: .notify,
-                                                       value: nil,
-                                                 permissions: .readable)
-        
-        let infoService = CBMutableService(type: lastUpdateServiceUUID, primary: false)
-        infoService.characteristics = [infoCharacteristic!]
-        
-        let dataService = CBMutableService(type: dataServiceUUID, primary: true)
-        dataService.characteristics = [allDataCharacteristic!]
-        
-        peripheralManager!.add(infoService)
-        peripheralManager!.add(dataService)
-    }
-    
-    func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic) {
-        print("Central: \(central.identifier) has subscibed to characteristic: \(characteristic.uuid)")
-        
-        sendDataIndex = 0
-        dataToSend = MatchStore.sharedStore.dataTransferMatchesAll(characteristic.uuid == allDataCharacteristic?.uuid) ?? "An Error Occured".data(using: String.Encoding.utf8)
-        sendingCharacteristic = characteristic.uuid == allDataCharacteristic?.uuid ? allDataCharacteristic! : newDataCharacteristic!
-        
-        sendData();
-    }
-    
-    func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didUnsubscribeFrom characteristic: CBCharacteristic) {
-        print("Central: \(central.identifier) has unsubscibed to characteristic: \(characteristic.uuid)")
-    }
-    
-    func peripheralManagerIsReady(toUpdateSubscribers peripheral: CBPeripheralManager) {
-        sendData()
-    }
-    
-    func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
-        if let error = error {
-            print(error)
-        }
-    }
 }
