@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="V4w-LE-xym">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="V4w-LE-xym">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -401,7 +401,7 @@
                                 <rect key="frame" x="0.0" y="28" width="768" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LAp-cY-foD" id="xIV-Nq-258">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2Kv-8V-mP0">
@@ -634,7 +634,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ro-38-DKu" id="Osa-2W-v4O">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O8L-25-6lc">
@@ -821,9 +821,6 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="auM-GM-Whs">
                                                 <rect key="frame" x="511" y="0.0" width="51" height="31"/>
-                                                <connections>
-                                                    <action selector="startAdvertising:" destination="cpW-hN-xnb" eventType="valueChanged" id="oyG-2i-YHr"/>
-                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -977,7 +974,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="adSwitch" destination="auM-GM-Whs" id="i7H-rq-WSc"/>
                         <outlet property="buildListButton" destination="U04-ac-RLj" id="BJ2-BK-y7V"/>
                         <outlet property="fieldLayout" destination="Co5-lC-J73" id="8qj-dc-fLg"/>
                         <outlet property="getScheduleButton" destination="58H-dd-WgO" id="l8G-Qm-FUa"/>
@@ -1007,7 +1003,7 @@
                                 <rect key="frame" x="0.0" y="28" width="768" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cfM-2p-V79" id="qgg-bZ-X2m">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="61"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="61.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ydv-3b-OMF">
@@ -1205,7 +1201,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="pMA-Qb-jdF"/>
         <segue reference="icM-vh-ltE"/>
-        <segue reference="sIW-Uy-gGH"/>
     </inferredMetricsTieBreakers>
 </document>
