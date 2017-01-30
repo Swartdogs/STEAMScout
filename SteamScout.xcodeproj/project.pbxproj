@@ -7,15 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C43EFFAA1E38270A00BC2BB9 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */; };
+		C43EFFAB1E38270A00BC2BB9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA61E38270A00BC2BB9 /* Definitions.swift */; };
+		C43EFFAC1E38270A00BC2BB9 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA71E38270A00BC2BB9 /* Match.swift */; };
+		C43EFFAD1E38270A00BC2BB9 /* MatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA81E38270A00BC2BB9 /* MatchStore.swift */; };
 		C44A80D21E356EBA00BA367B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D11E356EBA00BA367B /* AppDelegate.swift */; };
-		C44A80D41E356EBA00BA367B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D31E356EBA00BA367B /* MasterViewController.swift */; };
 		C44A80D61E356EBA00BA367B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D51E356EBA00BA367B /* DetailViewController.swift */; };
 		C44A80D91E356EBA00BA367B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A80D71E356EBA00BA367B /* Main.storyboard */; };
 		C44A80DB1E356EBA00BA367B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44A80DA1E356EBA00BA367B /* Assets.xcassets */; };
 		C44A80DE1E356EBA00BA367B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A80DC1E356EBA00BA367B /* LaunchScreen.storyboard */; };
-		C44A80E91E356EBA00BA367B /* SteamScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80E81E356EBA00BA367B /* SteamScoutTests.swift */; };
-		C44A80F41E356EBA00BA367B /* SteamScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80F31E356EBA00BA367B /* SteamScoutUITests.swift */; };
 		C44A81031E356FEC00BA367B /* Main_old.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A81011E356FEC00BA367B /* Main_old.storyboard */; };
+		C44A81061E35D31100BA367B /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A81041E35D31100BA367B /* Results.storyboard */; };
+		C44A810C1E35D32500BA367B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81081E35D32500BA367B /* Event.swift */; };
+		C44A810D1E35D32500BA367B /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81091E35D32500BA367B /* EventStore.swift */; };
+		C44A810E1E35D32500BA367B /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A810A1E35D32500BA367B /* ScheduleItem.swift */; };
+		C44A810F1E35D32500BA367B /* ScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A810B1E35D32500BA367B /* ScheduleStore.swift */; };
+		C44A81191E35D32C00BA367B /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81121E35D32C00BA367B /* FinalViewController.swift */; };
+		C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81131E35D32C00BA367B /* TeamInfoViewController.swift */; };
+		C44A811B1E35D32C00BA367B /* EventSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81141E35D32C00BA367B /* EventSelectionTableViewController.swift */; };
+		C44A811C1E35D32C00BA367B /* EventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81151E35D32C00BA367B /* EventSelectionViewController.swift */; };
+		C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81161E35D32C00BA367B /* ResultsMatchInfoViewController.swift */; };
+		C44A811E1E35D32C00BA367B /* ResultsScoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81171E35D32C00BA367B /* ResultsScoringViewController.swift */; };
+		C44A811F1E35D32C00BA367B /* ResultsTeleopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81181E35D32C00BA367B /* ResultsTeleopViewController.swift */; };
+		C44A81241E35D33100BA367B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81211E35D33100BA367B /* MasterViewController.swift */; };
+		C44A81251E35D33100BA367B /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81221E35D33100BA367B /* ScheduleViewController.swift */; };
+		C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81231E35D33100BA367B /* ToolsViewController.swift */; };
+		C44A812E1E35D33800BA367B /* CustomContainerArrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81281E35D33800BA367B /* CustomContainerArrayView.swift */; };
+		C44A812F1E35D33800BA367B /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81291E35D33800BA367B /* EventCell.swift */; };
+		C44A81301E35D33800BA367B /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812A1E35D33800BA367B /* MatchCell.swift */; };
+		C44A81311E35D33800BA367B /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812B1E35D33800BA367B /* ScheduleCell.swift */; };
+		C44A81321E35D33800BA367B /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812C1E35D33800BA367B /* SelectionButton.swift */; };
+		C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812D1E35D33800BA367B /* themeDefinitions.swift */; };
+		C4D61D2D1E35E39400320E1D /* SteamScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */; };
+		C4D61D2E1E35E39F00320E1D /* SteamScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */; };
+		EF06B7CFEDC58552F68BE5D1 /* Pods_SteamScout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,21 +61,49 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamScout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E93E7F5A26E313A9018C132 /* Pods-SteamScout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamScout.release.xcconfig"; path = "Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout.release.xcconfig"; sourceTree = "<group>"; };
+		71422EE919DB60A15D7A3C10 /* Pods-SteamScout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamScout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout.debug.xcconfig"; sourceTree = "<group>"; };
+		C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		C43EFFA61E38270A00BC2BB9 /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
+		C43EFFA71E38270A00BC2BB9 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		C43EFFA81E38270A00BC2BB9 /* MatchStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchStore.swift; sourceTree = "<group>"; };
+		C443D1861E35EFE400B27930 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C44A80CE1E356EBA00BA367B /* SteamScout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamScout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44A80D11E356EBA00BA367B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C44A80D31E356EBA00BA367B /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		C44A80D51E356EBA00BA367B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C44A80D81E356EBA00BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C44A80DA1E356EBA00BA367B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C44A80DD1E356EBA00BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C44A80DF1E356EBA00BA367B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C44A80E41E356EBA00BA367B /* SteamScoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamScoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C44A80E81E356EBA00BA367B /* SteamScoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamScoutTests.swift; sourceTree = "<group>"; };
-		C44A80EA1E356EBA00BA367B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C44A80EF1E356EBA00BA367B /* SteamScoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamScoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C44A80F31E356EBA00BA367B /* SteamScoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamScoutUITests.swift; sourceTree = "<group>"; };
-		C44A80F51E356EBA00BA367B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C44A81021E356FEC00BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_old.storyboard; sourceTree = "<group>"; };
+		C44A81051E35D31100BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Results.storyboard; sourceTree = "<group>"; };
+		C44A81081E35D32500BA367B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Event.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81091E35D32500BA367B /* EventStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventStore.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A810A1E35D32500BA367B /* ScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
+		C44A810B1E35D32500BA367B /* ScheduleStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ScheduleStore.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81121E35D32C00BA367B /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FinalViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81131E35D32C00BA367B /* TeamInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TeamInfoViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81141E35D32C00BA367B /* EventSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventSelectionTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81151E35D32C00BA367B /* EventSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventSelectionViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81161E35D32C00BA367B /* ResultsMatchInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResultsMatchInfoViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81171E35D32C00BA367B /* ResultsScoringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResultsScoringViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81181E35D32C00BA367B /* ResultsTeleopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResultsTeleopViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81211E35D33100BA367B /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MasterViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81221E35D33100BA367B /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ScheduleViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81231E35D33100BA367B /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ToolsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81281E35D33800BA367B /* CustomContainerArrayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CustomContainerArrayView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A81291E35D33800BA367B /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A812A1E35D33800BA367B /* MatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MatchCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A812B1E35D33800BA367B /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ScheduleCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A812C1E35D33800BA367B /* SelectionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SelectionButton.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44A812D1E35D33800BA367B /* themeDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = themeDefinitions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C4D61D241E35E37C00320E1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamScoutTests.swift; sourceTree = "<group>"; };
+		C4D61D291E35E38100320E1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamScoutUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF06B7CFEDC58552F68BE5D1 /* Pods_SteamScout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,13 +132,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1469688C81BF8DD63B9C4D69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		522506D15A20CFFF4EDF9381 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71422EE919DB60A15D7A3C10 /* Pods-SteamScout.debug.xcconfig */,
+				6E93E7F5A26E313A9018C132 /* Pods-SteamScout.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C44A80C51E356EBA00BA367B = {
 			isa = PBXGroup;
 			children = (
+				C443D1861E35EFE400B27930 /* README.md */,
+				C4D61D281E35E38100320E1D /* SteamScoutUITesting */,
+				C4D61D231E35E37C00320E1D /* SteamScoutTesting */,
 				C44A80D01E356EBA00BA367B /* SteamScout */,
-				C44A80E71E356EBA00BA367B /* SteamScoutTests */,
-				C44A80F21E356EBA00BA367B /* SteamScoutUITests */,
 				C44A80CF1E356EBA00BA367B /* Products */,
+				522506D15A20CFFF4EDF9381 /* Pods */,
+				1469688C81BF8DD63B9C4D69 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,34 +175,106 @@
 		C44A80D01E356EBA00BA367B /* SteamScout */ = {
 			isa = PBXGroup;
 			children = (
-				C44A81011E356FEC00BA367B /* Main_old.storyboard */,
+				C44A81271E35D33800BA367B /* Support */,
+				C44A81201E35D33100BA367B /* MasterControllers */,
+				C44A81101E35D32C00BA367B /* DetailControllers */,
+				C44A81071E35D32500BA367B /* Models */,
+				C44A81341E35D35200BA367B /* Storyboards */,
 				C44A80D11E356EBA00BA367B /* AppDelegate.swift */,
-				C44A80D31E356EBA00BA367B /* MasterViewController.swift */,
 				C44A80D51E356EBA00BA367B /* DetailViewController.swift */,
-				C44A80D71E356EBA00BA367B /* Main.storyboard */,
 				C44A80DA1E356EBA00BA367B /* Assets.xcassets */,
-				C44A80DC1E356EBA00BA367B /* LaunchScreen.storyboard */,
 				C44A80DF1E356EBA00BA367B /* Info.plist */,
 			);
 			path = SteamScout;
 			sourceTree = "<group>";
 		};
-		C44A80E71E356EBA00BA367B /* SteamScoutTests */ = {
+		C44A81071E35D32500BA367B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C44A80E81E356EBA00BA367B /* SteamScoutTests.swift */,
-				C44A80EA1E356EBA00BA367B /* Info.plist */,
+				C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */,
+				C43EFFA61E38270A00BC2BB9 /* Definitions.swift */,
+				C43EFFA71E38270A00BC2BB9 /* Match.swift */,
+				C43EFFA81E38270A00BC2BB9 /* MatchStore.swift */,
+				C44A81081E35D32500BA367B /* Event.swift */,
+				C44A81091E35D32500BA367B /* EventStore.swift */,
+				C44A810A1E35D32500BA367B /* ScheduleItem.swift */,
+				C44A810B1E35D32500BA367B /* ScheduleStore.swift */,
 			);
-			path = SteamScoutTests;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		C44A80F21E356EBA00BA367B /* SteamScoutUITests */ = {
+		C44A81101E35D32C00BA367B /* DetailControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C44A80F31E356EBA00BA367B /* SteamScoutUITests.swift */,
-				C44A80F51E356EBA00BA367B /* Info.plist */,
+				C44A81111E35D32C00BA367B /* DataEntry */,
+				C44A81141E35D32C00BA367B /* EventSelectionTableViewController.swift */,
+				C44A81151E35D32C00BA367B /* EventSelectionViewController.swift */,
+				C44A81161E35D32C00BA367B /* ResultsMatchInfoViewController.swift */,
+				C44A81171E35D32C00BA367B /* ResultsScoringViewController.swift */,
+				C44A81181E35D32C00BA367B /* ResultsTeleopViewController.swift */,
 			);
-			path = SteamScoutUITests;
+			path = DetailControllers;
+			sourceTree = "<group>";
+		};
+		C44A81111E35D32C00BA367B /* DataEntry */ = {
+			isa = PBXGroup;
+			children = (
+				C44A81121E35D32C00BA367B /* FinalViewController.swift */,
+				C44A81131E35D32C00BA367B /* TeamInfoViewController.swift */,
+			);
+			path = DataEntry;
+			sourceTree = "<group>";
+		};
+		C44A81201E35D33100BA367B /* MasterControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C44A81211E35D33100BA367B /* MasterViewController.swift */,
+				C44A81221E35D33100BA367B /* ScheduleViewController.swift */,
+				C44A81231E35D33100BA367B /* ToolsViewController.swift */,
+			);
+			path = MasterControllers;
+			sourceTree = "<group>";
+		};
+		C44A81271E35D33800BA367B /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				C44A81281E35D33800BA367B /* CustomContainerArrayView.swift */,
+				C44A81291E35D33800BA367B /* EventCell.swift */,
+				C44A812A1E35D33800BA367B /* MatchCell.swift */,
+				C44A812B1E35D33800BA367B /* ScheduleCell.swift */,
+				C44A812C1E35D33800BA367B /* SelectionButton.swift */,
+				C44A812D1E35D33800BA367B /* themeDefinitions.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		C44A81341E35D35200BA367B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C44A81041E35D31100BA367B /* Results.storyboard */,
+				C44A81011E356FEC00BA367B /* Main_old.storyboard */,
+				C44A80D71E356EBA00BA367B /* Main.storyboard */,
+				C44A80DC1E356EBA00BA367B /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		C4D61D231E35E37C00320E1D /* SteamScoutTesting */ = {
+			isa = PBXGroup;
+			children = (
+				C4D61D241E35E37C00320E1D /* Info.plist */,
+				C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */,
+			);
+			path = SteamScoutTesting;
+			sourceTree = "<group>";
+		};
+		C4D61D281E35E38100320E1D /* SteamScoutUITesting */ = {
+			isa = PBXGroup;
+			children = (
+				C4D61D291E35E38100320E1D /* Info.plist */,
+				C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */,
+			);
+			path = SteamScoutUITesting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +284,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C44A80F81E356EBA00BA367B /* Build configuration list for PBXNativeTarget "SteamScout" */;
 			buildPhases = (
+				667D4309B3A21BE8A9B34654 /* [CP] Check Pods Manifest.lock */,
 				C44A80CA1E356EBA00BA367B /* Sources */,
 				C44A80CB1E356EBA00BA367B /* Frameworks */,
 				C44A80CC1E356EBA00BA367B /* Resources */,
+				2A20F9CAD8AC4D5FF7B7846E /* [CP] Embed Pods Frameworks */,
+				BB667DD913A15CDF0362E2D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -239,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C44A80DE1E356EBA00BA367B /* LaunchScreen.storyboard in Resources */,
+				C44A81061E35D31100BA367B /* Results.storyboard in Resources */,
 				C44A81031E356FEC00BA367B /* Main_old.storyboard in Resources */,
 				C44A80DB1E356EBA00BA367B /* Assets.xcassets in Resources */,
 				C44A80D91E356EBA00BA367B /* Main.storyboard in Resources */,
@@ -261,14 +411,85 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A20F9CAD8AC4D5FF7B7846E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		667D4309B3A21BE8A9B34654 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB667DD913A15CDF0362E2D8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C44A80CA1E356EBA00BA367B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C43EFFAA1E38270A00BC2BB9 /* SessionStore.swift in Sources */,
+				C44A81301E35D33800BA367B /* MatchCell.swift in Sources */,
+				C44A81251E35D33100BA367B /* ScheduleViewController.swift in Sources */,
+				C44A810F1E35D32500BA367B /* ScheduleStore.swift in Sources */,
+				C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */,
+				C44A81191E35D32C00BA367B /* FinalViewController.swift in Sources */,
+				C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */,
+				C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */,
 				C44A80D61E356EBA00BA367B /* DetailViewController.swift in Sources */,
-				C44A80D41E356EBA00BA367B /* MasterViewController.swift in Sources */,
+				C44A810C1E35D32500BA367B /* Event.swift in Sources */,
+				C44A811B1E35D32C00BA367B /* EventSelectionTableViewController.swift in Sources */,
+				C44A811C1E35D32C00BA367B /* EventSelectionViewController.swift in Sources */,
+				C44A81321E35D33800BA367B /* SelectionButton.swift in Sources */,
+				C44A812F1E35D33800BA367B /* EventCell.swift in Sources */,
+				C44A810D1E35D32500BA367B /* EventStore.swift in Sources */,
+				C44A810E1E35D32500BA367B /* ScheduleItem.swift in Sources */,
+				C43EFFAB1E38270A00BC2BB9 /* Definitions.swift in Sources */,
+				C44A81311E35D33800BA367B /* ScheduleCell.swift in Sources */,
+				C43EFFAC1E38270A00BC2BB9 /* Match.swift in Sources */,
+				C44A812E1E35D33800BA367B /* CustomContainerArrayView.swift in Sources */,
 				C44A80D21E356EBA00BA367B /* AppDelegate.swift in Sources */,
+				C44A811E1E35D32C00BA367B /* ResultsScoringViewController.swift in Sources */,
+				C44A81241E35D33100BA367B /* MasterViewController.swift in Sources */,
+				C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */,
+				C44A811F1E35D32C00BA367B /* ResultsTeleopViewController.swift in Sources */,
+				C43EFFAD1E38270A00BC2BB9 /* MatchStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C44A80E91E356EBA00BA367B /* SteamScoutTests.swift in Sources */,
+				C4D61D2D1E35E39400320E1D /* SteamScoutTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +505,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C44A80F41E356EBA00BA367B /* SteamScoutUITests.swift in Sources */,
+				C4D61D2E1E35E39F00320E1D /* SteamScoutUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,12 +549,21 @@
 			name = Main_old.storyboard;
 			sourceTree = "<group>";
 		};
+		C44A81041E35D31100BA367B /* Results.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C44A81051E35D31100BA367B /* Base */,
+			);
+			name = Results.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C44A80F61E356EBA00BA367B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -384,6 +614,7 @@
 		C44A80F71E356EBA00BA367B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -426,26 +657,32 @@
 		};
 		C44A80F91E356EBA00BA367B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71422EE919DB60A15D7A3C10 /* Pods-SteamScout.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SteamScout/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dhanwada.SteamScout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../.build/debug/";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		C44A80FA1E356EBA00BA367B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E93E7F5A26E313A9018C132 /* Pods-SteamScout.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SteamScout/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dhanwada.SteamScout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../.build/debug/";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -523,6 +760,7 @@
 				C44A80FA1E356EBA00BA367B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C44A80FB1E356EBA00BA367B /* Build configuration list for PBXNativeTarget "SteamScoutTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +769,7 @@
 				C44A80FD1E356EBA00BA367B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C44A80FE1E356EBA00BA367B /* Build configuration list for PBXNativeTarget "SteamScoutUITests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +778,7 @@
 				C44A81001E356EBA00BA367B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
