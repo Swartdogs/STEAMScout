@@ -39,7 +39,7 @@ class TeamInfoViewController: UIViewController {
     @IBOutlet var allianceButtons: [UIButton]!
     @IBOutlet weak var noShowButton: UIButton!
     
-    var m:Match = MatchStore.sharedStore.currentMatch!
+    var m:Match = Match()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -56,7 +56,7 @@ class TeamInfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        m = MatchStore.sharedStore.currentMatch!
+        m = MatchStore.sharedStore.currentMatch ?? m
         
         m.isCompleted |= 1;
         //if let m:Match = MatchStore.sharedStore.currentMatch {
