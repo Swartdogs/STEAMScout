@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C44A80EE1E356EBA00BA367B"
+               BuildableName = "SteamScoutUITests.xctest"
+               BlueprintName = "SteamScoutUITests"
+               ReferencedContainer = "container:SteamScout.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C44A80E31E356EBA00BA367B"
+               BuildableName = "SteamScoutTests.xctest"
+               BlueprintName = "SteamScoutTests"
+               ReferencedContainer = "container:SteamScout.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
