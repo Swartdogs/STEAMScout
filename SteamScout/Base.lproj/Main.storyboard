@@ -386,7 +386,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GpJ-2G-1gw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="iXc-Xs-f00" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3601" y="1195"/>
+            <point key="canvasLocation" x="3601" y="926"/>
         </scene>
         <!--Event Selection-->
         <scene sceneID="6s6-gO-9XK">
@@ -612,7 +612,20 @@
         <scene sceneID="KLI-es-Qja">
             <objects>
                 <tableViewController title="Teleop" id="BvM-uo-Uws" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Teleop" id="JUq-Ox-6Ff"/>
+                    <navigationItem key="navigationItem" title="Teleop" id="JUq-Ox-6Ff">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="lTi-Te-Pqt">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Lu7-31-k4O">
+                                <rect key="frame" x="578" y="7" width="170" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Results"/>
+                            </button>
+                            <connections>
+                                <segue destination="zhh-d2-ENq" kind="popoverPresentation" popoverAnchorBarButtonItem="lTi-Te-Pqt" id="HOI-6g-mPu">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogh-tX-YXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1199,7 +1212,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oRV-zO-9Pg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2927" y="1195"/>
+            <point key="canvasLocation" x="2870" y="926"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EwS-b4-AW5">
