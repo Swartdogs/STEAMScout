@@ -119,7 +119,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FullSizeRender-9" translatesAutoresizingMaskIntoConstraints="NO" id="7Ah-66-KIS">
-                                <rect key="frame" x="186" y="533" width="222" height="375"/>
+                                <rect key="frame" x="175" y="595" width="169" height="313"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z7K-ry-az9">
@@ -127,6 +127,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="Edit" id="oze-2h-TQf"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gee-VT-1oa"/>
                                     <barButtonItem title="Penalty" width="69" id="hWY-bI-Ne6"/>
                                 </items>
                             </toolbar>
@@ -988,6 +989,7 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem title="Edit" id="3d5-9p-9Um"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="XUs-KP-A1W"/>
                         <barButtonItem title="Penalty" id="AUH-81-GB4"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Autonomous" id="LEZ-0J-hBb">
@@ -1415,7 +1417,7 @@
         <image name="FullSizeRender-9" width="316" height="608"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wEF-ya-4OM"/>
+        <segue reference="J5x-uL-Uxx"/>
         <segue reference="pMA-Qb-jdF"/>
     </inferredMetricsTieBreakers>
 </document>
