@@ -82,7 +82,7 @@
                         <viewControllerLayoutGuide type="bottom" id="5fV-u2-oxe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="46g-V8-kep">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6lp-Bo-Xpc">
@@ -104,7 +104,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FullSizeRender-9" translatesAutoresizingMaskIntoConstraints="NO" id="7Ah-66-KIS">
-                                <rect key="frame" x="175" y="587" width="206" height="393"/>
+                                <rect key="frame" x="182" y="539" width="191" height="377"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ZFe-by-ypf">
@@ -116,7 +116,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2W-Y5-nKL">
-                                <rect key="frame" x="175" y="587" width="206" height="392"/>
+                                <rect key="frame" x="182" y="539" width="191" height="369"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <segue destination="L9b-d6-dAb" kind="popoverPresentation" popoverAnchorView="G2W-Y5-nKL" id="DdB-ey-Hmj">
@@ -127,6 +127,17 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Edit" id="PG0-id-zY1"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="4bB-q3-JAa"/>
+                        <barButtonItem title="Penalty" id="wNp-bc-YQL">
+                            <connections>
+                                <segue destination="6RP-RV-QZM" kind="popoverPresentation" popoverAnchorBarButtonItem="wNp-bc-YQL" id="39o-Ln-jNr">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Teleop" id="1bU-mS-PGc">
                         <barButtonItem key="rightBarButtonItem" title="Results" id="Cob-IB-mKq">
                             <connections>
@@ -150,7 +161,7 @@
                         <viewControllerLayoutGuide type="bottom" id="beC-lj-k2X"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pM6-F2-kUY">
-                        <rect key="frame" x="0.0" y="0.0" width="350" height="250"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fwh-zf-EZc">
@@ -178,54 +189,121 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uaY-Af-SFz">
-                                <rect key="frame" x="82" y="70" width="187" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Uv-wy-8dQ">
+                                <rect key="frame" x="57" y="151" width="187" height="31"/>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Uv-wy-8dQ">
-                                <rect key="frame" x="82" y="200" width="187" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lol-le-639">
-                                <rect key="frame" x="136" y="28" width="126" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="High Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lol-le-639">
+                                <rect key="frame" x="114" y="20" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Low Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PND-e3-ASM">
-                                <rect key="frame" x="139" y="171" width="73" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uaY-Af-SFz">
+                                <rect key="frame" x="57" y="57" width="187" height="31"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Low Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PND-e3-ASM">
+                                <rect key="frame" x="114" y="122" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kME-Rl-nXe">
-                                <rect key="frame" x="270" y="19" width="64" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <segue destination="l7Q-3p-oRf" kind="presentation" id="Vst-r7-QXX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vn5-V5-g3n">
-                                <rect key="frame" x="16" y="20" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <segue destination="l7Q-3p-oRf" kind="presentation" id="uTw-GZ-ERZ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uaY-Af-SFz" firstAttribute="centerX" secondItem="pM6-F2-kUY" secondAttribute="centerX" id="GKG-U0-ALo"/>
+                            <constraint firstItem="beC-lj-k2X" firstAttribute="top" secondItem="Lol-le-639" secondAttribute="bottom" constant="159" id="GZu-en-UIz"/>
+                            <constraint firstItem="Lol-le-639" firstAttribute="centerX" secondItem="pM6-F2-kUY" secondAttribute="centerX" id="JCI-Ev-C2M"/>
+                            <constraint firstItem="beC-lj-k2X" firstAttribute="top" secondItem="PND-e3-ASM" secondAttribute="bottom" constant="57" id="OpK-qD-cXG"/>
+                            <constraint firstItem="beC-lj-k2X" firstAttribute="top" secondItem="uaY-Af-SFz" secondAttribute="bottom" constant="113" id="RCl-ib-f6N"/>
+                            <constraint firstItem="beC-lj-k2X" firstAttribute="top" secondItem="1Uv-wy-8dQ" secondAttribute="bottom" constant="19" id="Vpu-eg-fny"/>
+                            <constraint firstItem="1Uv-wy-8dQ" firstAttribute="centerX" secondItem="pM6-F2-kUY" secondAttribute="centerX" id="lba-EO-Tud"/>
+                            <constraint firstItem="PND-e3-ASM" firstAttribute="centerX" secondItem="pM6-F2-kUY" secondAttribute="centerX" id="mRG-ff-8zW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="q5s-Fc-wyb"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="350" height="250"/>
+                    <size key="freeformSize" width="300" height="200"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyI-4d-1GM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4132" y="-249"/>
+            <point key="canvasLocation" x="4131.25" y="-249.02343749999997"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ak4-LE-56g">
+            <objects>
+                <viewController id="6RP-RV-QZM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MBc-gi-coB"/>
+                        <viewControllerLayoutGuide type="bottom" id="RMx-Cl-uR8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y4O-Ui-bwV">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFv-x0-OQM">
+                                <rect key="frame" x="16" y="39" width="110" height="33"/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Yellow Card"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbB-cB-f6O">
+                                <rect key="frame" x="174" y="39" width="110" height="33"/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Red Card"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4h-Ic-G2X">
+                                <rect key="frame" x="16" y="138" width="110" height="33"/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Foul"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cur-iQ-WYB">
+                                <rect key="frame" x="174" y="138" width="110" height="33"/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Technical Foul"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PFv-x0-OQM" firstAttribute="leading" secondItem="y4O-Ui-bwV" secondAttribute="leadingMargin" constant="24" id="B2z-ED-k0m"/>
+                            <constraint firstItem="cur-iQ-WYB" firstAttribute="height" secondItem="W4h-Ic-G2X" secondAttribute="height" id="CIf-Ox-893"/>
+                            <constraint firstItem="W4h-Ic-G2X" firstAttribute="height" secondItem="PbB-cB-f6O" secondAttribute="height" id="LX3-7f-GEy"/>
+                            <constraint firstItem="W4h-Ic-G2X" firstAttribute="width" secondItem="PbB-cB-f6O" secondAttribute="width" id="UbL-Du-RIc"/>
+                            <constraint firstItem="PbB-cB-f6O" firstAttribute="width" secondItem="PFv-x0-OQM" secondAttribute="width" id="c3I-CG-dkN"/>
+                            <constraint firstItem="W4h-Ic-G2X" firstAttribute="leading" secondItem="y4O-Ui-bwV" secondAttribute="leadingMargin" constant="24" id="gbe-d3-SUg"/>
+                            <constraint firstItem="cur-iQ-WYB" firstAttribute="height" secondItem="PFv-x0-OQM" secondAttribute="height" id="hI4-7s-XWo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PbB-cB-f6O" secondAttribute="trailing" id="k9M-Xv-fLs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cur-iQ-WYB" secondAttribute="trailing" id="nao-0d-Clj"/>
+                            <constraint firstItem="cur-iQ-WYB" firstAttribute="height" secondItem="PbB-cB-f6O" secondAttribute="height" id="pdS-zs-96T"/>
+                            <constraint firstItem="PFv-x0-OQM" firstAttribute="width" secondItem="W4h-Ic-G2X" secondAttribute="width" id="sdJ-xZ-AUH"/>
+                            <constraint firstItem="W4h-Ic-G2X" firstAttribute="height" secondItem="PFv-x0-OQM" secondAttribute="height" id="vqc-vb-AQG"/>
+                            <constraint firstItem="PFv-x0-OQM" firstAttribute="width" secondItem="cur-iQ-WYB" secondAttribute="width" id="z4F-NN-gy4"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pM6-rT-PXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4161.71875" y="247.85156249999997"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LqZ-eF-Rbe">
@@ -1082,7 +1160,13 @@
                     <toolbarItems>
                         <barButtonItem title="Edit" id="3d5-9p-9Um"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="XUs-KP-A1W"/>
-                        <barButtonItem title="Penalty" id="AUH-81-GB4"/>
+                        <barButtonItem title="Penalty" id="AUH-81-GB4">
+                            <connections>
+                                <segue destination="6RP-RV-QZM" kind="popoverPresentation" popoverAnchorBarButtonItem="AUH-81-GB4" id="OQA-RT-wPA">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Autonomous" id="LEZ-0J-hBb">
                         <barButtonItem key="rightBarButtonItem" title="Teleop" id="0g3-8p-bAo">
@@ -1510,8 +1594,8 @@
         <image name="FullSizeRender-9" width="316" height="608"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uTw-GZ-ERZ"/>
         <segue reference="J5x-uL-Uxx"/>
         <segue reference="pMA-Qb-jdF"/>
+        <segue reference="OQA-RT-wPA"/>
     </inferredMetricsTieBreakers>
 </document>
