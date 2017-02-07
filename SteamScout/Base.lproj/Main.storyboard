@@ -189,19 +189,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Uv-wy-8dQ">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Uv-wy-8dQ">
                                 <rect key="frame" x="57" y="151" width="187" height="31"/>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="High Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lol-le-639">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lol-le-639">
                                 <rect key="frame" x="114" y="20" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uaY-Af-SFz">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uaY-Af-SFz">
                                 <rect key="frame" x="57" y="57" width="187" height="31"/>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Low Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PND-e3-ASM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PND-e3-ASM">
                                 <rect key="frame" x="114" y="122" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -210,14 +210,18 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="uaY-Af-SFz" firstAttribute="leading" secondItem="pM6-F2-kUY" secondAttribute="leadingMargin" constant="43" id="1mC-nR-pe4"/>
+                            <constraint firstItem="PND-e3-ASM" firstAttribute="leading" secondItem="pM6-F2-kUY" secondAttribute="leadingMargin" constant="98" id="4UK-Cb-G43"/>
+                            <constraint firstItem="uaY-Af-SFz" firstAttribute="leading" secondItem="1Uv-wy-8dQ" secondAttribute="leading" id="4wM-Zh-SgZ"/>
+                            <constraint firstItem="PND-e3-ASM" firstAttribute="centerX" secondItem="1Uv-wy-8dQ" secondAttribute="centerX" id="CdS-EY-2FU"/>
+                            <constraint firstItem="1Uv-wy-8dQ" firstAttribute="top" secondItem="PND-e3-ASM" secondAttribute="bottom" constant="8" symbolic="YES" id="Flu-0U-vac"/>
                             <constraint firstItem="uaY-Af-SFz" firstAttribute="centerX" secondItem="pM6-F2-kUY" secondAttribute="centerX" id="GKG-U0-ALo"/>
-                            <constraint firstItem="beC-lj-k2X" firstAttribute="top" secondItem="Lol-le-639" secondAttribute="bottom" constant="159" id="GZu-en-UIz"/>
-                            <constraint firstItem="Lol-le-639" firstAttribute="centerX" secondItem="pM6-F2-kUY" secondAttribute="centerX" id="JCI-Ev-C2M"/>
-                            <constraint firstItem="beC-lj-k2X" firstAttribute="top" secondItem="PND-e3-ASM" secondAttribute="bottom" constant="57" id="OpK-qD-cXG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lol-le-639" secondAttribute="trailing" constant="84" id="QK1-2C-P3Y"/>
                             <constraint firstItem="beC-lj-k2X" firstAttribute="top" secondItem="uaY-Af-SFz" secondAttribute="bottom" constant="113" id="RCl-ib-f6N"/>
                             <constraint firstItem="beC-lj-k2X" firstAttribute="top" secondItem="1Uv-wy-8dQ" secondAttribute="bottom" constant="19" id="Vpu-eg-fny"/>
                             <constraint firstItem="1Uv-wy-8dQ" firstAttribute="centerX" secondItem="pM6-F2-kUY" secondAttribute="centerX" id="lba-EO-Tud"/>
-                            <constraint firstItem="PND-e3-ASM" firstAttribute="centerX" secondItem="pM6-F2-kUY" secondAttribute="centerX" id="mRG-ff-8zW"/>
+                            <constraint firstItem="Lol-le-639" firstAttribute="top" secondItem="01d-WX-pqB" secondAttribute="bottom" id="pWG-yg-2WP"/>
+                            <constraint firstItem="Lol-le-639" firstAttribute="leading" secondItem="PND-e3-ASM" secondAttribute="leading" id="rHp-6C-ERw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="q5s-Fc-wyb"/>
