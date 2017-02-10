@@ -658,7 +658,7 @@
                                 <rect key="frame" x="0.0" y="28" width="768" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LAp-cY-foD" id="xIV-Nq-258">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2Kv-8V-mP0">
@@ -918,7 +918,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ro-38-DKu" id="Osa-2W-v4O">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O8L-25-6lc">
@@ -1074,11 +1074,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kQl-qp-FXP">
-                                <rect key="frame" x="0.0" y="0.0" width="715" height="1284"/>
+                                <rect key="frame" x="0.0" y="0.0" width="750" height="1164"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Ktf-0m-HZU">
-                                        <rect key="frame" x="0.0" y="0.0" width="715" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="750" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1" ambiguous="YES" text="Starting Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIf-yd-OCi">
                                                 <rect key="frame" x="8" y="8" width="126.5" height="28"/>
@@ -1087,7 +1087,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="300" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7ME-u5-6l1">
-                                                <rect key="frame" x="534" y="8" width="173" height="29"/>
+                                                <rect key="frame" x="569" y="8" width="173" height="29"/>
                                                 <segments>
                                                     <segment title="Feeder"/>
                                                     <segment title="Center"/>
@@ -1098,7 +1098,7 @@
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hzs-0M-NkS">
-                                        <rect key="frame" x="0.0" y="44" width="715" height="28"/>
+                                        <rect key="frame" x="0.0" y="44" width="750" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Baseline Crossed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bX1-gN-oB7">
                                                 <rect key="frame" x="0.0" y="0.0" width="132.5" height="28"/>
@@ -1107,7 +1107,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gUP-vo-ihz">
-                                                <rect key="frame" x="132.5" y="0.0" width="582.5" height="29"/>
+                                                <rect key="frame" x="132.5" y="0.0" width="617.5" height="29"/>
                                                 <segments>
                                                     <segment title="Yes"/>
                                                     <segment title="No"/>
@@ -1116,10 +1116,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Jh-ee-gUT">
-                                        <rect key="frame" x="0.0" y="72" width="715" height="555"/>
+                                        <rect key="frame" x="0.0" y="72" width="750" height="435"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pHl-pu-ITj">
-                                                <rect key="frame" x="0.0" y="0.0" width="715" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="750" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Gear Placement" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwc-ah-4dE">
                                                         <rect key="frame" x="0.0" y="0.0" width="122" height="30"/>
@@ -1128,23 +1128,33 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbT-Dv-2V1">
-                                                        <rect key="frame" x="122" y="0.0" width="593" height="30"/>
+                                                        <rect key="frame" x="122" y="0.0" width="628" height="30"/>
                                                         <state key="normal" title="No gear placed"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xcl-NP-9jY">
-                                                <rect key="frame" x="0.0" y="30" width="715" height="495"/>
+                                                <rect key="frame" x="0.0" y="30" width="750" height="375"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCi-m0-hgg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="134" height="495"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="375"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="200" id="B9f-RF-KjK"/>
+                                                        </constraints>
                                                         <state key="normal" title="Left Lift"/>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="FullSizeRender-7" translatesAutoresizingMaskIntoConstraints="NO" id="m5E-3A-xj9">
-                                                        <rect key="frame" x="134" y="0.0" width="519" height="495"/>
+                                                        <rect key="frame" x="200" y="0.0" width="350" height="375"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="350" id="3mG-5d-uCB"/>
+                                                            <constraint firstAttribute="height" constant="375" id="t78-X0-MJx"/>
+                                                        </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhT-vf-eEg">
-                                                        <rect key="frame" x="653" y="0.0" width="62" height="495"/>
+                                                        <rect key="frame" x="550" y="0.0" width="200" height="375"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="200" id="lKD-KD-fZI"/>
+                                                        </constraints>
                                                         <state key="normal" title="Right Lift"/>
                                                     </button>
                                                 </subviews>
@@ -1153,10 +1163,10 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8Z-zC-vtN">
-                                                <rect key="frame" x="0.0" y="525" width="715" height="30"/>
+                                                <rect key="frame" x="0.0" y="405" width="750" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zb-f8-Xdw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="715" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="750" height="30"/>
                                                         <state key="normal" title="Center Lift"/>
                                                     </button>
                                                 </subviews>
@@ -1164,7 +1174,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hMO-FX-y60">
-                                        <rect key="frame" x="0.0" y="627" width="715" height="28"/>
+                                        <rect key="frame" x="0.0" y="507" width="750" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hopper Triggered" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="724-7x-Ml5">
                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="28"/>
@@ -1173,7 +1183,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zXu-p8-2Ho">
-                                                <rect key="frame" x="136" y="0.0" width="579" height="29"/>
+                                                <rect key="frame" x="136" y="0.0" width="614" height="29"/>
                                                 <segments>
                                                     <segment title="Yes"/>
                                                     <segment title="No"/>
@@ -1182,13 +1192,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="r75-zf-4Zi">
-                                        <rect key="frame" x="0.0" y="655" width="715" height="628.5"/>
+                                        <rect key="frame" x="0.0" y="535" width="750" height="628.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Oop-mr-7Mt">
-                                                <rect key="frame" x="0.0" y="0.0" width="715" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="750" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Fuel Scored" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApP-TC-3h6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="715" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="750" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1196,32 +1206,32 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IN5-eF-d8i">
-                                                <rect key="frame" x="0.0" y="20.5" width="715" height="608"/>
+                                                <rect key="frame" x="0.0" y="20.5" width="750" height="608"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="FullSizeRender-9" translatesAutoresizingMaskIntoConstraints="NO" id="Gfh-P5-Axc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="316" height="608"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="223" height="608"/>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WTr-0f-T2e">
-                                                        <rect key="frame" x="316" y="0.0" width="284" height="608"/>
+                                                        <rect key="frame" x="223" y="0.0" width="348" height="608"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdZ-9j-c9b">
-                                                                <rect key="frame" x="0.0" y="0.0" width="284" height="578"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="348" height="578"/>
                                                                 <state key="normal" title="No Attempt"/>
                                                             </button>
                                                             <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="DhQ-5G-dwq">
-                                                                <rect key="frame" x="-2" y="578" width="288" height="31"/>
+                                                                <rect key="frame" x="-2" y="578" width="352" height="31"/>
                                                             </slider>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UhX-Bi-zo4">
-                                                        <rect key="frame" x="600" y="0.0" width="115" height="608"/>
+                                                        <rect key="frame" x="571" y="0.0" width="179" height="608"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rud-FT-YPX">
-                                                                <rect key="frame" x="0.0" y="0.0" width="115" height="578"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="179" height="578"/>
                                                                 <state key="normal" title="No Attempt"/>
                                                             </button>
                                                             <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="j7y-s8-IXs">
-                                                                <rect key="frame" x="-2" y="578" width="119" height="31"/>
+                                                                <rect key="frame" x="-2" y="578" width="183" height="31"/>
                                                             </slider>
                                                         </subviews>
                                                     </stackView>
@@ -1467,7 +1477,7 @@
                                 <rect key="frame" x="0.0" y="28" width="768" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cfM-2p-V79" id="qgg-bZ-X2m">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="62"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="61"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ydv-3b-OMF">
