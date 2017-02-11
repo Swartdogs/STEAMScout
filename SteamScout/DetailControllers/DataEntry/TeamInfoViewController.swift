@@ -106,9 +106,9 @@ class TeamInfoViewController: UIViewController {
     
     @IBAction func allianceTap(_ sender: UIButton) {
         if sender.tag == 0 {
-            m.alliance = .blue
-        } else if sender.tag == 1 {
             m.alliance = .red
+        } else if sender.tag == 1 {
+            m.alliance = .blue
         } else {
             m.alliance = .unknown
         }
