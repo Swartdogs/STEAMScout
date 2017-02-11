@@ -1391,16 +1391,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3kb-bd-dZn">
-                                        <rect key="frame" x="0.0" y="0.0" width="728" height="340.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="728" height="312"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Field Layout (Tap to change):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmQ-Ea-2af">
-                                                <rect key="frame" x="0.0" y="0.0" width="728" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FullSizeRender-6" translatesAutoresizingMaskIntoConstraints="NO" id="Co5-lC-J73">
-                                                <rect key="frame" x="0.0" y="28.5" width="728" height="312"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="728" height="312"/>
                                                 <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Co5-lC-J73" secondAttribute="height" multiplier="7:3" id="NUS-H9-tPu"/>
@@ -1409,13 +1403,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7pc-Ji-xg8">
-                                        <rect key="frame" x="0.0" y="360.5" width="728" height="374.5"/>
+                                        <rect key="frame" x="0.0" y="332" width="728" height="390.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="A0u-Eu-Zh6">
-                                                <rect key="frame" x="0.0" y="0.0" width="728" height="152"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="728" height="160"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vl-ww-muk" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="728" height="45.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="728" height="48"/>
                                                         <state key="normal" title="Red 1">
                                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -1429,7 +1423,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUl-mS-ZE5" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="53.5" width="728" height="45"/>
+                                                        <rect key="frame" x="0.0" y="56" width="728" height="48"/>
                                                         <state key="normal" title="Red 2">
                                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -1438,7 +1432,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEF-fp-lhP" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="106.5" width="728" height="45.5"/>
+                                                        <rect key="frame" x="0.0" y="112" width="728" height="48"/>
                                                         <state key="normal" title="Red 3">
                                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -1449,10 +1443,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Qq-ez-ThD">
-                                                <rect key="frame" x="0.0" y="172" width="728" height="152.5"/>
+                                                <rect key="frame" x="0.0" y="180" width="728" height="160.5"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXG-2U-tYW" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="728" height="45.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="728" height="48.5"/>
                                                         <state key="normal" title="Blue 1">
                                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -1461,7 +1455,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6Y-z2-sbx" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="53.5" width="728" height="45.5"/>
+                                                        <rect key="frame" x="0.0" y="56.5" width="728" height="48"/>
                                                         <state key="normal" title="Blue 2">
                                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -1470,7 +1464,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3d-wP-nqc" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="107" width="728" height="45.5"/>
+                                                        <rect key="frame" x="0.0" y="112.5" width="728" height="48"/>
                                                         <state key="normal" title="Blue 3">
                                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -1481,7 +1475,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MR4-Dq-bhz">
-                                                <rect key="frame" x="0.0" y="344.5" width="728" height="30"/>
+                                                <rect key="frame" x="0.0" y="360.5" width="728" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58H-dd-WgO">
                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="30"/>
@@ -1505,7 +1499,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cso-Cw-c3C">
-                                        <rect key="frame" x="0.0" y="755" width="728" height="165"/>
+                                        <rect key="frame" x="0.0" y="742.5" width="728" height="177.5"/>
                                         <state key="normal" title="Get Event List"/>
                                         <connections>
                                             <action selector="getEventList:" destination="cpW-hN-xnb" eventType="touchUpInside" id="LgD-la-Ekh"/>
