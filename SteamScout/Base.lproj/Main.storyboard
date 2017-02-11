@@ -120,37 +120,23 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Yz-hh-Z9e">
-                                <rect key="frame" x="0.0" y="872" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Penalty Test" id="bsM-Bm-Fmp">
-                                        <connections>
-                                            <segue destination="6RP-RV-QZM" kind="popoverPresentation" popoverAnchorBarButtonItem="bsM-Bm-Fmp" id="xoK-rv-d80">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ZFe-by-ypf">
                                 <rect key="frame" x="469" y="248" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stepper>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rd9-wI-xPe">
+                                <rect key="frame" x="0.0" y="916" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Edit" id="f0G-42-0O9"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3OC-A3-aUC"/>
+                                    <barButtonItem title="Penalty" id="Rei-5j-EvH"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Edit" id="PG0-id-zY1"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="4bB-q3-JAa"/>
-                        <barButtonItem title="Penalty" id="wNp-bc-YQL">
-                            <connections>
-                                <segue destination="6RP-RV-QZM" kind="popoverPresentation" popoverAnchorBarButtonItem="wNp-bc-YQL" id="39o-Ln-jNr">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Teleop" id="1bU-mS-PGc">
                         <barButtonItem key="rightBarButtonItem" title="Results" id="Cob-IB-mKq">
                             <connections>
@@ -1332,6 +1318,15 @@
                                     <constraint firstAttribute="width" priority="750" constant="760" id="zgB-vR-xMO"/>
                                 </constraints>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEf-qp-XbD">
+                                <rect key="frame" x="0.0" y="916" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Edit" id="XYA-Vr-gCp"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wSt-Cf-hve"/>
+                                    <barButtonItem title="Penalty" id="NUO-oe-06w"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1339,17 +1334,7 @@
                             <constraint firstItem="kQl-qp-FXP" firstAttribute="leading" secondItem="6lw-7j-f9i" secondAttribute="leading" id="Zp7-L3-ZKY"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Edit" id="3d5-9p-9Um"/>
-                        <barButtonItem width="2" style="plain" systemItem="flexibleSpace" id="XUs-KP-A1W"/>
-                        <barButtonItem title="Penalty" id="AUH-81-GB4">
-                            <connections>
-                                <segue destination="6RP-RV-QZM" kind="popoverPresentation" popoverAnchorBarButtonItem="AUH-81-GB4" id="OQA-RT-wPA">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Autonomous" id="LEZ-0J-hBb">
                         <barButtonItem key="rightBarButtonItem" title="Teleop" id="0g3-8p-bAo">
                             <connections>
@@ -1778,6 +1763,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="J5x-uL-Uxx"/>
         <segue reference="pMA-Qb-jdF"/>
-        <segue reference="39o-Ln-jNr"/>
     </inferredMetricsTieBreakers>
 </document>
