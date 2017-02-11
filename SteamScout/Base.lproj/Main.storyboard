@@ -257,71 +257,102 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFv-x0-OQM">
-                                <rect key="frame" x="16" y="39" width="110" height="33"/>
-                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Yellow Card"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbB-cB-f6O">
-                                <rect key="frame" x="174" y="39" width="110" height="33"/>
-                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Red Card"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4h-Ic-G2X">
-                                <rect key="frame" x="16" y="138" width="110" height="33"/>
-                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="omQ-hD-uaO">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vks-So-cHA">
+                                        <rect key="frame" x="8" y="8" width="284" height="92"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vjg-n9-Drg">
+                                                <rect key="frame" x="8" y="8" width="134" height="76"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFv-x0-OQM">
+                                                        <rect key="frame" x="8" y="8" width="118" height="60"/>
+                                                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" title="Yellow Card"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9PW-dN-8u4">
+                                                <rect key="frame" x="142" y="8" width="134" height="76"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbB-cB-f6O">
+                                                        <rect key="frame" x="8" y="8" width="118" height="60"/>
+                                                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" title="Red Card"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Vjg-n9-Drg" firstAttribute="width" secondItem="9PW-dN-8u4" secondAttribute="width" id="Fn0-QM-ewk"/>
+                                        </constraints>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vgw-he-lX7">
+                                        <rect key="frame" x="8" y="100" width="284" height="92"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8J2-x9-hgV">
+                                                <rect key="frame" x="8" y="8" width="134" height="76"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4h-Ic-G2X">
+                                                        <rect key="frame" x="8" y="8" width="118" height="60"/>
+                                                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                        <state key="normal" title="Foul"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rRV-XF-eCf">
+                                                <rect key="frame" x="142" y="8" width="134" height="76"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cur-iQ-WYB">
+                                                        <rect key="frame" x="8" y="8" width="118" height="60"/>
+                                                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" title="Technical Foul"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="8J2-x9-hgV" firstAttribute="width" secondItem="rRV-XF-eCf" secondAttribute="width" id="DGb-gt-0Wu"/>
+                                        </constraints>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                    </stackView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="gnJ-pj-ibR"/>
+                                    <constraint firstAttribute="width" constant="300" id="7rH-Bm-Ptn"/>
+                                    <constraint firstAttribute="height" constant="200" id="SBl-4V-itg"/>
+                                    <constraint firstItem="Vks-So-cHA" firstAttribute="height" secondItem="Vgw-he-lX7" secondAttribute="height" id="gUJ-ZU-Bbh"/>
                                 </constraints>
-                                <state key="normal" title="Foul"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cur-iQ-WYB">
-                                <rect key="frame" x="174" y="138" width="110" height="33"/>
-                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Technical Foul"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="PFv-x0-OQM" firstAttribute="leading" secondItem="y4O-Ui-bwV" secondAttribute="leadingMargin" constant="24" id="B2z-ED-k0m"/>
-                            <constraint firstItem="cur-iQ-WYB" firstAttribute="height" secondItem="W4h-Ic-G2X" secondAttribute="height" id="CIf-Ox-893"/>
-                            <constraint firstItem="W4h-Ic-G2X" firstAttribute="height" secondItem="PbB-cB-f6O" secondAttribute="height" id="LX3-7f-GEy"/>
-                            <constraint firstItem="W4h-Ic-G2X" firstAttribute="width" secondItem="PbB-cB-f6O" secondAttribute="width" id="UbL-Du-RIc"/>
-                            <constraint firstItem="cur-iQ-WYB" firstAttribute="leading" secondItem="W4h-Ic-G2X" secondAttribute="trailing" constant="48" id="VsT-CQ-zNf"/>
-                            <constraint firstItem="W4h-Ic-G2X" firstAttribute="baseline" secondItem="cur-iQ-WYB" secondAttribute="baseline" id="YS8-On-A5P"/>
-                            <constraint firstItem="PbB-cB-f6O" firstAttribute="width" secondItem="PFv-x0-OQM" secondAttribute="width" id="c3I-CG-dkN"/>
-                            <constraint firstItem="PbB-cB-f6O" firstAttribute="baseline" secondItem="PFv-x0-OQM" secondAttribute="baseline" id="dyo-ee-vUi"/>
-                            <constraint firstItem="W4h-Ic-G2X" firstAttribute="leading" secondItem="y4O-Ui-bwV" secondAttribute="leadingMargin" constant="24" id="gbe-d3-SUg"/>
-                            <constraint firstItem="cur-iQ-WYB" firstAttribute="height" secondItem="PFv-x0-OQM" secondAttribute="height" id="hI4-7s-XWo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PbB-cB-f6O" secondAttribute="trailing" id="k9M-Xv-fLs"/>
-                            <constraint firstItem="W4h-Ic-G2X" firstAttribute="top" secondItem="PFv-x0-OQM" secondAttribute="bottom" constant="66" id="mwE-5f-g2w"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cur-iQ-WYB" secondAttribute="trailing" id="nao-0d-Clj"/>
-                            <constraint firstItem="cur-iQ-WYB" firstAttribute="height" secondItem="PbB-cB-f6O" secondAttribute="height" id="pdS-zs-96T"/>
-                            <constraint firstItem="PFv-x0-OQM" firstAttribute="width" secondItem="W4h-Ic-G2X" secondAttribute="width" id="sdJ-xZ-AUH"/>
-                            <constraint firstItem="RMx-Cl-uR8" firstAttribute="top" secondItem="W4h-Ic-G2X" secondAttribute="bottom" constant="29" id="tet-pu-RLu"/>
-                            <constraint firstItem="W4h-Ic-G2X" firstAttribute="height" secondItem="PFv-x0-OQM" secondAttribute="height" id="vqc-vb-AQG"/>
-                            <constraint firstItem="PFv-x0-OQM" firstAttribute="width" secondItem="cur-iQ-WYB" secondAttribute="width" id="z4F-NN-gy4"/>
-                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="300" height="200"/>
@@ -1742,6 +1773,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="J5x-uL-Uxx"/>
         <segue reference="pMA-Qb-jdF"/>
-        <segue reference="OQA-RT-wPA"/>
+        <segue reference="39o-Ln-jNr"/>
     </inferredMetricsTieBreakers>
 </document>
