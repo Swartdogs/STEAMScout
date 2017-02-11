@@ -48,7 +48,7 @@
                         <color key="backgroundColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Strong Scout" id="QrQ-0h-YHz"/>
+                    <navigationItem key="navigationItem" title="Steam Scout" id="QrQ-0h-YHz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udx-EE-KWP" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,12 +168,12 @@
         <!--Title-->
         <scene sceneID="n47-aK-1Ss">
             <objects>
-                <viewController id="L9b-d6-dAb" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="overFullScreen" id="L9b-d6-dAb" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="01d-WX-pqB"/>
                         <viewControllerLayoutGuide type="bottom" id="beC-lj-k2X"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pM6-F2-kUY">
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="pM6-F2-kUY">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -238,12 +238,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="q5s-Fc-wyb"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="300" height="200"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="300" height="200"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyI-4d-1GM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4131.25" y="-249.02343749999997"/>
+            <point key="canvasLocation" x="4132" y="-249"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ak4-LE-56g">
@@ -693,7 +694,7 @@
                                 <rect key="frame" x="0.0" y="28" width="768" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LAp-cY-foD" id="xIV-Nq-258">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2Kv-8V-mP0">
@@ -953,7 +954,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ro-38-DKu" id="Osa-2W-v4O">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O8L-25-6lc">
@@ -1571,7 +1572,7 @@
                                 <rect key="frame" x="0.0" y="28" width="768" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cfM-2p-V79" id="qgg-bZ-X2m">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="62"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="61.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ydv-3b-OMF">
