@@ -31,7 +31,7 @@ class ToolsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         //fieldLayout.image = MatchStore.sharedStore.fieldLayout.getImage()
-        self.view.backgroundColor = themeOrange
+        self.view.backgroundColor = themeGray
         
         getScheduleButton.isEnabled = EventStore.sharedStore.selectedEvent != nil
         buildListButton.isEnabled = false
