@@ -131,11 +131,11 @@
                                 </items>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2W-Y5-nKL">
-                                <rect key="frame" x="168" y="476" width="191" height="369"/>
+                                <rect key="frame" x="168" y="512" width="191" height="335"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <segue destination="L9b-d6-dAb" kind="popoverPresentation" popoverAnchorView="G2W-Y5-nKL" id="DdB-ey-Hmj">
-                                        <popoverArrowDirection key="popoverArrowDirection" left="YES" right="YES"/>
+                                        <popoverArrowDirection key="popoverArrowDirection"/>
                                     </segue>
                                 </connections>
                             </button>
@@ -236,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyI-4d-1GM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4132" y="-249"/>
+            <point key="canvasLocation" x="4162" y="407"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ak4-LE-56g">
@@ -1771,7 +1771,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="J5x-uL-Uxx"/>
-        <segue reference="xU2-D7-M6L"/>
         <segue reference="pMA-Qb-jdF"/>
+        <segue reference="xU2-D7-M6L"/>
     </inferredMetricsTieBreakers>
 </document>
