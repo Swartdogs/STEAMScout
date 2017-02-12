@@ -130,14 +130,18 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2W-Y5-nKL">
-                                <rect key="frame" x="168" y="512" width="191" height="335"/>
+                            <button opaque="NO" contentMode="bottomRight" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2W-Y5-nKL">
+                                <rect key="frame" x="168" y="512" width="213" height="335"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="L9b-d6-dAb" kind="popoverPresentation" popoverAnchorView="G2W-Y5-nKL" id="DdB-ey-Hmj">
-                                        <popoverArrowDirection key="popoverArrowDirection"/>
+                                    <segue destination="L9b-d6-dAb" kind="popoverPresentation" popoverAnchorView="l8b-Ci-d5W" id="WIn-BF-gw9">
+                                        <popoverArrowDirection key="popoverArrowDirection" left="YES"/>
                                     </segue>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8b-Ci-d5W">
+                                <rect key="frame" x="389" y="748" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
