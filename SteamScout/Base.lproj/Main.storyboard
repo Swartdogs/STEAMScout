@@ -1113,7 +1113,7 @@
         <!--Autonomous-->
         <scene sceneID="O5r-KZ-tZT">
             <objects>
-                <viewController id="lWd-9t-egS" sceneMemberID="viewController">
+                <viewController id="lWd-9t-egS" customClass="AutonomousViewController" customModule="SteamScout" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l6g-fQ-htU"/>
                         <viewControllerLayoutGuide type="bottom" id="bf4-22-vhp"/>
@@ -1204,6 +1204,9 @@
                                                             <constraint firstAttribute="width" constant="182" id="nGT-F0-WFD"/>
                                                         </constraints>
                                                         <state key="normal" title="Left Lift"/>
+                                                        <connections>
+                                                            <action selector="LeftLiftPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="D2e-Id-iof"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Airship" translatesAutoresizingMaskIntoConstraints="NO" id="m5E-3A-xj9">
                                                         <rect key="frame" x="182" y="0.0" width="400" height="350"/>
@@ -1216,6 +1219,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhT-vf-eEg">
                                                         <rect key="frame" x="582" y="0.0" width="170" height="350"/>
                                                         <state key="normal" title="Right Lift"/>
+                                                        <connections>
+                                                            <action selector="RightLiftPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="lEr-kb-pIh"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -1228,6 +1234,9 @@
                                                             <constraint firstAttribute="height" constant="50" id="faU-Yc-hAc"/>
                                                         </constraints>
                                                         <state key="normal" title="Center Lift"/>
+                                                        <connections>
+                                                            <action selector="CenterLiftPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="mzI-d6-PHF"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -1307,6 +1316,9 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdZ-9j-c9b">
                                                                         <rect key="frame" x="300" y="0.0" width="216" height="125.5"/>
                                                                         <state key="normal" title="No Attempt"/>
+                                                                        <connections>
+                                                                            <action selector="HighGoalHighlight:" destination="lWd-9t-egS" eventType="touchUpInside" id="THE-vj-zNS"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
@@ -1319,6 +1331,9 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rud-FT-YPX">
                                                                         <rect key="frame" x="300" y="0.0" width="216" height="125.5"/>
                                                                         <state key="normal" title="No Attempt"/>
+                                                                        <connections>
+                                                                            <action selector="LowGoalHighLight:" destination="lWd-9t-egS" eventType="touchUpInside" id="hRn-y5-pWR"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
@@ -1376,6 +1391,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="CenterLift" destination="3Zb-f8-Xdw" id="K0H-2g-cQN"/>
+                        <outlet property="LeftLift" destination="BCi-m0-hgg" id="1To-8R-XaG"/>
+                        <outlet property="NoAttemptHighGoal" destination="AdZ-9j-c9b" id="gf5-zk-mRy"/>
+                        <outlet property="NoAttemptLowGoal" destination="Rud-FT-YPX" id="9Ep-wf-vPU"/>
+                        <outlet property="RightLift" destination="jhT-vf-eEg" id="HNH-YB-21Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnh-Ds-nGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1790,6 +1812,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="J5x-uL-Uxx"/>
         <segue reference="pMA-Qb-jdF"/>
-        <segue reference="xU2-D7-M6L"/>
+        <segue reference="g4S-49-J8N"/>
     </inferredMetricsTieBreakers>
 </document>
