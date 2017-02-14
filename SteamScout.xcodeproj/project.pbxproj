@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C00684601E52A2A300C8F009 /* AutonomousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C006845F1E52A2A300C8F009 /* AutonomousViewController.swift */; };
+		C02BCF7D1E52A046000E3CD2 /* TeleopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BCF7C1E52A045000E3CD2 /* TeleopViewController.swift */; };
 		C43EFFAA1E38270A00BC2BB9 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */; };
 		C43EFFAB1E38270A00BC2BB9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA61E38270A00BC2BB9 /* Definitions.swift */; };
 		C43EFFAC1E38270A00BC2BB9 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA71E38270A00BC2BB9 /* Match.swift */; };
@@ -64,6 +66,8 @@
 		27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamScout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E93E7F5A26E313A9018C132 /* Pods-SteamScout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamScout.release.xcconfig"; path = "Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout.release.xcconfig"; sourceTree = "<group>"; };
 		71422EE919DB60A15D7A3C10 /* Pods-SteamScout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamScout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout.debug.xcconfig"; sourceTree = "<group>"; };
+		C006845F1E52A2A300C8F009 /* AutonomousViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutonomousViewController.swift; sourceTree = "<group>"; };
+		C02BCF7C1E52A045000E3CD2 /* TeleopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleopViewController.swift; sourceTree = "<group>"; };
 		C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		C43EFFA61E38270A00BC2BB9 /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		C43EFFA71E38270A00BC2BB9 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 				C44A81211E35D33100BA367B /* MasterViewController.swift */,
 				C44A81221E35D33100BA367B /* ScheduleViewController.swift */,
 				C44A81231E35D33100BA367B /* ToolsViewController.swift */,
+				C02BCF7C1E52A045000E3CD2 /* TeleopViewController.swift */,
+				C006845F1E52A2A300C8F009 /* AutonomousViewController.swift */,
 			);
 			path = MasterControllers;
 			sourceTree = "<group>";
@@ -469,6 +475,8 @@
 				C44A81251E35D33100BA367B /* ScheduleViewController.swift in Sources */,
 				C44A810F1E35D32500BA367B /* ScheduleStore.swift in Sources */,
 				C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */,
+				C02BCF7D1E52A046000E3CD2 /* TeleopViewController.swift in Sources */,
+				C00684601E52A2A300C8F009 /* AutonomousViewController.swift in Sources */,
 				C44A81191E35D32C00BA367B /* FinalViewController.swift in Sources */,
 				C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */,
 				C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */,
