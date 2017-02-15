@@ -42,6 +42,7 @@
 		C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812D1E35D33800BA367B /* themeDefinitions.swift */; };
 		C4D61D2D1E35E39400320E1D /* SteamScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */; };
 		C4D61D2E1E35E39F00320E1D /* SteamScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */; };
+		C4F889B01E5424BB00DC0826 /* StrongMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F889AF1E5424BB00DC0826 /* StrongMatch.swift */; };
 		EF06B7CFEDC58552F68BE5D1 /* Pods_SteamScout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +109,7 @@
 		C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamScoutTests.swift; sourceTree = "<group>"; };
 		C4D61D291E35E38100320E1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamScoutUITests.swift; sourceTree = "<group>"; };
+		C4F889AF1E5424BB00DC0826 /* StrongMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrongMatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 		C44A81071E35D32500BA367B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C4F889AF1E5424BB00DC0826 /* StrongMatch.swift */,
 				C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */,
 				C43EFFA61E38270A00BC2BB9 /* Definitions.swift */,
 				C43EFFA71E38270A00BC2BB9 /* Match.swift */,
@@ -473,6 +476,7 @@
 				C43EFFAA1E38270A00BC2BB9 /* SessionStore.swift in Sources */,
 				C44A81301E35D33800BA367B /* MatchCell.swift in Sources */,
 				C44A81251E35D33100BA367B /* ScheduleViewController.swift in Sources */,
+				C4F889B01E5424BB00DC0826 /* StrongMatch.swift in Sources */,
 				C44A810F1E35D32500BA367B /* ScheduleStore.swift in Sources */,
 				C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */,
 				C02BCF7D1E52A046000E3CD2 /* TeleopViewController.swift in Sources */,
