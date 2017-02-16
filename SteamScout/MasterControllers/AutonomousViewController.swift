@@ -14,6 +14,18 @@ class AutonomousViewController: UIViewController {
     @IBOutlet weak var LeftLift: UIButton!
     @IBOutlet weak var RightLift: UIButton!
     @IBOutlet weak var CenterLift: UIButton!
+    @IBOutlet weak var NoGearPlaced: UIButton!
+    @IBAction func NoGearPlacedPressed(_ sender: UIButton) {
+        if NoGearPlaced.isSelected {
+            NoGearPlaced.isSelected = false
+        }
+        else {
+            NoGearPlaced.isSelected = true
+            LeftLift.isSelected = false
+            RightLift.isSelected = false
+            CenterLift.isSelected = false
+        }
+    }
     @IBAction func HighGoalHighlight(_ sender: UIButton) {
         if NoAttemptHighGoal.isSelected {
             NoAttemptHighGoal.isSelected = false
@@ -39,6 +51,7 @@ class AutonomousViewController: UIViewController {
             LeftLift.isSelected = true
             RightLift.isSelected = false
             CenterLift.isSelected = false
+            NoGearPlaced.isSelected = false
         }
     }
 
@@ -50,6 +63,7 @@ class AutonomousViewController: UIViewController {
             CenterLift.isSelected = true
             LeftLift.isSelected = false
             RightLift.isSelected = false
+            NoGearPlaced.isSelected = false
         }
     }
     @IBAction func RightLiftPressed(_ sender: UIButton) {
@@ -60,6 +74,7 @@ class AutonomousViewController: UIViewController {
             RightLift.isSelected = true
             CenterLift.isSelected = false
             LeftLift.isSelected = false
+            NoGearPlaced.isSelected = false
         }
     }
  
