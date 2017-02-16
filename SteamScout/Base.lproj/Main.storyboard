@@ -256,10 +256,10 @@
             </objects>
             <point key="canvasLocation" x="4162" y="407"/>
         </scene>
-        <!--View Controller-->
+        <!--Penalty-->
         <scene sceneID="ak4-LE-56g">
             <objects>
-                <viewController id="6RP-RV-QZM" sceneMemberID="viewController">
+                <viewController title="Penalty" id="6RP-RV-QZM" customClass="PenaltyViewController" customModule="SteamScout" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MBc-gi-coB"/>
                         <viewControllerLayoutGuide type="bottom" id="RMx-Cl-uR8"/>
@@ -286,6 +286,9 @@
                                                                 <integer key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="YellowCardPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="wpb-zX-sjO"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
@@ -302,6 +305,9 @@
                                                                 <integer key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="RedCardPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="WK3-js-qDK"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
@@ -328,6 +334,9 @@
                                                                 <integer key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="FoulPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="lba-KA-zB6"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
@@ -344,6 +353,9 @@
                                                                 <integer key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="TechnicalFoulPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="Gz7-Jm-A6H"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
@@ -372,6 +384,12 @@
                     <value key="contentSizeForViewInPopover" type="size" width="300" height="200"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="300" height="200"/>
+                    <connections>
+                        <outlet property="Foul" destination="W4h-Ic-G2X" id="LkA-3x-ll7"/>
+                        <outlet property="RedCard" destination="PbB-cB-f6O" id="0g1-Pv-480"/>
+                        <outlet property="TechnicalFoul" destination="cur-iQ-WYB" id="oxq-rC-ms1"/>
+                        <outlet property="YellowCard" destination="PFv-x0-OQM" id="vZS-E6-sSc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pM6-rT-PXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1191,6 +1209,9 @@
                                                             <constraint firstAttribute="width" constant="550" id="gZG-1E-f5s"/>
                                                         </constraints>
                                                         <state key="normal" title="No gear placed"/>
+                                                        <connections>
+                                                            <action selector="NoGearPlacedPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="dGR-5k-5RY"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -1396,6 +1417,7 @@
                         <outlet property="LeftLift" destination="BCi-m0-hgg" id="1To-8R-XaG"/>
                         <outlet property="NoAttemptHighGoal" destination="AdZ-9j-c9b" id="gf5-zk-mRy"/>
                         <outlet property="NoAttemptLowGoal" destination="Rud-FT-YPX" id="9Ep-wf-vPU"/>
+                        <outlet property="NoGearPlaced" destination="TbT-Dv-2V1" id="brz-NV-3mT"/>
                         <outlet property="RightLift" destination="jhT-vf-eEg" id="HNH-YB-21Z"/>
                     </connections>
                 </viewController>
