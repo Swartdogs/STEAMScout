@@ -9,36 +9,39 @@
 import UIKit
 import SwiftyJSON
 
-class Match : NSObject {
+protocol Match : NSCoding {
     
     // Team Info
     
-    var teamNumber:Int = -1
-    var matchNumber:Int = -1
-    var alliance:AllianceType = .unknown
-    var isCompleted:Int = 32
+    var teamNumber:Int { get set }
+    var matchNumber:Int { get set }
+    var alliance:AllianceType { get set }
+    var isCompleted:Int { get set }
     
     // Final Info
     
-    var finalScore:Int = -1
-    var finalRankingPoints:Int = -1
-    var finalResult:ResultType = .none
-    var finalPenaltyScore:Int = 0
-    var finalFouls = 0
-    var finalTechFouls = 0
-    var finalYellowCards = 0
-    var finalRedCards = 0
-    var finalRobot:RobotState = .None
-    var finalConfiguration:FinalConfigType = .none
-    var finalComments = ""
+    var finalScore:Int { get set }
+    var finalRankingPoints:Int { get set }
+    var finalResult:ResultType { get set }
+    var finalPenaltyScore:Int  { get set }
+    var finalFouls:Int { get set }
+    var finalTechFouls:Int { get set }
+    var finalYellowCards:Int { get set }
+    var finalRedCards:Int { get set }
+    var finalRobot:RobotState { get set }
+    var finalComments:String { get set }
     
-    override init() {
-        // init
-    }
+    // Calculated Variables
+    static var csvHeader:String { get }
+    var csvMatch:String { get }
+    var messageDictionary:NSDictionary { get }
     
-    init(queueData:MatchQueueData) {
-        self.matchNumber = queueData.matchNumber
-        self.teamNumber  = queueData.teamNumber
-        self.alliance    = queueData.alliance
-    }
+    init(queueData:MatchQueueData)
+    
+    // Required Functions
+    func updateMatchForType(_ type:UpdateType, match:Match)
+    func updateMatchWithAction(_ action:Action)
+    func aggregateActionsPerformed()
+    func aggregateMatchData()
+    
 }

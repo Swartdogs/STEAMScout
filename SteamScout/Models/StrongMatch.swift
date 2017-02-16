@@ -11,7 +11,7 @@ import SwiftyJSON
 
 typealias ScoreStat = (scored:Int, missed:Int)
 
-class StrongMatch : NSObject, NSCoding {
+class StrongMatch : NSObject, Match {
     
     // Team Info
     
@@ -342,13 +342,13 @@ class StrongMatch : NSObject, NSCoding {
         // init
     }
     
-    init(queueData:MatchQueueData) {
+    required init(queueData:MatchQueueData) {
         self.matchNumber = queueData.matchNumber
         self.teamNumber  = queueData.teamNumber
         self.alliance    = queueData.alliance
     }
     
-    func messageDictionary() -> NSDictionary {
+    var messageDictionary:NSDictionary {
         var data:[String:AnyObject]    = [String:AnyObject]()
         var team:[String:AnyObject]    = [String:AnyObject]()
         var auto:[String:AnyObject]    = [String:AnyObject]()
@@ -416,7 +416,7 @@ class StrongMatch : NSObject, NSCoding {
         return data as NSDictionary;
     }
     
-    static func writeMatchCSVHeader() -> String {
+    static var csvHeader:String {
         var matchHeader = ""
         
         matchHeader += "Match Number, Team Number, Alliance, "
@@ -452,9 +452,9 @@ class StrongMatch : NSObject, NSCoding {
         return matchHeader
     }
     
-    func writeMatchCSV() -> String {
+    var csvMatch:String {
         var matchData = ""
-        let match = JSON(messageDictionary())
+        let match = JSON(messageDictionary)
         
         matchData += "\(match["team", "matchNumber"].intValue),"
         matchData += "\(match["team", "teamNumber"].intValue),"
@@ -483,5 +483,64 @@ class StrongMatch : NSObject, NSCoding {
         matchData += "\(match["final", "comments"].stringValue)"
 
         return matchData
+    }
+    
+    func updateMatchForType(_ type:UpdateType, match:Match) {
+        let m = match as! StrongMatch
+        switch type {
+        case .teamInfo:
+            teamNumber  = m.teamNumber
+            matchNumber = m.matchNumber
+            alliance    = m.alliance
+            isCompleted = m.isCompleted
+            finalResult = m.finalResult
+            break;
+        case .fieldSetup:
+            defense1.type = m.defense1.type
+            defense2.type = m.defense2.type
+            defense3.type = m.defense3.type
+            defense4.type = m.defense4.type
+            defense5.type = m.defense5.type
+            defenses = [(defense1), (defense2), (defense3), (defense4), (defense5)]
+            break;
+        case .finalStats:
+            finalScore         = m.finalScore
+            finalRankingPoints = m.finalRankingPoints
+            finalResult        = m.finalResult
+            finalPenaltyScore  = m.finalPenaltyScore
+            finalConfiguration = m.finalConfiguration
+            finalComments      = m.finalComments
+        case .actionsEdited:
+            actionsPerformed = m.actionsPerformed
+        default:
+            break;
+        }
+    }
+    
+    func updateMatchWithAction(_ action:Action) {
+        print("Adding Action: \(action.type)")
+        switch action.data {
+        case let .scoreData(score):
+            print("\tScoreType: \(score.type.toString())")
+            print("\tScoreLoc:  \(score.location.toString())")
+            break
+        case let .defenseData(defense):
+            print("\tDefenseType:   \(defense.type.toString())")
+            print("\tDefenseAction: \(defense.actionPerformed.toString())")
+            if(1...3 ~= defense.actionPerformed.rawValue && action.section == .auto) {
+                isCompleted |= 8;
+            }
+            break
+        case let .penaltyData(penalty):
+            print("\tPenaltyType: \(penalty.toString())")
+            break
+        default:
+            break
+        }
+        actionsPerformed.append(action)
+    }
+    
+    func aggregateMatchData() {
+        aggregateActionsPerformed()
     }
 }

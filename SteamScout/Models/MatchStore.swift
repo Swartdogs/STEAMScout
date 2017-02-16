@@ -117,10 +117,10 @@ class MatchStore: NSObject {
         let device = "\(UIDevice.current.name)    \r\n"
         var csvFileString = device
         
-        csvFileString += Match.writeMatchCSVHeader()
+        csvFileString += StrongMatch.csvHeader
         
         for m in allMatches {
-            csvFileString += m.writeMatchCSV() + " \r\n"
+            csvFileString += m.csvMatch + " \r\n"
         }
         
         do {
@@ -137,13 +137,13 @@ class MatchStore: NSObject {
         var csvFileString = device
         var matchJSONData = [NSDictionary]();
         
-        csvFileString += Match.writeMatchCSVHeader()
+        csvFileString += StrongMatch.csvHeader
         
         for m in allMatches {
             if (m.isCompleted & 32) == 32 {
                 m.isCompleted ^= 32
-                csvFileString += m.writeMatchCSV() + " \r\n"
-                matchJSONData.append(m.messageDictionary())
+                csvFileString += m.csvMatch + " \r\n"
+                matchJSONData.append((m as! StrongMatch).messageDictionary)
             }
         }
         
@@ -159,7 +159,7 @@ class MatchStore: NSObject {
     }
     
     func createMatch() {
-        currentMatch = Match()
+        currentMatch = StrongMatch()
         currentMatchIndex = -1
         actionsUndo.clearAll()
         actionsRedo.clearAll()
@@ -168,7 +168,7 @@ class MatchStore: NSObject {
     func createMatchFromQueueIndex(_ index:Int) {
         guard 0..<matchesToScout.count ~= index else { return }
         let data = matchesToScout[index]
-        currentMatch = Match(queueData: data)
+        currentMatch = StrongMatch(queueData: data)
         currentMatchIndex = index
         actionsUndo.clearAll()
         actionsRedo.clearAll()
@@ -223,66 +223,15 @@ class MatchStore: NSObject {
     }
     
     func updateCurrentMatchForType(_ type:UpdateType, match:Match) {
-        switch type {
-        case .teamInfo:
-            currentMatch?.teamNumber  = match.teamNumber
-            currentMatch?.matchNumber = match.matchNumber
-            currentMatch?.alliance    = match.alliance
-            currentMatch?.isCompleted = match.isCompleted
-            currentMatch?.finalResult = match.finalResult
-            break;
-        case .fieldSetup:
-            currentMatch?.defense1.type = match.defense1.type
-            currentMatch?.defense2.type = match.defense2.type
-            currentMatch?.defense3.type = match.defense3.type
-            currentMatch?.defense4.type = match.defense4.type
-            currentMatch?.defense5.type = match.defense5.type
-            currentMatch?.defenses = [(currentMatch?.defense1)!, (currentMatch?.defense2)!, (currentMatch?.defense3)!, (currentMatch?.defense4)!, (currentMatch?.defense5)!]
-            break;
-        case .finalStats:
-            currentMatch?.finalScore         = match.finalScore
-            currentMatch?.finalRankingPoints = match.finalRankingPoints
-            currentMatch?.finalResult        = match.finalResult
-            currentMatch?.finalPenaltyScore  = match.finalPenaltyScore
-            currentMatch?.finalConfiguration = match.finalConfiguration
-            currentMatch?.finalComments      = match.finalComments
-        case .actionsEdited:
-            currentMatch?.actionsPerformed = match.actionsPerformed
-        default:
-            break;
-        }
+        currentMatch?.updateMatchForType(type, match: match)
     }
     
     func updateCurrentMatchWithAction(_ action:Action) {
-        print("Adding Action: \(action.type)")
-        switch action.data {
-        case let .scoreData(score):
-            print("\tScoreType: \(score.type.toString())")
-            print("\tScoreLoc:  \(score.location.toString())")
-            break
-        case let .defenseData(defense):
-            print("\tDefenseType:   \(defense.type.toString())")
-            print("\tDefenseAction: \(defense.actionPerformed.toString())")
-            if(1...3 ~= defense.actionPerformed.rawValue && action.section == .auto) {
-                currentMatch?.isCompleted |= 8;
-            }
-            break
-        case let .penaltyData(penalty):
-            print("\tPenaltyType: \(penalty.toString())")
-            break
-        default:
-            break
-        }
-        currentMatch?.actionsPerformed.append(action)
-    }
-    
-    func aggregateCurrentMatchData() {
-        if currentMatch == nil { return }
-        currentMatch!.aggregateActionsPerformed()
+        currentMatch?.updateMatchWithAction(action)
     }
     
     func finishCurrentMatch() {
-        aggregateCurrentMatchData()
+        currentMatch!.aggregateMatchData()
         allMatches.append(currentMatch!)
         if currentMatchIndex >= 0 {
             matchesToScout.remove(at: currentMatchIndex)
@@ -297,7 +246,7 @@ class MatchStore: NSObject {
         var matchData = [NSDictionary]()
         
         for match in allMatches {
-            matchData.append(match.messageDictionary())
+            matchData.append(match.messageDictionary)
         }
         
         return try? JSONSerialization.data(withJSONObject: matchData, options: .prettyPrinted)

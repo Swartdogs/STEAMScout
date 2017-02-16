@@ -43,7 +43,7 @@ class FinalViewController: UIViewController {
     @IBOutlet weak var FinalCommentsTextView: UITextView!
     @IBOutlet weak var scrollView:UIScrollView!
     
-    fileprivate var match = MatchStore.sharedStore.currentMatch!
+    fileprivate var match = MatchStore.sharedStore.currentMatch as! StrongMatch
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ class FinalViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        match = MatchStore.sharedStore.currentMatch!
+        match = MatchStore.sharedStore.currentMatch as! StrongMatch
         registerForKeyboardNotifications()
         readyToMoveOn()
         FinalPenaltyScoreTextField.text = "\(match.finalPenaltyScore)"

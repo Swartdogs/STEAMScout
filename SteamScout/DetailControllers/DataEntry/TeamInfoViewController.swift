@@ -39,7 +39,7 @@ class TeamInfoViewController: UIViewController {
     @IBOutlet var allianceButtons: [UIButton]!
     @IBOutlet weak var noShowButton: UIButton!
     
-    var m:Match = Match()
+    var m:Match = StrongMatch()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
