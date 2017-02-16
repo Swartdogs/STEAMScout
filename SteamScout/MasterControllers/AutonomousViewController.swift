@@ -9,12 +9,44 @@
 import UIKit
 
 class AutonomousViewController: UIViewController {
+    var HgsSaveValue:Float = 3.0
+    var LgsSaveValue:Float = 3.0
     @IBOutlet weak var NoAttemptHighGoal: UIButton!
     @IBOutlet weak var NoAttemptLowGoal: UIButton!
     @IBOutlet weak var LeftLift: UIButton!
     @IBOutlet weak var RightLift: UIButton!
     @IBOutlet weak var CenterLift: UIButton!
     @IBOutlet weak var NoGearPlaced: UIButton!
+    @IBOutlet weak var HighGoalSlider: UISlider!
+    @IBOutlet weak var LowGoalSlider: UISlider!
+    @IBAction func NoAttemptHighGoalPressed(_ sender: UIButton) {
+        if NoAttemptHighGoal.isSelected {
+            NoAttemptHighGoal.isSelected = false
+            HighGoalSlider.value = HgsSaveValue
+        }
+        else {
+            HgsSaveValue = HighGoalSlider.value
+            NoAttemptHighGoal.isSelected = true
+            HighGoalSlider.value = 3
+        }
+    }
+    @IBAction func LowGoalNoAttemptPressed(_ sender: UIButton) {
+        if NoAttemptLowGoal.isSelected{
+            NoAttemptLowGoal.isSelected = false
+            LowGoalSlider.value = LgsSaveValue
+        }
+        else {
+            LgsSaveValue = LowGoalSlider.value
+            NoAttemptLowGoal.isSelected = true
+            LowGoalSlider.value = 3
+        }
+    }
+    @IBAction func HighGoalValueChanged(_ sender: UISlider) {
+        NoAttemptHighGoal.isSelected = false
+    }
+    @IBAction func LowGoalValueChanged(_ sender: UISlider) {
+        NoAttemptLowGoal.isSelected = false
+    }
     @IBAction func NoGearPlacedPressed(_ sender: UIButton) {
         if NoGearPlaced.isSelected {
             NoGearPlaced.isSelected = false
@@ -26,23 +58,6 @@ class AutonomousViewController: UIViewController {
             CenterLift.isSelected = false
         }
     }
-    @IBAction func HighGoalHighlight(_ sender: UIButton) {
-        if NoAttemptHighGoal.isSelected {
-            NoAttemptHighGoal.isSelected = false
-        }
-        else {
-            NoAttemptHighGoal.isSelected = true
-        }
-    }
-    @IBAction func LowGoalHighLight(_ sender: UIButton) {
-        if NoAttemptLowGoal.isSelected {
-            NoAttemptLowGoal.isSelected = false
-        }
-        else {
-            NoAttemptLowGoal.isSelected = true
-        }
-    }
- 
     @IBAction func LeftLiftPressed(_ sender: UIButton) {
         if LeftLift.isSelected {
             LeftLift.isSelected = false
@@ -80,8 +95,11 @@ class AutonomousViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        HighGoalSlider.maximumValue = 5
+        HighGoalSlider.minimumValue = 1
+        LowGoalSlider.maximumValue = 5
+        LowGoalSlider.minimumValue = 1
+       
     }
 
 
