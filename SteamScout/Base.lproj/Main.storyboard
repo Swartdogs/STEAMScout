@@ -256,10 +256,10 @@
             </objects>
             <point key="canvasLocation" x="4162" y="407"/>
         </scene>
-        <!--View Controller-->
+        <!--Penalty-->
         <scene sceneID="ak4-LE-56g">
             <objects>
-                <viewController id="6RP-RV-QZM" sceneMemberID="viewController">
+                <viewController title="Penalty" id="6RP-RV-QZM" customClass="PenaltyViewController" customModule="SteamScout" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MBc-gi-coB"/>
                         <viewControllerLayoutGuide type="bottom" id="RMx-Cl-uR8"/>
@@ -286,6 +286,9 @@
                                                                 <integer key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="YellowCardPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="wpb-zX-sjO"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
@@ -302,6 +305,9 @@
                                                                 <integer key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="RedCardPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="WK3-js-qDK"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
@@ -328,6 +334,9 @@
                                                                 <integer key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="FoulPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="lba-KA-zB6"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
@@ -344,6 +353,9 @@
                                                                 <integer key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="TechnicalFoulPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="Gz7-Jm-A6H"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
@@ -372,6 +384,12 @@
                     <value key="contentSizeForViewInPopover" type="size" width="300" height="200"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="300" height="200"/>
+                    <connections>
+                        <outlet property="Foul" destination="W4h-Ic-G2X" id="LkA-3x-ll7"/>
+                        <outlet property="RedCard" destination="PbB-cB-f6O" id="0g1-Pv-480"/>
+                        <outlet property="TechnicalFoul" destination="cur-iQ-WYB" id="oxq-rC-ms1"/>
+                        <outlet property="YellowCard" destination="PFv-x0-OQM" id="vZS-E6-sSc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pM6-rT-PXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -661,11 +679,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Final Result View" id="iPM-9x-gYS">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="day-Su-w1t">
-                            <connections>
-                                <segue destination="iXc-Xs-f00" kind="unwind" identifier="unwindToFieldDataEntryView" unwindAction="unwindToFieldDataEntryView:" id="tpN-76-FI3"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="b7S-sn-O2j">
                             <connections>
                                 <segue destination="iXc-Xs-f00" kind="unwind" identifier="unwindToMatchView" unwindAction="unwindToMatchView:" id="L1z-dv-bqc"/>
@@ -1191,6 +1204,9 @@
                                                             <constraint firstAttribute="width" constant="550" id="gZG-1E-f5s"/>
                                                         </constraints>
                                                         <state key="normal" title="No gear placed"/>
+                                                        <connections>
+                                                            <action selector="NoGearPlacedPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="dGR-5k-5RY"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -1312,12 +1328,15 @@
                                                                             <constraint firstAttribute="height" priority="750" constant="133.5" id="3nZ-ZY-i2Z"/>
                                                                             <constraint firstAttribute="width" constant="300" id="B4p-FT-dvU"/>
                                                                         </constraints>
+                                                                        <connections>
+                                                                            <action selector="HighGoalValueChanged:" destination="lWd-9t-egS" eventType="valueChanged" id="pbW-UO-86G"/>
+                                                                        </connections>
                                                                     </slider>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdZ-9j-c9b">
                                                                         <rect key="frame" x="300" y="0.0" width="216" height="125.5"/>
                                                                         <state key="normal" title="No Attempt"/>
                                                                         <connections>
-                                                                            <action selector="HighGoalHighlight:" destination="lWd-9t-egS" eventType="touchUpInside" id="THE-vj-zNS"/>
+                                                                            <action selector="NoAttemptHighGoalPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="dJ0-WY-nE6"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -1327,12 +1346,15 @@
                                                                 <subviews>
                                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="j7y-s8-IXs">
                                                                         <rect key="frame" x="-2" y="0.0" width="304" height="126.5"/>
+                                                                        <connections>
+                                                                            <action selector="LowGoalValueChanged:" destination="lWd-9t-egS" eventType="valueChanged" id="AbT-9l-kua"/>
+                                                                        </connections>
                                                                     </slider>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rud-FT-YPX">
                                                                         <rect key="frame" x="300" y="0.0" width="216" height="125.5"/>
                                                                         <state key="normal" title="No Attempt"/>
                                                                         <connections>
-                                                                            <action selector="LowGoalHighLight:" destination="lWd-9t-egS" eventType="touchUpInside" id="hRn-y5-pWR"/>
+                                                                            <action selector="LowGoalNoAttemptPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="EyI-Pl-703"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -1393,9 +1415,12 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="CenterLift" destination="3Zb-f8-Xdw" id="K0H-2g-cQN"/>
+                        <outlet property="HighGoalSlider" destination="DhQ-5G-dwq" id="7qR-by-HjL"/>
                         <outlet property="LeftLift" destination="BCi-m0-hgg" id="1To-8R-XaG"/>
+                        <outlet property="LowGoalSlider" destination="j7y-s8-IXs" id="Z3u-Uq-FGk"/>
                         <outlet property="NoAttemptHighGoal" destination="AdZ-9j-c9b" id="gf5-zk-mRy"/>
                         <outlet property="NoAttemptLowGoal" destination="Rud-FT-YPX" id="9Ep-wf-vPU"/>
+                        <outlet property="NoGearPlaced" destination="TbT-Dv-2V1" id="brz-NV-3mT"/>
                         <outlet property="RightLift" destination="jhT-vf-eEg" id="HNH-YB-21Z"/>
                     </connections>
                 </viewController>
@@ -1811,7 +1836,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="J5x-uL-Uxx"/>
-        <segue reference="pMA-Qb-jdF"/>
         <segue reference="g4S-49-J8N"/>
+        <segue reference="pMA-Qb-jdF"/>
     </inferredMetricsTieBreakers>
 </document>
