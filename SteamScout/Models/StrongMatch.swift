@@ -11,14 +11,7 @@ import SwiftyJSON
 
 typealias ScoreStat = (scored:Int, missed:Int)
 
-class StrongMatch : NSObject, Match {
-    
-    // Team Info
-    
-    var teamNumber:Int = -1
-    var matchNumber:Int = -1
-    var alliance:AllianceType = .unknown
-    var isCompleted:Int = 32
+class StrongMatch : MatchImpl, Actionable, NSCoding {
     
     // Auto Scoring Info
     
@@ -29,14 +22,6 @@ class StrongMatch : NSObject, Match {
     var autoDefenses:ScoreStat  = (0, 0)
     
     // Scoring Info
-    
-//    var scoreHigh:Int = 0
-//    var scoreLow:Int = 0
-//    var scoreMissedHigh:Int = 0
-//    var scoreMissedLow:Int = 0
-//    var scoredBatters:Int = 0
-//    var scoredMiddle:Int = 0
-//    var scoredDefenses:Int = 0
     
     var teleHigh:ScoreStat      = (0, 0)
     var teleLow:ScoreStat       = (0, 0)
@@ -59,17 +44,7 @@ class StrongMatch : NSObject, Match {
     
     // Final Info
     
-    var finalScore:Int = -1
-    var finalRankingPoints:Int = -1
-    var finalResult:ResultType = .none
-    var finalPenaltyScore:Int = 0
-    var finalFouls = 0
-    var finalTechFouls = 0
-    var finalYellowCards = 0
-    var finalRedCards = 0
-    var finalRobot:RobotState = .None
     var finalConfiguration:FinalConfigType = .none
-    var finalComments = ""
     
     func aggregateActionsPerformed() {
         self.teleHigh      = (0, 0)
@@ -267,6 +242,8 @@ class StrongMatch : NSObject, Match {
     
     required init?(coder aDecoder: NSCoder) {
         
+        super.init()
+        
         // Team Information
         self.teamNumber  = aDecoder.decodeInteger(forKey: "teamNumber")
         self.matchNumber = aDecoder.decodeInteger(forKey: "matchNumber")
@@ -338,17 +315,16 @@ class StrongMatch : NSObject, Match {
         self.finalComments      = (aDecoder.decodeObject(forKey: "finalComments") as? String) ?? ""
     }
     
-    override init() {
-        // init
-    }
-    
     required init(queueData:MatchQueueData) {
-        self.matchNumber = queueData.matchNumber
-        self.teamNumber  = queueData.teamNumber
-        self.alliance    = queueData.alliance
+        super.init(queueData:queueData)
     }
     
-    var messageDictionary:NSDictionary {
+    required init() {
+        // Init
+        super.init()
+    }
+    
+    override var messageDictionary:Dictionary<String, AnyObject> {
         var data:[String:AnyObject]    = [String:AnyObject]()
         var team:[String:AnyObject]    = [String:AnyObject]()
         var auto:[String:AnyObject]    = [String:AnyObject]()
@@ -413,10 +389,10 @@ class StrongMatch : NSObject, Match {
         data["defense"] = defense as AnyObject?
         data["final"]   = final as AnyObject?
         
-        return data as NSDictionary;
+        return data
     }
     
-    static var csvHeader:String {
+    override class var csvHeader:String {
         var matchHeader = ""
         
         matchHeader += "Match Number, Team Number, Alliance, "
@@ -452,7 +428,7 @@ class StrongMatch : NSObject, Match {
         return matchHeader
     }
     
-    var csvMatch:String {
+    override var csvMatch:String {
         var matchData = ""
         let match = JSON(messageDictionary)
         
@@ -485,7 +461,7 @@ class StrongMatch : NSObject, Match {
         return matchData
     }
     
-    func updateMatchForType(_ type:UpdateType, match:Match) {
+    override func updateForType(_ type:UpdateType, withMatch match:Match) {
         let m = match as! StrongMatch
         switch type {
         case .teamInfo:
@@ -540,7 +516,7 @@ class StrongMatch : NSObject, Match {
         actionsPerformed.append(action)
     }
     
-    func aggregateMatchData() {
+    override func aggregateMatchData() {
         aggregateActionsPerformed()
     }
 }
