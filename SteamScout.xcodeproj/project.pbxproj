@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C00684601E52A2A300C8F009 /* AutonomousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C006845F1E52A2A300C8F009 /* AutonomousViewController.swift */; };
+		C02BCF7D1E52A046000E3CD2 /* TeleopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BCF7C1E52A045000E3CD2 /* TeleopViewController.swift */; };
+		C032AFA91E55386400EC797C /* PenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032AFA81E55386400EC797C /* PenaltyViewController.swift */; };
 		C43EFFAA1E38270A00BC2BB9 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */; };
 		C43EFFAB1E38270A00BC2BB9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA61E38270A00BC2BB9 /* Definitions.swift */; };
 		C43EFFAC1E38270A00BC2BB9 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA71E38270A00BC2BB9 /* Match.swift */; };
@@ -16,7 +19,6 @@
 		C44A80D91E356EBA00BA367B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A80D71E356EBA00BA367B /* Main.storyboard */; };
 		C44A80DB1E356EBA00BA367B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44A80DA1E356EBA00BA367B /* Assets.xcassets */; };
 		C44A80DE1E356EBA00BA367B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A80DC1E356EBA00BA367B /* LaunchScreen.storyboard */; };
-		C44A81031E356FEC00BA367B /* Main_old.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A81011E356FEC00BA367B /* Main_old.storyboard */; };
 		C44A81061E35D31100BA367B /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A81041E35D31100BA367B /* Results.storyboard */; };
 		C44A810C1E35D32500BA367B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81081E35D32500BA367B /* Event.swift */; };
 		C44A810D1E35D32500BA367B /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81091E35D32500BA367B /* EventStore.swift */; };
@@ -40,6 +42,7 @@
 		C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812D1E35D33800BA367B /* themeDefinitions.swift */; };
 		C4D61D2D1E35E39400320E1D /* SteamScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */; };
 		C4D61D2E1E35E39F00320E1D /* SteamScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */; };
+		C4F889B01E5424BB00DC0826 /* StrongMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F889AF1E5424BB00DC0826 /* StrongMatch.swift */; };
 		EF06B7CFEDC58552F68BE5D1 /* Pods_SteamScout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +67,9 @@
 		27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamScout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E93E7F5A26E313A9018C132 /* Pods-SteamScout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamScout.release.xcconfig"; path = "Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout.release.xcconfig"; sourceTree = "<group>"; };
 		71422EE919DB60A15D7A3C10 /* Pods-SteamScout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamScout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout.debug.xcconfig"; sourceTree = "<group>"; };
+		C006845F1E52A2A300C8F009 /* AutonomousViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutonomousViewController.swift; sourceTree = "<group>"; };
+		C02BCF7C1E52A045000E3CD2 /* TeleopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleopViewController.swift; sourceTree = "<group>"; };
+		C032AFA81E55386400EC797C /* PenaltyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PenaltyViewController.swift; sourceTree = "<group>"; };
 		C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		C43EFFA61E38270A00BC2BB9 /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		C43EFFA71E38270A00BC2BB9 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
@@ -78,7 +84,6 @@
 		C44A80DF1E356EBA00BA367B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C44A80E41E356EBA00BA367B /* SteamScoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamScoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44A80EF1E356EBA00BA367B /* SteamScoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamScoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C44A81021E356FEC00BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_old.storyboard; sourceTree = "<group>"; };
 		C44A81051E35D31100BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Results.storyboard; sourceTree = "<group>"; };
 		C44A81081E35D32500BA367B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Event.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C44A81091E35D32500BA367B /* EventStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventStore.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -104,6 +109,7 @@
 		C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamScoutTests.swift; sourceTree = "<group>"; };
 		C4D61D291E35E38100320E1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamScoutUITests.swift; sourceTree = "<group>"; };
+		C4F889AF1E5424BB00DC0826 /* StrongMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrongMatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +197,7 @@
 		C44A81071E35D32500BA367B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C4F889AF1E5424BB00DC0826 /* StrongMatch.swift */,
 				C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */,
 				C43EFFA61E38270A00BC2BB9 /* Definitions.swift */,
 				C43EFFA71E38270A00BC2BB9 /* Match.swift */,
@@ -231,6 +238,9 @@
 				C44A81211E35D33100BA367B /* MasterViewController.swift */,
 				C44A81221E35D33100BA367B /* ScheduleViewController.swift */,
 				C44A81231E35D33100BA367B /* ToolsViewController.swift */,
+				C02BCF7C1E52A045000E3CD2 /* TeleopViewController.swift */,
+				C006845F1E52A2A300C8F009 /* AutonomousViewController.swift */,
+				C032AFA81E55386400EC797C /* PenaltyViewController.swift */,
 			);
 			path = MasterControllers;
 			sourceTree = "<group>";
@@ -252,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				C44A81041E35D31100BA367B /* Results.storyboard */,
-				C44A81011E356FEC00BA367B /* Main_old.storyboard */,
 				C44A80D71E356EBA00BA367B /* Main.storyboard */,
 				C44A80DC1E356EBA00BA367B /* LaunchScreen.storyboard */,
 			);
@@ -389,7 +398,6 @@
 			files = (
 				C44A80DE1E356EBA00BA367B /* LaunchScreen.storyboard in Resources */,
 				C44A81061E35D31100BA367B /* Results.storyboard in Resources */,
-				C44A81031E356FEC00BA367B /* Main_old.storyboard in Resources */,
 				C44A80DB1E356EBA00BA367B /* Assets.xcassets in Resources */,
 				C44A80D91E356EBA00BA367B /* Main.storyboard in Resources */,
 			);
@@ -467,8 +475,11 @@
 				C43EFFAA1E38270A00BC2BB9 /* SessionStore.swift in Sources */,
 				C44A81301E35D33800BA367B /* MatchCell.swift in Sources */,
 				C44A81251E35D33100BA367B /* ScheduleViewController.swift in Sources */,
+				C4F889B01E5424BB00DC0826 /* StrongMatch.swift in Sources */,
 				C44A810F1E35D32500BA367B /* ScheduleStore.swift in Sources */,
 				C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */,
+				C02BCF7D1E52A046000E3CD2 /* TeleopViewController.swift in Sources */,
+				C00684601E52A2A300C8F009 /* AutonomousViewController.swift in Sources */,
 				C44A81191E35D32C00BA367B /* FinalViewController.swift in Sources */,
 				C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */,
 				C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */,
@@ -489,6 +500,7 @@
 				C44A81241E35D33100BA367B /* MasterViewController.swift in Sources */,
 				C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */,
 				C44A811F1E35D32C00BA367B /* ResultsTeleopViewController.swift in Sources */,
+				C032AFA91E55386400EC797C /* PenaltyViewController.swift in Sources */,
 				C43EFFAD1E38270A00BC2BB9 /* MatchStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,14 +553,6 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		C44A81011E356FEC00BA367B /* Main_old.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C44A81021E356FEC00BA367B /* Base */,
-			);
-			name = Main_old.storyboard;
-			sourceTree = "<group>";
-		};
 		C44A81041E35D31100BA367B /* Results.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -563,7 +567,7 @@
 		C44A80F61E356EBA00BA367B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -614,7 +618,7 @@
 		C44A80F71E356EBA00BA367B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
