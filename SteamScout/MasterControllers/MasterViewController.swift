@@ -60,7 +60,7 @@ class MasterViewController: UITableViewController {
             MatchStore.sharedStore.createMatch(StrongMatch.self, onComplete:nil)
         } else if segue.identifier == "segueToMatchQueue" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                MatchStore.sharedStore.createMatchFromQueueIndex(indexPath.row)
+                MatchStore.sharedStore.createMatchFromQueueIndex(indexPath.row, withType: StrongMatch.self, onComplete: nil)
             }
         }
     }

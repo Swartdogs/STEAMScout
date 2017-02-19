@@ -136,13 +136,14 @@ class MatchStore: AnyObject {
         handler?(currentMatch!)
     }
     
-    func createMatchFromQueueIndex(_ index:Int) {
+    func createMatchFromQueueIndex(_ index:Int, withType returningType:MatchImpl.Type, onComplete handler:((Match) -> ())?) {
         guard 0..<matchesToScout.count ~= index else { return }
         let data = matchesToScout[index]
-        currentMatch = StrongMatch(queueData: data)
+        currentMatch = returningType.init(queueData: data)
         currentMatchIndex = index
         actionsUndo.clearAll()
         actionsRedo.clearAll()
+        handler?(currentMatch!)
     }
     
     func addMatch(_ newMatch:Match) {
@@ -156,9 +157,10 @@ class MatchStore: AnyObject {
         actionsRedo.clearAll()
     }
     
-    func containsMatch(_ match:Match) -> Bool {
+    func containsMatch(_ match:MatchImpl) -> Bool {
         for m in allMatches {
-            if m.teamNumber == match.teamNumber && m.matchNumber == match.matchNumber {
+            guard let mm = m as? MatchImpl else { continue }
+            if mm == match {
                 return true
             }
         }
