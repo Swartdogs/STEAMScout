@@ -357,6 +357,7 @@
 				TargetAttributes = {
 					C44A80CD1E356EBA00BA367B = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 6573K2G85U;
 						ProvisioningStyle = Automatic;
 					};
 					C44A80E31E356EBA00BA367B = {
@@ -665,6 +666,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6573K2G85U;
 				INFOPLIST_FILE = SteamScout/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -681,6 +683,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6573K2G85U;
 				INFOPLIST_FILE = SteamScout/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

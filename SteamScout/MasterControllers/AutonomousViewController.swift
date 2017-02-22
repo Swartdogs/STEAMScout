@@ -9,8 +9,8 @@
 import UIKit
 
 class AutonomousViewController: UIViewController {
-    var HgsSaveValue:Float = 3.0
-    var LgsSaveValue:Float = 3.0
+    var HgsSaveValue:Float = 50.0
+    var LgsSaveValue:Float = 50.0
     @IBOutlet weak var NoAttemptHighGoal: UIButton!
     @IBOutlet weak var NoAttemptLowGoal: UIButton!
     @IBOutlet weak var LeftLift: UIButton!
@@ -27,7 +27,7 @@ class AutonomousViewController: UIViewController {
         else {
             HgsSaveValue = HighGoalSlider.value
             NoAttemptHighGoal.isSelected = true
-            HighGoalSlider.value = 3
+            HighGoalSlider.value = 50
         }
     }
     @IBAction func LowGoalNoAttemptPressed(_ sender: UIButton) {
@@ -38,7 +38,7 @@ class AutonomousViewController: UIViewController {
         else {
             LgsSaveValue = LowGoalSlider.value
             NoAttemptLowGoal.isSelected = true
-            LowGoalSlider.value = 3
+            LowGoalSlider.value = 50
         }
     }
     @IBAction func HighGoalValueChanged(_ sender: UISlider) {
@@ -95,10 +95,10 @@ class AutonomousViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        HighGoalSlider.maximumValue = 5
-        HighGoalSlider.minimumValue = 1
-        LowGoalSlider.maximumValue = 5
-        LowGoalSlider.minimumValue = 1
+        HighGoalSlider.maximumValue = 100
+        HighGoalSlider.minimumValue = 0
+        LowGoalSlider.maximumValue = 100
+        LowGoalSlider.minimumValue = 0
        
     }
 
