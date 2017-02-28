@@ -54,25 +54,6 @@
             </objects>
             <point key="canvasLocation" x="709" y="129"/>
         </scene>
-        <!--Match Summary-->
-        <scene sceneID="0sl-R9-vfM">
-            <objects>
-                <viewController id="aAW-yS-Ega" customClass="CustomContainerArrayView" customModule="SteamScout" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qTR-mx-0cQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Vro-um-kz0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3T1-Nk-gUh">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Match Summary" id="7RB-hy-5EI"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zTp-RB-8NN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="709" y="824"/>
-        </scene>
         <!--Teleop-->
         <scene sceneID="boq-28-WDP">
             <objects>
@@ -1054,6 +1035,7 @@
                                 <connections>
                                     <outlet property="matchNumber" destination="oGo-Ti-CWI" id="PYF-F2-Aqi"/>
                                     <outlet property="teamNumber" destination="49K-Nd-CpO" id="6Jo-5h-YK1"/>
+                                    <segue destination="J0K-Mu-L1h" kind="presentation" identifier="showMatchSummary" id="C0S-ez-51Z"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1093,9 +1075,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="clearExportButton" destination="zzq-lg-ULG" id="Ggt-Of-sdd"/>
-                        <segue destination="OxB-HH-Iht" kind="showDetail" identifier="showMatchSummary" id="DsS-sV-Hyu">
-                            <nil key="action"/>
-                        </segue>
                         <segue destination="TRq-fW-bRh" kind="presentation" identifier="segueToMatchQueue" id="wEF-ya-4OM"/>
                     </connections>
                 </tableViewController>
@@ -1778,6 +1757,14 @@
             </objects>
             <point key="canvasLocation" x="2093" y="-622"/>
         </scene>
+        <!--Results-->
+        <scene sceneID="gUj-Be-f2E">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Results" id="J0K-Mu-L1h" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BBj-ao-i9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="792" y="-1165"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="F4Y-Fk-b4v">
             <objects>
@@ -1834,25 +1821,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AoH-Kc-4hu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1401" y="-614"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Dfw-2S-xXl">
-            <objects>
-                <navigationController storyboardIdentifier="asdfas" automaticallyAdjustsScrollViewInsets="NO" id="OxB-HH-Iht" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="EVA-8V-DrR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aAW-yS-Ega" kind="relationship" relationship="rootViewController" id="iPh-Vz-Ikg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rl5-Fo-mN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-45" y="824"/>
         </scene>
     </scenes>
     <resources>
