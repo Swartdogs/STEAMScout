@@ -442,19 +442,23 @@ class StrongMatch : MatchImpl, Actionable {
 
 class StrongMatchEncodingHelper : MatchEncodingHelper {
     
+    override init(match:Match) {
+        super.init(match: match)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         
         // use decoder to get dictionary
         guard let pList = aDecoder.decodeObject(forKey: "pListData") as? [String:AnyObject] else {
-            match = nil
             super.init()
+            match = nil
             return
         }
         
+        super.init()
+        
         // convert dictionary to match here
         match = StrongMatch(withPList: pList)
-        
-        super.init()
     }
     
     override func propertyListRepresentation() throws -> [String:AnyObject] {
