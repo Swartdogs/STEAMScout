@@ -1,5 +1,5 @@
 //
-//  Match.swift
+//  StrongMatch.swift
 //  StrongScout
 //
 //  Created by Srinivas Dhanwada on 2/6/16.
