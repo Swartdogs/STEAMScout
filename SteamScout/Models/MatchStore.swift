@@ -24,7 +24,14 @@ class MatchStore: AnyObject {
     var actionsRedo:Stack<ActionEdit> = Stack<ActionEdit>(limit: 1)
     
     init() {
-        allMatches = NSKeyedUnarchiver.unarchiveObject(withFile: self.matchArchivePath) as? [Match] ?? allMatches
+        allMatches = []
+        let matchData = NSKeyedUnarchiver.unarchiveObject(withFile: self.matchArchivePath) as? [MatchEncodingHelper] ?? [MatchEncodingHelper]()
+        for helper in matchData {
+            if let m = helper.match {
+                allMatches.append(m)
+            }
+        }
+        
         let queueData = NSKeyedUnarchiver.unarchiveObject(withFile: self.match2ScoutArchivePath) as? [NSDictionary]
         if let qD = queueData {
             for d in qD {
@@ -82,7 +89,12 @@ class MatchStore: AnyObject {
         
         NSKeyedArchiver.archiveRootObject(queueData, toFile: path2)
         
-        return NSKeyedArchiver.archiveRootObject(allMatches, toFile: path)
+        var matchData = [MatchEncodingHelper]()
+        for m in allMatches {
+            matchData.append(m.encodingHelper)
+        }
+        
+        return NSKeyedArchiver.archiveRootObject(matchData, toFile: path)
     }
     
     func writeCSVFile() -> Bool {
