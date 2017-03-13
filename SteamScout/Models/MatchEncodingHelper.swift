@@ -16,9 +16,13 @@ enum MatchEncodingError : Error {
 class MatchEncodingHelper : NSObject, NSCoding {
     var match:Match?
     
+    override init() {
+        super.init()
+    }
+    
     init(match:Match) {
-        self.match = match;
-        super.init();
+        self.match = match
+        super.init()
     }
     
     required init?(coder aDecoder: NSCoder) {
