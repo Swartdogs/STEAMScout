@@ -10,6 +10,7 @@
 		C00684601E52A2A300C8F009 /* AutonomousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C006845F1E52A2A300C8F009 /* AutonomousViewController.swift */; };
 		C02BCF7D1E52A046000E3CD2 /* TeleopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BCF7C1E52A045000E3CD2 /* TeleopViewController.swift */; };
 		C032AFA91E55386400EC797C /* PenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032AFA81E55386400EC797C /* PenaltyViewController.swift */; };
+		C402A8E21E762653003817FF /* MatchEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8E11E762653003817FF /* MatchEncodingHelper.swift */; };
 		C43EFFAA1E38270A00BC2BB9 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */; };
 		C43EFFAB1E38270A00BC2BB9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA61E38270A00BC2BB9 /* Definitions.swift */; };
 		C43EFFAC1E38270A00BC2BB9 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA71E38270A00BC2BB9 /* Match.swift */; };
@@ -70,6 +71,7 @@
 		C006845F1E52A2A300C8F009 /* AutonomousViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutonomousViewController.swift; sourceTree = "<group>"; };
 		C02BCF7C1E52A045000E3CD2 /* TeleopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleopViewController.swift; sourceTree = "<group>"; };
 		C032AFA81E55386400EC797C /* PenaltyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PenaltyViewController.swift; sourceTree = "<group>"; };
+		C402A8E11E762653003817FF /* MatchEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchEncodingHelper.swift; sourceTree = "<group>"; };
 		C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		C43EFFA61E38270A00BC2BB9 /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		C43EFFA71E38270A00BC2BB9 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */,
 				C43EFFA61E38270A00BC2BB9 /* Definitions.swift */,
 				C43EFFA71E38270A00BC2BB9 /* Match.swift */,
+				C402A8E11E762653003817FF /* MatchEncodingHelper.swift */,
 				C43EFFA81E38270A00BC2BB9 /* MatchStore.swift */,
 				C44A81081E35D32500BA367B /* Event.swift */,
 				C44A81091E35D32500BA367B /* EventStore.swift */,
@@ -480,6 +483,7 @@
 				C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */,
 				C02BCF7D1E52A046000E3CD2 /* TeleopViewController.swift in Sources */,
 				C00684601E52A2A300C8F009 /* AutonomousViewController.swift in Sources */,
+				C402A8E21E762653003817FF /* MatchEncodingHelper.swift in Sources */,
 				C44A81191E35D32C00BA367B /* FinalViewController.swift in Sources */,
 				C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */,
 				C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */,
