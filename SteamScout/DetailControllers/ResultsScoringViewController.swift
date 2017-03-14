@@ -22,7 +22,7 @@ class ResultsScoringViewController: UIViewController {
     @IBOutlet weak var autoScoreCourtyard: UILabel!
     @IBOutlet weak var autoScoreDefenses: UILabel!
     
-    var match:Match!
+    var match:StrongMatch = StrongMatch()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -47,9 +47,9 @@ class MasterViewController: UITableViewController {
                 let sr = storyboard.instantiateViewController(withIdentifier: "ResultsScoringViewController") as! ResultsScoringViewController
                 let tr = storyboard.instantiateViewController(withIdentifier: "ResultsTeleopViewController") as! ResultsTeleopViewController
                 let mr = storyboard.instantiateViewController(withIdentifier: "ResultsMatchInfoViewController") as! ResultsMatchInfoViewController
-                sr.match = match
-                tr.match = match
-                mr.match = match
+                sr.match = match as! StrongMatch
+                tr.match = match as! StrongMatch
+                mr.match = match as! StrongMatch
                 let controller = (segue.destination as! UINavigationController).topViewController as! CustomContainerArrayView
                 controller.views = [sr, tr, mr]
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
@@ -57,10 +57,10 @@ class MasterViewController: UITableViewController {
                 controller.navigationItem.title = "Match: \(match.matchNumber) Team: \(match.teamNumber)"
             }
         } else if segue.identifier == "SegueToNewMatch" {
-            MatchStore.sharedStore.createMatch()
+            MatchStore.sharedStore.createMatch(SteamMatch.self, onComplete:nil)
         } else if segue.identifier == "segueToMatchQueue" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                MatchStore.sharedStore.createMatchFromQueueIndex(indexPath.row)
+                MatchStore.sharedStore.createMatchFromQueueIndex(indexPath.row, withType: SteamMatch.self, onComplete: nil)
             }
         }
     }

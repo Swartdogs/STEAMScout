@@ -8,14 +8,14 @@
 
 import UIKit
 
-class MatchStore: NSObject {
+class MatchStore: AnyObject {
     
     static let sharedStore:MatchStore = MatchStore()
     
     var allMatches:[Match] = []
     var matchesToScout:[MatchQueueData] = []
     var currentMatchIndex = -1
-    var currentMatch:Match?
+    var currentMatch:MatchImpl?
     var fieldLayout:FieldLayoutType = .blueRed
     
     // Action Edit
@@ -23,15 +23,21 @@ class MatchStore: NSObject {
     var actionsUndo:Stack<ActionEdit> = Stack<ActionEdit>(limit: 1)
     var actionsRedo:Stack<ActionEdit> = Stack<ActionEdit>(limit: 1)
     
-    override init() {
-        super.init()
+    init() {
+        allMatches = []
+        let matchData = NSKeyedUnarchiver.unarchiveObject(withFile: self.matchArchivePath) as? [MatchEncodingHelper] ?? [MatchEncodingHelper]()
+        for helper in matchData {
+            if let m = helper.match {
+                allMatches.append(m)
+            }
+        }
         
-        allMatches = NSKeyedUnarchiver.unarchiveObject(withFile: self.matchArchivePath()) as? [Match] ?? allMatches
-        let queueData = NSKeyedUnarchiver.unarchiveObject(withFile: self.match2ScoutArchivePath()) as? [NSDictionary]
+        let queueData = NSKeyedUnarchiver.unarchiveObject(withFile: self.match2ScoutArchivePath) as? [NSDictionary]
         if let qD = queueData {
             for d in qD {
-                let mqd = MatchQueueData(propertyListRepresentation: d)!
-                matchesToScout.append(mqd)
+                if let mqd = MatchQueueData(propertyListRepresentation: d) {
+                    matchesToScout.append(mqd)
+                }
             }
         }
         
@@ -42,23 +48,16 @@ class MatchStore: NSObject {
             print("Match Data successfully Loaded")
         }
         
-        //let currentMatchData = NSUserDefaults.standardUserDefaults().objectForKey("StrongScout.currentMatch") as? NSData
-        let fieldLayout = UserDefaults.standard.integer(forKey: "StrongScout.fieldLayout")
+        let fieldLayout = UserDefaults.standard.integer(forKey: "SteamScout.fieldLayout")
         self.fieldLayout = FieldLayoutType(rawValue: fieldLayout)!
-        
-//        if currentMatchData == nil {
-//            currentMatch = nil
-//        } else {
-//            currentMatch = NSKeyedUnarchiver.unarchiveObjectWithData(currentMatchData!) as? Match
-//        }
     }
     
-    func matchArchivePath() -> String {
+    var matchArchivePath:String {
         let documentFolder = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         return (documentFolder as NSString).appendingPathComponent("Match.archive")
     }
     
-    func match2ScoutArchivePath() -> String {
+    var match2ScoutArchivePath:String {
         let documentFolder = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         return (documentFolder as NSString).appendingPathComponent("MatchQueue.archive")
     }
@@ -68,7 +67,7 @@ class MatchStore: NSObject {
         return (documentFolder as NSString).appendingPathComponent(filename)
     }
     
-    func csvFilePath() -> String {
+    var csvFilePath:String {
         let documentFolder = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
         return (documentFolder as NSString).appendingPathComponent("Match data - \(UIDevice.current.name).csv")
     }
@@ -77,12 +76,10 @@ class MatchStore: NSObject {
         if !self.writeCSVFile() {
             return false
         }
-        UserDefaults.standard.set(fieldLayout.rawValue, forKey: "StrongScout.fieldLayout")
-//        saveCurrentMatch()
+        UserDefaults.standard.set(fieldLayout.rawValue, forKey: "SteamScout.fieldLayout")
         
-        let path = self.matchArchivePath()
-        let path2 = self.match2ScoutArchivePath()
-        // let jsonPath = self.filePath("Match.json")
+        let path = self.matchArchivePath
+        let path2 = self.match2ScoutArchivePath
         
         var queueData = [NSDictionary]()
         for mqd in matchesToScout {
@@ -90,41 +87,28 @@ class MatchStore: NSObject {
             queueData.append(d)
         }
         
-        // let data = dataTransferMatchesAll(true)
-        // let string = String(data: data!, encoding: NSUTF8StringEncoding)
-        
-//        do {
-//            try string?.writeToFile(jsonPath, atomically: true, encoding: NSUTF8StringEncoding)
-//        } catch  {
-//            
-//        }
-        
         NSKeyedArchiver.archiveRootObject(queueData, toFile: path2)
         
-        return NSKeyedArchiver.archiveRootObject(allMatches, toFile: path)
+        var matchData = [MatchEncodingHelper]()
+        for m in allMatches {
+            matchData.append(m.encodingHelper)
+        }
+        
+        return NSKeyedArchiver.archiveRootObject(matchData, toFile: path)
     }
-    
-//    func saveCurrentMatch() {
-//        if currentMatch == nil {
-//            NSUserDefaults.standardUserDefaults().setNilValueForKey("StrongScout.currentMatch")
-//        } else {
-//            let currentMatchData = NSKeyedArchiver.archivedDataWithRootObject(currentMatch!)
-//            NSUserDefaults.standardUserDefaults().setValue(currentMatchData, forKey: "StrongScout.currentMatch")
-//        }
-//    }
     
     func writeCSVFile() -> Bool {
         let device = "\(UIDevice.current.name)    \r\n"
         var csvFileString = device
         
-        csvFileString += Match.writeMatchCSVHeader()
+        csvFileString += SteamMatch.csvHeader
         
         for m in allMatches {
-            csvFileString += m.writeMatchCSV() + " \r\n"
+            csvFileString += m.csvMatch + " \r\n"
         }
         
         do {
-            try csvFileString.write(toFile: self.csvFilePath(), atomically: true, encoding: String.Encoding.utf8)
+            try csvFileString.write(toFile: self.csvFilePath, atomically: true, encoding: String.Encoding.utf8)
         } catch {
             return false
         }
@@ -135,22 +119,20 @@ class MatchStore: NSObject {
         
         let device = "\(UIDevice.current.name)  \r\n"
         var csvFileString = device
-        var matchJSONData = [NSDictionary]();
+        var matchJSONData = [Dictionary<String, AnyObject>]();
         
-        csvFileString += Match.writeMatchCSVHeader()
+        csvFileString += SteamMatch.csvHeader
         
-        for m in allMatches {
+        for var m:Match in allMatches {
             if (m.isCompleted & 32) == 32 {
                 m.isCompleted ^= 32
-                csvFileString += m.writeMatchCSV() + " \r\n"
-                matchJSONData.append(m.messageDictionary())
+                csvFileString += m.csvMatch + " \r\n"
+                matchJSONData.append(m.messageDictionary)
             }
         }
         
         do {
             try csvFileString.write(toFile: self.filePath("newMatchData.csv"), atomically: true, encoding: String.Encoding.utf8)
-            // let jsonData = try NSJSONSerialization.dataWithJSONObject(matchJSONData, options: .PrettyPrinted)
-            // jsonData.writeToFile(self.filePath("newMatchData.json"), atomically: true)
         } catch {
             return false
         }
@@ -158,20 +140,22 @@ class MatchStore: NSObject {
         return saveChanges()
     }
     
-    func createMatch() {
-        currentMatch = Match()
+    func createMatch(_ returningType:MatchImpl.Type, onComplete handler:((Match) -> ())?) {
+        currentMatch = returningType.init()
         currentMatchIndex = -1
         actionsUndo.clearAll()
         actionsRedo.clearAll()
+        handler?(currentMatch!)
     }
     
-    func createMatchFromQueueIndex(_ index:Int) {
+    func createMatchFromQueueIndex(_ index:Int, withType returningType:MatchImpl.Type, onComplete handler:((Match) -> ())?) {
         guard 0..<matchesToScout.count ~= index else { return }
         let data = matchesToScout[index]
-        currentMatch = Match(queueData: data)
+        currentMatch = returningType.init(queueData: data)
         currentMatchIndex = index
         actionsUndo.clearAll()
         actionsRedo.clearAll()
+        handler?(currentMatch!)
     }
     
     func addMatch(_ newMatch:Match) {
@@ -185,12 +169,11 @@ class MatchStore: NSObject {
         actionsRedo.clearAll()
     }
     
-    func containsMatch(_ match:Match?) -> Bool {
-        if let search:Match = match {
-            for m in allMatches {
-                if m.teamNumber == search.teamNumber && m.matchNumber == search.matchNumber {
-                    return true
-                }
+    func containsMatch(_ match:MatchImpl) -> Bool {
+        for m in allMatches {
+            guard let mm = m as? MatchImpl else { continue }
+            if mm == match {
+                return true
             }
         }
         return false
@@ -223,66 +206,16 @@ class MatchStore: NSObject {
     }
     
     func updateCurrentMatchForType(_ type:UpdateType, match:Match) {
-        switch type {
-        case .teamInfo:
-            currentMatch?.teamNumber  = match.teamNumber
-            currentMatch?.matchNumber = match.matchNumber
-            currentMatch?.alliance    = match.alliance
-            currentMatch?.isCompleted = match.isCompleted
-            currentMatch?.finalResult = match.finalResult
-            break;
-        case .fieldSetup:
-            currentMatch?.defense1.type = match.defense1.type
-            currentMatch?.defense2.type = match.defense2.type
-            currentMatch?.defense3.type = match.defense3.type
-            currentMatch?.defense4.type = match.defense4.type
-            currentMatch?.defense5.type = match.defense5.type
-            currentMatch?.defenses = [(currentMatch?.defense1)!, (currentMatch?.defense2)!, (currentMatch?.defense3)!, (currentMatch?.defense4)!, (currentMatch?.defense5)!]
-            break;
-        case .finalStats:
-            currentMatch?.finalScore         = match.finalScore
-            currentMatch?.finalRankingPoints = match.finalRankingPoints
-            currentMatch?.finalResult        = match.finalResult
-            currentMatch?.finalPenaltyScore  = match.finalPenaltyScore
-            currentMatch?.finalConfiguration = match.finalConfiguration
-            currentMatch?.finalComments      = match.finalComments
-        case .actionsEdited:
-            currentMatch?.actionsPerformed = match.actionsPerformed
-        default:
-            break;
-        }
+        currentMatch?.updateForType(type, withMatch: match)
     }
     
     func updateCurrentMatchWithAction(_ action:Action) {
-        print("Adding Action: \(action.type)")
-        switch action.data {
-        case let .scoreData(score):
-            print("\tScoreType: \(score.type.toString())")
-            print("\tScoreLoc:  \(score.location.toString())")
-            break
-        case let .defenseData(defense):
-            print("\tDefenseType:   \(defense.type.toString())")
-            print("\tDefenseAction: \(defense.actionPerformed.toString())")
-            if(1...3 ~= defense.actionPerformed.rawValue && action.section == .auto) {
-                currentMatch?.isCompleted |= 8;
-            }
-            break
-        case let .penaltyData(penalty):
-            print("\tPenaltyType: \(penalty.toString())")
-            break
-        default:
-            break
-        }
-        currentMatch?.actionsPerformed.append(action)
-    }
-    
-    func aggregateCurrentMatchData() {
-        if currentMatch == nil { return }
-        currentMatch!.aggregateActionsPerformed()
+        guard let cm:Actionable = currentMatch as? Actionable else { return }
+        cm.updateMatchWithAction(action)
     }
     
     func finishCurrentMatch() {
-        aggregateCurrentMatchData()
+        currentMatch!.aggregateMatchData()
         allMatches.append(currentMatch!)
         if currentMatchIndex >= 0 {
             matchesToScout.remove(at: currentMatchIndex)
@@ -294,10 +227,10 @@ class MatchStore: NSObject {
     }
     
     func dataTransferMatchesAll(_ all:Bool) -> Data? {
-        var matchData = [NSDictionary]()
+        var matchData = [Dictionary<String, AnyObject>]()
         
         for match in allMatches {
-            matchData.append(match.messageDictionary())
+            matchData.append(match.messageDictionary)
         }
         
         return try? JSONSerialization.data(withJSONObject: matchData, options: .prettyPrinted)

@@ -17,7 +17,7 @@ class ResultsTeleopViewController: UIViewController {
     @IBOutlet var defense4: [UILabel]!
     @IBOutlet var defense5: [UILabel]!
     
-    var match:Match!
+    var match:StrongMatch = StrongMatch()
     
     override func viewDidLoad() {
         super.viewDidLoad()

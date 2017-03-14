@@ -7,30 +7,6 @@
 //
 
 import UIKit
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
-
 
 class FinalViewController: UIViewController {
 
@@ -43,7 +19,7 @@ class FinalViewController: UIViewController {
     @IBOutlet weak var FinalCommentsTextView: UITextView!
     @IBOutlet weak var scrollView:UIScrollView!
     
-    fileprivate var match = MatchStore.sharedStore.currentMatch!
+    fileprivate var match = MatchStore.sharedStore.currentMatch as! SteamMatch
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +31,7 @@ class FinalViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        match = MatchStore.sharedStore.currentMatch!
+        match = MatchStore.sharedStore.currentMatch as! SteamMatch
         registerForKeyboardNotifications()
         readyToMoveOn()
         FinalPenaltyScoreTextField.text = "\(match.finalPenaltyScore)"
@@ -142,7 +118,7 @@ class FinalViewController: UIViewController {
     }
 
     @IBAction func FinalScoreEndEdit(_ sender: UITextField) {
-        if sender.text?.characters.count > 0 {
+        if (sender.text?.characters.count)! > 0 {
             match.finalScore = (Int(sender.text!) ?? match.finalScore)!
             sender.text = "\(match.finalScore)"
         }
@@ -152,7 +128,7 @@ class FinalViewController: UIViewController {
     }
     
     @IBAction func FinalRPEndEdit(_ sender: UITextField) {
-        if sender.text?.characters.count > 0 {
+        if (sender.text?.characters.count)! > 0 {
             match.finalRankingPoints = (Int(sender.text!) ?? match.finalRankingPoints)!
             sender.text = "\(match.finalRankingPoints)"
         }
@@ -162,7 +138,7 @@ class FinalViewController: UIViewController {
     }
     
     @IBAction func FinalPenaltyEndEdit(_ sender: UITextField) {
-        if sender.text?.characters.count > 0 {
+        if (sender.text?.characters.count)! > 0 {
             match.finalPenaltyScore = (Int(sender.text!) ?? match.finalPenaltyScore)!
             sender.text = "\(match.finalPenaltyScore)"
         }
