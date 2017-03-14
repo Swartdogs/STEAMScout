@@ -57,10 +57,10 @@ class MasterViewController: UITableViewController {
                 controller.navigationItem.title = "Match: \(match.matchNumber) Team: \(match.teamNumber)"
             }
         } else if segue.identifier == "SegueToNewMatch" {
-            MatchStore.sharedStore.createMatch(StrongMatch.self, onComplete:nil)
+            MatchStore.sharedStore.createMatch(SteamMatch.self, onComplete:nil)
         } else if segue.identifier == "segueToMatchQueue" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                MatchStore.sharedStore.createMatchFromQueueIndex(indexPath.row, withType: StrongMatch.self, onComplete: nil)
+                MatchStore.sharedStore.createMatchFromQueueIndex(indexPath.row, withType: SteamMatch.self, onComplete: nil)
             }
         }
     }

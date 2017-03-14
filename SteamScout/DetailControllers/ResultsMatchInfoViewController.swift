@@ -23,7 +23,7 @@ class ResultsMatchInfoViewController: UIViewController {
     @IBOutlet weak var finalRedCards: UILabel!
     @IBOutlet weak var finalComments: UILabel!
     
-    var match:StrongMatch!
+    var match:StrongMatch = StrongMatch()
     
     override func viewDidLoad() {
         super.viewDidLoad()
