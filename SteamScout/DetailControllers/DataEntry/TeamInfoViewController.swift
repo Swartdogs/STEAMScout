@@ -81,15 +81,11 @@ class TeamInfoViewController: UIViewController {
     }
     
     @IBAction func allianceTap(_ sender: UIButton) {
-        if sender.tag == 0 {
-            m.alliance = .red
-        } else if sender.tag == 1 {
-            m.alliance = .blue
-        } else {
-            m.alliance = .unknown
+        m.alliance = AllianceType(rawValue: sender.tag)!
+        
+        for b in allianceButtons {
+            b.isSelected = b.tag == sender.tag
         }
-        allianceButtons[0].isSelected = m.alliance == .blue
-        allianceButtons[1].isSelected = m.alliance == .red
         self.view.endEditing(true)
         readyToMoveOn()
     }

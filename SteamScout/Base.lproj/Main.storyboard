@@ -908,7 +908,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Su6-xF-eGH" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Su6-xF-eGH" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
                                                 <rect key="frame" x="243" y="0.0" width="242.5" height="131"/>
                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Blue">
@@ -918,7 +918,7 @@
                                                     <action selector="allianceTap:" destination="svD-E9-SOG" eventType="touchUpInside" id="IU7-Wv-L4y"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cf7-ZV-QRV" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cf7-ZV-QRV" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
                                                 <rect key="frame" x="485.5" y="0.0" width="242.5" height="131"/>
                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Red">
@@ -1108,9 +1108,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="clearExportButton" destination="zzq-lg-ULG" id="Ggt-Of-sdd"/>
-                        <segue destination="OxB-HH-Iht" kind="showDetail" identifier="showMatchSummary" id="DsS-sV-Hyu">
-                            <nil key="action"/>
-                        </segue>
+                        <segue destination="OxB-HH-Iht" kind="showDetail" identifier="showMatchSummary" id="DsS-sV-Hyu"/>
                         <segue destination="TRq-fW-bRh" kind="presentation" identifier="segueToMatchQueue" id="wEF-ya-4OM"/>
                     </connections>
                 </tableViewController>

@@ -10,19 +10,18 @@ import UIKit
 
 class ResultsScoringViewController: UIViewController {
 
-    @IBOutlet weak var highGoalsLabel: UILabel!
-    @IBOutlet weak var lowGoalsLabel: UILabel!
-    @IBOutlet weak var scoreBatters: UILabel!
-    @IBOutlet weak var scoreCourtyard: UILabel!
-    @IBOutlet weak var scoreDefenses: UILabel!
+    @IBOutlet weak var teleHighFuelLabel: UILabel!
+    @IBOutlet weak var teleLowFuelLabel: UILabel!
+    @IBOutlet weak var teleGearsScoredLabel: UILabel!
     
-    @IBOutlet weak var autoHighGoalsLabel: UILabel!
-    @IBOutlet weak var autoLowGoalsLabel: UILabel!
-    @IBOutlet weak var autoScoreBatters: UILabel!
-    @IBOutlet weak var autoScoreCourtyard: UILabel!
-    @IBOutlet weak var autoScoreDefenses: UILabel!
+    @IBOutlet weak var autoHighFuelLabel: UILabel!
+    @IBOutlet weak var autoLowFuelLabel: UILabel!
+    @IBOutlet weak var autoBlCrossLabel: UILabel!
+    @IBOutlet weak var autoHTriggerLabel: UILabel!
+    @IBOutlet weak var autoStartPosLabel: UILabel!
+    @IBOutlet weak var autoGearPlaceLabel: UILabel!
     
-    var match:StrongMatch = StrongMatch()
+    var match = SteamMatch()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,17 +34,16 @@ class ResultsScoringViewController: UIViewController {
         
         self.navigationItem.title = "Score Results"
         
-        highGoalsLabel.text = "\(match.teleHigh.scored)/\(match.teleHigh.scored + match.teleHigh.missed)"
-        lowGoalsLabel.text = "\(match.teleLow.scored)/\(match.teleLow.scored + match.teleLow.missed)"
-        scoreBatters.text = "\(match.teleBatters.scored)/\(match.teleBatters.scored + match.teleBatters.missed)"
-        scoreCourtyard.text = "\(match.teleCourtyard.scored)/\(match.teleCourtyard.scored + match.teleCourtyard.missed)"
-        scoreDefenses.text = "\(match.teleDefenses.scored)/\(match.teleDefenses.scored + match.teleDefenses.missed)"
+        autoHighFuelLabel.text = "\(floor(match.autoHighFuelScored))"
+        autoLowFuelLabel.text = "\(floor(match.autoLowFuelScored))"
+        autoBlCrossLabel.text = "\(match.autoBaselineCrossed ? "Yes" : "No")"
+        autoHTriggerLabel.text = "\(match.autoHopperTriggered ? "Yes" : "No")"
+        autoStartPosLabel.text = match.autoStartPos.toString()
+        autoGearPlaceLabel.text = match.autoGearPlacement.toString()
         
-        autoHighGoalsLabel.text = "\(match.autoHigh.scored)/\(match.autoHigh.scored + match.autoHigh.missed)"
-        autoLowGoalsLabel.text = "\(match.autoLow.scored)/\(match.autoLow.scored + match.autoLow.missed)"
-        autoScoreBatters.text = "\(match.autoBatters.scored)/\(match.autoBatters.scored + match.autoBatters.missed)"
-        autoScoreCourtyard.text = "\(match.autoCourtyard.scored)/\(match.autoCourtyard.scored + match.autoCourtyard.missed)"
-        autoScoreDefenses.text = "\(match.autoDefenses.scored)/\(match.autoDefenses.scored + match.autoDefenses.missed)"
+        teleHighFuelLabel.text = "\(floor(match.teleHighFuelScored))"
+        teleLowFuelLabel.text = "\(floor(match.teleLowFuelScored))"
+        teleGearsScoredLabel.text = "\(match.teleGearsScored)"
     }
 
     override func didReceiveMemoryWarning() {
