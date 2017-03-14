@@ -513,6 +513,3 @@ class StrongMatchEncodingHelper : MatchEncodingHelper {
         return data;
     }
 }
-
-
-

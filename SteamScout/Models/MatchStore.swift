@@ -101,7 +101,7 @@ class MatchStore: AnyObject {
         let device = "\(UIDevice.current.name)    \r\n"
         var csvFileString = device
         
-        csvFileString += StrongMatch.csvHeader
+        csvFileString += SteamMatch.csvHeader
         
         for m in allMatches {
             csvFileString += m.csvMatch + " \r\n"
@@ -121,7 +121,7 @@ class MatchStore: AnyObject {
         var csvFileString = device
         var matchJSONData = [Dictionary<String, AnyObject>]();
         
-        csvFileString += StrongMatch.csvHeader
+        csvFileString += SteamMatch.csvHeader
         
         for var m:Match in allMatches {
             if (m.isCompleted & 32) == 32 {
