@@ -119,6 +119,8 @@ class AutonomousViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         
+        super.viewDidDisappear(animated)
+        
         // Update values of fuel if No Attempt is selected
         if(NoAttemptHighGoal.isSelected) {
             match.autoHighFuelScored = 0.0
