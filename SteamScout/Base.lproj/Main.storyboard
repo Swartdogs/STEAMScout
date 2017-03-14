@@ -138,7 +138,7 @@
                                 <rect key="frame" x="168" y="512" width="213" height="335"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="L9b-d6-dAb" kind="popoverPresentation" popoverAnchorView="l8b-Ci-d5W" id="WIn-BF-gw9">
+                                    <segue destination="L9b-d6-dAb" kind="popoverPresentation" identifier="showFuelPopover" popoverAnchorView="l8b-Ci-d5W" id="WIn-BF-gw9">
                                         <popoverArrowDirection key="popoverArrowDirection" left="YES"/>
                                     </segue>
                                 </connections>
@@ -179,7 +179,7 @@
         <!--Title-->
         <scene sceneID="n47-aK-1Ss">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="overFullScreen" id="L9b-d6-dAb" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="overFullScreen" id="L9b-d6-dAb" customClass="TeleopFuelPopoverViewController" customModule="SteamScout" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="01d-WX-pqB"/>
                         <viewControllerLayoutGuide type="bottom" id="beC-lj-k2X"/>
@@ -213,9 +213,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Uv-wy-8dQ">
+                            <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="1Uv-wy-8dQ">
                                 <rect key="frame" x="57" y="151" width="187" height="31"/>
                                 <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="GoalSliderChanged:" destination="L9b-d6-dAb" eventType="touchUpInside" id="NLz-R7-kHY"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lol-le-639">
                                 <rect key="frame" x="114" y="20" width="86" height="21"/>
@@ -223,9 +226,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uaY-Af-SFz">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="uaY-Af-SFz">
                                 <rect key="frame" x="57" y="57" width="187" height="31"/>
                                 <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="GoalSliderChanged:" destination="L9b-d6-dAb" eventType="touchUpInside" id="jNe-GU-YCC"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PND-e3-ASM">
                                 <rect key="frame" x="114" y="122" width="73" height="21"/>
@@ -254,6 +260,10 @@
                     <value key="contentSizeForViewInPopover" type="size" width="300" height="200"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="300" height="200"/>
+                    <connections>
+                        <outlet property="HighGoalSlider" destination="uaY-Af-SFz" id="FIM-ZE-J18"/>
+                        <outlet property="LowGoalSlider" destination="1Uv-wy-8dQ" id="2uO-rm-iKF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyI-4d-1GM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1874,7 +1884,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="J5x-uL-Uxx"/>
         <segue reference="pMA-Qb-jdF"/>
-        <segue reference="xU2-D7-M6L"/>
+        <segue reference="g4S-49-J8N"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
