@@ -1132,7 +1132,7 @@
         <!--Autonomous-->
         <scene sceneID="O5r-KZ-tZT">
             <objects>
-                <viewController id="lWd-9t-egS" customClass="AutonomousViewController" customModule="SteamScout" sceneMemberID="viewController">
+                <viewController id="lWd-9t-egS" customClass="AutonomousViewController" customModule="SteamScout" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l6g-fQ-htU"/>
                         <viewControllerLayoutGuide type="bottom" id="bf4-22-vhp"/>
@@ -1161,6 +1161,9 @@
                                                     <segment title="Boiler"/>
                                                 </segments>
                                                 <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="StartPosChanged:" destination="lWd-9t-egS" eventType="valueChanged" id="BXp-W4-9Ds"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <constraints>
@@ -1187,6 +1190,9 @@
                                                     <segment title="No"/>
                                                 </segments>
                                                 <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="BaselineCrossedChanged:" destination="lWd-9t-egS" eventType="valueChanged" id="ruA-os-BLY"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <constraints>
@@ -1216,7 +1222,7 @@
                                                             <color key="titleColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="NoGearPlacedPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="dGR-5k-5RY"/>
+                                                            <action selector="GearButtonPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="dMZ-Kd-5aL"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1224,7 +1230,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xcl-NP-9jY">
                                                 <rect key="frame" x="8" y="48" width="752" height="350"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCi-m0-hgg">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCi-m0-hgg">
                                                         <rect key="frame" x="0.0" y="0.0" width="182" height="350"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="350" id="hdA-yc-0La"/>
@@ -1235,7 +1241,7 @@
                                                             <color key="titleColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="LeftLiftPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="D2e-Id-iof"/>
+                                                            <action selector="GearButtonPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="O9L-8T-d2m"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Airship" translatesAutoresizingMaskIntoConstraints="NO" id="m5E-3A-xj9">
@@ -1246,14 +1252,14 @@
                                                         </constraints>
                                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhT-vf-eEg">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhT-vf-eEg">
                                                         <rect key="frame" x="582" y="0.0" width="170" height="350"/>
                                                         <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Right Lift">
                                                             <color key="titleColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="RightLiftPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="lEr-kb-pIh"/>
+                                                            <action selector="GearButtonPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="UwL-DF-vCU"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1261,7 +1267,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8Z-zC-vtN">
                                                 <rect key="frame" x="8" y="398" width="752" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zb-f8-Xdw">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zb-f8-Xdw">
                                                         <rect key="frame" x="0.0" y="0.0" width="752" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="faU-Yc-hAc"/>
@@ -1271,7 +1277,7 @@
                                                             <color key="titleColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="CenterLiftPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="mzI-d6-PHF"/>
+                                                            <action selector="GearButtonPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="Fc2-xn-XLi"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1301,6 +1307,9 @@
                                                     <segment title="No"/>
                                                 </segments>
                                                 <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="HopperTriggeredChanged:" destination="lWd-9t-egS" eventType="valueChanged" id="2Hi-Hg-V2T"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <constraints>
@@ -1351,7 +1360,7 @@
                                                                             <constraint firstAttribute="width" constant="300" id="B4p-FT-dvU"/>
                                                                         </constraints>
                                                                         <connections>
-                                                                            <action selector="HighGoalValueChanged:" destination="lWd-9t-egS" eventType="valueChanged" id="pbW-UO-86G"/>
+                                                                            <action selector="HighGoalValueChanged:" destination="lWd-9t-egS" eventType="valueChanged" id="sp9-ho-879"/>
                                                                         </connections>
                                                                     </slider>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdZ-9j-c9b">
@@ -1359,7 +1368,7 @@
                                                                         <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <state key="normal" title="No Attempt"/>
                                                                         <connections>
-                                                                            <action selector="NoAttemptHighGoalPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="dJ0-WY-nE6"/>
+                                                                            <action selector="NoAttemptHighGoalPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="DeS-AE-1Jd"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -1371,7 +1380,7 @@
                                                                         <rect key="frame" x="-2" y="0.0" width="304" height="126.5"/>
                                                                         <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <connections>
-                                                                            <action selector="LowGoalValueChanged:" destination="lWd-9t-egS" eventType="valueChanged" id="AbT-9l-kua"/>
+                                                                            <action selector="LowGoalValueChanged:" destination="lWd-9t-egS" eventType="valueChanged" id="40d-mZ-7x3"/>
                                                                         </connections>
                                                                     </slider>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rud-FT-YPX">
@@ -1379,7 +1388,7 @@
                                                                         <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <state key="normal" title="No Attempt"/>
                                                                         <connections>
-                                                                            <action selector="LowGoalNoAttemptPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="EyI-Pl-703"/>
+                                                                            <action selector="LowGoalNoAttemptPressed:" destination="lWd-9t-egS" eventType="touchUpInside" id="B09-xU-WPX"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -1439,14 +1448,17 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="CenterLift" destination="3Zb-f8-Xdw" id="K0H-2g-cQN"/>
-                        <outlet property="HighGoalSlider" destination="DhQ-5G-dwq" id="7qR-by-HjL"/>
-                        <outlet property="LeftLift" destination="BCi-m0-hgg" id="1To-8R-XaG"/>
-                        <outlet property="LowGoalSlider" destination="j7y-s8-IXs" id="Z3u-Uq-FGk"/>
-                        <outlet property="NoAttemptHighGoal" destination="AdZ-9j-c9b" id="gf5-zk-mRy"/>
-                        <outlet property="NoAttemptLowGoal" destination="Rud-FT-YPX" id="9Ep-wf-vPU"/>
-                        <outlet property="NoGearPlaced" destination="TbT-Dv-2V1" id="brz-NV-3mT"/>
-                        <outlet property="RightLift" destination="jhT-vf-eEg" id="HNH-YB-21Z"/>
+                        <outlet property="BaselineCrossed" destination="gUP-vo-ihz" id="VL2-3X-uJ0"/>
+                        <outlet property="HighGoalSlider" destination="DhQ-5G-dwq" id="KOn-S6-XtP"/>
+                        <outlet property="HopperTriggered" destination="zXu-p8-2Ho" id="ahA-vV-DJP"/>
+                        <outlet property="LowGoalSlider" destination="j7y-s8-IXs" id="XNN-0y-m6z"/>
+                        <outlet property="NoAttemptHighGoal" destination="AdZ-9j-c9b" id="UW5-dA-yto"/>
+                        <outlet property="NoAttemptLowGoal" destination="Rud-FT-YPX" id="qCY-XT-IjA"/>
+                        <outlet property="StartingPosition" destination="7ME-u5-6l1" id="T1z-BD-xUJ"/>
+                        <outletCollection property="GearButtons" destination="TbT-Dv-2V1" collectionClass="NSMutableArray" id="GsH-aD-AU9"/>
+                        <outletCollection property="GearButtons" destination="BCi-m0-hgg" collectionClass="NSMutableArray" id="6Bi-76-MlQ"/>
+                        <outletCollection property="GearButtons" destination="3Zb-f8-Xdw" collectionClass="NSMutableArray" id="7hF-tq-YGP"/>
+                        <outletCollection property="GearButtons" destination="jhT-vf-eEg" collectionClass="NSMutableArray" id="mSm-MD-Hry"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnh-Ds-nGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1862,7 +1874,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="J5x-uL-Uxx"/>
         <segue reference="pMA-Qb-jdF"/>
-        <segue reference="xU2-D7-M6L"/>
+        <segue reference="g4S-49-J8N"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

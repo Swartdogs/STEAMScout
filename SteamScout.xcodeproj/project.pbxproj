@@ -12,6 +12,8 @@
 		C402A8E21E762653003817FF /* MatchEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8E11E762653003817FF /* MatchEncodingHelper.swift */; };
 		C402A8E51E777A5B003817FF /* AutonomousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8E31E777A5B003817FF /* AutonomousViewController.swift */; };
 		C402A8E61E777A5B003817FF /* TeleopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8E41E777A5B003817FF /* TeleopViewController.swift */; };
+		C402A8EB1E77AAAE003817FF /* SteamStartPositionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8EA1E77AAAE003817FF /* SteamStartPositionType.swift */; };
+		C402A8ED1E77ABB8003817FF /* SteamGearPlacementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8EC1E77ABB8003817FF /* SteamGearPlacementType.swift */; };
 		C43EFFAA1E38270A00BC2BB9 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */; };
 		C43EFFAB1E38270A00BC2BB9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA61E38270A00BC2BB9 /* Definitions.swift */; };
 		C43EFFAC1E38270A00BC2BB9 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA71E38270A00BC2BB9 /* Match.swift */; };
@@ -74,6 +76,8 @@
 		C402A8E11E762653003817FF /* MatchEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchEncodingHelper.swift; sourceTree = "<group>"; };
 		C402A8E31E777A5B003817FF /* AutonomousViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutonomousViewController.swift; sourceTree = "<group>"; };
 		C402A8E41E777A5B003817FF /* TeleopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleopViewController.swift; sourceTree = "<group>"; };
+		C402A8EA1E77AAAE003817FF /* SteamStartPositionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamStartPositionType.swift; sourceTree = "<group>"; };
+		C402A8EC1E77ABB8003817FF /* SteamGearPlacementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamGearPlacementType.swift; sourceTree = "<group>"; };
 		C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		C43EFFA61E38270A00BC2BB9 /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		C43EFFA71E38270A00BC2BB9 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
@@ -159,6 +163,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C402A8E71E77A9D4003817FF /* Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				C402A8EA1E77AAAE003817FF /* SteamStartPositionType.swift */,
+				C402A8EC1E77ABB8003817FF /* SteamGearPlacementType.swift */,
+			);
+			path = Definitions;
+			sourceTree = "<group>";
+		};
 		C44A80C51E356EBA00BA367B = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +214,7 @@
 		C44A81071E35D32500BA367B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C402A8E71E77A9D4003817FF /* Definitions */,
 				C4F889AF1E5424BB00DC0826 /* StrongMatch.swift */,
 				C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */,
 				C43EFFA61E38270A00BC2BB9 /* Definitions.swift */,
@@ -485,7 +499,9 @@
 				C4F889B01E5424BB00DC0826 /* StrongMatch.swift in Sources */,
 				C44A810F1E35D32500BA367B /* ScheduleStore.swift in Sources */,
 				C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */,
+				C402A8EB1E77AAAE003817FF /* SteamStartPositionType.swift in Sources */,
 				C402A8E21E762653003817FF /* MatchEncodingHelper.swift in Sources */,
+				C402A8ED1E77ABB8003817FF /* SteamGearPlacementType.swift in Sources */,
 				C44A81191E35D32C00BA367B /* FinalViewController.swift in Sources */,
 				C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */,
 				C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */,
