@@ -84,11 +84,10 @@ class AutonomousViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        HighGoalSlider.maximumValue = 5.0
-        HighGoalSlider.minimumValue = 1.0
-        LowGoalSlider.maximumValue = 5.0
-        LowGoalSlider.minimumValue = 1.0
-       
+        HighGoalSlider.maximumValue = 100.0
+        HighGoalSlider.minimumValue = 0.0
+        LowGoalSlider.maximumValue = 100.0
+        LowGoalSlider.minimumValue = 0.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
