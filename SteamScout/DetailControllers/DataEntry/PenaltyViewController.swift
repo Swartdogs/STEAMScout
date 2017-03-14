@@ -10,50 +10,72 @@ import UIKit
 
 class PenaltyViewController: UIViewController {
 
-    @IBOutlet weak var YellowCard: UIButton!
-    @IBOutlet weak var RedCard: UIButton!
-    @IBOutlet weak var Foul: UIButton!
-    @IBOutlet weak var TechnicalFoul: UIButton!
+    var match = SteamMatch()
+    
+    weak var dataView: UIViewController!
+    
+    @IBOutlet weak var YellowCard: SelectionButton!
+    @IBOutlet weak var RedCard: SelectionButton!
+    @IBOutlet weak var Foul: SelectionButton!
+    @IBOutlet weak var TechnicalFoul: SelectionButton!
+    
+    @IBAction func SaveButtonPressed(_ sender: UIBarButtonItem) {
+        match.finalYellowCards += YellowCard.isSelected ? 1 : 0
+        match.finalRedCards += RedCard.isSelected ? 1 : 0
+        match.finalFouls += Foul.isSelected ? 1 : 0
+        match.finalTechFouls += TechnicalFoul.isSelected ? 1 : 0
+        
+        if let autoView = dataView as? AutonomousViewController {
+            autoView.match.finalYellowCards += match.finalYellowCards
+            autoView.match.finalRedCards    += match.finalRedCards
+            autoView.match.finalFouls       += match.finalFouls
+            autoView.match.finalTechFouls   += match.finalTechFouls
+        }
+        
+        if let teleView = dataView as? TeleopViewController {
+            teleView.match.finalYellowCards += match.finalYellowCards
+            teleView.match.finalRedCards    += match.finalRedCards
+            teleView.match.finalFouls       += match.finalFouls
+            teleView.match.finalTechFouls   += match.finalTechFouls
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func YellowCardPressed(_ sender: UIButton) {
-        if YellowCard.isSelected {
-         YellowCard.isSelected = false
-        }
-        else {
-            YellowCard.isSelected = true
-            RedCard.isSelected = false
-        }
+        YellowCard.isSelected = !sender.isSelected
+        RedCard.isSelected = false
     }
+    
     @IBAction func RedCardPressed(_ sender: UIButton) {
-        if RedCard.isSelected {
-            RedCard.isSelected = false
-        }
-        else {
-            RedCard.isSelected = true
-            YellowCard.isSelected = false
-        }
+        RedCard.isSelected = !sender.isSelected
+        YellowCard.isSelected = false
     }
+    
     @IBAction func FoulPressed(_ sender: UIButton) {
-        if Foul.isSelected {
-            Foul.isSelected = false
-        }
-        else {
-            Foul.isSelected = true
-        }
+        Foul.isSelected = !sender.isSelected
     }
+    
     @IBAction func TechnicalFoulPressed(_ sender: UIButton) {
-        if TechnicalFoul.isSelected {
-            TechnicalFoul.isSelected = false
-        }
-        else {
-            TechnicalFoul.isSelected = true
-        }
+        TechnicalFoul.isSelected = !sender.isSelected
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         YellowCard.isSelected = false
         RedCard.isSelected = false
         Foul.isSelected = false
         TechnicalFoul.isSelected = false
+        
+        YellowCard.selectedColor    = UIColor.orange
+        RedCard.selectedColor       = UIColor.orange
+        Foul.selectedColor          = UIColor.orange
+        TechnicalFoul.selectedColor = UIColor.orange
     }
 
     override func didReceiveMemoryWarning() {

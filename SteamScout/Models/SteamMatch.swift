@@ -162,12 +162,20 @@ class SteamMatch : MatchImpl {
             autoHopperTriggered = m.autoHopperTriggered
             autoHighFuelScored  = m.autoHighFuelScored
             autoLowFuelScored   = m.autoLowFuelScored
+            finalFouls          = m.finalFouls
+            finalTechFouls      = m.finalTechFouls
+            finalYellowCards    = m.finalYellowCards
+            finalRedCards       = m.finalRedCards
             break
             
         case .teleop:
             teleGearsScored    = m.teleGearsScored
             teleHighFuelScored = m.teleHighFuelScored
             teleLowFuelScored  = m.teleLowFuelScored
+            finalFouls          = m.finalFouls
+            finalTechFouls      = m.finalTechFouls
+            finalYellowCards    = m.finalYellowCards
+            finalRedCards       = m.finalRedCards
             break
             
         case .finalStats:
