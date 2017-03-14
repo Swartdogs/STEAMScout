@@ -169,7 +169,7 @@ enum ResultType : Int {
 
 // MARK: UpdateType
 enum UpdateType : Int {
-    case none = 0, teamInfo, fieldSetup, finalStats, actionsEdited
+    case none = 0, teamInfo, fieldSetup, finalStats, actionsEdited, autonomous, teleop
 }
 
 // MARK: PenaltyType
