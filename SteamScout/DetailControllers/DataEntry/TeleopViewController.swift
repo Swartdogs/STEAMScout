@@ -9,10 +9,14 @@
 import UIKit
 
 class TeleopViewController: UIViewController {
+    
+    var match = SteamMatch()
+    
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
+            match.teleGearsScored = Int(sender.value)
             valueLabel.text = Int(sender.value).description
     }
 
@@ -21,8 +25,24 @@ class TeleopViewController: UIViewController {
         stepper.wraps = false
         stepper.autorepeat = false
         stepper.maximumValue = 12
+        stepper.stepValue = 1
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        match = MatchStore.sharedStore.currentMatch as! SteamMatch
+        
+        stepper.value = Double(match.teleGearsScored)
+        valueLabel.text = "\(match.teleGearsScored)"
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        MatchStore.sharedStore.updateCurrentMatchForType(.teleop, match: match)
     }
 
     override func didReceiveMemoryWarning() {
