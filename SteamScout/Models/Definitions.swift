@@ -100,7 +100,8 @@ enum AllianceType : Int {
     case unknown = 0, blue, red
     
     func toString() -> String {
-        return (self == .blue) ? "Blue" : "Red"
+        return (self == .blue) ? "Blue" :
+               (self == .red)  ? "Red"  : "Unknown"
     }
 }
 
