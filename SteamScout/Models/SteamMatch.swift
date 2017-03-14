@@ -12,9 +12,9 @@ import SwiftyJSON
 class SteamMatch : MatchImpl {
     
     // Auto Info
-    var autoStartPos:Int         = 0        // Replace with Enum!
+    var autoStartPos:SteamStartPositionType = .none
     var autoBaselineCrossed:Bool = false
-    var autoGearPlacement:Int    = 0        // Replace with Enum!
+    var autoGearPlacement:SteamGearPlacementType = .notPlaced
     var autoHopperTriggered:Bool = false
     var autoHighFuelScored:Float = 0.0
     var autoLowFuelScored:Float  = 0.0
@@ -44,9 +44,9 @@ class SteamMatch : MatchImpl {
         let final = pList["final"] as! [String:AnyObject]
         
         // Auto Info
-        autoStartPos        = auto["startPos"]   as! Int
+        autoStartPos        = SteamStartPositionType(rawValue: auto["startPos"] as! Int)!
         autoBaselineCrossed = auto["blCross"]    as! Bool
-        autoGearPlacement   = auto["gearPlace"]  as! Int
+        autoGearPlacement   = SteamGearPlacementType(rawValue: auto["gearPlace"] as! Int)!
         autoHopperTriggered = auto["hTrigger"]   as! Bool
         autoHighFuelScored  = auto["hFuelScore"] as! Float
         autoLowFuelScored   = auto["lFuelScore"] as! Float
@@ -57,7 +57,7 @@ class SteamMatch : MatchImpl {
         teleLowFuelScored   = tele["lFuelScore"] as! Float
         
         // Final Info (Specific to this class)
-        finalConfiguration = FinalConfigType(rawValue: final["config"] as! Int)!
+        finalConfiguration  = FinalConfigType(rawValue: final["config"] as! Int)!
     }
     
     override var messageDictionary: Dictionary<String, AnyObject> {
@@ -68,9 +68,9 @@ class SteamMatch : MatchImpl {
         var final = data["final"] as! [String:AnyObject]
         
         // Auto Info
-        auto["startPos"]   = autoStartPos        as AnyObject?
+        auto["startPos"]   = autoStartPos.rawValue      as AnyObject?
         auto["blCross"]    = autoBaselineCrossed as AnyObject?
-        auto["gearPlace"]  = autoGearPlacement   as AnyObject?
+        auto["gearPlace"]  = autoGearPlacement.rawValue as AnyObject?
         auto["hTrigger"]   = autoHopperTriggered as AnyObject?
         auto["hFuelScore"] = autoHighFuelScored  as AnyObject?
         auto["lFuelScore"] = autoLowFuelScored   as AnyObject?
@@ -148,11 +148,28 @@ class SteamMatch : MatchImpl {
         let m = match as! SteamMatch
         switch type {
         case .teamInfo:
-            teamNumber = m.teamNumber
+            teamNumber  = m.teamNumber
             matchNumber = m.matchNumber
-            alliance = m.alliance
+            alliance    = m.alliance
             isCompleted = m.isCompleted
             finalResult = m.finalResult
+            break
+            
+        case .autonomous:
+            autoStartPos        = m.autoStartPos
+            autoBaselineCrossed = m.autoBaselineCrossed
+            autoGearPlacement   = m.autoGearPlacement
+            autoHopperTriggered = m.autoHopperTriggered
+            autoHighFuelScored  = m.autoHighFuelScored
+            autoLowFuelScored   = m.autoLowFuelScored
+            break
+            
+        case .teleop:
+            teleGearsScored    = m.teleGearsScored
+            teleHighFuelScored = m.teleHighFuelScored
+            teleLowFuelScored  = m.teleLowFuelScored
+            break
+            
         case .finalStats:
             finalScore         = m.finalScore
             finalRankingPoints = m.finalRankingPoints
@@ -160,6 +177,7 @@ class SteamMatch : MatchImpl {
             finalPenaltyScore  = m.finalPenaltyScore
             finalConfiguration = m.finalConfiguration
             finalComments      = m.finalComments
+            break
         default:
             break
         }
@@ -206,9 +224,9 @@ class SteamMatchEncodingHelper : MatchEncodingHelper {
         }
         
         // Auto Info
-        auto["startPos"]   = m.autoStartPos        as AnyObject?
+        auto["startPos"]   = m.autoStartPos.rawValue as AnyObject?
         auto["blCross"]    = m.autoBaselineCrossed as AnyObject?
-        auto["gearPlace"]  = m.autoGearPlacement   as AnyObject?
+        auto["gearPlace"]  = m.autoGearPlacement.rawValue as AnyObject?
         auto["hTrigger"]   = m.autoHopperTriggered as AnyObject?
         auto["hFuelScore"] = m.autoHighFuelScored  as AnyObject?
         auto["lFuelScore"] = m.autoLowFuelScored   as AnyObject?
