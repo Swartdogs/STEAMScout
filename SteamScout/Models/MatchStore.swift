@@ -24,14 +24,7 @@ class MatchStore: AnyObject {
     var actionsRedo:Stack<ActionEdit> = Stack<ActionEdit>(limit: 1)
     
     init() {
-        allMatches = []
-        let matchData = NSKeyedUnarchiver.unarchiveObject(withFile: self.matchArchivePath) as? [MatchEncodingHelper] ?? [MatchEncodingHelper]()
-        for helper in matchData {
-            if let m = helper.match {
-                allMatches.append(m)
-            }
-        }
-        
+        allMatches = NSKeyedUnarchiver.unarchiveObject(withFile: self.matchArchivePath) as? [Match] ?? allMatches
         let queueData = NSKeyedUnarchiver.unarchiveObject(withFile: self.match2ScoutArchivePath) as? [NSDictionary]
         if let qD = queueData {
             for d in qD {
@@ -89,19 +82,14 @@ class MatchStore: AnyObject {
         
         NSKeyedArchiver.archiveRootObject(queueData, toFile: path2)
         
-        var matchData = [MatchEncodingHelper]()
-        for m in allMatches {
-            matchData.append(m.encodingHelper)
-        }
-        
-        return NSKeyedArchiver.archiveRootObject(matchData, toFile: path)
+        return NSKeyedArchiver.archiveRootObject(allMatches, toFile: path)
     }
     
     func writeCSVFile() -> Bool {
         let device = "\(UIDevice.current.name)    \r\n"
         var csvFileString = device
         
-        csvFileString += SteamMatch.csvHeader
+        csvFileString += StrongMatch.csvHeader
         
         for m in allMatches {
             csvFileString += m.csvMatch + " \r\n"
@@ -121,7 +109,7 @@ class MatchStore: AnyObject {
         var csvFileString = device
         var matchJSONData = [Dictionary<String, AnyObject>]();
         
-        csvFileString += SteamMatch.csvHeader
+        csvFileString += StrongMatch.csvHeader
         
         for var m:Match in allMatches {
             if (m.isCompleted & 32) == 32 {

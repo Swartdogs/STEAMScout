@@ -1,5 +1,5 @@
 //
-//  StrongMatch.swift
+//  Match.swift
 //  StrongScout
 //
 //  Created by Srinivas Dhanwada on 2/6/16.
@@ -11,7 +11,7 @@ import SwiftyJSON
 
 typealias ScoreStat = (scored:Int, missed:Int)
 
-class StrongMatch : MatchImpl, Actionable {
+class StrongMatch : MatchImpl, Actionable, NSCoding {
     
     // Auto Scoring Info
     
@@ -180,6 +180,141 @@ class StrongMatch : MatchImpl, Actionable {
         self.defenses = [defense1, defense2, defense3, defense4, defense5]
     }
     
+    func encode(with aCoder: NSCoder) {
+        
+        // Team Information
+        aCoder.encode(teamNumber,        forKey: "teamNumber")
+        aCoder.encode(matchNumber,       forKey: "matchNumber")
+        aCoder.encode(alliance.rawValue, forKey: "alliance")
+        aCoder.encode(isCompleted,       forKey: "isCompleted")
+        
+        // Auto Score Information
+        aCoder.encode(autoHigh.scored,      forKey: "autoScoreHigh")
+        aCoder.encode(autoHigh.missed,      forKey: "autoMissedHigh")
+        aCoder.encode(autoLow.scored,       forKey: "autoScoreLow")
+        aCoder.encode(autoLow.missed,       forKey: "autoMissedLow")
+        aCoder.encode(autoBatters.scored,   forKey: "autoScoredBatters")
+        aCoder.encode(autoBatters.missed,   forKey: "autoMissedBatters")
+        aCoder.encode(autoCourtyard.scored, forKey: "autoScoredCourtyard")
+        aCoder.encode(autoCourtyard.missed, forKey: "autoMissedCourtyard")
+        aCoder.encode(autoDefenses.scored,  forKey: "autoScoredDefenses")
+        aCoder.encode(autoDefenses.missed,  forKey: "autoMissedDefenses")
+        
+        // Score Information
+        aCoder.encode(teleHigh.scored,      forKey: "teleScoreHigh")
+        aCoder.encode(teleHigh.missed,      forKey: "teleMissedHigh")
+        aCoder.encode(teleLow.scored,       forKey: "teleScoreLow")
+        aCoder.encode(teleLow.missed,       forKey: "teleMissedLow")
+        aCoder.encode(teleBatters.scored,   forKey: "teleScoredBatters")
+        aCoder.encode(teleBatters.missed,   forKey: "teleMissedBatters")
+        aCoder.encode(teleCourtyard.scored, forKey: "teleScoredCourtyard")
+        aCoder.encode(teleCourtyard.missed, forKey: "teleMissedCourtyard")
+        aCoder.encode(teleDefenses.scored,  forKey: "teleScoredDefenses")
+        aCoder.encode(teleDefenses.missed,  forKey: "teleMissedDefenses")
+        
+        // Defense Information
+        aCoder.encode(defense1.propertyListRepresentation(), forKey: "defense1")
+        aCoder.encode(defense2.propertyListRepresentation(), forKey: "defense2")
+        aCoder.encode(defense3.propertyListRepresentation(), forKey: "defense3")
+        aCoder.encode(defense4.propertyListRepresentation(), forKey: "defense4")
+        aCoder.encode(defense5.propertyListRepresentation(), forKey: "defense5")
+        
+        // Actions Information
+        var actionsPerformedPList:[NSDictionary] = []
+        for a in actionsPerformed {
+            actionsPerformedPList.append(a.propertyListRepresentation())
+        }
+        aCoder.encode(actionsPerformedPList, forKey: "actionsPerformed")
+        
+        // Final Information
+        aCoder.encode(finalScore,                  forKey: "finalScore")
+        aCoder.encode(finalRankingPoints,          forKey: "finalRankingPoints")
+        aCoder.encode(finalResult.rawValue,        forKey: "finalResult")
+        aCoder.encode(finalPenaltyScore,           forKey: "finalPenaltyScore")
+        aCoder.encode(finalFouls,                  forKey: "finalFouls")
+        aCoder.encode(finalTechFouls,              forKey: "finalTechFouls")
+        aCoder.encode(finalYellowCards,            forKey: "finalYellowCards")
+        aCoder.encode(finalRedCards,               forKey: "finalRedCards")
+        aCoder.encode(finalRobot.rawValue,         forKey: "finalRobot")
+        aCoder.encode(finalConfiguration.rawValue, forKey: "finalConfiguration")
+        aCoder.encode(finalComments,                forKey: "finalComments")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        super.init()
+        
+        // Team Information
+        self.teamNumber  = aDecoder.decodeInteger(forKey: "teamNumber")
+        self.matchNumber = aDecoder.decodeInteger(forKey: "matchNumber")
+        self.alliance    = AllianceType(rawValue:aDecoder.decodeInteger(forKey: "alliance"))!
+        self.isCompleted = aDecoder.decodeInteger(forKey: "isCompleted")
+        
+        // Auto Score Information
+        var highScore       = aDecoder.decodeInteger(forKey: "autoScoreHigh")
+        var highMiss        = aDecoder.decodeInteger(forKey: "autoMissedHigh")
+        var lowScore        = aDecoder.decodeInteger(forKey: "autoScoreLow")
+        var lowMiss         = aDecoder.decodeInteger(forKey: "autoMissedLow")
+        var battersScore    = aDecoder.decodeInteger(forKey: "autoScoredBatters")
+        var battersMissed   = aDecoder.decodeInteger(forKey: "autoScoredBatters")
+        var courtyardScore  = aDecoder.decodeInteger(forKey: "autoScoredCourtyard")
+        var courtyardMissed = aDecoder.decodeInteger(forKey: "autoMissedCourtyard")
+        var defensesScore   = aDecoder.decodeInteger(forKey: "autoScoredDefenses")
+        var defensesMissed  = aDecoder.decodeInteger(forKey: "autoMissedDefenses")
+        
+        self.autoHigh       = (highScore, highMiss)
+        self.autoLow        = (lowScore, lowMiss)
+        self.autoBatters    = (battersScore, battersMissed)
+        self.autoCourtyard  = (courtyardScore, courtyardMissed)
+        self.autoDefenses   = (defensesScore, defensesMissed)
+        
+        // Score Information
+        highScore       = aDecoder.decodeInteger(forKey: "teleScoreHigh")
+        highMiss        = aDecoder.decodeInteger(forKey: "teleMissedHigh")
+        lowScore        = aDecoder.decodeInteger(forKey: "teleScoreLow")
+        lowMiss         = aDecoder.decodeInteger(forKey: "teleMissedLow")
+        battersScore    = aDecoder.decodeInteger(forKey: "teleScoredBatters")
+        battersMissed   = aDecoder.decodeInteger(forKey: "teleScoredBatters")
+        courtyardScore  = aDecoder.decodeInteger(forKey: "teleScoredCourtyard")
+        courtyardMissed = aDecoder.decodeInteger(forKey: "teleMissedCourtyard")
+        defensesScore   = aDecoder.decodeInteger(forKey: "teleScoredDefenses")
+        defensesMissed  = aDecoder.decodeInteger(forKey: "teleMissedDefenses")
+        
+        self.autoHigh       = (highScore, highMiss)
+        self.autoLow        = (lowScore, lowMiss)
+        self.autoBatters    = (battersScore, battersMissed)
+        self.autoCourtyard  = (courtyardScore, courtyardMissed)
+        self.autoDefenses   = (defensesScore, defensesMissed)
+        
+        // Defense Information
+        self.defense1 = Defense(propertyListRepresentation: aDecoder.decodeObject(forKey: "defense1") as? NSDictionary)!
+        self.defense2 = Defense(propertyListRepresentation: aDecoder.decodeObject(forKey: "defense2") as? NSDictionary)!
+        self.defense3 = Defense(propertyListRepresentation: aDecoder.decodeObject(forKey: "defense3") as? NSDictionary)!
+        self.defense4 = Defense(propertyListRepresentation: aDecoder.decodeObject(forKey: "defense4") as? NSDictionary)!
+        self.defense5 = Defense(propertyListRepresentation: aDecoder.decodeObject(forKey: "defense5") as? NSDictionary)!
+        
+        // Actions Information
+        let actionsPerformedPList = aDecoder.decodeObject(forKey: "actionsPerformed") as? [NSDictionary]
+        self.actionsPerformed = []
+        for pList in actionsPerformedPList! {
+            guard let action = Action(propertyListRepresentation: pList) else { continue }
+            self.actionsPerformed.append(action)
+        }
+        
+        // Final Information
+        self.finalScore         = aDecoder.decodeInteger(forKey: "finalScore")
+        self.finalRankingPoints = aDecoder.decodeInteger(forKey: "finalRankingPoints")
+        self.finalResult        = ResultType(rawValue: aDecoder.decodeInteger(forKey: "finalResult"))!
+        self.finalPenaltyScore  = aDecoder.decodeInteger(forKey: "finalPenaltyScore")
+        self.finalFouls         = aDecoder.decodeInteger(forKey: "finalFouls")
+        self.finalTechFouls     = aDecoder.decodeInteger(forKey: "finalTechFouls")
+        self.finalYellowCards   = aDecoder.decodeInteger(forKey: "finalYellowCards")
+        self.finalRedCards      = aDecoder.decodeInteger(forKey: "finalRedCards")
+        self.finalRobot         = RobotState(rawValue: aDecoder.decodeInteger(forKey: "finalRobot"))
+        self.finalConfiguration = FinalConfigType(rawValue: aDecoder.decodeInteger(forKey: "finalConfiguration"))!
+        self.finalComments      = (aDecoder.decodeObject(forKey: "finalComments") as? String) ?? ""
+    }
+    
     required init(queueData:MatchQueueData) {
         super.init(queueData:queueData)
     }
@@ -189,61 +324,11 @@ class StrongMatch : MatchImpl, Actionable {
         super.init()
     }
     
-    required init(withPList pList: [String : AnyObject]) {
-        
-        // Call super to init team and info
-        super.init(withPList: pList)
-        
-        let auto = pList["auto"] as! [String:AnyObject]
-        let tele = pList["tele"] as! [String:AnyObject]
-        let defense = pList["defense"] as! [String:AnyObject]
-        
-        // Auto Info
-        autoHigh.scored      = auto["scoreHigh"]       as! Int
-        autoHigh.missed      = auto["missedHigh"]      as! Int
-        autoLow.scored       = auto["scoreLow"]        as! Int
-        autoLow.missed       = auto["missedLow"]       as! Int
-        autoBatters.scored   = auto["scoreBatters"]    as! Int
-        autoBatters.missed   = auto["missedBatters"]   as! Int
-        autoCourtyard.scored = auto["scoreCourtyard"]  as! Int
-        autoCourtyard.missed = auto["missedCourtyard"] as! Int
-        autoDefenses.scored  = auto["scoreDefenses"]   as! Int
-        autoDefenses.missed  = auto["missedDefenses"]  as! Int
-        
-        // Tele Info
-        teleHigh.scored      = tele["scoreHigh"]       as! Int
-        teleHigh.missed      = tele["missedHigh"]      as! Int
-        teleLow.scored       = tele["scoreLow"]        as! Int
-        teleLow.missed       = tele["missedLow"]       as! Int
-        teleBatters.scored   = tele["scoreBatters"]    as! Int
-        teleBatters.missed   = tele["missedBatters"]   as! Int
-        teleCourtyard.scored = tele["scoreCourtyard"]  as! Int
-        teleCourtyard.missed = tele["missedCourtyard"] as! Int
-        teleDefenses.scored  = tele["scoreDefenses"]   as! Int
-        teleDefenses.missed  = tele["missedDefenses"]  as! Int
-        
-        // Defense Info
-        let def1data = defense["defense1"] as! NSDictionary
-        defense1 = Defense(propertyListRepresentation: def1data)!
-        
-        let def2data = defense["defense2"] as! NSDictionary
-        defense2 = Defense(propertyListRepresentation: def2data)!
-        
-        let def3data = defense["defense3"] as! NSDictionary
-        defense3 = Defense(propertyListRepresentation: def3data)!
-        
-        let def4data = defense["defense4"] as! NSDictionary
-        defense4 = Defense(propertyListRepresentation: def4data)!
-        
-        let def5data = defense["defense5"] as! NSDictionary
-        defense5 = Defense(propertyListRepresentation: def5data)!
-    }
-    
     override var messageDictionary:Dictionary<String, AnyObject> {
         var data:[String:AnyObject]    = [String:AnyObject]()
         var team:[String:AnyObject]    = [String:AnyObject]()
         var auto:[String:AnyObject]    = [String:AnyObject]()
-        var tele:[String:AnyObject]    = [String:AnyObject]()
+        var tele:[String:AnyObject]   = [String:AnyObject]()
         var defense:[String:AnyObject] = [String:AnyObject]()
         var final:[String:AnyObject]   = [String:AnyObject]()
         
@@ -305,10 +390,6 @@ class StrongMatch : MatchImpl, Actionable {
         data["final"]   = final as AnyObject?
         
         return data
-    }
-    
-    override var encodingHelper: MatchEncodingHelper {
-        return StrongMatchEncodingHelper(match:self)
     }
     
     override class var csvHeader:String {
@@ -437,79 +518,5 @@ class StrongMatch : MatchImpl, Actionable {
     
     override func aggregateMatchData() {
         aggregateActionsPerformed()
-    }
-}
-
-class StrongMatchEncodingHelper : MatchEncodingHelper {
-    
-    override init(match:Match) {
-        super.init(match: match)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        
-        // use decoder to get dictionary
-        guard let pList = aDecoder.decodeObject(forKey: "pListData") as? [String:AnyObject] else {
-            super.init()
-            match = nil
-            return
-        }
-        
-        super.init()
-        
-        // convert dictionary to match here
-        match = StrongMatch(withPList: pList)
-    }
-    
-    override func propertyListRepresentation() throws -> [String:AnyObject] {
-        var auto    = [String:AnyObject]()
-        var tele    = [String:AnyObject]()
-        var defense = [String:AnyObject]()
-        
-        // call super to get the tele and final information
-        guard var data = try? super.propertyListRepresentation() else {
-            throw MatchEncodingError.NoMatchData
-        }
-        
-        guard let m = match as? StrongMatch else {
-            throw MatchEncodingError.NoMatchData
-        }
-        
-        // Auto Info
-        auto["scoreHigh"]       = m.autoHigh.scored      as AnyObject?
-        auto["missedHigh"]      = m.autoHigh.missed      as AnyObject?
-        auto["scoreLow"]        = m.autoLow.scored       as AnyObject?
-        auto["missedLow"]       = m.autoLow.missed       as AnyObject?
-        auto["scoreBatters"]    = m.autoBatters.scored   as AnyObject?
-        auto["missedBatters"]   = m.autoBatters.missed   as AnyObject?
-        auto["scoreCourtyard"]  = m.autoCourtyard.scored as AnyObject?
-        auto["missedCourtyard"] = m.autoCourtyard.missed as AnyObject?
-        auto["scoreDefenses"]   = m.autoDefenses.scored  as AnyObject?
-        auto["missedDefenses"]  = m.autoDefenses.missed  as AnyObject?
-        
-        // Tele Info
-        tele["scoreHigh"]       = m.teleHigh.scored      as AnyObject?
-        tele["missedHigh"]      = m.teleHigh.missed      as AnyObject?
-        tele["scoreLow"]        = m.teleLow.scored       as AnyObject?
-        tele["missedLow"]       = m.teleLow.missed       as AnyObject?
-        tele["scoreBatters"]    = m.teleBatters.scored   as AnyObject?
-        tele["missedBatters"]   = m.teleBatters.missed   as AnyObject?
-        tele["scoreCourtyard"]  = m.teleCourtyard.scored as AnyObject?
-        tele["missedCourtyard"] = m.teleCourtyard.missed as AnyObject?
-        tele["scoreDefenses"]   = m.teleDefenses.scored  as AnyObject?
-        tele["missedDefenses"]  = m.teleDefenses.missed  as AnyObject?
-        
-        // Defense Info
-        defense["defense1"]     = m.defense1.propertyListRepresentation()
-        defense["defense2"]     = m.defense2.propertyListRepresentation()
-        defense["defense3"]     = m.defense3.propertyListRepresentation()
-        defense["defense4"]     = m.defense4.propertyListRepresentation()
-        defense["defense5"]     = m.defense5.propertyListRepresentation()
-        
-        
-        data["auto"]            = auto                   as AnyObject?
-        data["tele"]            = tele                   as AnyObject?
-        data["defense"]         = defense                as AnyObject?
-        return data;
     }
 }
