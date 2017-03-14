@@ -45,13 +45,11 @@ class MasterViewController: UITableViewController {
                 //match.aggregateActionsPerformed()
                 let storyboard = UIStoryboard(name: "Results", bundle: nil)
                 let sr = storyboard.instantiateViewController(withIdentifier: "ResultsScoringViewController") as! ResultsScoringViewController
-                let tr = storyboard.instantiateViewController(withIdentifier: "ResultsTeleopViewController") as! ResultsTeleopViewController
                 let mr = storyboard.instantiateViewController(withIdentifier: "ResultsMatchInfoViewController") as! ResultsMatchInfoViewController
-                sr.match = match as! StrongMatch
-                tr.match = match as! StrongMatch
-                mr.match = match as! StrongMatch
+                sr.match = match as! SteamMatch
+                mr.match = match as! SteamMatch
                 let controller = (segue.destination as! UINavigationController).topViewController as! CustomContainerArrayView
-                controller.views = [sr, tr, mr]
+                controller.views = [sr, mr]
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
                 controller.navigationItem.title = "Match: \(match.matchNumber) Team: \(match.teamNumber)"
