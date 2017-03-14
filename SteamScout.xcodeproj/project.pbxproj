@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C032AFA91E55386400EC797C /* PenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032AFA81E55386400EC797C /* PenaltyViewController.swift */; };
 		C402A8E01E7539E9003817FF /* SteamMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8DF1E7539E9003817FF /* SteamMatch.swift */; };
 		C402A8E21E762653003817FF /* MatchEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8E11E762653003817FF /* MatchEncodingHelper.swift */; };
 		C402A8E51E777A5B003817FF /* AutonomousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8E31E777A5B003817FF /* AutonomousViewController.swift */; };
@@ -15,6 +14,7 @@
 		C402A8EB1E77AAAE003817FF /* SteamStartPositionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8EA1E77AAAE003817FF /* SteamStartPositionType.swift */; };
 		C402A8ED1E77ABB8003817FF /* SteamGearPlacementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8EC1E77ABB8003817FF /* SteamGearPlacementType.swift */; };
 		C402A8EF1E77CE51003817FF /* TeleopFuelPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8EE1E77CE51003817FF /* TeleopFuelPopoverViewController.swift */; };
+		C402A8F11E77D243003817FF /* PenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8F01E77D243003817FF /* PenaltyViewController.swift */; };
 		C43EFFAA1E38270A00BC2BB9 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */; };
 		C43EFFAB1E38270A00BC2BB9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA61E38270A00BC2BB9 /* Definitions.swift */; };
 		C43EFFAC1E38270A00BC2BB9 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA71E38270A00BC2BB9 /* Match.swift */; };
@@ -72,7 +72,6 @@
 		27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamScout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E93E7F5A26E313A9018C132 /* Pods-SteamScout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamScout.release.xcconfig"; path = "Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout.release.xcconfig"; sourceTree = "<group>"; };
 		71422EE919DB60A15D7A3C10 /* Pods-SteamScout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamScout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout.debug.xcconfig"; sourceTree = "<group>"; };
-		C032AFA81E55386400EC797C /* PenaltyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PenaltyViewController.swift; sourceTree = "<group>"; };
 		C402A8DF1E7539E9003817FF /* SteamMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamMatch.swift; sourceTree = "<group>"; };
 		C402A8E11E762653003817FF /* MatchEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchEncodingHelper.swift; sourceTree = "<group>"; };
 		C402A8E31E777A5B003817FF /* AutonomousViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutonomousViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +79,7 @@
 		C402A8EA1E77AAAE003817FF /* SteamStartPositionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamStartPositionType.swift; sourceTree = "<group>"; };
 		C402A8EC1E77ABB8003817FF /* SteamGearPlacementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamGearPlacementType.swift; sourceTree = "<group>"; };
 		C402A8EE1E77CE51003817FF /* TeleopFuelPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleopFuelPopoverViewController.swift; sourceTree = "<group>"; };
+		C402A8F01E77D243003817FF /* PenaltyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PenaltyViewController.swift; sourceTree = "<group>"; };
 		C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		C43EFFA61E38270A00BC2BB9 /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		C43EFFA71E38270A00BC2BB9 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
@@ -248,6 +248,7 @@
 		C44A81111E35D32C00BA367B /* DataEntry */ = {
 			isa = PBXGroup;
 			children = (
+				C402A8F01E77D243003817FF /* PenaltyViewController.swift */,
 				C402A8E31E777A5B003817FF /* AutonomousViewController.swift */,
 				C402A8E41E777A5B003817FF /* TeleopViewController.swift */,
 				C44A81121E35D32C00BA367B /* FinalViewController.swift */,
@@ -263,7 +264,6 @@
 				C44A81211E35D33100BA367B /* MasterViewController.swift */,
 				C44A81221E35D33100BA367B /* ScheduleViewController.swift */,
 				C44A81231E35D33100BA367B /* ToolsViewController.swift */,
-				C032AFA81E55386400EC797C /* PenaltyViewController.swift */,
 			);
 			path = MasterControllers;
 			sourceTree = "<group>";
@@ -514,6 +514,7 @@
 				C44A811B1E35D32C00BA367B /* EventSelectionTableViewController.swift in Sources */,
 				C44A811C1E35D32C00BA367B /* EventSelectionViewController.swift in Sources */,
 				C44A81321E35D33800BA367B /* SelectionButton.swift in Sources */,
+				C402A8F11E77D243003817FF /* PenaltyViewController.swift in Sources */,
 				C44A812F1E35D33800BA367B /* EventCell.swift in Sources */,
 				C44A810D1E35D32500BA367B /* EventStore.swift in Sources */,
 				C44A810E1E35D32500BA367B /* ScheduleItem.swift in Sources */,
@@ -528,7 +529,6 @@
 				C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */,
 				C44A811F1E35D32C00BA367B /* ResultsTeleopViewController.swift in Sources */,
 				C402A8E61E777A5B003817FF /* TeleopViewController.swift in Sources */,
-				C032AFA91E55386400EC797C /* PenaltyViewController.swift in Sources */,
 				C43EFFAD1E38270A00BC2BB9 /* MatchStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
