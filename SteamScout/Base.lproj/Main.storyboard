@@ -1108,9 +1108,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="clearExportButton" destination="zzq-lg-ULG" id="Ggt-Of-sdd"/>
-                        <segue destination="OxB-HH-Iht" kind="showDetail" identifier="showMatchSummary" id="DsS-sV-Hyu">
-                            <nil key="action"/>
-                        </segue>
+                        <segue destination="OxB-HH-Iht" kind="showDetail" identifier="showMatchSummary" id="DsS-sV-Hyu"/>
                         <segue destination="TRq-fW-bRh" kind="presentation" identifier="segueToMatchQueue" id="wEF-ya-4OM"/>
                     </connections>
                 </tableViewController>
