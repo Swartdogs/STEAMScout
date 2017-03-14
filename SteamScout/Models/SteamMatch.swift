@@ -176,7 +176,6 @@ class SteamMatchEncodingHelper : MatchEncodingHelper {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        // user decoderrequired init?(coder aDecoder: NSCoder) {
         
         // use decoder to get dictionary
         guard let pList = aDecoder.decodeObject(forKey: "pListData") as? [String:AnyObject] else {
