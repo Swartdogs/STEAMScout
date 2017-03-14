@@ -147,11 +147,11 @@ enum DefenseAction: Int {
 
 // MARK: FinalConfigType
 enum FinalConfigType : Int {
-    case none = 0, hang, challenge
+    case none = 0, climb, climbAttempt
     
     func toString() -> String {
-        return (self == .hang) ? "Hang" :
-               (self == .challenge) ? "Challenge" : "N/A"
+        return (self == .climb) ? "Climb" :
+               (self == .climbAttempt) ? "Attempted Climb" : "N/A"
     }
 }
 
