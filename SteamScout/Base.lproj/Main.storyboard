@@ -127,7 +127,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3OC-A3-aUC"/>
                                     <barButtonItem title="Penalty" id="Rei-5j-EvH">
                                         <connections>
-                                            <segue destination="6RP-RV-QZM" kind="popoverPresentation" popoverAnchorBarButtonItem="Rei-5j-EvH" id="xU2-D7-M6L">
+                                            <segue destination="6RP-RV-QZM" kind="popoverPresentation" identifier="showPenaltyFromTeleop" popoverAnchorBarButtonItem="Rei-5j-EvH" id="xU2-D7-M6L">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
@@ -272,141 +272,132 @@
         <!--Penalty-->
         <scene sceneID="ak4-LE-56g">
             <objects>
-                <viewController title="Penalty" id="6RP-RV-QZM" customClass="PenaltyViewController" customModule="SteamScout" sceneMemberID="viewController">
+                <viewController title="Penalty" id="6RP-RV-QZM" customClass="PenaltyViewController" customModule="SteamScout" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MBc-gi-coB"/>
                         <viewControllerLayoutGuide type="bottom" id="RMx-Cl-uR8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="y4O-Ui-bwV">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="240"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="omQ-hD-uaO">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="omQ-hD-uaO">
+                                <rect key="frame" x="0.0" y="64" width="300" height="176"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vks-So-cHA">
-                                        <rect key="frame" x="8" y="8" width="284" height="92"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Vks-So-cHA">
+                                        <rect key="frame" x="8" y="8" width="284" height="80"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vjg-n9-Drg">
-                                                <rect key="frame" x="8" y="8" width="134" height="76"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFv-x0-OQM" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="8" width="118" height="60"/>
-                                                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <state key="normal" title="Yellow Card"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="YellowCardPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="wpb-zX-sjO"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PW-dN-8u4">
-                                                <rect key="frame" x="142" y="8" width="134" height="76"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbB-cB-f6O" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="8" width="118" height="60"/>
-                                                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <state key="normal" title="Red Card"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="RedCardPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="WK3-js-qDK"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFv-x0-OQM" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="8" width="126" height="64"/>
+                                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="Yellow Card"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="YellowCardPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="wpb-zX-sjO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbB-cB-f6O" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
+                                                <rect key="frame" x="150" y="8" width="126" height="64"/>
+                                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="Red Card"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="RedCardPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="WK3-js-qDK"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Vjg-n9-Drg" firstAttribute="width" secondItem="9PW-dN-8u4" secondAttribute="width" id="Fn0-QM-ewk"/>
-                                        </constraints>
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vgw-he-lX7">
-                                        <rect key="frame" x="8" y="100" width="284" height="92"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Vgw-he-lX7">
+                                        <rect key="frame" x="8" y="88" width="284" height="80"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8J2-x9-hgV">
-                                                <rect key="frame" x="8" y="8" width="134" height="76"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4h-Ic-G2X" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="8" width="118" height="60"/>
-                                                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                                        <state key="normal" title="Foul"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="FoulPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="lba-KA-zB6"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4h-Ic-G2X" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="8" width="126" height="64"/>
+                                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRV-XF-eCf">
-                                                <rect key="frame" x="142" y="8" width="134" height="76"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cur-iQ-WYB" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="8" width="118" height="60"/>
-                                                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <state key="normal" title="Technical Foul"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="TechnicalFoulPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="Gz7-Jm-A6H"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                            </stackView>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="Foul"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="FoulPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="lba-KA-zB6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cur-iQ-WYB" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
+                                                <rect key="frame" x="150" y="8" width="126" height="64"/>
+                                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="Technical Foul"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="TechnicalFoulPressed:" destination="6RP-RV-QZM" eventType="touchUpInside" id="Gz7-Jm-A6H"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="8J2-x9-hgV" firstAttribute="width" secondItem="rRV-XF-eCf" secondAttribute="width" id="DGb-gt-0Wu"/>
-                                        </constraints>
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="7rH-Bm-Ptn"/>
-                                    <constraint firstAttribute="height" constant="200" id="SBl-4V-itg"/>
                                     <constraint firstItem="Vks-So-cHA" firstAttribute="height" secondItem="Vgw-he-lX7" secondAttribute="height" id="gUJ-ZU-Bbh"/>
                                 </constraints>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IOJ-zf-bXY">
+                                <rect key="frame" x="0.0" y="20" width="300" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="824-l5-M7L"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WwV-Qf-TSD"/>
+                                    <barButtonItem systemItem="save" id="nYj-dg-Pw3">
+                                        <connections>
+                                            <action selector="SaveButtonPressed:" destination="6RP-RV-QZM" id="tQY-0W-mRW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="omQ-hD-uaO" firstAttribute="centerX" secondItem="y4O-Ui-bwV" secondAttribute="centerX" id="8cK-I3-ktF"/>
+                            <constraint firstItem="IOJ-zf-bXY" firstAttribute="top" secondItem="MBc-gi-coB" secondAttribute="bottom" id="AO2-vY-Aza"/>
+                            <constraint firstItem="IOJ-zf-bXY" firstAttribute="centerX" secondItem="y4O-Ui-bwV" secondAttribute="centerX" id="D1u-7w-pu7"/>
                             <constraint firstItem="omQ-hD-uaO" firstAttribute="leading" secondItem="y4O-Ui-bwV" secondAttribute="leading" id="Pgi-w7-eh6"/>
+                            <constraint firstItem="omQ-hD-uaO" firstAttribute="top" secondItem="IOJ-zf-bXY" secondAttribute="bottom" id="QT4-Ak-UYU"/>
                             <constraint firstItem="omQ-hD-uaO" firstAttribute="bottom" secondItem="RMx-Cl-uR8" secondAttribute="top" id="eOO-jp-6WC"/>
+                            <constraint firstItem="IOJ-zf-bXY" firstAttribute="leading" secondItem="y4O-Ui-bwV" secondAttribute="leading" id="g0j-k1-Wrn"/>
                         </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="300" height="200"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="300" height="200"/>
+                    <size key="freeformSize" width="300" height="240"/>
                     <connections>
-                        <outlet property="Foul" destination="W4h-Ic-G2X" id="LkA-3x-ll7"/>
-                        <outlet property="RedCard" destination="PbB-cB-f6O" id="0g1-Pv-480"/>
-                        <outlet property="TechnicalFoul" destination="cur-iQ-WYB" id="oxq-rC-ms1"/>
-                        <outlet property="YellowCard" destination="PFv-x0-OQM" id="vZS-E6-sSc"/>
+                        <outlet property="Foul" destination="W4h-Ic-G2X" id="Mwe-ES-UFW"/>
+                        <outlet property="RedCard" destination="PbB-cB-f6O" id="eAh-NB-f2f"/>
+                        <outlet property="TechnicalFoul" destination="cur-iQ-WYB" id="C55-X3-BUx"/>
+                        <outlet property="YellowCard" destination="PFv-x0-OQM" id="df7-Lz-C0E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pM6-rT-PXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4161.71875" y="247.85156249999997"/>
+            <point key="canvasLocation" x="4161.71875" y="111.91406249999999"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LqZ-eF-Rbe">
@@ -1434,7 +1425,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="wSt-Cf-hve"/>
                                     <barButtonItem title="Penalty" id="NUO-oe-06w">
                                         <connections>
-                                            <segue destination="6RP-RV-QZM" kind="popoverPresentation" popoverAnchorBarButtonItem="NUO-oe-06w" id="g4S-49-J8N">
+                                            <segue destination="6RP-RV-QZM" kind="popoverPresentation" identifier="showPenaltyFromAuto" popoverAnchorBarButtonItem="NUO-oe-06w" id="g4S-49-J8N">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
@@ -1884,7 +1875,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="J5x-uL-Uxx"/>
         <segue reference="pMA-Qb-jdF"/>
-        <segue reference="g4S-49-J8N"/>
+        <segue reference="xU2-D7-M6L"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
