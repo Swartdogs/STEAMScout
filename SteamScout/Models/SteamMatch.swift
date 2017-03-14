@@ -91,7 +91,7 @@ class SteamMatch : MatchImpl {
     }
     
     override var encodingHelper: MatchEncodingHelper {
-        fatalError("This function needs to be implemented")
+        return SteamMatchEncodingHelper(match: self)
     }
     
     override class var csvHeader: String {
@@ -163,6 +163,10 @@ class SteamMatch : MatchImpl {
         default:
             break
         }
+    }
+    
+    override func aggregateMatchData() {
+        // Nothing to aggregate, so do nothing
     }
 }
 
