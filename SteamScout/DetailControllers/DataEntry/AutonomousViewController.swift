@@ -19,6 +19,7 @@ class AutonomousViewController: UIViewController {
     @IBOutlet weak var NoGearPlaced: UIButton!
     @IBOutlet weak var HighGoalSlider: UISlider!
     @IBOutlet weak var LowGoalSlider: UISlider!
+    
     @IBAction func NoAttemptHighGoalPressed(_ sender: UIButton) {
         if NoAttemptHighGoal.isSelected {
             NoAttemptHighGoal.isSelected = false
@@ -30,6 +31,7 @@ class AutonomousViewController: UIViewController {
             HighGoalSlider.value = 3
         }
     }
+    
     @IBAction func LowGoalNoAttemptPressed(_ sender: UIButton) {
         if NoAttemptLowGoal.isSelected{
             NoAttemptLowGoal.isSelected = false
@@ -41,12 +43,15 @@ class AutonomousViewController: UIViewController {
             LowGoalSlider.value = 3
         }
     }
+    
     @IBAction func HighGoalValueChanged(_ sender: UISlider) {
         NoAttemptHighGoal.isSelected = false
     }
+    
     @IBAction func LowGoalValueChanged(_ sender: UISlider) {
         NoAttemptLowGoal.isSelected = false
     }
+    
     @IBAction func NoGearPlacedPressed(_ sender: UIButton) {
         if NoGearPlaced.isSelected {
             NoGearPlaced.isSelected = false
@@ -58,6 +63,7 @@ class AutonomousViewController: UIViewController {
             CenterLift.isSelected = false
         }
     }
+    
     @IBAction func LeftLiftPressed(_ sender: UIButton) {
         if LeftLift.isSelected {
             LeftLift.isSelected = false
@@ -81,6 +87,7 @@ class AutonomousViewController: UIViewController {
             NoGearPlaced.isSelected = false
         }
     }
+    
     @IBAction func RightLiftPressed(_ sender: UIButton) {
         if RightLift.isSelected {
             RightLift.isSelected = false
