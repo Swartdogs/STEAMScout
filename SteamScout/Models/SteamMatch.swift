@@ -68,9 +68,9 @@ class SteamMatch : MatchImpl {
         var final = data["final"] as! [String:AnyObject]
         
         // Auto Info
-        auto["startPos"]   = autoStartPos.rawValue      as AnyObject?
+        auto["startPos"]   = autoStartPos.toString()      as AnyObject?
         auto["blCross"]    = autoBaselineCrossed as AnyObject?
-        auto["gearPlace"]  = autoGearPlacement.rawValue as AnyObject?
+        auto["gearPlace"]  = autoGearPlacement.toString() as AnyObject?
         auto["hTrigger"]   = autoHopperTriggered as AnyObject?
         auto["hFuelScore"] = autoHighFuelScored  as AnyObject?
         auto["lFuelScore"] = autoLowFuelScored   as AnyObject?
@@ -81,7 +81,7 @@ class SteamMatch : MatchImpl {
         tele["lFuelScore"] = teleLowFuelScored   as AnyObject?
         
         // Final Info (Specific to this class)
-        final["config"]    = finalConfiguration.rawValue as AnyObject?
+        final["config"]    = finalConfiguration.toString() as AnyObject?
         
         data["auto"]  = auto  as AnyObject?
         data["tele"]  = tele  as AnyObject?
@@ -122,9 +122,9 @@ class SteamMatch : MatchImpl {
         matchData += "\(match["team", "alliance"].stringValue),"
         
         // Auto Info
-        matchData += "\(match["auto", "startPos"].intValue),"
+        matchData += "\(match["auto", "startPos"].stringValue),"
         matchData += "\(match["auto", "blCross"].boolValue),"
-        matchData += "\(match["auto", "gearPlace"].intValue),"
+        matchData += "\(match["auto", "gearPlace"].stringValue),"
         matchData += "\(match["auto", "hTrigger"].boolValue),"
         matchData += "\(match["auto", "hFuelScore"].floatValue),"
         matchData += "\(match["auto", "lFuelScore"].floatValue),"
@@ -135,10 +135,16 @@ class SteamMatch : MatchImpl {
         matchData += "\(match["tele", "lFuelScore"].floatValue),"
         
         // Final Info
-        let finalKeys = ["score", "rPoints", "pScore", "result", "fouls", "tFouls", "yCards", "rCards", "robot", "config"]
-        for i in 0..<finalKeys.count {
-            matchData += "\(match["final", finalKeys[i]].intValue),"
-        }
+        matchData += "\(match["final", "score"].intValue),"
+        matchData += "\(match["final", "rPoints"].intValue),"
+        matchData += "\(match["final", "pScore"].intValue),"
+        matchData += "\(match["final", "result"].stringValue),"
+        matchData += "\(match["final", "fouls"].intValue),"
+        matchData += "\(match["final", "tFouls"].intValue),"
+        matchData += "\(match["final", "yCards"].intValue),"
+        matchData += "\(match["final", "rCards"].intValue),"
+        matchData += "\(match["final", "robot"].stringValue),"
+        matchData += "\(match["final", "config"].stringValue),"
         matchData += "\(match["final", "comments"].stringValue)"
         
         return matchData
