@@ -32,7 +32,6 @@ class FinalViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         match = MatchStore.sharedStore.currentMatch as! SteamMatch
-        registerForKeyboardNotifications()
         readyToMoveOn()
         
         FinalPenaltyScoreTextField.text = "\(match.finalPenaltyScore)"
@@ -52,7 +51,6 @@ class FinalViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        deregisterForKeyboardNotifications()
         
         MatchStore.sharedStore.updateCurrentMatchForType(.finalStats, match: match)
     }
@@ -66,36 +64,6 @@ class FinalViewController: UIViewController {
         let disable =  match.finalScore < 0 || match.finalPenaltyScore < 0 || match.finalRankingPoints < 0 || match.finalResult == .none
         
         self.navigationItem.rightBarButtonItem?.isEnabled = !disable
-    }
-    
-    func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(FinalViewController.keyboardWasShown(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(FinalViewController.keyboardWillBeHidden(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    func deregisterForKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    func keyboardWasShown(_ notification:Notification) {
-        let info = notification.userInfo
-        let kbSize = (info![UIKeyboardFrameBeginUserInfoKey] as AnyObject).cgRectValue.size
-        
-        let edgeInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0)
-        scrollView.contentInset = edgeInsets
-        scrollView.scrollIndicatorInsets = edgeInsets
-        
-        if !FinalCommentsTextView.isFirstResponder { return }
-
-        self.scrollView.setContentOffset(CGPoint(x: 0.0, y: kbSize.height-FinalCommentsTextView.frame.maxY + 150), animated: true)
-    }
-    
-    func keyboardWillBeHidden(_ notification:Notification) {
-        let insets = UIEdgeInsets.zero
-        scrollView.contentInset = insets
-        scrollView.scrollIndicatorInsets = insets
-        self.scrollView.contentOffset = CGPoint(x: 0.0, y: 0.0)
     }
     
     @IBAction func RobotButtonTap(_ sender:UIButton) {
