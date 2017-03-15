@@ -264,6 +264,9 @@
 				C44A81211E35D33100BA367B /* MasterViewController.swift */,
 				C44A81221E35D33100BA367B /* ScheduleViewController.swift */,
 				C44A81231E35D33100BA367B /* ToolsViewController.swift */,
+				C02BCF7C1E52A045000E3CD2 /* TeleopViewController.swift */,
+				C006845F1E52A2A300C8F009 /* AutonomousViewController.swift */,
+				C032AFA81E55386400EC797C /* PenaltyViewController.swift */,
 			);
 			path = MasterControllers;
 			sourceTree = "<group>";

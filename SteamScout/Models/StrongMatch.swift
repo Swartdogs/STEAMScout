@@ -238,7 +238,7 @@ class StrongMatch : MatchImpl, Actionable {
         let def5data = defense["defense5"] as! NSDictionary
         defense5 = Defense(propertyListRepresentation: def5data)!
     }
-    
+
     override var messageDictionary:Dictionary<String, AnyObject> {
         var data:[String:AnyObject]    = [String:AnyObject]()
         var team:[String:AnyObject]    = [String:AnyObject]()
@@ -513,3 +513,4 @@ class StrongMatchEncodingHelper : MatchEncodingHelper {
         return data;
     }
 }
+
