@@ -1108,7 +1108,9 @@
                     <connections>
                         <outlet property="clearExportButton" destination="zzq-lg-ULG" id="Ggt-Of-sdd"/>
                         <segue destination="OxB-HH-Iht" kind="showDetail" identifier="showMatchSummary" id="DsS-sV-Hyu"/>
-                        <segue destination="TRq-fW-bRh" kind="presentation" identifier="segueToMatchQueue" id="wEF-ya-4OM"/>
+                        <segue destination="TRq-fW-bRh" kind="popoverPresentation" identifier="segueToMatchQueue" popoverAnchorBarButtonItem="rt0-FK-LlX" id="wEF-ya-4OM">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ic-uc-kAe" sceneMemberID="firstResponder"/>
