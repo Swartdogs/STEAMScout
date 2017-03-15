@@ -123,7 +123,6 @@
                                 <rect key="frame" x="0.0" y="916" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Edit" id="f0G-42-0O9"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3OC-A3-aUC"/>
                                     <barButtonItem title="Penalty" id="Rei-5j-EvH">
                                         <connections>
@@ -753,7 +752,7 @@
                                 <rect key="frame" x="0.0" y="28" width="768" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LAp-cY-foD" id="xIV-Nq-258">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2Kv-8V-mP0">
@@ -1013,7 +1012,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ro-38-DKu" id="Osa-2W-v4O">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O8L-25-6lc">
@@ -1483,7 +1482,6 @@
                                 <rect key="frame" x="0.0" y="916" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Edit" id="XYA-Vr-gCp"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="wSt-Cf-hve"/>
                                     <barButtonItem title="Penalty" id="NUO-oe-06w">
                                         <connections>
@@ -1733,7 +1731,7 @@
                                 <rect key="frame" x="0.0" y="28" width="768" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cfM-2p-V79" id="qgg-bZ-X2m">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="61"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="61.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ydv-3b-OMF">
@@ -1937,10 +1935,9 @@
         <image name="Gear" width="767" height="750"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="J5x-uL-Uxx"/>
-        <segue reference="g4S-49-J8N"/>
         <segue reference="pMA-Qb-jdF"/>
-        <segue reference="g4S-49-J8N"/>
+        <segue reference="J5x-uL-Uxx"/>
+        <segue reference="xU2-D7-M6L"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
