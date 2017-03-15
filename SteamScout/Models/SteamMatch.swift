@@ -101,10 +101,10 @@ class SteamMatch : MatchImpl {
         matchHeader += "Match Number, Team Number, Alliance, "
         
         // Auto Info
-        matchHeader += "Auto Start Position, Auto Baseline Crossed, Auto Gear Placement, Auto Hopper Triggered, Auto High Fuel Scored, Auto Low Fuel Scored"
+        matchHeader += "Auto Start Position, Auto Baseline Crossed, Auto Gear Placement, Auto Hopper Triggered, Auto High Fuel Scored, Auto Low Fuel Scored, "
         
         // Tele Info
-        matchHeader += "Tele Gears Scored, Tele High Fuel Scored, Tele Low Fuel Scored"
+        matchHeader += "Tele Gears Scored, Tele High Fuel Scored, Tele Low Fuel Scored, "
         
         // Final Info
         matchHeader += "Final Score, Final Ranking Points, Penalty Points Received, Final Result, Fouls, Tech Fouls, Yellow Cards, Red Cards, Robot, Config, Comments \r\n"
