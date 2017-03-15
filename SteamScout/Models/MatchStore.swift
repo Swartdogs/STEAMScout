@@ -72,14 +72,29 @@ class MatchStore: AnyObject {
         return (documentFolder as NSString).appendingPathComponent("Match data - \(UIDevice.current.name).csv")
     }
     
-    func saveChanges() -> Bool {
-        if !self.writeCSVFile() {
-            return false
-        }
+    // Return Values:
+    // 0 - Success
+    // 1 - MatchDataSave Failed
+    // 2 - QueueDataSave Failed
+    // 3 - Match+Queue Save Failed
+    // 4 - CsvDataSave Failed
+    // 5 - Csv+Match Save Failed
+    // 6 - Csv+Queue Save Failed
+    // 7 - Csv+Queue+Match Save Failed
+    func saveChanges(withMatchType type: CsvDataProvider.Type) -> Int {
         UserDefaults.standard.set(fieldLayout.rawValue, forKey: "SteamScout.fieldLayout")
+
+        let queueDataSave = saveMatchQueueData()
         
-        let path = self.matchArchivePath
-        let path2 = self.match2ScoutArchivePath
+        let matchDataSave = saveMatchData()
+        
+        let csvDataSave = writeCSVFile(withType: type)
+        
+        return (matchDataSave ? 1 : 0) + (queueDataSave ? 2 : 0) + (csvDataSave ? 4 : 0)
+    }
+    
+    func saveMatchQueueData() -> Bool {
+        let path = self.match2ScoutArchivePath
         
         var queueData = [NSDictionary]()
         for mqd in matchesToScout {
@@ -87,7 +102,11 @@ class MatchStore: AnyObject {
             queueData.append(d)
         }
         
-        NSKeyedArchiver.archiveRootObject(queueData, toFile: path2)
+        return NSKeyedArchiver.archiveRootObject(queueData, toFile: path)
+    }
+    
+    func saveMatchData() -> Bool {
+        let path = self.matchArchivePath
         
         var matchData = [MatchEncodingHelper]()
         for m in allMatches {
@@ -97,11 +116,11 @@ class MatchStore: AnyObject {
         return NSKeyedArchiver.archiveRootObject(matchData, toFile: path)
     }
     
-    func writeCSVFile() -> Bool {
+    func writeCSVFile(withType type: CsvDataProvider.Type) -> Bool {
         let device = "\(UIDevice.current.name)    \r\n"
         var csvFileString = device
         
-        csvFileString += SteamMatch.csvHeader
+        csvFileString += type.csvHeader
         
         for m in allMatches {
             csvFileString += m.csvMatch + " \r\n"
@@ -115,13 +134,13 @@ class MatchStore: AnyObject {
         return true
     }
     
-    func exportNewMatchData() -> Bool {
+    func exportNewMatchData(withType type: CsvDataProvider.Type) -> Bool {
         
         let device = "\(UIDevice.current.name)  \r\n"
         var csvFileString = device
         var matchJSONData = [Dictionary<String, AnyObject>]();
         
-        csvFileString += SteamMatch.csvHeader
+        csvFileString += type.csvHeader
         
         for var m:Match in allMatches {
             if (m.isCompleted & 32) == 32 {
@@ -137,7 +156,7 @@ class MatchStore: AnyObject {
             return false
         }
         
-        return saveChanges()
+        return saveChanges(withMatchType: type) == 0
     }
     
     func createMatch(_ returningType:MatchImpl.Type, onComplete handler:((Match) -> ())?) {
@@ -221,8 +240,8 @@ class MatchStore: AnyObject {
             matchesToScout.remove(at: currentMatchIndex)
         }
         currentMatchIndex = -1
-        let success = self.saveChanges()
-        print("All Matches were \(success ? "" : "un")successfully saved")
+        let success = self.saveChanges(withMatchType: type(of: currentMatch!))
+        print("All Matches were \(success == 0 ? "" : "un")successfully saved")
         currentMatch = nil
     }
     
@@ -241,7 +260,7 @@ class MatchStore: AnyObject {
         
         matchesToScout.removeAll()
         matchesToScout = data
-        _ = self.saveChanges()
+        _ = self.saveMatchQueueData()
     }
     
     func clearMatchData(_ type:Int) {
