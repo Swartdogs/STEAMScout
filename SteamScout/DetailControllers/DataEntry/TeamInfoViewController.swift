@@ -7,30 +7,6 @@
 //
 
 import UIKit
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l <= r
-  default:
-    return !(rhs < lhs)
-  }
-}
-
 
 class TeamInfoViewController: UIViewController {
     
@@ -39,7 +15,7 @@ class TeamInfoViewController: UIViewController {
     @IBOutlet var allianceButtons: [UIButton]!
     @IBOutlet weak var noShowButton: UIButton!
     
-    var m:Match = StrongMatch()
+    var m:Match = SteamMatch()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -92,7 +68,7 @@ class TeamInfoViewController: UIViewController {
     }
     
     @IBAction func textFieldEditDidEnd(_ sender: UITextField) {
-        if sender.text?.characters.count <= 0 { return }
+        if (sender.text?.characters.count)! <= 0 { return }
         if sender === teamNumberTextField {
             m.teamNumber = (Int(sender.text!) ?? m.teamNumber)!
             sender.text = m.teamNumber > 0 ? "\(m.teamNumber)" : ""
@@ -105,15 +81,11 @@ class TeamInfoViewController: UIViewController {
     }
     
     @IBAction func allianceTap(_ sender: UIButton) {
-        if sender.tag == 0 {
-            m.alliance = .red
-        } else if sender.tag == 1 {
-            m.alliance = .blue
-        } else {
-            m.alliance = .unknown
+        m.alliance = AllianceType(rawValue: sender.tag)!
+        
+        for b in allianceButtons {
+            b.isSelected = b.tag == sender.tag
         }
-        allianceButtons[0].isSelected = m.alliance == .blue
-        allianceButtons[1].isSelected = m.alliance == .red
         self.view.endEditing(true)
         readyToMoveOn()
     }

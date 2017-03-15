@@ -15,9 +15,9 @@ enum RequestType: Int {
     var url : String {
         switch(self) {
         case .eventList:
-            return "https://frc-api.firstinspires.org/v2.0/2016/events?exludeDistrict=false"
+            return "https://frc-api.firstinspires.org/v2.0/2017/events?exludeDistrict=false"
         case .scheduleList:
-            return "https://frc-api.firstinspires.org/v2.0/2016/schedule/\(ScheduleStore.sharedStore.currentSchedule!)?tournamentLevel=qual"
+            return "https://frc-api.firstinspires.org/v2.0/2017/schedule/\(ScheduleStore.sharedStore.currentSchedule!)?tournamentLevel=qual"
         default:
             return ""
         }
