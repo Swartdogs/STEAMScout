@@ -34,12 +34,27 @@ class FinalViewController: UIViewController {
         match = MatchStore.sharedStore.currentMatch as! SteamMatch
         registerForKeyboardNotifications()
         readyToMoveOn()
+        
         FinalPenaltyScoreTextField.text = "\(match.finalPenaltyScore)"
+        FinalRankingPointsTextField.text = "\(match.finalRankingPoints)"
+        FinalScoreTextField.text = "\(match.finalScore)"
+        FinalCommentsTextView.text = match.finalComments
+        for b in MatchOutcomeButtons {
+            b.isSelected = b.tag == match.finalResult.rawValue
+        }
+        for b in EndingRobotButtons {
+            b.isSelected = (b.tag & match.finalRobot.rawValue) == b.tag
+        }
+        for b in EndingButtons {
+            b.isSelected = (b.tag == match.finalConfiguration.rawValue)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         deregisterForKeyboardNotifications()
+        
+        MatchStore.sharedStore.updateCurrentMatchForType(.finalStats, match: match)
     }
 
     override func didReceiveMemoryWarning() {
