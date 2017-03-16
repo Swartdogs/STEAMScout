@@ -72,6 +72,7 @@ class MasterViewController: UITableViewController {
     // MARK: Unwind Segues
     
     @IBAction func unwindToMatchView(_ sender:UIStoryboardSegue) {
+        AppUtility.unlockOrientation()
         self.tableView.reloadData()
     }
     
@@ -179,7 +180,7 @@ class MasterViewController: UITableViewController {
                 hud.mode = .indeterminate
                 hud.label.text = "Exporting..."
                 DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async(execute: {
-                    _ = MatchStore.sharedStore.exportNewMatchData()
+                    _ = MatchStore.sharedStore.exportNewMatchData(withType: SteamMatch.self)
                     DispatchQueue.main.async(execute: {
                         let hud = MBProgressHUD(for: self.navigationController!.view)
                         let imageView = UIImageView(image: UIImage(named: "Checkmark"))
@@ -201,7 +202,7 @@ class MasterViewController: UITableViewController {
         hud.mode = .indeterminate
         hud.label.text = "Exporting..."
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async(execute: {
-            _ = MatchStore.sharedStore.writeCSVFile()
+            _ = MatchStore.sharedStore.writeCSVFile(withType: SteamMatch.self)
             DispatchQueue.main.async(execute: {
                 let hud = MBProgressHUD(for: self.navigationController!.view)
                 let imageView = UIImageView(image: UIImage(named: "Checkmark"))
@@ -267,7 +268,7 @@ class MasterViewController: UITableViewController {
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
             
-            _ = MatchStore.sharedStore.saveChanges()
+            _ = MatchStore.sharedStore.saveChanges(withMatchType: SteamMatch.self)
         }
     }
 
