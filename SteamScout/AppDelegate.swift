@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    var orientationLock: UIInterfaceOrientationMask = .all
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,21 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         
-        if let vc = window?.rootViewController?.presentedViewController as? AutonomousViewController {
-            if vc.isBeingPresented {
-                return UIInterfaceOrientationMask.portrait.union(.portraitUpsideDown)
-            } else {
-                return UIInterfaceOrientationMask.all
-            }
-        } else if let vc = window?.rootViewController?.presentedViewController as? TeleopViewController {
-            if vc.isBeingPresented {
-                return UIInterfaceOrientationMask.portrait.union(.portraitUpsideDown)
-            } else {
-                return UIInterfaceOrientationMask.all
-            }
-        }
-        
-        return UIInterfaceOrientationMask.all
+        return orientationLock
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

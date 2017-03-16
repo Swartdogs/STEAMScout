@@ -55,7 +55,7 @@ class TeleopViewController: UIViewController {
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.portrait.union(.portraitUpsideDown)
+        return UIInterfaceOrientationMask.portrait
     }
     
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {

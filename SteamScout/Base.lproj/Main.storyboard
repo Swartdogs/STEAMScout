@@ -967,7 +967,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="RMV-Zh-vGD">
                             <connections>
                                 <action selector="nextButtonTap:" destination="svD-E9-SOG" id="N2m-A7-7Pb"/>
-                                <segue destination="uFr-9Y-zqS" kind="presentation" modalPresentationStyle="fullScreen" id="la2-Tc-j94"/>
+                                <segue destination="uFr-9Y-zqS" kind="presentation" modalPresentationStyle="overFullScreen" id="la2-Tc-j94"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

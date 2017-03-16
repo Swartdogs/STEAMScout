@@ -72,6 +72,7 @@ class MasterViewController: UITableViewController {
     // MARK: Unwind Segues
     
     @IBAction func unwindToMatchView(_ sender:UIStoryboardSegue) {
+        AppUtility.unlockOrientation()
         self.tableView.reloadData()
     }
     
