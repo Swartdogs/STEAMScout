@@ -50,6 +50,17 @@ class TeleopViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait.union(.portraitUpsideDown)
+    }
+    
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        return .portrait
+    }
 
     // MARK: - Navigation
 
