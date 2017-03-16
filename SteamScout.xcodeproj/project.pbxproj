@@ -47,6 +47,7 @@
 		C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812D1E35D33800BA367B /* themeDefinitions.swift */; };
 		C48158AE1E7A449B0009A89B /* UINavigationController+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48158AD1E7A449B0009A89B /* UINavigationController+Rotation.swift */; };
 		C48158B01E7A57090009A89B /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48158AF1E7A57090009A89B /* AppUtility.swift */; };
+		C48158B31E7A7A500009A89B /* DataEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48158B11E7A7A500009A89B /* DataEntry.storyboard */; };
 		C4D61D2D1E35E39400320E1D /* SteamScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */; };
 		C4D61D2E1E35E39F00320E1D /* SteamScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */; };
 		C4F889B01E5424BB00DC0826 /* StrongMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F889AF1E5424BB00DC0826 /* StrongMatch.swift */; };
@@ -119,6 +120,7 @@
 		C44A812D1E35D33800BA367B /* themeDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = themeDefinitions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C48158AD1E7A449B0009A89B /* UINavigationController+Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Rotation.swift"; sourceTree = "<group>"; };
 		C48158AF1E7A57090009A89B /* AppUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		C48158B21E7A7A500009A89B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DataEntry.storyboard; sourceTree = "<group>"; };
 		C4D61D241E35E37C00320E1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamScoutTests.swift; sourceTree = "<group>"; };
 		C4D61D291E35E38100320E1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				C44A81041E35D31100BA367B /* Results.storyboard */,
 				C44A80D71E356EBA00BA367B /* Main.storyboard */,
 				C44A80DC1E356EBA00BA367B /* LaunchScreen.storyboard */,
+				C48158B11E7A7A500009A89B /* DataEntry.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			files = (
 				C44A80DE1E356EBA00BA367B /* LaunchScreen.storyboard in Resources */,
 				C44A81061E35D31100BA367B /* Results.storyboard in Resources */,
+				C48158B31E7A7A500009A89B /* DataEntry.storyboard in Resources */,
 				C44A80DB1E356EBA00BA367B /* Assets.xcassets in Resources */,
 				C44A80D91E356EBA00BA367B /* Main.storyboard in Resources */,
 			);
@@ -596,6 +600,14 @@
 				C44A81051E35D31100BA367B /* Base */,
 			);
 			name = Results.storyboard;
+			sourceTree = "<group>";
+		};
+		C48158B11E7A7A500009A89B /* DataEntry.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48158B21E7A7A500009A89B /* Base */,
+			);
+			name = DataEntry.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
