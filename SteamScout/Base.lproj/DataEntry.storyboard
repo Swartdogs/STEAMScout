@@ -654,7 +654,7 @@
                     <navigationItem key="navigationItem" title="Final Result View" id="r7S-zQ-Wcv">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="IyI-uW-o1N">
                             <connections>
-                                <segue destination="SNW-K5-ZFo" kind="unwind" identifier="unwindToMatchView" unwindAction="unwindToMatchView:" id="fCI-XC-Mjc"/>
+                                <segue destination="SNW-K5-ZFo" kind="unwind" unwindAction="unwindToMatchView:" id="DxA-Zw-jJ1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
