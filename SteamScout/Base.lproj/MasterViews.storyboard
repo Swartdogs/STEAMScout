@@ -630,7 +630,7 @@
         <!--MatchSummaryNavController-->
         <scene sceneID="53W-fl-43G">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="MatchSummaryNavController" storyboardName="Main" referencedIdentifier="MatchSummaryNavController" id="kJb-XC-gky" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="MatchSummaryNavController" storyboardName="Results" referencedIdentifier="MatchSummaryNavController" id="kJb-XC-gky" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trn-na-Udz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1262" y="-493"/>

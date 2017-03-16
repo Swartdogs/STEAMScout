@@ -20,7 +20,7 @@
                     <view key="view" contentMode="scaleToFill" id="rJz-u8-i1b">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Steam Scout" id="QrQ-0h-YHz"/>
@@ -28,25 +28,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udx-EE-KWP" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="129"/>
-        </scene>
-        <!--Match Summary-->
-        <scene sceneID="0sl-R9-vfM">
-            <objects>
-                <viewController id="aAW-yS-Ega" customClass="CustomContainerArrayView" customModule="SteamScout" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qTR-mx-0cQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Vro-um-kz0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3T1-Nk-gUh">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Match Summary" id="7RB-hy-5EI"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zTp-RB-8NN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="709" y="824"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="xp2-8f-0NC">
@@ -78,25 +59,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5AJ-hk-wO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Dfw-2S-xXl">
-            <objects>
-                <navigationController storyboardIdentifier="MatchSummaryNavController" automaticallyAdjustsScrollViewInsets="NO" id="OxB-HH-Iht" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="EVA-8V-DrR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aAW-yS-Ega" kind="relationship" relationship="rootViewController" id="iPh-Vz-Ikg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rl5-Fo-mN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-45" y="824"/>
         </scene>
         <!--MasterNavController-->
         <scene sceneID="d20-p4-yQp">

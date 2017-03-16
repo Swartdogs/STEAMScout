@@ -658,7 +658,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B6s-Vh-SCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="282"/>
+            <point key="canvasLocation" x="1315" y="282"/>
+        </scene>
+        <!--Match Summary-->
+        <scene sceneID="wR8-ze-MOE">
+            <objects>
+                <viewController id="FXm-Xn-uKF" customClass="CustomContainerArrayView" customModule="SteamScout" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2en-oi-v9M"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Lo-i6-Qkx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XhG-0V-BOJ">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Match Summary" id="nkR-pY-8yC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SoJ-8e-70X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1315" y="-442"/>
+        </scene>
+        <!--Match Summary Navigation Controller-->
+        <scene sceneID="oLl-s8-qHI">
+            <objects>
+                <navigationController storyboardIdentifier="MatchSummaryNavController" automaticallyAdjustsScrollViewInsets="NO" id="RbI-8o-loZ" userLabel="Match Summary Navigation Controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="8gS-B1-rbP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FXm-Xn-uKF" kind="relationship" relationship="rootViewController" id="3d2-Cx-8ji"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZsW-hu-Ffz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="561" y="-442"/>
         </scene>
     </scenes>
 </document>
