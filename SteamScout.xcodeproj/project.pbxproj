@@ -45,6 +45,8 @@
 		C44A81311E35D33800BA367B /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812B1E35D33800BA367B /* ScheduleCell.swift */; };
 		C44A81321E35D33800BA367B /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812C1E35D33800BA367B /* SelectionButton.swift */; };
 		C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812D1E35D33800BA367B /* themeDefinitions.swift */; };
+		C48158AE1E7A449B0009A89B /* UINavigationController+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48158AD1E7A449B0009A89B /* UINavigationController+Rotation.swift */; };
+		C48158B01E7A57090009A89B /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48158AF1E7A57090009A89B /* AppUtility.swift */; };
 		C4D61D2D1E35E39400320E1D /* SteamScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */; };
 		C4D61D2E1E35E39F00320E1D /* SteamScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */; };
 		C4F889B01E5424BB00DC0826 /* StrongMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F889AF1E5424BB00DC0826 /* StrongMatch.swift */; };
@@ -115,6 +117,8 @@
 		C44A812B1E35D33800BA367B /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ScheduleCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C44A812C1E35D33800BA367B /* SelectionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SelectionButton.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C44A812D1E35D33800BA367B /* themeDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = themeDefinitions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C48158AD1E7A449B0009A89B /* UINavigationController+Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Rotation.swift"; sourceTree = "<group>"; };
+		C48158AF1E7A57090009A89B /* AppUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		C4D61D241E35E37C00320E1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamScoutTests.swift; sourceTree = "<group>"; };
 		C4D61D291E35E38100320E1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -264,9 +268,6 @@
 				C44A81211E35D33100BA367B /* MasterViewController.swift */,
 				C44A81221E35D33100BA367B /* ScheduleViewController.swift */,
 				C44A81231E35D33100BA367B /* ToolsViewController.swift */,
-				C02BCF7C1E52A045000E3CD2 /* TeleopViewController.swift */,
-				C006845F1E52A2A300C8F009 /* AutonomousViewController.swift */,
-				C032AFA81E55386400EC797C /* PenaltyViewController.swift */,
 			);
 			path = MasterControllers;
 			sourceTree = "<group>";
@@ -280,6 +281,8 @@
 				C44A812B1E35D33800BA367B /* ScheduleCell.swift */,
 				C44A812C1E35D33800BA367B /* SelectionButton.swift */,
 				C44A812D1E35D33800BA367B /* themeDefinitions.swift */,
+				C48158AD1E7A449B0009A89B /* UINavigationController+Rotation.swift */,
+				C48158AF1E7A57090009A89B /* AppUtility.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				C402A8ED1E77ABB8003817FF /* SteamGearPlacementType.swift in Sources */,
 				C44A81191E35D32C00BA367B /* FinalViewController.swift in Sources */,
 				C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */,
+				C48158AE1E7A449B0009A89B /* UINavigationController+Rotation.swift in Sources */,
 				C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */,
 				C44A80D61E356EBA00BA367B /* DetailViewController.swift in Sources */,
 				C44A810C1E35D32500BA367B /* Event.swift in Sources */,
@@ -534,6 +538,7 @@
 				C44A811F1E35D32C00BA367B /* ResultsTeleopViewController.swift in Sources */,
 				C402A8E61E777A5B003817FF /* TeleopViewController.swift in Sources */,
 				C43EFFAD1E38270A00BC2BB9 /* MatchStore.swift in Sources */,
+				C48158B01E7A57090009A89B /* AppUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

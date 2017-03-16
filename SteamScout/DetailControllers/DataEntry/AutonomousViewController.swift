@@ -93,6 +93,8 @@ class AutonomousViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        AppUtility.lockOrientation(to: .portrait)
+        
         // Get a reference to the current match
         match = MatchStore.sharedStore.currentMatch as! SteamMatch
         
@@ -135,6 +137,18 @@ class AutonomousViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        return .portrait
     }
     
     // MARK: - Navigation

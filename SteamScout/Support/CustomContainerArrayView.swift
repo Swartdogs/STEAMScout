@@ -64,6 +64,14 @@ class CustomContainerArrayView: UIViewController {
         if viewData.count <= 0 {
             setupViewDataArray()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(CustomContainerArrayView.orientationChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self)
     }
     
     func setupViewDataArray() {
@@ -175,6 +183,19 @@ class CustomContainerArrayView: UIViewController {
                     }
                 }
             })
+        }
+    }
+    
+    func orientationChange() {
+        for i in 0..<self.viewData.count {
+            let y = self.viewData[i].nc.navigationBar.frame.height * CGFloat(i);
+            let width = self.view.bounds.width
+            let height = self.view.bounds.height - (self.viewData[i].nc.navigationBar.frame.height * CGFloat(self.views.count - 1))
+            let frame = CGRect(x: 0, y: y, width: width, height: height)
+            self.viewData[i].nc.view.frame = frame
+            self.viewData[i].highCenter = self.viewData[i].nc.view.center
+            self.viewData[i].lowCenter = CGPoint(x: self.viewData[i].highCenter.x, y: self.viewData[i].highCenter.y + self.viewData[i].nc.view.frame.height - self.viewData[i].nc.navigationBar.frame.height)
+            self.viewData[i].nc.view.center = self.viewData[i].centerForViewPos()
         }
     }
 }
