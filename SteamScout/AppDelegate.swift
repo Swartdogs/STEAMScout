@@ -18,14 +18,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Override point for customization after application launch.
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        navigationController.topViewController!.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Matches", style: splitViewController.displayModeButtonItem.style, target: splitViewController.displayModeButtonItem.target, action: splitViewController.displayModeButtonItem.action)
         splitViewController.delegate = self
         return true
     }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return self.orientationLock
+    }
+    
+    func checkOrientation(_ viewController: UIViewController?) -> UIInterfaceOrientationMask {
+        if(viewController == nil) {
+            return .all
+        }
         
-        return orientationLock
+        if(viewController is AutonomousViewController) {
+            return .portrait
+        }
+        
+        if(viewController is TeleopViewController) {
+            return .portrait
+        }
+        
+        return checkOrientation(viewController!.presentedViewController)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -53,13 +68,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // MARK: - Split view
 
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
-        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
-        if topAsDetailController.detailItem == nil {
-            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-            return true
-        }
         return false
     }
-
+    
+    func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode) {
+        let masterNavController = svc.viewControllers[0] as! UINavigationController
+        let detailNavController = svc.viewControllers[svc.viewControllers.count - 1] as! UINavigationController
+        let title = masterNavController.topViewController!.navigationItem.title!
+        svc.displayModeButtonItem.title = title
+        if displayMode == .primaryHidden {
+            detailNavController.topViewController!.navigationItem.leftBarButtonItem = UIBarButtonItem(title: title, style: svc.displayModeButtonItem.style, target: svc.displayModeButtonItem.target, action: svc.displayModeButtonItem.action)
+        } else {
+            detailNavController.topViewController!.navigationItem.leftBarButtonItem = nil
+        }
+    }
 }
