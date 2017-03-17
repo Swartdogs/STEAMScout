@@ -35,13 +35,12 @@ class TeamInfoViewController: UIViewController {
         m = MatchStore.sharedStore.currentMatch ?? m
         
         m.isCompleted |= 1;
-        //if let m:Match = MatchStore.sharedStore.currentMatch {
-            teamNumberTextField.text = m.teamNumber > 0 ? "\(m.teamNumber)" : ""
-            matchNumberTextField.text = m.matchNumber > 0 ? "\(m.matchNumber)" : ""
-            allianceButtons[0].isSelected = m.alliance == .blue
-            allianceButtons[1].isSelected = m.alliance == .red
-            noShowButton.isSelected = m.finalResult == .noShow
-        //}
+        teamNumberTextField.text = m.teamNumber > 0 ? "\(m.teamNumber)" : ""
+        matchNumberTextField.text = m.matchNumber > 0 ? "\(m.matchNumber)" : ""
+        for b in allianceButtons {
+            b.isSelected = b.tag == m.alliance.rawValue
+        }
+        noShowButton.isSelected = m.finalResult == .noShow
         
         readyToMoveOn()
     }
