@@ -22,9 +22,9 @@ class ToolsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fieldLayout.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(fieldLayoutTap(_:)))
-        fieldLayout.addGestureRecognizer(tap)
+//        fieldLayout.isUserInteractionEnabled = true
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(fieldLayoutTap(_:)))
+//        fieldLayout.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,14 +51,14 @@ class ToolsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func fieldLayoutTap(_ sender:UITapGestureRecognizer) {
-        MatchStore.sharedStore.fieldLayout.reverse()
-        UserDefaults.standard.set(MatchStore.sharedStore.fieldLayout.rawValue, forKey: "SteamScout.fieldLayout")
-        let image = MatchStore.sharedStore.fieldLayout.getImage()
-        UIView.transition(with: fieldLayout, duration: 0.2, options: .transitionCrossDissolve, animations: {[weak self] in
-            self?.fieldLayout.image = image
-        }, completion: nil)
-    }
+//    func fieldLayoutTap(_ sender:UITapGestureRecognizer) {
+//        MatchStore.sharedStore.fieldLayout.reverse()
+//        UserDefaults.standard.set(MatchStore.sharedStore.fieldLayout.rawValue, forKey: "SteamScout.fieldLayout")
+//        let image = MatchStore.sharedStore.fieldLayout.getImage()
+//        UIView.transition(with: fieldLayout, duration: 0.2, options: .transitionCrossDissolve, animations: {[weak self] in
+//            self?.fieldLayout.image = image
+//        }, completion: nil)
+//    }
     
     @IBAction func getEventList(_ sender:UIButton) {
         let hud = MBProgressHUD.showAdded(to: self.navigationController!.view, animated: true)
