@@ -12,7 +12,7 @@
         <!--Detail-->
         <scene sceneID="YXq-Nr-Li6">
             <objects>
-                <viewController title="Detail" id="9xi-cg-hXL" customClass="DetailViewController" customModule="SteamScout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Detail" id="9xi-cg-hXL" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ODt-2m-ly1"/>
                         <viewControllerLayoutGuide type="bottom" id="FWo-DJ-kwW"/>
