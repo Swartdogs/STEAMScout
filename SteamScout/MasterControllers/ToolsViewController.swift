@@ -209,13 +209,23 @@ class ToolsViewController: UIViewController {
         })
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "segueToEventSelection" {
+            let nav = segue.destination as! UINavigationController
+            let estvc = nav.topViewController as! EventSelectionTableViewController
+            estvc.delegate = self
+        }
     }
-    */
+}
+
+extension ToolsViewController: EventSelectionTableViewControllerDelegate {
+    func eventSelectionTableViewController(_ estvc: EventSelectionTableViewController, requestedDismissAnimated animated: Bool) {
+        getScheduleButton.isEnabled = EventStore.sharedStore.selectedEvent != nil
+        estvc.dismiss(animated: animated, completion: nil)
+    }
 }
