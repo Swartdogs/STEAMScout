@@ -246,7 +246,7 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Master" id="gDC-Kp-5p4">
+                    <navigationItem key="navigationItem" title="Matches" id="gDC-Kp-5p4">
                         <barButtonItem key="rightBarButtonItem" title="New Match" id="rt0-FK-LlX">
                             <connections>
                                 <segue destination="EYX-f4-dmc" kind="popoverPresentation" identifier="SegueToNewMatch" popoverAnchorBarButtonItem="rt0-FK-LlX" id="WbF-9A-5UB">
@@ -429,11 +429,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tools" id="CcQ-xT-3k1">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="Cpw-0g-fWB">
-                            <connections>
-                                <segue destination="Shl-VW-Uet" kind="unwind" unwindAction="unwindToMatchView:" id="7nD-gk-QGJ"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Choose Event" id="tB1-0m-nb0">
                             <connections>
                                 <segue destination="rzY-lv-9gE" kind="presentation" modalPresentationStyle="formSheet" id="pMA-Qb-jdF"/>
@@ -453,7 +448,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALT-vJ-Bp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Shl-VW-Uet" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1163" y="80"/>
         </scene>
@@ -573,11 +567,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Schedule" id="3DK-oc-f7U">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="ZZ3-cj-1f0">
-                            <connections>
-                                <segue destination="bPc-tK-XZ8" kind="unwind" unwindAction="unwindToMatchView:" id="QRV-N4-YB7"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Choose Event" id="MTo-Mk-eLS">
                             <connections>
                                 <segue destination="rzY-lv-9gE" kind="presentation" modalPresentationStyle="formSheet" id="sIW-Uy-gGH"/>
@@ -586,7 +575,6 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OjS-53-N0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="bPc-tK-XZ8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="437" y="80"/>
         </scene>

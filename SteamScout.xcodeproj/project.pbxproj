@@ -20,7 +20,6 @@
 		C43EFFAC1E38270A00BC2BB9 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA71E38270A00BC2BB9 /* Match.swift */; };
 		C43EFFAD1E38270A00BC2BB9 /* MatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA81E38270A00BC2BB9 /* MatchStore.swift */; };
 		C44A80D21E356EBA00BA367B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D11E356EBA00BA367B /* AppDelegate.swift */; };
-		C44A80D61E356EBA00BA367B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D51E356EBA00BA367B /* DetailViewController.swift */; };
 		C44A80D91E356EBA00BA367B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A80D71E356EBA00BA367B /* Main.storyboard */; };
 		C44A80DB1E356EBA00BA367B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44A80DA1E356EBA00BA367B /* Assets.xcassets */; };
 		C44A80DE1E356EBA00BA367B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A80DC1E356EBA00BA367B /* LaunchScreen.storyboard */; };
@@ -91,7 +90,6 @@
 		C443D1861E35EFE400B27930 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C44A80CE1E356EBA00BA367B /* SteamScout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamScout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44A80D11E356EBA00BA367B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C44A80D51E356EBA00BA367B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C44A80D81E356EBA00BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C44A80DA1E356EBA00BA367B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C44A80DD1E356EBA00BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 				C44A81071E35D32500BA367B /* Models */,
 				C44A81341E35D35200BA367B /* Storyboards */,
 				C44A80D11E356EBA00BA367B /* AppDelegate.swift */,
-				C44A80D51E356EBA00BA367B /* DetailViewController.swift */,
 				C44A80DA1E356EBA00BA367B /* Assets.xcassets */,
 				C44A80DF1E356EBA00BA367B /* Info.plist */,
 			);
@@ -525,7 +522,6 @@
 				C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */,
 				C48158AE1E7A449B0009A89B /* UINavigationController+Rotation.swift in Sources */,
 				C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */,
-				C44A80D61E356EBA00BA367B /* DetailViewController.swift in Sources */,
 				C44A810C1E35D32500BA367B /* Event.swift in Sources */,
 				C44A811B1E35D32C00BA367B /* EventSelectionTableViewController.swift in Sources */,
 				C44A811C1E35D32C00BA367B /* EventSelectionViewController.swift in Sources */,
