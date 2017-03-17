@@ -53,7 +53,9 @@ class TeamInfoViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToEndMatchNoShow" {
+        if segue.identifier == "segueCancelStartMatch" {
+            MatchStore.sharedStore.cancelCurrentMatchEdit()
+        } else if segue.identifier == "segueToEndMatchNoShow" {
             MatchStore.sharedStore.updateCurrentMatchForType(.teamInfo, match: m)
             MatchStore.sharedStore.finishCurrentMatch()
         } else if segue.identifier == "segueToFieldSetup" {

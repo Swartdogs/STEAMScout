@@ -57,9 +57,11 @@ class MasterViewController: UITableViewController {
             }
         } else if segue.identifier == "SegueToNewMatch" {
             MatchStore.sharedStore.createMatch(SteamMatch.self, onComplete:nil)
+            segue.destination.popoverPresentationController!.delegate = self
         } else if segue.identifier == "segueToMatchQueue" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 MatchStore.sharedStore.createMatchFromQueueIndex(indexPath.row, withType: SteamMatch.self, onComplete: nil)
+                segue.destination.popoverPresentationController!.delegate = self
             }
         }
     }
@@ -278,6 +280,22 @@ class MasterViewController: UITableViewController {
             performSegue(withIdentifier: "segueToMatchQueue", sender: self)
         } else {
             performSegue(withIdentifier: "showMatchSummary", sender: self)
+        }
+    }
+}
+
+extension MasterViewController: UIPopoverPresentationControllerDelegate {
+    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        return true
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        // deal with this!
+        
+        if let nc = popoverPresentationController.presentedViewController as? UINavigationController {
+            if let _ = nc.topViewController as? TeamInfoViewController {
+                MatchStore.sharedStore.cancelCurrentMatchEdit()
+            }
         }
     }
 }
