@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol EventSelectionTableViewControllerDelegate: class {
+    func eventSelectionTableViewController(_ estvc:EventSelectionTableViewController, requestedDismissAnimated animated: Bool)
+}
+
 class EventSelectionTableViewController: UITableViewController {
+    
+    weak var delegate: EventSelectionTableViewControllerDelegate?
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -20,7 +26,7 @@ class EventSelectionTableViewController: UITableViewController {
     }
     
     @IBAction func dismissView(_ sender:AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        delegate?.eventSelectionTableViewController(self, requestedDismissAnimated: true)
     }
 }
 
