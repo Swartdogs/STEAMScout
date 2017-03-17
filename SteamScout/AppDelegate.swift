@@ -24,8 +24,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return self.orientationLock
+    }
+    
+    func checkOrientation(_ viewController: UIViewController?) -> UIInterfaceOrientationMask {
+        if(viewController == nil) {
+            return .all
+        }
         
-        return orientationLock
+        if(viewController is AutonomousViewController) {
+            return .portrait
+        }
+        
+        if(viewController is TeleopViewController) {
+            return .portrait
+        }
+        
+        return checkOrientation(viewController!.presentedViewController)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -53,12 +68,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // MARK: - Split view
 
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
-        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
-        if topAsDetailController.detailItem == nil {
-            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-            return true
-        }
+//        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
+//        
         return false
     }
 
