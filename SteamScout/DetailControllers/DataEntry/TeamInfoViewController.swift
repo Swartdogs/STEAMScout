@@ -52,6 +52,11 @@ class TeamInfoViewController: UIViewController {
         matchNumberTextField.resignFirstResponder()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        AppUtility.unlockOrientation()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueCancelStartMatch" {
             MatchStore.sharedStore.cancelCurrentMatchEdit()
