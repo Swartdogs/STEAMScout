@@ -58,7 +58,8 @@ class TeamInfoViewController: UIViewController {
         } else if segue.identifier == "segueToEndMatchNoShow" {
             MatchStore.sharedStore.updateCurrentMatchForType(.teamInfo, match: m)
             MatchStore.sharedStore.finishCurrentMatch()
-        } else if segue.identifier == "segueToFieldSetup" {
+        } else if segue.identifier == "segueToDataEntry" {
+            AppUtility.lockOrientation(to: .portrait)
             MatchStore.sharedStore.updateCurrentMatchForType(.teamInfo, match: m)
         }
     }
