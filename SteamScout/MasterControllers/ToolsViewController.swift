@@ -163,7 +163,7 @@ class ToolsViewController: UIViewController {
     }
     
     func confirmBuildList() {
-        var list = (selectedList & 4) == 1 ? "Blue" : "Red"
+        var list = (selectedList & 4) == 4 ? "Blue" : "Red"
         list += " \(selectedList & 3)"
         let ac = UIAlertController(title: "Build \(list) List for event \(ScheduleStore.sharedStore.currentSchedule!)", message: "Building this list will clear the previous queue of matches.  Do you want to continue?", preferredStyle: .alert)
         let continueAction = UIAlertAction(title: "Continue", style: .destructive, handler: {(action) in
