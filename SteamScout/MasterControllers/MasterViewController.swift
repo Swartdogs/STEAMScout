@@ -42,21 +42,24 @@ class MasterViewController: UITableViewController {
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showMatchSummary" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                let match = MatchStore.sharedStore.allMatches[indexPath.row]
-                //match.aggregateActionsPerformed()
-                let storyboard = UIStoryboard(name: "Results", bundle: nil)
-                let sr = storyboard.instantiateViewController(withIdentifier: "ResultsScoringViewController") as! ResultsScoringViewController
-                let mr = storyboard.instantiateViewController(withIdentifier: "ResultsMatchInfoViewController") as! ResultsMatchInfoViewController
-                sr.match = match as! SteamMatch
-                mr.match = match as! SteamMatch
-                let controller = (segue.destination as! UINavigationController).topViewController as! CustomContainerArrayView
-                controller.views = [sr, mr]
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
-                controller.navigationItem.title = "Match: \(match.matchNumber) Team: \(match.teamNumber)"
+        if segue.identifier == "showMatchSummary" || segue.identifier == "segueToRecentMatchResults" {
+            var match = MatchStore.sharedStore.allMatches.last ?? MatchImpl()
+            if segue.identifier == "showMatchSummary", let indexPath = self.tableView.indexPathForSelectedRow {
+                match = MatchStore.sharedStore.allMatches[indexPath.row]
             }
+            
+            //match.aggregateActionsPerformed()
+            let storyboard = UIStoryboard(name: "Results", bundle: nil)
+            let sr = storyboard.instantiateViewController(withIdentifier: "ResultsScoringViewController") as! ResultsScoringViewController
+            let mr = storyboard.instantiateViewController(withIdentifier: "ResultsMatchInfoViewController") as! ResultsMatchInfoViewController
+            sr.match = match as! SteamMatch
+            mr.match = match as! SteamMatch
+            let controller = (segue.destination as! UINavigationController).topViewController as! CustomContainerArrayView
+            controller.views = [sr, mr]
+            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            controller.navigationItem.title = "Match: \(match.matchNumber) Team: \(match.teamNumber)"
+            
         } else if segue.identifier == "SegueToNewMatch" {
             MatchStore.sharedStore.createMatch(SteamMatch.self, onComplete:nil)
             segue.destination.popoverPresentationController!.delegate = self
@@ -79,6 +82,12 @@ class MasterViewController: UITableViewController {
     @IBAction func unwindToMatchView(_ sender:UIStoryboardSegue) {
         AppUtility.revertOrientation()
         self.tableView.reloadData()
+    }
+    
+    @IBAction func unwindToCompletedMatchView(_ sender:UIStoryboardSegue) {
+        AppUtility.revertOrientation()
+        self.tableView.reloadData()
+        self.performSegue(withIdentifier: "segueToRecentMatchResults", sender: self)
     }
     
     @IBAction func handleExportOrClear(_ sender:UIBarButtonItem) {
