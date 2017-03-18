@@ -261,6 +261,7 @@
                         <segue destination="EYX-f4-dmc" kind="popoverPresentation" identifier="segueToMatchQueue" popoverAnchorBarButtonItem="rt0-FK-LlX" id="FE0-HP-URS">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
+                        <segue destination="kJb-XC-gky" kind="showDetail" identifier="segueToRecentMatchResults" id="U1d-ME-dn0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ic-uc-kAe" sceneMemberID="firstResponder"/>
@@ -592,6 +593,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="WbF-9A-5UB"/>
+        <segue reference="U1d-ME-dn0"/>
         <segue reference="pMA-Qb-jdF"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99810189008712769" green="0.41443628072738647" blue="0.0016002511838451028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
