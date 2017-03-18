@@ -31,22 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return self.orientationLock
     }
     
-    func checkOrientation(_ viewController: UIViewController?) -> UIInterfaceOrientationMask {
-        if(viewController == nil) {
-            return .all
-        }
-        
-        if(viewController is AutonomousViewController) {
-            return .portrait
-        }
-        
-        if(viewController is TeleopViewController) {
-            return .portrait
-        }
-        
-        return checkOrientation(viewController!.presentedViewController)
-    }
-    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
