@@ -75,7 +75,7 @@ class MasterViewController: UITableViewController {
     // MARK: Unwind Segues
     
     @IBAction func unwindToMatchView(_ sender:UIStoryboardSegue) {
-        AppUtility.unlockOrientation()
+        AppUtility.revertOrientation()
         self.tableView.reloadData()
     }
     
@@ -290,8 +290,6 @@ extension MasterViewController: UIPopoverPresentationControllerDelegate {
     }
     
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        // deal with this!
-        
         if let nc = popoverPresentationController.presentedViewController as? UINavigationController {
             if let _ = nc.topViewController as? TeamInfoViewController {
                 MatchStore.sharedStore.cancelCurrentMatchEdit()

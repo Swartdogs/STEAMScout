@@ -52,13 +52,19 @@ class TeamInfoViewController: UIViewController {
         matchNumberTextField.resignFirstResponder()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        AppUtility.unlockOrientation()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueCancelStartMatch" {
             MatchStore.sharedStore.cancelCurrentMatchEdit()
         } else if segue.identifier == "segueToEndMatchNoShow" {
             MatchStore.sharedStore.updateCurrentMatchForType(.teamInfo, match: m)
             MatchStore.sharedStore.finishCurrentMatch()
-        } else if segue.identifier == "segueToFieldSetup" {
+        } else if segue.identifier == "segueToDataEntry" {
+            AppUtility.lockOrientation(to: .portrait)
             MatchStore.sharedStore.updateCurrentMatchForType(.teamInfo, match: m)
         }
     }
