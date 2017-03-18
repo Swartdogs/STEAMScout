@@ -30,6 +30,8 @@ class ToolsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.setToolbarHidden(true, animated: false)
+        
         //fieldLayout.image = MatchStore.sharedStore.fieldLayout.getImage()
         self.view.backgroundColor = themeGray
         

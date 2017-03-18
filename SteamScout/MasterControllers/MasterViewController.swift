@@ -28,7 +28,9 @@ class MasterViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+        
         AppUtility.unlockOrientation()
+        self.navigationController?.setToolbarHidden(false, animated: false)
         self.tableView.reloadData()
     }
 
