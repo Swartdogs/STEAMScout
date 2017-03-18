@@ -394,29 +394,29 @@
                         <viewControllerLayoutGuide type="bottom" id="3z8-Us-4LE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jLl-6T-waD" customClass="UIScrollView">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="64" width="480" height="576"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="u3o-zw-RDL">
-                                <rect key="frame" x="20" y="20" width="728" height="920"/>
+                                <rect key="frame" x="20" y="20" width="440" height="536"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Lc-U1-ayk">
-                                        <rect key="frame" x="0.0" y="0.0" width="728" height="223"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="440" height="223"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Sb-Nr-pg3">
-                                                <rect key="frame" x="0.0" y="0.0" width="728" height="106"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="440" height="106"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JBA-p0-Ygc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="728" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="440" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puo-eT-8dg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="546" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Ge-ec-i4e">
-                                                                <rect key="frame" x="546" y="0.0" width="182" height="30"/>
+                                                                <rect key="frame" x="330" y="0.0" width="110" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 <connections>
@@ -429,16 +429,16 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCu-ID-Uwg">
-                                                        <rect key="frame" x="0.0" y="38" width="728" height="30"/>
+                                                        <rect key="frame" x="0.0" y="38" width="440" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Ranking Points:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qo-ay-2ZX">
-                                                                <rect key="frame" x="0.0" y="0.0" width="546" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pTu-NN-BhR">
-                                                                <rect key="frame" x="546" y="0.0" width="182" height="30"/>
+                                                                <rect key="frame" x="330" y="0.0" width="110" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 <connections>
@@ -451,16 +451,16 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cl1-is-caD">
-                                                        <rect key="frame" x="0.0" y="76" width="728" height="30"/>
+                                                        <rect key="frame" x="0.0" y="76" width="440" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Penalty Points Received:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0I4-Hj-VLH">
-                                                                <rect key="frame" x="0.0" y="0.0" width="546" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mjT-Vy-qHO">
-                                                                <rect key="frame" x="546" y="0.0" width="182" height="30"/>
+                                                                <rect key="frame" x="330" y="0.0" width="110" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 <connections>
@@ -475,22 +475,22 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="w58-jd-Ktp">
-                                                <rect key="frame" x="0.0" y="114" width="728" height="109"/>
+                                                <rect key="frame" x="0.0" y="114" width="440" height="109"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="XRf-F1-0oU">
-                                                        <rect key="frame" x="0.0" y="0.0" width="728" height="50.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="440" height="50.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match Outcome:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vda-iZ-AIA">
-                                                                <rect key="frame" x="0.0" y="0.0" width="728" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="440" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jog-HL-xFz">
-                                                                <rect key="frame" x="0.0" y="20.5" width="728" height="30"/>
+                                                                <rect key="frame" x="0.0" y="20.5" width="440" height="30"/>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SlN-sM-dcj" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="242.5" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="146.5" height="30"/>
                                                                         <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <state key="normal" title="Loss">
@@ -502,7 +502,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtE-zw-psu" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                                        <rect key="frame" x="242.5" y="0.0" width="243" height="30"/>
+                                                                        <rect key="frame" x="146.5" y="0.0" width="147" height="30"/>
                                                                         <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <state key="normal" title="Win">
@@ -514,7 +514,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80d-I4-paa" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                                        <rect key="frame" x="485.5" y="0.0" width="242.5" height="30"/>
+                                                                        <rect key="frame" x="293.5" y="0.0" width="146.5" height="30"/>
                                                                         <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <state key="normal" title="Tie">
@@ -534,22 +534,22 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Feu-Cd-OvO">
-                                                        <rect key="frame" x="0.0" y="58.5" width="728" height="50.5"/>
+                                                        <rect key="frame" x="0.0" y="58.5" width="440" height="50.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ending Configuration:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnA-w5-sZG">
-                                                                <rect key="frame" x="0.0" y="0.0" width="728" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="440" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gT3-Pt-isH">
-                                                                <rect key="frame" x="0.0" y="20.5" width="728" height="30"/>
+                                                                <rect key="frame" x="0.0" y="20.5" width="440" height="30"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIb-ft-XfH">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="259" height="30"/>
                                                                         <subviews>
                                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6r-Ln-Q9k" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="129.5" height="30"/>
                                                                                 <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <state key="normal" title="Climb">
@@ -561,7 +561,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pux-ZP-wib" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                                                <rect key="frame" x="180" y="0.0" width="180" height="30"/>
+                                                                                <rect key="frame" x="129.5" y="0.0" width="129.5" height="30"/>
                                                                                 <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <state key="normal" title="Attempted Climb">
@@ -578,10 +578,10 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1IL-sV-DJx">
-                                                                        <rect key="frame" x="368" y="0.0" width="360" height="30"/>
+                                                                        <rect key="frame" x="267" y="0.0" width="173" height="30"/>
                                                                         <subviews>
                                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfB-6c-Uts" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="176" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="82.5" height="30"/>
                                                                                 <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <state key="normal" title="Stalled">
@@ -593,7 +593,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Umr-5V-6gQ" customClass="SelectionButton" customModule="SteamScout" customModuleProvider="target">
-                                                                                <rect key="frame" x="184" y="0.0" width="176" height="30"/>
+                                                                                <rect key="frame" x="90.5" y="0.0" width="82.5" height="30"/>
                                                                                 <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <state key="normal" title="Tipped">
@@ -611,7 +611,7 @@
                                                                     </stackView>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstItem="iIb-ft-XfH" firstAttribute="width" secondItem="1IL-sV-DJx" secondAttribute="width" id="i2H-ec-dfc"/>
+                                                                    <constraint firstItem="iIb-ft-XfH" firstAttribute="width" secondItem="1IL-sV-DJx" secondAttribute="width" multiplier="1.5" id="i2H-ec-dfc"/>
                                                                 </constraints>
                                                             </stackView>
                                                         </subviews>
@@ -621,16 +621,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aYn-Rh-TYm">
-                                        <rect key="frame" x="0.0" y="231" width="728" height="689"/>
+                                        <rect key="frame" x="0.0" y="231" width="440" height="305"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbP-Pj-y71">
-                                                <rect key="frame" x="0.0" y="0.0" width="728" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="440" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jYS-E2-BLZ">
-                                                <rect key="frame" x="0.0" y="20.5" width="728" height="668.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="440" height="305"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1222,9 +1222,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pry-m9-euE" userLabel="Final Info Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <value key="contentSizeForViewInPopover" type="size" width="480" height="576"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="768" height="1024"/>
+                    <size key="freeformSize" width="480" height="640"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Bk0-R3-BLf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
