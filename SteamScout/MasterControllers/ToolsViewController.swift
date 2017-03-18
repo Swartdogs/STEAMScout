@@ -21,14 +21,12 @@ class ToolsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fieldLayout.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(fieldLayoutTap(_:)))
-        fieldLayout.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationController?.setToolbarHidden(true, animated: false)
         
         //fieldLayout.image = MatchStore.sharedStore.fieldLayout.getImage()
         self.view.backgroundColor = themeGray
@@ -49,15 +47,6 @@ class ToolsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func fieldLayoutTap(_ sender:UITapGestureRecognizer) {
-        MatchStore.sharedStore.fieldLayout.reverse()
-        UserDefaults.standard.set(MatchStore.sharedStore.fieldLayout.rawValue, forKey: "SteamScout.fieldLayout")
-        let image = MatchStore.sharedStore.fieldLayout.getImage()
-        UIView.transition(with: fieldLayout, duration: 0.2, options: .transitionCrossDissolve, animations: {[weak self] in
-            self?.fieldLayout.image = image
-        }, completion: nil)
     }
     
     @IBAction func getEventList(_ sender:UIButton) {
@@ -163,7 +152,7 @@ class ToolsViewController: UIViewController {
     }
     
     func confirmBuildList() {
-        var list = (selectedList & 4) == 1 ? "Blue" : "Red"
+        var list = (selectedList & 4) == 4 ? "Blue" : "Red"
         list += " \(selectedList & 3)"
         let ac = UIAlertController(title: "Build \(list) List for event \(ScheduleStore.sharedStore.currentSchedule!)", message: "Building this list will clear the previous queue of matches.  Do you want to continue?", preferredStyle: .alert)
         let continueAction = UIAlertAction(title: "Continue", style: .destructive, handler: {(action) in
@@ -209,13 +198,23 @@ class ToolsViewController: UIViewController {
         })
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "segueToEventSelection" {
+            let nav = segue.destination as! UINavigationController
+            let estvc = nav.topViewController as! EventSelectionTableViewController
+            estvc.delegate = self
+        }
     }
-    */
+}
+
+extension ToolsViewController: EventSelectionTableViewControllerDelegate {
+    func eventSelectionTableViewController(_ estvc: EventSelectionTableViewController, requestedDismissAnimated animated: Bool) {
+        getScheduleButton.isEnabled = EventStore.sharedStore.selectedEvent != nil
+        estvc.dismiss(animated: animated, completion: nil)
+    }
 }

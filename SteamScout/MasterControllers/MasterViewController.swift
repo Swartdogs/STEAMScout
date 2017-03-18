@@ -28,6 +28,9 @@ class MasterViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+        
+        AppUtility.unlockOrientation()
+        self.navigationController?.setToolbarHidden(false, animated: false)
         self.tableView.reloadData()
     }
 
@@ -39,26 +42,31 @@ class MasterViewController: UITableViewController {
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showMatchSummary" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                let match = MatchStore.sharedStore.allMatches[indexPath.row]
-                //match.aggregateActionsPerformed()
-                let storyboard = UIStoryboard(name: "Results", bundle: nil)
-                let sr = storyboard.instantiateViewController(withIdentifier: "ResultsScoringViewController") as! ResultsScoringViewController
-                let mr = storyboard.instantiateViewController(withIdentifier: "ResultsMatchInfoViewController") as! ResultsMatchInfoViewController
-                sr.match = match as! SteamMatch
-                mr.match = match as! SteamMatch
-                let controller = (segue.destination as! UINavigationController).topViewController as! CustomContainerArrayView
-                controller.views = [sr, mr]
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
-                controller.navigationItem.title = "Match: \(match.matchNumber) Team: \(match.teamNumber)"
+        if segue.identifier == "showMatchSummary" || segue.identifier == "segueToRecentMatchResults" {
+            var match = MatchStore.sharedStore.allMatches.last ?? MatchImpl()
+            if segue.identifier == "showMatchSummary", let indexPath = self.tableView.indexPathForSelectedRow {
+                match = MatchStore.sharedStore.allMatches[indexPath.row]
             }
+            
+            //match.aggregateActionsPerformed()
+            let storyboard = UIStoryboard(name: "Results", bundle: nil)
+            let sr = storyboard.instantiateViewController(withIdentifier: "ResultsScoringViewController") as! ResultsScoringViewController
+            let mr = storyboard.instantiateViewController(withIdentifier: "ResultsMatchInfoViewController") as! ResultsMatchInfoViewController
+            sr.match = match as! SteamMatch
+            mr.match = match as! SteamMatch
+            let controller = (segue.destination as! UINavigationController).topViewController as! CustomContainerArrayView
+            controller.views = [sr, mr]
+            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            controller.navigationItem.title = "Match: \(match.matchNumber) Team: \(match.teamNumber)"
+            
         } else if segue.identifier == "SegueToNewMatch" {
             MatchStore.sharedStore.createMatch(SteamMatch.self, onComplete:nil)
+            segue.destination.popoverPresentationController!.delegate = self
         } else if segue.identifier == "segueToMatchQueue" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 MatchStore.sharedStore.createMatchFromQueueIndex(indexPath.row, withType: SteamMatch.self, onComplete: nil)
+                segue.destination.popoverPresentationController!.delegate = self
             }
         }
     }
@@ -72,8 +80,14 @@ class MasterViewController: UITableViewController {
     // MARK: Unwind Segues
     
     @IBAction func unwindToMatchView(_ sender:UIStoryboardSegue) {
-        AppUtility.unlockOrientation()
+        AppUtility.revertOrientation()
         self.tableView.reloadData()
+    }
+    
+    @IBAction func unwindToCompletedMatchView(_ sender:UIStoryboardSegue) {
+        AppUtility.revertOrientation()
+        self.tableView.reloadData()
+        self.performSegue(withIdentifier: "segueToRecentMatchResults", sender: self)
     }
     
     @IBAction func handleExportOrClear(_ sender:UIBarButtonItem) {
@@ -277,6 +291,20 @@ class MasterViewController: UITableViewController {
             performSegue(withIdentifier: "segueToMatchQueue", sender: self)
         } else {
             performSegue(withIdentifier: "showMatchSummary", sender: self)
+        }
+    }
+}
+
+extension MasterViewController: UIPopoverPresentationControllerDelegate {
+    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        return true
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        if let nc = popoverPresentationController.presentedViewController as? UINavigationController {
+            if let _ = nc.topViewController as? TeamInfoViewController {
+                MatchStore.sharedStore.cancelCurrentMatchEdit()
+            }
         }
     }
 }
