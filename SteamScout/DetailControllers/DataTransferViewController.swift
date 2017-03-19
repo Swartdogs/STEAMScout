@@ -15,6 +15,10 @@ class DataTransferViewController: UIViewController {
     let advertiser = MCNearbyServiceAdvertiser(peer: MatchTransfer.localPeerID, discoveryInfo: nil, serviceType: MatchTransfer.serviceType)
     
     var blockedPeers = [MCPeerID]()
+    
+    @IBOutlet var showBrowserButton: UIButton!
+    @IBOutlet var advertisingSwitch: UISwitch!
+    @IBOutlet var browsingSwitch: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,7 @@ class DataTransferViewController: UIViewController {
         browser.delegate = self
         advertiser.delegate = self
         MatchTransfer.session.delegate = self
+        showBrowserButton.isEnabled = false
         // Do any additional setup after loading the view.
     }
 
@@ -32,20 +37,36 @@ class DataTransferViewController: UIViewController {
     
     @IBAction func advertisingSwitchChanged(_ sender: UISwitch) {
         if(sender.isOn) {
+            MatchTransfer.session.disconnect()
+            browser.stopBrowsingForPeers()
+            browsingSwitch.isOn = false
+            browsingSwitch.isEnabled = false
+            print("Stop Browsing")
             advertiser.startAdvertisingPeer()
             print("Start Advertising")
         } else {
+            MatchTransfer.session.disconnect()
             advertiser.stopAdvertisingPeer()
+            browsingSwitch.isEnabled = true
             print("Stop Advertising")
         }
     }
     
     @IBAction func broadcastingSwitchChanged(_ sender: UISwitch) {
         if(sender.isOn) {
+            MatchTransfer.session.disconnect()
+            advertiser.stopAdvertisingPeer()
+            advertisingSwitch.isOn = false
+            advertisingSwitch.isEnabled = false
+            print("Stop Advertising")
             browser.startBrowsingForPeers()
+            showBrowserButton.isEnabled = true
             print("Start Browsing")
         } else {
+            MatchTransfer.session.disconnect()
             browser.stopBrowsingForPeers()
+            showBrowserButton.isEnabled = false
+            advertisingSwitch.isEnabled = true
             print("Stop Browsing")
         }
     }
@@ -53,6 +74,7 @@ class DataTransferViewController: UIViewController {
     @IBAction func showBrowserView(_ sender: UIButton) {
         let browserViewController = MCBrowserViewController(browser: browser, session: MatchTransfer.session)
         browserViewController.delegate = self
+        browser.delegate = browserViewController
         self.present(browserViewController, animated: true, completion: nil)
     }
     
@@ -118,12 +140,17 @@ extension DataTransferViewController: MCNearbyServiceBrowserDelegate {
 
 extension DataTransferViewController: MCBrowserViewControllerDelegate {
     func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
+        browserViewController.dismiss(animated: true, completion: { [weak self] in
+            self?.browser.delegate = self
+        })
         print("Browser View Controller finished")
     }
     
     func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
         // Update UI!
-        browserViewController.dismiss(animated: true, completion: nil)
+        browserViewController.dismiss(animated: true, completion: { [weak self] in
+            self?.browser.delegate = self
+        })
         print("Browser View Controller canceled")
     }
     

@@ -242,6 +242,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Transfer Data" id="hWs-gc-cKT"/>
+                    <connections>
+                        <outlet property="advertisingSwitch" destination="zYv-y0-3dw" id="rlT-62-9ud"/>
+                        <outlet property="browsingSwitch" destination="84e-c7-n6Q" id="JO1-hR-HkA"/>
+                        <outlet property="showBrowserButton" destination="SrF-1D-8tQ" id="aKu-ZD-L1a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSm-OH-qez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
