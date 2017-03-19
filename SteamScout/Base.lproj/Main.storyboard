@@ -188,10 +188,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DHW-CF-Q2b">
-                                <rect key="frame" x="20" y="84" width="663" height="109"/>
+                                <rect key="frame" x="20" y="84" width="662" height="148"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XCe-Hs-YZk">
-                                        <rect key="frame" x="0.0" y="0.0" width="663" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="662" height="31"/>
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="84e-c7-n6Q">
                                                 <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
@@ -200,7 +200,7 @@
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browsing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkG-ar-FG1">
-                                                <rect key="frame" x="57" y="0.0" width="606" height="31"/>
+                                                <rect key="frame" x="57" y="0.0" width="605" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -208,7 +208,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YBU-qF-fkp">
-                                        <rect key="frame" x="0.0" y="39" width="663" height="31"/>
+                                        <rect key="frame" x="0.0" y="39" width="662" height="31"/>
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zYv-y0-3dw">
                                                 <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
@@ -217,7 +217,7 @@
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertising" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlK-dx-Hnq">
-                                                <rect key="frame" x="57" y="0.0" width="606" height="31"/>
+                                                <rect key="frame" x="57" y="0.0" width="605" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -225,10 +225,17 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-1D-8tQ">
-                                        <rect key="frame" x="0.0" y="78" width="663" height="31"/>
+                                        <rect key="frame" x="0.0" y="78" width="662" height="31"/>
                                         <state key="normal" title="Show UI Browser"/>
                                         <connections>
                                             <action selector="showBrowserView:" destination="VKb-Tl-e5h" eventType="touchUpInside" id="Eq3-dC-V37"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBU-z6-0jK">
+                                        <rect key="frame" x="0.0" y="117" width="662" height="31"/>
+                                        <state key="normal" title="Ping Connected Devices"/>
+                                        <connections>
+                                            <action selector="pingConnectedDevices:" destination="VKb-Tl-e5h" eventType="touchUpInside" id="v9X-xz-UKF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -245,6 +252,7 @@
                     <connections>
                         <outlet property="advertisingSwitch" destination="zYv-y0-3dw" id="rlT-62-9ud"/>
                         <outlet property="browsingSwitch" destination="84e-c7-n6Q" id="JO1-hR-HkA"/>
+                        <outlet property="pingButton" destination="eBU-z6-0jK" id="iNb-7d-XFS"/>
                         <outlet property="showBrowserButton" destination="SrF-1D-8tQ" id="aKu-ZD-L1a"/>
                     </connections>
                 </viewController>

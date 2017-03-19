@@ -17,6 +17,7 @@ class DataTransferViewController: UIViewController {
     var blockedPeers = [MCPeerID]()
     
     @IBOutlet var showBrowserButton: UIButton!
+    @IBOutlet var pingButton: UIButton!
     @IBOutlet var advertisingSwitch: UISwitch!
     @IBOutlet var browsingSwitch: UISwitch!
 
@@ -27,6 +28,7 @@ class DataTransferViewController: UIViewController {
         advertiser.delegate = self
         MatchTransfer.session.delegate = self
         showBrowserButton.isEnabled = false
+        pingButton.isEnabled = false
         // Do any additional setup after loading the view.
     }
 
@@ -76,6 +78,17 @@ class DataTransferViewController: UIViewController {
         browserViewController.delegate = self
         browser.delegate = browserViewController
         self.present(browserViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func pingConnectedDevices(_ sender: UIButton) {
+        let message = "ping"
+        if let data = message.data(using: .utf8) {
+            do {
+                try MatchTransfer.session.send(data, toPeers: MatchTransfer.session.connectedPeers, with: .reliable)
+            } catch {
+                print("Error thrown in send function")
+            }
+        }
     }
     
     /*
@@ -165,10 +178,22 @@ extension DataTransferViewController: MCSessionDelegate {
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         // Deal with state change
         print("Peer: \(peerID.displayName) changed state to: \(state.rawValue)")
+        pingButton.isEnabled = session.connectedPeers.count > 0
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print("(Peer: \(peerID.displayName) received data: \(data)")
+        if let message = String(data: data, encoding: .utf8) {
+            print("Message Decoded: \(message)")
+            if message == "ping" {
+                DispatchQueue.main.async(execute: { [weak self] in
+                    let alert = UIAlertController(title: "Ping!", message: "\(peerID.displayName) pinged you!", preferredStyle: .alert)
+                    let ok = UIAlertAction.init(title: "Ok", style: .default, handler: nil)
+                    alert.addAction(ok)
+                    self?.present(alert, animated: true, completion: nil)
+                })
+            }
+        }
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
