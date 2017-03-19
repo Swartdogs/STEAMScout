@@ -15,6 +15,8 @@
 		C402A8ED1E77ABB8003817FF /* SteamGearPlacementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8EC1E77ABB8003817FF /* SteamGearPlacementType.swift */; };
 		C402A8EF1E77CE51003817FF /* TeleopFuelPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8EE1E77CE51003817FF /* TeleopFuelPopoverViewController.swift */; };
 		C402A8F11E77D243003817FF /* PenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8F01E77D243003817FF /* PenaltyViewController.swift */; };
+		C42478D51E7DE806002060DE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42478D41E7DE806002060DE /* Service.swift */; };
+		C42478D71E7DEE0C002060DE /* DataTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42478D61E7DEE0C002060DE /* DataTransferViewController.swift */; };
 		C43EFFAA1E38270A00BC2BB9 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */; };
 		C43EFFAB1E38270A00BC2BB9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA61E38270A00BC2BB9 /* Definitions.swift */; };
 		C43EFFAC1E38270A00BC2BB9 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA71E38270A00BC2BB9 /* Match.swift */; };
@@ -82,6 +84,8 @@
 		C402A8EC1E77ABB8003817FF /* SteamGearPlacementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamGearPlacementType.swift; sourceTree = "<group>"; };
 		C402A8EE1E77CE51003817FF /* TeleopFuelPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleopFuelPopoverViewController.swift; sourceTree = "<group>"; };
 		C402A8F01E77D243003817FF /* PenaltyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PenaltyViewController.swift; sourceTree = "<group>"; };
+		C42478D41E7DE806002060DE /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		C42478D61E7DEE0C002060DE /* DataTransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTransferViewController.swift; sourceTree = "<group>"; };
 		C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		C43EFFA61E38270A00BC2BB9 /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		C43EFFA71E38270A00BC2BB9 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
@@ -178,6 +182,14 @@
 			path = Definitions;
 			sourceTree = "<group>";
 		};
+		C42478D31E7DE7DF002060DE /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				C42478D41E7DE806002060DE /* Service.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
 		C44A80C51E356EBA00BA367B = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +216,7 @@
 		C44A80D01E356EBA00BA367B /* SteamScout */ = {
 			isa = PBXGroup;
 			children = (
+				C42478D31E7DE7DF002060DE /* Bluetooth */,
 				C44A81271E35D33800BA367B /* Support */,
 				C44A81201E35D33100BA367B /* MasterControllers */,
 				C44A81101E35D32C00BA367B /* DetailControllers */,
@@ -243,6 +256,7 @@
 				C44A81161E35D32C00BA367B /* ResultsMatchInfoViewController.swift */,
 				C44A81171E35D32C00BA367B /* ResultsScoringViewController.swift */,
 				C44A81181E35D32C00BA367B /* ResultsTeleopViewController.swift */,
+				C42478D61E7DEE0C002060DE /* DataTransferViewController.swift */,
 			);
 			path = DetailControllers;
 			sourceTree = "<group>";
@@ -509,6 +523,7 @@
 				C44A81251E35D33100BA367B /* ScheduleViewController.swift in Sources */,
 				C402A8E51E777A5B003817FF /* AutonomousViewController.swift in Sources */,
 				C402A8EF1E77CE51003817FF /* TeleopFuelPopoverViewController.swift in Sources */,
+				C42478D51E7DE806002060DE /* Service.swift in Sources */,
 				C4F889B01E5424BB00DC0826 /* StrongMatch.swift in Sources */,
 				C44A810F1E35D32500BA367B /* ScheduleStore.swift in Sources */,
 				C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */,
@@ -519,6 +534,7 @@
 				C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */,
 				C48158AE1E7A449B0009A89B /* UINavigationController+Rotation.swift in Sources */,
 				C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */,
+				C42478D71E7DEE0C002060DE /* DataTransferViewController.swift in Sources */,
 				C44A810C1E35D32500BA367B /* Event.swift in Sources */,
 				C44A811B1E35D32C00BA367B /* EventSelectionTableViewController.swift in Sources */,
 				C44A81321E35D33800BA367B /* SelectionButton.swift in Sources */,

@@ -35,6 +35,14 @@
             </objects>
             <point key="canvasLocation" x="-45" y="-630"/>
         </scene>
+        <!--DataTransferNavController-->
+        <scene sceneID="mJa-6u-DR1">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DataTransferNavController" storyboardName="Main" referencedIdentifier="DataTransferNavController" id="f7s-86-MzQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpc-5s-Syw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1182" y="512"/>
+        </scene>
         <!--Event Selection-->
         <scene sceneID="6s6-gO-9XK">
             <objects>
@@ -429,6 +437,15 @@
                             <constraint firstItem="fHE-2C-W8D" firstAttribute="top" secondItem="a9Z-A4-Jhb" secondAttribute="bottom" constant="20" id="mSs-8u-Tbf"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="4zn-Se-2xs"/>
+                        <barButtonItem title="Transfer Data" id="dj6-N3-yfV">
+                            <color key="tintColor" red="0.99810189010000006" green="0.41443628069999999" blue="0.0016002511839999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="f7s-86-MzQ" kind="showDetail" id="W8n-o5-64t"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Tools" id="CcQ-xT-3k1">
                         <barButtonItem key="rightBarButtonItem" title="Choose Event" id="tB1-0m-nb0">
                             <connections>
