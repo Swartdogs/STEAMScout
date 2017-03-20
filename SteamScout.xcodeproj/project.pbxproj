@@ -7,27 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C402A8E01E7539E9003817FF /* SteamMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8DF1E7539E9003817FF /* SteamMatch.swift */; };
-		C402A8E21E762653003817FF /* MatchEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8E11E762653003817FF /* MatchEncodingHelper.swift */; };
 		C402A8E51E777A5B003817FF /* AutonomousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8E31E777A5B003817FF /* AutonomousViewController.swift */; };
 		C402A8E61E777A5B003817FF /* TeleopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8E41E777A5B003817FF /* TeleopViewController.swift */; };
-		C402A8EB1E77AAAE003817FF /* SteamStartPositionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8EA1E77AAAE003817FF /* SteamStartPositionType.swift */; };
-		C402A8ED1E77ABB8003817FF /* SteamGearPlacementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8EC1E77ABB8003817FF /* SteamGearPlacementType.swift */; };
 		C402A8EF1E77CE51003817FF /* TeleopFuelPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8EE1E77CE51003817FF /* TeleopFuelPopoverViewController.swift */; };
 		C402A8F11E77D243003817FF /* PenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8F01E77D243003817FF /* PenaltyViewController.swift */; };
-		C43EFFAA1E38270A00BC2BB9 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */; };
-		C43EFFAB1E38270A00BC2BB9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA61E38270A00BC2BB9 /* Definitions.swift */; };
-		C43EFFAC1E38270A00BC2BB9 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA71E38270A00BC2BB9 /* Match.swift */; };
-		C43EFFAD1E38270A00BC2BB9 /* MatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFFA81E38270A00BC2BB9 /* MatchStore.swift */; };
+		C42478D91E7F373F002060DE /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42478D81E7F373F002060DE /* Stack.swift */; };
+		C42478E71E7F382B002060DE /* MatchQueueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42478E61E7F382B002060DE /* MatchQueueData.swift */; };
+		C42478E91E7F3842002060DE /* RobotState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42478E81E7F3842002060DE /* RobotState.swift */; };
+		C42479051E7F398A002060DE /* PropertyListReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479041E7F398A002060DE /* PropertyListReadable.swift */; };
+		C424790C1E7F3AB5002060DE /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479081E7F3AB5002060DE /* Action.swift */; };
+		C424790D1E7F3AB5002060DE /* ActionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479091E7F3AB5002060DE /* ActionData.swift */; };
+		C424790E1E7F3AB5002060DE /* ActionEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424790A1E7F3AB5002060DE /* ActionEdit.swift */; };
+		C424790F1E7F3AB5002060DE /* ActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424790B1E7F3AB5002060DE /* ActionType.swift */; };
+		C42479151E7F3AD5002060DE /* Defense.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479111E7F3AD5002060DE /* Defense.swift */; };
+		C42479161E7F3AD5002060DE /* DefenseAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479121E7F3AD5002060DE /* DefenseAction.swift */; };
+		C42479171E7F3AD5002060DE /* DefenseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479131E7F3AD5002060DE /* DefenseInfo.swift */; };
+		C42479181E7F3AD5002060DE /* DefenseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479141E7F3AD5002060DE /* DefenseType.swift */; };
+		C424791D1E7F3AF9002060DE /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424791A1E7F3AF9002060DE /* Score.swift */; };
+		C424791E1E7F3AF9002060DE /* ScoreLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424791B1E7F3AF9002060DE /* ScoreLocation.swift */; };
+		C424791F1E7F3AF9002060DE /* ScoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424791C1E7F3AF9002060DE /* ScoreType.swift */; };
+		C424792B1E808D52002060DE /* AllianceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479211E808D52002060DE /* AllianceType.swift */; };
+		C424792C1E808D52002060DE /* EditType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479221E808D52002060DE /* EditType.swift */; };
+		C424792D1E808D52002060DE /* FieldLayoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479231E808D52002060DE /* FieldLayoutType.swift */; };
+		C424792E1E808D52002060DE /* FinalConfigType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479241E808D52002060DE /* FinalConfigType.swift */; };
+		C424792F1E808D52002060DE /* PenaltyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479251E808D52002060DE /* PenaltyType.swift */; };
+		C42479301E808D52002060DE /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479261E808D52002060DE /* ResultType.swift */; };
+		C42479311E808D52002060DE /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479271E808D52002060DE /* SectionType.swift */; };
+		C42479321E808D52002060DE /* SteamGearPlacementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479281E808D52002060DE /* SteamGearPlacementType.swift */; };
+		C42479331E808D52002060DE /* SteamStartPositionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479291E808D52002060DE /* SteamStartPositionType.swift */; };
+		C42479341E808D52002060DE /* UpdateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424792A1E808D52002060DE /* UpdateType.swift */; };
+		C42479371E808E74002060DE /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479361E808E74002060DE /* SessionStore.swift */; };
+		C424793B1E808E7A002060DE /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479391E808E7A002060DE /* ScheduleItem.swift */; };
+		C424793C1E808E7A002060DE /* ScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424793A1E808E7A002060DE /* ScheduleStore.swift */; };
+		C42479401E808E7E002060DE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424793E1E808E7E002060DE /* Event.swift */; };
+		C42479411E808E7E002060DE /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424793F1E808E7E002060DE /* EventStore.swift */; };
+		C42479481E808E84002060DE /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479431E808E84002060DE /* Match.swift */; };
+		C42479491E808E84002060DE /* MatchEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479441E808E84002060DE /* MatchEncodingHelper.swift */; };
+		C424794A1E808E84002060DE /* MatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479451E808E84002060DE /* MatchStore.swift */; };
+		C424794B1E808E84002060DE /* SteamMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479461E808E84002060DE /* SteamMatch.swift */; };
+		C424794C1E808E84002060DE /* StrongMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479471E808E84002060DE /* StrongMatch.swift */; };
 		C44A80D21E356EBA00BA367B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D11E356EBA00BA367B /* AppDelegate.swift */; };
 		C44A80D91E356EBA00BA367B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A80D71E356EBA00BA367B /* Main.storyboard */; };
 		C44A80DB1E356EBA00BA367B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44A80DA1E356EBA00BA367B /* Assets.xcassets */; };
 		C44A80DE1E356EBA00BA367B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A80DC1E356EBA00BA367B /* LaunchScreen.storyboard */; };
 		C44A81061E35D31100BA367B /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A81041E35D31100BA367B /* Results.storyboard */; };
-		C44A810C1E35D32500BA367B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81081E35D32500BA367B /* Event.swift */; };
-		C44A810D1E35D32500BA367B /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81091E35D32500BA367B /* EventStore.swift */; };
-		C44A810E1E35D32500BA367B /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A810A1E35D32500BA367B /* ScheduleItem.swift */; };
-		C44A810F1E35D32500BA367B /* ScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A810B1E35D32500BA367B /* ScheduleStore.swift */; };
 		C44A81191E35D32C00BA367B /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81121E35D32C00BA367B /* FinalViewController.swift */; };
 		C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81131E35D32C00BA367B /* TeamInfoViewController.swift */; };
 		C44A811B1E35D32C00BA367B /* EventSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A81141E35D32C00BA367B /* EventSelectionTableViewController.swift */; };
@@ -49,7 +72,6 @@
 		C48158B61E7A7FAF0009A89B /* MasterViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48158B41E7A7FAF0009A89B /* MasterViews.storyboard */; };
 		C4D61D2D1E35E39400320E1D /* SteamScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */; };
 		C4D61D2E1E35E39F00320E1D /* SteamScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */; };
-		C4F889B01E5424BB00DC0826 /* StrongMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F889AF1E5424BB00DC0826 /* StrongMatch.swift */; };
 		EF06B7CFEDC58552F68BE5D1 /* Pods_SteamScout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,18 +96,45 @@
 		27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamScout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E93E7F5A26E313A9018C132 /* Pods-SteamScout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamScout.release.xcconfig"; path = "Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout.release.xcconfig"; sourceTree = "<group>"; };
 		71422EE919DB60A15D7A3C10 /* Pods-SteamScout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamScout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SteamScout/Pods-SteamScout.debug.xcconfig"; sourceTree = "<group>"; };
-		C402A8DF1E7539E9003817FF /* SteamMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamMatch.swift; sourceTree = "<group>"; };
-		C402A8E11E762653003817FF /* MatchEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchEncodingHelper.swift; sourceTree = "<group>"; };
 		C402A8E31E777A5B003817FF /* AutonomousViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutonomousViewController.swift; sourceTree = "<group>"; };
 		C402A8E41E777A5B003817FF /* TeleopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleopViewController.swift; sourceTree = "<group>"; };
-		C402A8EA1E77AAAE003817FF /* SteamStartPositionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamStartPositionType.swift; sourceTree = "<group>"; };
-		C402A8EC1E77ABB8003817FF /* SteamGearPlacementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamGearPlacementType.swift; sourceTree = "<group>"; };
 		C402A8EE1E77CE51003817FF /* TeleopFuelPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleopFuelPopoverViewController.swift; sourceTree = "<group>"; };
 		C402A8F01E77D243003817FF /* PenaltyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PenaltyViewController.swift; sourceTree = "<group>"; };
-		C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
-		C43EFFA61E38270A00BC2BB9 /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
-		C43EFFA71E38270A00BC2BB9 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
-		C43EFFA81E38270A00BC2BB9 /* MatchStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MatchStore.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C42478D81E7F373F002060DE /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		C42478E61E7F382B002060DE /* MatchQueueData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchQueueData.swift; sourceTree = "<group>"; };
+		C42478E81E7F3842002060DE /* RobotState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotState.swift; sourceTree = "<group>"; };
+		C42479041E7F398A002060DE /* PropertyListReadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListReadable.swift; sourceTree = "<group>"; };
+		C42479081E7F3AB5002060DE /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		C42479091E7F3AB5002060DE /* ActionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionData.swift; sourceTree = "<group>"; };
+		C424790A1E7F3AB5002060DE /* ActionEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionEdit.swift; sourceTree = "<group>"; };
+		C424790B1E7F3AB5002060DE /* ActionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionType.swift; sourceTree = "<group>"; };
+		C42479111E7F3AD5002060DE /* Defense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defense.swift; sourceTree = "<group>"; };
+		C42479121E7F3AD5002060DE /* DefenseAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefenseAction.swift; sourceTree = "<group>"; };
+		C42479131E7F3AD5002060DE /* DefenseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefenseInfo.swift; sourceTree = "<group>"; };
+		C42479141E7F3AD5002060DE /* DefenseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefenseType.swift; sourceTree = "<group>"; };
+		C424791A1E7F3AF9002060DE /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		C424791B1E7F3AF9002060DE /* ScoreLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreLocation.swift; sourceTree = "<group>"; };
+		C424791C1E7F3AF9002060DE /* ScoreType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreType.swift; sourceTree = "<group>"; };
+		C42479211E808D52002060DE /* AllianceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllianceType.swift; sourceTree = "<group>"; };
+		C42479221E808D52002060DE /* EditType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditType.swift; sourceTree = "<group>"; };
+		C42479231E808D52002060DE /* FieldLayoutType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldLayoutType.swift; sourceTree = "<group>"; };
+		C42479241E808D52002060DE /* FinalConfigType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalConfigType.swift; sourceTree = "<group>"; };
+		C42479251E808D52002060DE /* PenaltyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PenaltyType.swift; sourceTree = "<group>"; };
+		C42479261E808D52002060DE /* ResultType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
+		C42479271E808D52002060DE /* SectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
+		C42479281E808D52002060DE /* SteamGearPlacementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamGearPlacementType.swift; sourceTree = "<group>"; };
+		C42479291E808D52002060DE /* SteamStartPositionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamStartPositionType.swift; sourceTree = "<group>"; };
+		C424792A1E808D52002060DE /* UpdateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateType.swift; sourceTree = "<group>"; };
+		C42479361E808E74002060DE /* SessionStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		C42479391E808E7A002060DE /* ScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
+		C424793A1E808E7A002060DE /* ScheduleStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleStore.swift; sourceTree = "<group>"; };
+		C424793E1E808E7E002060DE /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		C424793F1E808E7E002060DE /* EventStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
+		C42479431E808E84002060DE /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		C42479441E808E84002060DE /* MatchEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchEncodingHelper.swift; sourceTree = "<group>"; };
+		C42479451E808E84002060DE /* MatchStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchStore.swift; sourceTree = "<group>"; };
+		C42479461E808E84002060DE /* SteamMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamMatch.swift; sourceTree = "<group>"; };
+		C42479471E808E84002060DE /* StrongMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrongMatch.swift; sourceTree = "<group>"; };
 		C443D1861E35EFE400B27930 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C44A80CE1E356EBA00BA367B /* SteamScout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamScout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44A80D11E356EBA00BA367B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,10 +145,6 @@
 		C44A80E41E356EBA00BA367B /* SteamScoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamScoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44A80EF1E356EBA00BA367B /* SteamScoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamScoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44A81051E35D31100BA367B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Results.storyboard; sourceTree = "<group>"; };
-		C44A81081E35D32500BA367B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Event.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		C44A81091E35D32500BA367B /* EventStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventStore.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		C44A810A1E35D32500BA367B /* ScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
-		C44A810B1E35D32500BA367B /* ScheduleStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ScheduleStore.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C44A81121E35D32C00BA367B /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FinalViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C44A81131E35D32C00BA367B /* TeamInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TeamInfoViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C44A81141E35D32C00BA367B /* EventSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventSelectionTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -123,7 +168,6 @@
 		C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamScoutTests.swift; sourceTree = "<group>"; };
 		C4D61D291E35E38100320E1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamScoutUITests.swift; sourceTree = "<group>"; };
-		C4F889AF1E5424BB00DC0826 /* StrongMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StrongMatch.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,10 +216,103 @@
 		C402A8E71E77A9D4003817FF /* Definitions */ = {
 			isa = PBXGroup;
 			children = (
-				C402A8EA1E77AAAE003817FF /* SteamStartPositionType.swift */,
-				C402A8EC1E77ABB8003817FF /* SteamGearPlacementType.swift */,
+				C42479201E808D52002060DE /* Enum */,
+				C42479191E7F3AF9002060DE /* Score */,
+				C42479101E7F3AD5002060DE /* Defense */,
+				C42479071E7F3AB5002060DE /* Action */,
+				C42478D81E7F373F002060DE /* Stack.swift */,
+				C42478E61E7F382B002060DE /* MatchQueueData.swift */,
+				C42478E81E7F3842002060DE /* RobotState.swift */,
+				C42479041E7F398A002060DE /* PropertyListReadable.swift */,
 			);
 			path = Definitions;
+			sourceTree = "<group>";
+		};
+		C42479071E7F3AB5002060DE /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				C42479081E7F3AB5002060DE /* Action.swift */,
+				C42479091E7F3AB5002060DE /* ActionData.swift */,
+				C424790A1E7F3AB5002060DE /* ActionEdit.swift */,
+				C424790B1E7F3AB5002060DE /* ActionType.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		C42479101E7F3AD5002060DE /* Defense */ = {
+			isa = PBXGroup;
+			children = (
+				C42479111E7F3AD5002060DE /* Defense.swift */,
+				C42479121E7F3AD5002060DE /* DefenseAction.swift */,
+				C42479131E7F3AD5002060DE /* DefenseInfo.swift */,
+				C42479141E7F3AD5002060DE /* DefenseType.swift */,
+			);
+			path = Defense;
+			sourceTree = "<group>";
+		};
+		C42479191E7F3AF9002060DE /* Score */ = {
+			isa = PBXGroup;
+			children = (
+				C424791A1E7F3AF9002060DE /* Score.swift */,
+				C424791B1E7F3AF9002060DE /* ScoreLocation.swift */,
+				C424791C1E7F3AF9002060DE /* ScoreType.swift */,
+			);
+			path = Score;
+			sourceTree = "<group>";
+		};
+		C42479201E808D52002060DE /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				C42479211E808D52002060DE /* AllianceType.swift */,
+				C42479221E808D52002060DE /* EditType.swift */,
+				C42479231E808D52002060DE /* FieldLayoutType.swift */,
+				C42479241E808D52002060DE /* FinalConfigType.swift */,
+				C42479251E808D52002060DE /* PenaltyType.swift */,
+				C42479261E808D52002060DE /* ResultType.swift */,
+				C42479271E808D52002060DE /* SectionType.swift */,
+				C42479281E808D52002060DE /* SteamGearPlacementType.swift */,
+				C42479291E808D52002060DE /* SteamStartPositionType.swift */,
+				C424792A1E808D52002060DE /* UpdateType.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		C42479351E808E74002060DE /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				C42479361E808E74002060DE /* SessionStore.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		C42479381E808E7A002060DE /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				C42479391E808E7A002060DE /* ScheduleItem.swift */,
+				C424793A1E808E7A002060DE /* ScheduleStore.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		C424793D1E808E7E002060DE /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				C424793E1E808E7E002060DE /* Event.swift */,
+				C424793F1E808E7E002060DE /* EventStore.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		C42479421E808E84002060DE /* Match */ = {
+			isa = PBXGroup;
+			children = (
+				C42479431E808E84002060DE /* Match.swift */,
+				C42479441E808E84002060DE /* MatchEncodingHelper.swift */,
+				C42479451E808E84002060DE /* MatchStore.swift */,
+				C42479461E808E84002060DE /* SteamMatch.swift */,
+				C42479471E808E84002060DE /* StrongMatch.swift */,
+			);
+			path = Match;
 			sourceTree = "<group>";
 		};
 		C44A80C51E356EBA00BA367B = {
@@ -219,18 +356,11 @@
 		C44A81071E35D32500BA367B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C42479421E808E84002060DE /* Match */,
+				C424793D1E808E7E002060DE /* Event */,
+				C42479381E808E7A002060DE /* Schedule */,
+				C42479351E808E74002060DE /* Session */,
 				C402A8E71E77A9D4003817FF /* Definitions */,
-				C4F889AF1E5424BB00DC0826 /* StrongMatch.swift */,
-				C43EFFA51E38270A00BC2BB9 /* SessionStore.swift */,
-				C43EFFA61E38270A00BC2BB9 /* Definitions.swift */,
-				C43EFFA71E38270A00BC2BB9 /* Match.swift */,
-				C402A8E11E762653003817FF /* MatchEncodingHelper.swift */,
-				C43EFFA81E38270A00BC2BB9 /* MatchStore.swift */,
-				C44A81081E35D32500BA367B /* Event.swift */,
-				C44A81091E35D32500BA367B /* EventStore.swift */,
-				C44A810A1E35D32500BA367B /* ScheduleItem.swift */,
-				C44A810B1E35D32500BA367B /* ScheduleStore.swift */,
-				C402A8DF1E7539E9003817FF /* SteamMatch.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -504,41 +634,63 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C43EFFAA1E38270A00BC2BB9 /* SessionStore.swift in Sources */,
+				C424791E1E7F3AF9002060DE /* ScoreLocation.swift in Sources */,
 				C44A81301E35D33800BA367B /* MatchCell.swift in Sources */,
 				C44A81251E35D33100BA367B /* ScheduleViewController.swift in Sources */,
 				C402A8E51E777A5B003817FF /* AutonomousViewController.swift in Sources */,
+				C42479491E808E84002060DE /* MatchEncodingHelper.swift in Sources */,
+				C42479181E7F3AD5002060DE /* DefenseType.swift in Sources */,
 				C402A8EF1E77CE51003817FF /* TeleopFuelPopoverViewController.swift in Sources */,
-				C4F889B01E5424BB00DC0826 /* StrongMatch.swift in Sources */,
-				C44A810F1E35D32500BA367B /* ScheduleStore.swift in Sources */,
+				C424791D1E7F3AF9002060DE /* Score.swift in Sources */,
 				C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */,
-				C402A8EB1E77AAAE003817FF /* SteamStartPositionType.swift in Sources */,
-				C402A8E21E762653003817FF /* MatchEncodingHelper.swift in Sources */,
-				C402A8ED1E77ABB8003817FF /* SteamGearPlacementType.swift in Sources */,
+				C424790D1E7F3AB5002060DE /* ActionData.swift in Sources */,
 				C44A81191E35D32C00BA367B /* FinalViewController.swift in Sources */,
 				C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */,
 				C48158AE1E7A449B0009A89B /* UINavigationController+Rotation.swift in Sources */,
 				C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */,
-				C44A810C1E35D32500BA367B /* Event.swift in Sources */,
 				C44A811B1E35D32C00BA367B /* EventSelectionTableViewController.swift in Sources */,
+				C42479371E808E74002060DE /* SessionStore.swift in Sources */,
 				C44A81321E35D33800BA367B /* SelectionButton.swift in Sources */,
 				C402A8F11E77D243003817FF /* PenaltyViewController.swift in Sources */,
+				C42479481E808E84002060DE /* Match.swift in Sources */,
+				C424793B1E808E7A002060DE /* ScheduleItem.swift in Sources */,
+				C42479411E808E7E002060DE /* EventStore.swift in Sources */,
 				C44A812F1E35D33800BA367B /* EventCell.swift in Sources */,
-				C44A810D1E35D32500BA367B /* EventStore.swift in Sources */,
-				C44A810E1E35D32500BA367B /* ScheduleItem.swift in Sources */,
-				C43EFFAB1E38270A00BC2BB9 /* Definitions.swift in Sources */,
-				C402A8E01E7539E9003817FF /* SteamMatch.swift in Sources */,
+				C42479331E808D52002060DE /* SteamStartPositionType.swift in Sources */,
+				C424790F1E7F3AB5002060DE /* ActionType.swift in Sources */,
+				C42479051E7F398A002060DE /* PropertyListReadable.swift in Sources */,
+				C42479161E7F3AD5002060DE /* DefenseAction.swift in Sources */,
+				C424794B1E808E84002060DE /* SteamMatch.swift in Sources */,
+				C42479171E7F3AD5002060DE /* DefenseInfo.swift in Sources */,
+				C42479341E808D52002060DE /* UpdateType.swift in Sources */,
+				C42479401E808E7E002060DE /* Event.swift in Sources */,
+				C42478E71E7F382B002060DE /* MatchQueueData.swift in Sources */,
+				C424790C1E7F3AB5002060DE /* Action.swift in Sources */,
 				C44A81311E35D33800BA367B /* ScheduleCell.swift in Sources */,
-				C43EFFAC1E38270A00BC2BB9 /* Match.swift in Sources */,
 				C44A812E1E35D33800BA367B /* CustomContainerArrayView.swift in Sources */,
+				C424792D1E808D52002060DE /* FieldLayoutType.swift in Sources */,
 				C44A80D21E356EBA00BA367B /* AppDelegate.swift in Sources */,
+				C42478E91E7F3842002060DE /* RobotState.swift in Sources */,
+				C42479301E808D52002060DE /* ResultType.swift in Sources */,
+				C42478D91E7F373F002060DE /* Stack.swift in Sources */,
+				C42479151E7F3AD5002060DE /* Defense.swift in Sources */,
+				C424792F1E808D52002060DE /* PenaltyType.swift in Sources */,
+				C42479311E808D52002060DE /* SectionType.swift in Sources */,
+				C424792E1E808D52002060DE /* FinalConfigType.swift in Sources */,
+				C424793C1E808E7A002060DE /* ScheduleStore.swift in Sources */,
+				C424791F1E7F3AF9002060DE /* ScoreType.swift in Sources */,
 				C44A811E1E35D32C00BA367B /* ResultsScoringViewController.swift in Sources */,
+				C424792B1E808D52002060DE /* AllianceType.swift in Sources */,
 				C44A81241E35D33100BA367B /* MasterViewController.swift in Sources */,
+				C424794C1E808E84002060DE /* StrongMatch.swift in Sources */,
+				C424792C1E808D52002060DE /* EditType.swift in Sources */,
+				C42479321E808D52002060DE /* SteamGearPlacementType.swift in Sources */,
 				C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */,
 				C44A811F1E35D32C00BA367B /* ResultsTeleopViewController.swift in Sources */,
 				C402A8E61E777A5B003817FF /* TeleopViewController.swift in Sources */,
-				C43EFFAD1E38270A00BC2BB9 /* MatchStore.swift in Sources */,
 				C48158B01E7A57090009A89B /* AppUtility.swift in Sources */,
+				C424794A1E808E84002060DE /* MatchStore.swift in Sources */,
+				C424790E1E7F3AB5002060DE /* ActionEdit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
