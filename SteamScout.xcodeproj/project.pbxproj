@@ -14,7 +14,6 @@
 		C42478D91E7F373F002060DE /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42478D81E7F373F002060DE /* Stack.swift */; };
 		C42478E71E7F382B002060DE /* MatchQueueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42478E61E7F382B002060DE /* MatchQueueData.swift */; };
 		C42478E91E7F3842002060DE /* RobotState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42478E81E7F3842002060DE /* RobotState.swift */; };
-		C42479051E7F398A002060DE /* PropertyListReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479041E7F398A002060DE /* PropertyListReadable.swift */; };
 		C424790C1E7F3AB5002060DE /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479081E7F3AB5002060DE /* Action.swift */; };
 		C424790D1E7F3AB5002060DE /* ActionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479091E7F3AB5002060DE /* ActionData.swift */; };
 		C424790E1E7F3AB5002060DE /* ActionEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424790A1E7F3AB5002060DE /* ActionEdit.swift */; };
@@ -41,7 +40,7 @@
 		C424793C1E808E7A002060DE /* ScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424793A1E808E7A002060DE /* ScheduleStore.swift */; };
 		C42479401E808E7E002060DE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424793E1E808E7E002060DE /* Event.swift */; };
 		C42479411E808E7E002060DE /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424793F1E808E7E002060DE /* EventStore.swift */; };
-		C42479481E808E84002060DE /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479431E808E84002060DE /* Match.swift */; };
+		C42479481E808E84002060DE /* MatchImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479431E808E84002060DE /* MatchImpl.swift */; };
 		C42479491E808E84002060DE /* MatchEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479441E808E84002060DE /* MatchEncodingHelper.swift */; };
 		C424794A1E808E84002060DE /* MatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479451E808E84002060DE /* MatchStore.swift */; };
 		C424794B1E808E84002060DE /* SteamMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42479461E808E84002060DE /* SteamMatch.swift */; };
@@ -70,6 +69,13 @@
 		C48158B01E7A57090009A89B /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48158AF1E7A57090009A89B /* AppUtility.swift */; };
 		C48158B31E7A7A500009A89B /* DataEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48158B11E7A7A500009A89B /* DataEntry.storyboard */; };
 		C48158B61E7A7FAF0009A89B /* MasterViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48158B41E7A7FAF0009A89B /* MasterViews.storyboard */; };
+		C4A1F2FF1EEF9BD900E15842 /* Actionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1F2FE1EEF9BD900E15842 /* Actionable.swift */; };
+		C4A1F3011EEF9BF200E15842 /* CsvDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1F3001EEF9BF200E15842 /* CsvDataProvider.swift */; };
+		C4A1F3031EEF9C0400E15842 /* MatchCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1F3021EEF9C0400E15842 /* MatchCoding.swift */; };
+		C4A1F3051EEF9D5100E15842 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1F3041EEF9D5100E15842 /* Match.swift */; };
+		C4A1F3071EEF9D9F00E15842 /* SessionStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1F3061EEF9D9F00E15842 /* SessionStoreDelegate.swift */; };
+		C4A1F3091EEF9E2000E15842 /* EventSelectionTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1F3081EEF9E2000E15842 /* EventSelectionTableViewControllerDelegate.swift */; };
+		C4BD0A5D1E82EFFB00ED8C18 /* PropertyListReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD0A5C1E82EFFB00ED8C18 /* PropertyListReadable.swift */; };
 		C4D61D2D1E35E39400320E1D /* SteamScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */; };
 		C4D61D2E1E35E39F00320E1D /* SteamScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */; };
 		EF06B7CFEDC58552F68BE5D1 /* Pods_SteamScout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */; };
@@ -103,7 +109,6 @@
 		C42478D81E7F373F002060DE /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		C42478E61E7F382B002060DE /* MatchQueueData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchQueueData.swift; sourceTree = "<group>"; };
 		C42478E81E7F3842002060DE /* RobotState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotState.swift; sourceTree = "<group>"; };
-		C42479041E7F398A002060DE /* PropertyListReadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListReadable.swift; sourceTree = "<group>"; };
 		C42479081E7F3AB5002060DE /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		C42479091E7F3AB5002060DE /* ActionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionData.swift; sourceTree = "<group>"; };
 		C424790A1E7F3AB5002060DE /* ActionEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionEdit.swift; sourceTree = "<group>"; };
@@ -130,7 +135,7 @@
 		C424793A1E808E7A002060DE /* ScheduleStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleStore.swift; sourceTree = "<group>"; };
 		C424793E1E808E7E002060DE /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C424793F1E808E7E002060DE /* EventStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
-		C42479431E808E84002060DE /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		C42479431E808E84002060DE /* MatchImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchImpl.swift; sourceTree = "<group>"; };
 		C42479441E808E84002060DE /* MatchEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchEncodingHelper.swift; sourceTree = "<group>"; };
 		C42479451E808E84002060DE /* MatchStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchStore.swift; sourceTree = "<group>"; };
 		C42479461E808E84002060DE /* SteamMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamMatch.swift; sourceTree = "<group>"; };
@@ -164,6 +169,13 @@
 		C48158AF1E7A57090009A89B /* AppUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		C48158B21E7A7A500009A89B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DataEntry.storyboard; sourceTree = "<group>"; };
 		C48158B51E7A7FAF0009A89B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MasterViews.storyboard; sourceTree = "<group>"; };
+		C4A1F2FE1EEF9BD900E15842 /* Actionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actionable.swift; sourceTree = "<group>"; };
+		C4A1F3001EEF9BF200E15842 /* CsvDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CsvDataProvider.swift; sourceTree = "<group>"; };
+		C4A1F3021EEF9C0400E15842 /* MatchCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchCoding.swift; sourceTree = "<group>"; };
+		C4A1F3041EEF9D5100E15842 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		C4A1F3061EEF9D9F00E15842 /* SessionStoreDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStoreDelegate.swift; sourceTree = "<group>"; };
+		C4A1F3081EEF9E2000E15842 /* EventSelectionTableViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSelectionTableViewControllerDelegate.swift; sourceTree = "<group>"; };
+		C4BD0A5C1E82EFFB00ED8C18 /* PropertyListReadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListReadable.swift; sourceTree = "<group>"; };
 		C4D61D241E35E37C00320E1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamScoutTests.swift; sourceTree = "<group>"; };
 		C4D61D291E35E38100320E1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -223,7 +235,6 @@
 				C42478D81E7F373F002060DE /* Stack.swift */,
 				C42478E61E7F382B002060DE /* MatchQueueData.swift */,
 				C42478E81E7F3842002060DE /* RobotState.swift */,
-				C42479041E7F398A002060DE /* PropertyListReadable.swift */,
 			);
 			path = Definitions;
 			sourceTree = "<group>";
@@ -306,7 +317,7 @@
 		C42479421E808E84002060DE /* Match */ = {
 			isa = PBXGroup;
 			children = (
-				C42479431E808E84002060DE /* Match.swift */,
+				C42479431E808E84002060DE /* MatchImpl.swift */,
 				C42479441E808E84002060DE /* MatchEncodingHelper.swift */,
 				C42479451E808E84002060DE /* MatchStore.swift */,
 				C42479461E808E84002060DE /* SteamMatch.swift */,
@@ -356,6 +367,7 @@
 		C44A81071E35D32500BA367B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C4BD0A5B1E82EFD200ED8C18 /* Protocols */,
 				C42479421E808E84002060DE /* Match */,
 				C424793D1E808E7E002060DE /* Event */,
 				C42479381E808E7A002060DE /* Schedule */,
@@ -425,6 +437,20 @@
 				C48158B11E7A7A500009A89B /* DataEntry.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		C4BD0A5B1E82EFD200ED8C18 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C4BD0A5C1E82EFFB00ED8C18 /* PropertyListReadable.swift */,
+				C4A1F2FE1EEF9BD900E15842 /* Actionable.swift */,
+				C4A1F3001EEF9BF200E15842 /* CsvDataProvider.swift */,
+				C4A1F3021EEF9C0400E15842 /* MatchCoding.swift */,
+				C4A1F3041EEF9D5100E15842 /* Match.swift */,
+				C4A1F3061EEF9D9F00E15842 /* SessionStoreDelegate.swift */,
+				C4A1F3081EEF9E2000E15842 /* EventSelectionTableViewControllerDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		C4D61D231E35E37C00320E1D /* SteamScoutTesting */ = {
@@ -641,26 +667,30 @@
 				C42479491E808E84002060DE /* MatchEncodingHelper.swift in Sources */,
 				C42479181E7F3AD5002060DE /* DefenseType.swift in Sources */,
 				C402A8EF1E77CE51003817FF /* TeleopFuelPopoverViewController.swift in Sources */,
+				C4BD0A5D1E82EFFB00ED8C18 /* PropertyListReadable.swift in Sources */,
 				C424791D1E7F3AF9002060DE /* Score.swift in Sources */,
 				C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */,
 				C424790D1E7F3AB5002060DE /* ActionData.swift in Sources */,
 				C44A81191E35D32C00BA367B /* FinalViewController.swift in Sources */,
 				C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */,
 				C48158AE1E7A449B0009A89B /* UINavigationController+Rotation.swift in Sources */,
+				C4A1F3011EEF9BF200E15842 /* CsvDataProvider.swift in Sources */,
 				C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */,
 				C44A811B1E35D32C00BA367B /* EventSelectionTableViewController.swift in Sources */,
 				C42479371E808E74002060DE /* SessionStore.swift in Sources */,
+				C4A1F3091EEF9E2000E15842 /* EventSelectionTableViewControllerDelegate.swift in Sources */,
 				C44A81321E35D33800BA367B /* SelectionButton.swift in Sources */,
+				C4A1F3071EEF9D9F00E15842 /* SessionStoreDelegate.swift in Sources */,
 				C402A8F11E77D243003817FF /* PenaltyViewController.swift in Sources */,
-				C42479481E808E84002060DE /* Match.swift in Sources */,
+				C42479481E808E84002060DE /* MatchImpl.swift in Sources */,
 				C424793B1E808E7A002060DE /* ScheduleItem.swift in Sources */,
 				C42479411E808E7E002060DE /* EventStore.swift in Sources */,
 				C44A812F1E35D33800BA367B /* EventCell.swift in Sources */,
 				C42479331E808D52002060DE /* SteamStartPositionType.swift in Sources */,
 				C424790F1E7F3AB5002060DE /* ActionType.swift in Sources */,
-				C42479051E7F398A002060DE /* PropertyListReadable.swift in Sources */,
 				C42479161E7F3AD5002060DE /* DefenseAction.swift in Sources */,
 				C424794B1E808E84002060DE /* SteamMatch.swift in Sources */,
+				C4A1F2FF1EEF9BD900E15842 /* Actionable.swift in Sources */,
 				C42479171E7F3AD5002060DE /* DefenseInfo.swift in Sources */,
 				C42479341E808D52002060DE /* UpdateType.swift in Sources */,
 				C42479401E808E7E002060DE /* Event.swift in Sources */,
@@ -678,6 +708,7 @@
 				C42479311E808D52002060DE /* SectionType.swift in Sources */,
 				C424792E1E808D52002060DE /* FinalConfigType.swift in Sources */,
 				C424793C1E808E7A002060DE /* ScheduleStore.swift in Sources */,
+				C4A1F3051EEF9D5100E15842 /* Match.swift in Sources */,
 				C424791F1E7F3AF9002060DE /* ScoreType.swift in Sources */,
 				C44A811E1E35D32C00BA367B /* ResultsScoringViewController.swift in Sources */,
 				C424792B1E808D52002060DE /* AllianceType.swift in Sources */,
@@ -685,6 +716,7 @@
 				C424794C1E808E84002060DE /* StrongMatch.swift in Sources */,
 				C424792C1E808D52002060DE /* EditType.swift in Sources */,
 				C42479321E808D52002060DE /* SteamGearPlacementType.swift in Sources */,
+				C4A1F3031EEF9C0400E15842 /* MatchCoding.swift in Sources */,
 				C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */,
 				C44A811F1E35D32C00BA367B /* ResultsTeleopViewController.swift in Sources */,
 				C402A8E61E777A5B003817FF /* TeleopViewController.swift in Sources */,
