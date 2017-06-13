@@ -24,12 +24,6 @@ enum RequestType: Int {
     }
 }
 
-protocol SessionStoreDelegate: class {
-    func sessionStoreCompleted(_ request:RequestType, withData data:Data?, andError error:NSError?)
-    func sessionStoreCanceled(_ request:RequestType)
-    func sessionStore(_ progress:Double, forRequest request:RequestType)
-}
-
 class SessionStore: NSObject {
     static let sharedStore:SessionStore = SessionStore()
     
