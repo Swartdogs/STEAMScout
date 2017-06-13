@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol EventSelectionTableViewControllerDelegate: class {
-    func eventSelectionTableViewController(_ estvc:EventSelectionTableViewController, requestedDismissAnimated animated: Bool)
-}
-
 class EventSelectionTableViewController: UITableViewController {
     
     weak var delegate: EventSelectionTableViewControllerDelegate?
