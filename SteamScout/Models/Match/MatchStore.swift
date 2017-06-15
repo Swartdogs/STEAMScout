@@ -90,7 +90,11 @@ class MatchStore: AnyObject {
         
         let csvDataSave = writeCSVFile(withType: type)
         
-        return (matchDataSave ? 1 : 0) + (queueDataSave ? 2 : 0) + (csvDataSave ? 4 : 0)
+        let status = (matchDataSave ? 1 : 0) + (queueDataSave ? 2 : 0) + (csvDataSave ? 4 : 0)
+        
+        print("save returning \(status)")
+        
+        return status
     }
     
     func saveMatchQueueData() -> Bool {
@@ -266,10 +270,12 @@ class MatchStore: AnyObject {
     func clearMatchData(_ type:Int) {
         if type & 1 == 1 {
             matchesToScout.removeAll()
+            saveMatchQueueData()
         }
         
         if type & 2 == 2 {
             allMatches.removeAll()
+            saveMatchData()
         }
     }
 }
