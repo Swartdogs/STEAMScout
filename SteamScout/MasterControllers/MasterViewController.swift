@@ -12,6 +12,8 @@ import MBProgressHUD
 class MasterViewController: UITableViewController {
     
     @IBOutlet var clearExportButton:UIBarButtonItem!
+    @IBOutlet var showScheduleButton:UIBarButtonItem!
+    @IBOutlet var showToolsButton:UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +93,8 @@ class MasterViewController: UITableViewController {
     }
     
     @IBAction func handleExportOrClear(_ sender:UIBarButtonItem) {
+        showScheduleButton.isEnabled = false
+        showToolsButton.isEnabled = false
         if self.isEditing {
             handleClear(sender)
         } else {
@@ -117,6 +121,7 @@ class MasterViewController: UITableViewController {
         
         ac.popoverPresentationController?.barButtonItem = sender
         ac.popoverPresentationController?.sourceView = self.view
+        ac.popoverPresentationController?.delegate = self
         
         ac.view.layoutIfNeeded()
         self.present(ac, animated: true, completion: nil)
@@ -169,6 +174,7 @@ class MasterViewController: UITableViewController {
 
         ac.popoverPresentationController?.barButtonItem = sender
         ac.popoverPresentationController?.sourceView = self.view
+        ac.popoverPresentationController?.delegate = self
         
         ac.view.layoutIfNeeded()
         self.present(ac, animated: true, completion: nil)
@@ -305,6 +311,9 @@ extension MasterViewController: UIPopoverPresentationControllerDelegate {
             if let _ = nc.topViewController as? TeamInfoViewController {
                 MatchStore.sharedStore.cancelCurrentMatchEdit()
             }
+        } else if popoverPresentationController.presentedViewController is UIAlertController {
+            showToolsButton.isEnabled = true
+            showScheduleButton.isEnabled = true
         }
     }
 }
