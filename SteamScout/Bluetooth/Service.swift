@@ -14,3 +14,16 @@ struct MatchTransfer {
     static let localPeerID = MCPeerID(displayName: UIDevice.current.name)
     static let session = MCSession(peer: MatchTransfer.localPeerID, securityIdentity: nil, encryptionPreference: .none)
 }
+
+struct MatchTransferDiscoveryInfo {
+    static let VersionKey = "kMatchTransferDiscoveryInfoVersionKey"
+    static let DeviceName = "KMatchTransferDiscoveryInfoDeviceName"
+    static let MatchTypeKey = "kMatchTransferDiscoveryInfo"
+    
+    static let SendVersion = "0.1.0"
+}
+
+struct MatchTransferData {
+    static let MessageKey = "kMatchTransferDataMessageKey"
+    static let PayloadKey = "kMatchTransferDataPayloadKey"
+}

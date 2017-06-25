@@ -78,6 +78,7 @@
 		C48F38D71EEFA6DE00B884DD /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48F38C51EEFA6DE00B884DD /* ScheduleItem.swift */; };
 		C48F38D81EEFA6DE00B884DD /* ScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48F38C61EEFA6DE00B884DD /* ScheduleStore.swift */; };
 		C48F38D91EEFA6DE00B884DD /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48F38C81EEFA6DE00B884DD /* SessionStore.swift */; };
+		C4BF65E91EF58C86002AE424 /* ServiceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BF65E81EF58C86002AE424 /* ServiceStore.swift */; };
 		C4D61D2D1E35E39400320E1D /* SteamScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */; };
 		C4D61D2E1E35E39F00320E1D /* SteamScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D61D2A1E35E38100320E1D /* SteamScoutUITests.swift */; };
 		EF06B7CFEDC58552F68BE5D1 /* Pods_SteamScout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DBF6C4B9D95E9A3565B2A2 /* Pods_SteamScout.framework */; };
@@ -180,6 +181,7 @@
 		C48F38C51EEFA6DE00B884DD /* ScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
 		C48F38C61EEFA6DE00B884DD /* ScheduleStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleStore.swift; sourceTree = "<group>"; };
 		C48F38C81EEFA6DE00B884DD /* SessionStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		C4BF65E81EF58C86002AE424 /* ServiceStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceStore.swift; sourceTree = "<group>"; };
 		C4D61D241E35E37C00320E1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4D61D251E35E37C00320E1D /* SteamScoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamScoutTests.swift; sourceTree = "<group>"; };
 		C4D61D291E35E38100320E1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				C42478D41E7DE806002060DE /* Service.swift */,
+				C4BF65E81EF58C86002AE424 /* ServiceStore.swift */,
 			);
 			path = Bluetooth;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				C48F38A81EEFA6C500B884DD /* ResultType.swift in Sources */,
 				C48F38AD1EEFA6C500B884DD /* MatchQueueData.swift in Sources */,
 				C48F38B01EEFA6C500B884DD /* ScoreLocation.swift in Sources */,
+				C4BF65E91EF58C86002AE424 /* ServiceStore.swift in Sources */,
 				C48F38D71EEFA6DE00B884DD /* ScheduleItem.swift in Sources */,
 				C48F38A91EEFA6C500B884DD /* SectionType.swift in Sources */,
 				C48F389B1EEFA6C500B884DD /* Action.swift in Sources */,
