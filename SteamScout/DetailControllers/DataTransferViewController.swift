@@ -11,11 +11,6 @@ import MultipeerConnectivity
 
 class DataTransferViewController: UIViewController {
     
-    let browser = MCNearbyServiceBrowser(peer: MatchTransfer.localPeerID, serviceType: MatchTransfer.serviceType)
-    let advertiser = MCNearbyServiceAdvertiser(peer: MatchTransfer.localPeerID, discoveryInfo: nil, serviceType: MatchTransfer.serviceType)
-    
-    var blockedPeers = [MCPeerID]()
-    
     @IBOutlet var showBrowserButton: UIButton!
     @IBOutlet var pingButton: UIButton!
     @IBOutlet var advertisingSwitch: UISwitch!
@@ -24,11 +19,9 @@ class DataTransferViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        browser.delegate = self
-        advertiser.delegate = self
-        MatchTransfer.session.delegate = self
         showBrowserButton.isEnabled = false
         pingButton.isEnabled = false
+        ServiceStore.shared.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -39,56 +32,35 @@ class DataTransferViewController: UIViewController {
     
     @IBAction func advertisingSwitchChanged(_ sender: UISwitch) {
         if(sender.isOn) {
-            MatchTransfer.session.disconnect()
-            browser.stopBrowsingForPeers()
+            ServiceStore.shared.enableAdvertising()
             browsingSwitch.isOn = false
             browsingSwitch.isEnabled = false
-            print("Stop Browsing")
-            advertiser.startAdvertisingPeer()
-            print("Start Advertising")
         } else {
-            MatchTransfer.session.disconnect()
-            advertiser.stopAdvertisingPeer()
+            ServiceStore.shared.disableAdvertising()
             browsingSwitch.isEnabled = true
-            print("Stop Advertising")
         }
     }
     
     @IBAction func broadcastingSwitchChanged(_ sender: UISwitch) {
         if(sender.isOn) {
-            MatchTransfer.session.disconnect()
-            advertiser.stopAdvertisingPeer()
+            ServiceStore.shared.enableBrowsing()
             advertisingSwitch.isOn = false
             advertisingSwitch.isEnabled = false
-            print("Stop Advertising")
-            browser.startBrowsingForPeers()
             showBrowserButton.isEnabled = true
-            print("Start Browsing")
         } else {
-            MatchTransfer.session.disconnect()
-            browser.stopBrowsingForPeers()
+            ServiceStore.shared.disableBrowsing()
             showBrowserButton.isEnabled = false
             advertisingSwitch.isEnabled = true
-            print("Stop Browsing")
         }
     }
     
     @IBAction func showBrowserView(_ sender: UIButton) {
-        let browserViewController = MCBrowserViewController(browser: browser, session: MatchTransfer.session)
-        browserViewController.delegate = self
-        browser.delegate = browserViewController
-        self.present(browserViewController, animated: true, completion: nil)
+        print("ERROR: Need to implement this!")
     }
     
     @IBAction func pingConnectedDevices(_ sender: UIButton) {
         let message = "ping"
-        if let data = message.data(using: .utf8) {
-            do {
-                try MatchTransfer.session.send(data, toPeers: MatchTransfer.session.connectedPeers, with: .reliable)
-            } catch {
-                print("Error thrown in send function")
-            }
-        }
+        ServiceStore.shared.sendMessage(message)
     }
     
     /*
@@ -103,108 +75,25 @@ class DataTransferViewController: UIViewController {
 
 }
 
-extension DataTransferViewController: MCNearbyServiceAdvertiserDelegate {
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-        if self.blockedPeers.contains(peerID) {
-            invitationHandler(false, nil)
-            return
+extension DataTransferViewController: ServiceStoreDelegate {
+    func serviceStore(_ serviceStore: ServiceStore, withSession session: MCSession, didChangeState state: MCSessionState) {
+        let enable = state == .connected
+        DispatchQueue.main.async { [weak self, enable] in
+            self?.pingButton.isEnabled = enable
         }
-        
-        let alertController = UIAlertController(title: "Received Invitation from \(peerID.displayName)", message: nil, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
-            invitationHandler(false, nil)
-        })
-        let blockAction = UIAlertAction(title: "Block", style: .destructive, handler: { [weak self] _ in
-            self?.blockedPeers.append(peerID)
-            invitationHandler(false, nil)
-        })
-        let acceptAction = UIAlertAction(title: "Accept", style: .default, handler: { _ in
-            invitationHandler(true, MatchTransfer.session)
-        })
-        
-        alertController.addAction(cancelAction)
-        alertController.addAction(blockAction)
-        alertController.addAction(acceptAction)
-        self.present(alertController, animated: true, completion: nil)
     }
     
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
-        print("advertiser did not start advertising: \(error.localizedDescription)")
-    }
-}
-
-extension DataTransferViewController: MCNearbyServiceBrowserDelegate {
-    func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
-        // Deal with error
-        print("Browser did not start browsing: \(error.localizedDescription)")
-    }
-    
-    func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-        // Found Peer!
-        print("Browser found peer: \(peerID.displayName)")
-        browser.invitePeer(peerID, to: MatchTransfer.session, withContext: nil, timeout: 10.0)
-    }
-    
-    func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-        // Lost peer
-        print("Browser lost peer: \(peerID.displayName)")
-    }
-}
-
-extension DataTransferViewController: MCBrowserViewControllerDelegate {
-    func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
-        browserViewController.dismiss(animated: true, completion: { [weak self] in
-            self?.browser.delegate = self
-        })
-        print("Browser View Controller finished")
-    }
-    
-    func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
-        // Update UI!
-        browserViewController.dismiss(animated: true, completion: { [weak self] in
-            self?.browser.delegate = self
-        })
-        print("Browser View Controller canceled")
-    }
-    
-    func browserViewController(_ browserViewController: MCBrowserViewController, shouldPresentNearbyPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) -> Bool {
-        // By default show all peers
-        print("Peer presented: \(peerID.displayName)")
-        return true
-    }
-}
-
-extension DataTransferViewController: MCSessionDelegate {
-    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        // Deal with state change
-        print("Peer: \(peerID.displayName) changed state to: \(state.rawValue)")
-        pingButton.isEnabled = session.connectedPeers.count > 0
-    }
-    
-    func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        print("(Peer: \(peerID.displayName) received data: \(data)")
+    func serviceStore(_ serviceStore: ServiceStore, withSession session: MCSession, didReceiveData data: Data, fromPeer peerId: MCPeerID) {
         if let message = String(data: data, encoding: .utf8) {
-            print("Message Decoded: \(message)")
+            print("Message decoded: \(message)")
             if message == "ping" {
-                DispatchQueue.main.async(execute: { [weak self] in
-                    let alert = UIAlertController(title: "Ping!", message: "\(peerID.displayName) pinged you!", preferredStyle: .alert)
-                    let ok = UIAlertAction.init(title: "Ok", style: .default, handler: nil)
+                DispatchQueue.main.async { [weak self] in
+                    let alert = UIAlertController(title: "Ping!", message: "\(peerId.displayName) pinged you!", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
                     alert.addAction(ok)
                     self?.present(alert, animated: true, completion: nil)
-                })
+                }
             }
         }
-    }
-    
-    func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
-        print("Received stream: \(streamName) from peer: \(peerID.displayName)")
-    }
-    
-    func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-        print("Started receiving resource with name: \(resourceName) from peer: \(peerID.displayName) with progress: \(progress.fractionCompleted)")
-    }
-    
-    func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
-        print("Finished receiving resource with name: \(resourceName) from peer: \(peerID.displayName) at url: \(localURL.absoluteURL) with error: \(error.debugDescription)")
     }
 }
