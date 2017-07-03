@@ -102,10 +102,10 @@ extension SessionStore: URLSessionDelegate {
 
 extension SessionStore: URLSessionTaskDelegate {
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        print("\(session), \(task) did complete with error \(error)")
+        print("\(session), \(task) did complete with error \(String(describing: error))")
         if error == nil {
             self.sessionCompleteCleanup(nil, error: nil)
-        } else if (error as! NSError).userInfo[NSLocalizedDescriptionKey] as! String == "cancelled" {
+        } else if (error! as NSError).userInfo[NSLocalizedDescriptionKey] as! String == "cancelled" {
             if let d = delegate {
                 d.sessionStoreCanceled(self.currentRequest)
             }

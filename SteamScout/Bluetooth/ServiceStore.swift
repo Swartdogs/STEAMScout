@@ -45,12 +45,15 @@ extension ServiceStore: MCNearbyServiceBrowserDelegate {
         
         if let version = _info[MatchTransferDiscoveryInfo.VersionKey] {
             print("Found Peer with protocol version: \(version)")
-            
-            if version == "0.1.0" {
-                print("Adding peer \(peerID) (\(_info[MatchTransferDiscoveryInfo.DeviceName])) with type \(_info[MatchTransferDiscoveryInfo.MatchTypeKey])")
-                foundPeers[peerID] = _info
-            } else {
-                print("Found Peer with invalid version: \(version)! Bypassing...")
+            if let mtVersion = MatchTransferVersion(rawValue: version) {
+                switch mtVersion {
+                case .v0_1_0:
+                    print("Adding peer \(peerID.displayName) (\(String(describing: _info[MatchTransferDiscoveryInfo.DeviceName]))) with type \(String(describing: _info[MatchTransferDiscoveryInfo.MatchTypeKey]))")
+                    foundPeers[peerID] = _info
+                    browser.invitePeer(peerID, to: MatchTransfer.session, withContext: nil, timeout: 10.0)
+                default:
+                    print("Found Peer with invalid version: \(version)! Bypassing...")
+                }
             }
         } else {
             print("Found Peer with invalid version key! Bypassing...")
@@ -66,12 +69,14 @@ extension ServiceStore: MCNearbyServiceBrowserDelegate {
         
         if let version = _info?[MatchTransferDiscoveryInfo.VersionKey] {
             print("Lost Peer with protocol version: \(version)")
-            
-            if version == "0.1.0" {
-                print("Removing peer \(peerID) (\(_info?[MatchTransferDiscoveryInfo.DeviceName])) with type \(_info?[MatchTransferDiscoveryInfo.MatchTypeKey])")
-                foundPeers.removeValue(forKey: peerID)
-            } else {
-                print("Lost Peer with invalid version: \(version)! Bypassing...")
+            if let mtVersion = MatchTransferVersion(rawValue: version) {
+                switch mtVersion {
+                case .v0_1_0:
+                    print("Removing peer \(peerID.displayName) (\(String(describing: _info?[MatchTransferDiscoveryInfo.DeviceName]))) with type \(String(describing: _info?[MatchTransferDiscoveryInfo.MatchTypeKey]))")
+                    foundPeers.removeValue(forKey: peerID)
+                default:
+                    print("Lost Peer with invalid version: \(version)! Bypassing...")
+                }
             }
         } else {
             print("Lost Peer with invalid version key! Bypassing...")

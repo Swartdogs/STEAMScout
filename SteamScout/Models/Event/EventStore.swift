@@ -78,7 +78,7 @@ class EventStore: NSObject {
         
         let json = JSON(data: d)
         if json["eventCount"].intValue == 0 {
-            print("Error in receiving events: \(json[0].error)")
+            print("Error in receiving events: \(String(describing: json[0].error))")
             return
         }
         print("Receieved \(json["eventCount"].intValue) events")

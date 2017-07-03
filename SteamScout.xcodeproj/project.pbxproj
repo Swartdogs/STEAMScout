@@ -554,7 +554,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = dhanwada;
 				TargetAttributes = {
 					C44A80CD1E356EBA00BA367B = {
@@ -920,7 +920,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 71422EE919DB60A15D7A3C10 /* Pods-SteamScout.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HE974PX7LL;
 				INFOPLIST_FILE = SteamScout/Info.plist;
@@ -937,7 +937,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E93E7F5A26E313A9018C132 /* Pods-SteamScout.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HE974PX7LL;
 				INFOPLIST_FILE = SteamScout/Info.plist;
