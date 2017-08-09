@@ -11,6 +11,7 @@
 		C402A8E61E777A5B003817FF /* TeleopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8E41E777A5B003817FF /* TeleopViewController.swift */; };
 		C402A8EF1E77CE51003817FF /* TeleopFuelPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8EE1E77CE51003817FF /* TeleopFuelPopoverViewController.swift */; };
 		C402A8F11E77D243003817FF /* PenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402A8F01E77D243003817FF /* PenaltyViewController.swift */; };
+		C40AAF711F284AD100F2CF37 /* ServiceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40AAF701F284AD100F2CF37 /* ServiceState.swift */; };
 		C42478D51E7DE806002060DE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42478D41E7DE806002060DE /* Service.swift */; };
 		C42478D71E7DEE0C002060DE /* DataTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42478D61E7DEE0C002060DE /* DataTransferViewController.swift */; };
 		C44A80D21E356EBA00BA367B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A80D11E356EBA00BA367B /* AppDelegate.swift */; };
@@ -109,6 +110,7 @@
 		C402A8E41E777A5B003817FF /* TeleopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleopViewController.swift; sourceTree = "<group>"; };
 		C402A8EE1E77CE51003817FF /* TeleopFuelPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleopFuelPopoverViewController.swift; sourceTree = "<group>"; };
 		C402A8F01E77D243003817FF /* PenaltyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PenaltyViewController.swift; sourceTree = "<group>"; };
+		C40AAF701F284AD100F2CF37 /* ServiceState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceState.swift; sourceTree = "<group>"; };
 		C42478D41E7DE806002060DE /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		C42478D61E7DEE0C002060DE /* DataTransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTransferViewController.swift; sourceTree = "<group>"; };
 		C443D1861E35EFE400B27930 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			children = (
 				C42478D41E7DE806002060DE /* Service.swift */,
 				C4BF65E81EF58C86002AE424 /* ServiceStore.swift */,
+				C40AAF701F284AD100F2CF37 /* ServiceState.swift */,
 			);
 			path = Bluetooth;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				C44A811A1E35D32C00BA367B /* TeamInfoViewController.swift in Sources */,
 				C44A81191E35D32C00BA367B /* FinalViewController.swift in Sources */,
 				C48F38D91EEFA6DE00B884DD /* SessionStore.swift in Sources */,
+				C40AAF711F284AD100F2CF37 /* ServiceState.swift in Sources */,
 				C44A81261E35D33100BA367B /* ToolsViewController.swift in Sources */,
 				C48158AE1E7A449B0009A89B /* UINavigationController+Rotation.swift in Sources */,
 				C44A811D1E35D32C00BA367B /* ResultsMatchInfoViewController.swift in Sources */,
