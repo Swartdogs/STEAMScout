@@ -82,54 +82,58 @@ func createServiceStateMachine() -> StateMachine<ServiceState, ServiceEvent> {
         machine.addRoute(.browseComplete      => .browseRunning)        // After Recieve Complete -> keep browsing
         machine.addRoute(.browseComplete      => .notReady)             // After Recieve Complete -> stop browsing
         
+        // Add Default Error Handler
         machine.addErrorHandler { event, fromState, toState, userInfo in
             print("[ERROR] ServiceStateMachine: \(fromState) => \(toState), \(String(describing: event)) with user info \(String(describing: userInfo))")
         }
         
-        machine.addRoutes(event: .advertProceed, transitions: [
-            .notReady => .advertSelectingData,
-            .advertSelectingData => .advertReady,
-            .advertReady => .advertRunning,
-            .advertRunning => .advertInvitationPending,
-            .advertInvitationPending => .advertConnecting,
-            .advertConnecting => .advertSendingData,
-            .advertSendingData => .advertComplete,
-        ])
-        
-        machine.addRoutes(event: .advertProceed, transitions: [
-            .advertSelectingData => .notReady,
-            .advertReady => .advertSelectingData,
-            .advertRunning => .advertReady,
-            .advertInvitationPending => .advertRunning
-            .advertConnecting => .advertInvitationPending,
-            .advertSendingData => .advertConnecting,
-            .advertComplete => .advertSendingData
-        ])
-        
-        machine.addRoutes(event: .advertErrorOut, transitions: [
-            .advertRunning => .advertError,
-            .advertConnecting => .advertError,
-            .advertSendingData => .advertError
-        ])
-        
-        machine.addRoutes(event: .browseProceed, transitions: [
-            .notReady => .browseRunning,
-            .browseRunning => .browseConnecting,
-            .browseConnecting => .browseReceivingData,
-            .browseReceivingData => .browseComplete,
-        ])
-        
-        machine.addRoutes(event: .browseGoBack, transitions: [
-            .browseRunning => .notReady,
-            .browseConnecting => .browseRunning,
-            .browseReceivingData => .browseConnecting,
-            .browseComplete => .browseReceivingData,
-        ])
-        
-        machine.addRoutes(event: .browseErrorOut, transistions: [
-            .browseRunning => .browseError,
-            .browseConnecting => .browseError,
-            .browseReceivingData => .browseError
-        ])
+        machine.addRouteMapping { event, fromState, userInfo -> ServiceState? in
+            guard let event = event else { return nil }
+            
+            switch(event, fromState) {
+            // Advert Proceed Events
+            case (.advertProceed, .notReady)                : return .advertSelectingData
+            case (.advertProceed, .advertSelectingData)     : return .advertReady
+            case (.advertProceed, .advertReady)             : return .advertRunning
+            case (.advertProceed, .advertRunning)           : return .advertInvitationPending
+            case (.advertProceed, .advertInvitationPending) : return .advertConnecting
+            case (.advertProceed, .advertConnecting)        : return .advertSendingData
+            case (.advertProceed, .advertSendingData)       : return .advertComplete
+                
+            // Advert GoBack Events
+            case (.advertGoBack, .advertSelectingData)      : return .notReady
+            case (.advertGoBack, .advertReady)              : return .advertSelectingData
+            case (.advertGoBack, .advertRunning)            : return .advertReady
+            case (.advertGoBack, .advertInvitationPending)  : return .advertRunning
+            case (.advertGoBack, .advertConnecting)         : return .advertInvitationPending
+            case (.advertGoBack, .advertSendingData)        : return .advertConnecting
+            case (.advertGoBack, .advertComplete)           : return .advertSendingData
+                
+            // Advert ErrorOut Events
+            case (.advertErrorOut, .advertRunning)          : return .advertError
+            case (.advertErrorOut, .advertConnecting)       : return .advertError
+            case (.advertErrorOut, .advertSendingData)      : return .advertError
+                
+            // Browse Proceed Events
+            case (.browseProceed, .notReady)                : return .browseRunning
+            case (.browseProceed, .browseRunning)           : return .browseConnecting
+            case (.browseProceed, .browseConnecting)        : return .browseReceivingData
+            case (.browseProceed, .browseReceivingData)     : return .browseComplete
+                
+            // Browse GoBack Events
+            case (.browseGoBack, .browseRunning)            : return .notReady
+            case (.browseGoBack, .browseConnecting)         : return .browseRunning
+            case (.browseGoBack, .browseReceivingData)      : return .browseConnecting
+            case (.browseGoBack, .browseComplete)           : return .browseReceivingData
+                
+            // Browse ErrorOut Events
+            case (.browseErrorOut, .browseRunning)          : return .browseError
+            case (.browseErrorOut, .browseConnecting)       : return .browseError
+            case (.browseErrorOut, .browseReceivingData)    : return .browseError
+            
+            default:
+                return nil
+            }
+        }
     })
 }

@@ -25,6 +25,7 @@ class ServiceStore: NSObject {
                                                 MatchTransferDiscoveryInfo.MatchTypeKey: "SteamScout",
                                                 MatchTransferDiscoveryInfo.VersionKey: MatchTransferDiscoveryInfo.SendVersion],
                                                serviceType: MatchTransfer.serviceType)
+    let stateMachine = createServiceStateMachine()
     
     var delegate:ServiceStoreDelegate? = nil
     var foundPeers:[MCPeerID:[String:String]] = [:]
