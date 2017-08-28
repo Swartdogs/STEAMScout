@@ -8,11 +8,7 @@
 
 import Foundation
 import MultipeerConnectivity
-
-protocol ServiceStoreDelegate {
-    func serviceStore(_ serviceStore:ServiceStore, withSession session:MCSession, didChangeState state:MCSessionState)
-    func serviceStore(_ serviceStore:ServiceStore, withSession session:MCSession, didReceiveData data:Data, fromPeer peerId:MCPeerID)
-}
+import SwiftState
 
 class ServiceStore: NSObject {
     static let shared:ServiceStore = ServiceStore()
@@ -29,9 +25,34 @@ class ServiceStore: NSObject {
     
     var delegate:ServiceStoreDelegate? = nil
     var foundPeers:[MCPeerID:[String:String]] = [:]
-    var advertising = false
-    var browsing = false
-    var state = MCSessionState.notConnected
+    var state:MCSessionState = .notConnected
+    
+    var machineState:ServiceState {
+        return stateMachine.state
+    }
+    
+    var advertising: Bool {
+        return [
+            ServiceState.advertSelectingData,
+            ServiceState.advertReady,
+            ServiceState.advertRunning,
+            ServiceState.advertInvitationPending,
+            ServiceState.advertConnecting,
+            ServiceState.advertSendingData,
+            ServiceState.advertComplete,
+            ServiceState.advertError
+        ].contains(stateMachine.state)
+    }
+    
+    var browsing:Bool {
+        return [
+            ServiceState.browseRunning,
+            ServiceState.browseConnecting,
+            ServiceState.browseReceivingData,
+            ServiceState.browseComplete,
+            ServiceState.browseError
+        ].contains(stateMachine.state)
+    }
     
     fileprivate override init() {
         super.init()
@@ -41,39 +62,35 @@ class ServiceStore: NSObject {
         print("Setting up ServiceStore")
     }
     
-    func enableAdvertising() {
+    func startAdvertising() {
         if(browsing) {
-            disableBrowsing()
+            stopBrowsing()
         }
-        MatchTransfer.session.delegate = self
-        advertiser.startAdvertisingPeer()
-        advertising = true
-        print("Start Advertising")
+        stateMachine <-! ServiceEvent.advertProceed
     }
     
-    func disableAdvertising() {
-        MatchTransfer.session.disconnect()
-        advertiser.stopAdvertisingPeer()
-        advertising = false
-        print("Stop Advertising")
-        print("Session delegate \(String(describing: MatchTransfer.session.delegate))")
+    func stopAdvertising() {
+        guard advertising else { return }
+        
+        // TODO: call reset ServiceEvent when it's created
+        
     }
     
-    func enableBrowsing() {
+    func startBrowsing() {
+        guard advertising || stateMachine.state == .notReady else { return }
+        
         if(advertising) {
-            disableAdvertising()
+            stopAdvertising()
         }
-        MatchTransfer.session.delegate = self
-        browser.startBrowsingForPeers()
-        browsing = true
-        print("Start Browsing")
+        
+        stateMachine <-! ServiceEvent.browseProceed
+        
     }
     
-    func disableBrowsing() {
-        MatchTransfer.session.disconnect()
-        browser.stopBrowsingForPeers()
-        browsing = false
-        print("Stop Browsing")
+    func stopBrowsing() {
+        guard browsing else { return }
+        
+        // TODO: call reset ServiceEvent when it's created
     }
     
     func sendData(_ data:Data) {
@@ -94,102 +111,215 @@ class ServiceStore: NSObject {
         }
     }
     
-}
-
-extension ServiceStore: MCNearbyServiceAdvertiserDelegate {
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-        print("advertiser \(advertiser) did receive invitation from peer \(peerID.displayName) with context \(String(describing: context))")
-        // TEMPORARY
-        invitationHandler(true, MatchTransfer.session)
+    private func _handleStartAdvertising() {
+        MatchTransfer.session.delegate = self
+        advertiser.startAdvertisingPeer()
+        print("Started Advertiser")
     }
     
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
-        print("advertiser \(advertiser) did not start advertising due to error \(error.localizedDescription)")
+    private func _handleStopAdvertising() {
+        MatchTransfer.session.disconnect()
+        advertiser.stopAdvertisingPeer()
+        MatchTransfer.session.delegate = nil
+        print("Stopped Advertiser")
     }
-}
-
-extension ServiceStore: MCNearbyServiceBrowserDelegate {
     
-    func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-        guard let _info = info else {
-            print("Discovery Info is null! Bypassing...");
-            return
+    private func _handleStartBrowser() {
+        MatchTransfer.session.delegate = self
+        browser.startBrowsingForPeers()
+        print("Started Browsing")
+    }
+    
+    private func _handleStopBrowser() {
+        MatchTransfer.session.disconnect()
+        browser.stopBrowsingForPeers()
+        MatchTransfer.session.delegate = nil
+        print("Stopped Browser")
+    }
+    
+    private func _setupStateMachineHandlers() {
+        // Add Advert Proceed Event Handlers
+        stateMachine.addHandler(event: .advertProceed) {(event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
+            switch(fromState, toState) {
+            // Advert Proceed Events
+            case (.notReady, .advertSelectingData) :
+                print("Show Data Selection Screen UI")
+                self.delegate?.handleShowDataSelectionUIWithServiceStore(self)
+                break
+            case (.advertSelectingData, .advertReady) :
+                print("Hide Data Selection Screen UI")
+                self.delegate?.handleHideDataSelectionUIWithServiceStore(self)
+                break
+            case (.advertReady, .advertRunning) :
+                print("Start Advertiser")
+                self._handleStartAdvertising()
+                break
+            case (.advertRunning, .advertInvitationPending) :
+                print("Show Invitation Pending UI")
+                self.delegate?.handleShowInvitationPendingUIWithServiceStore(self)
+                break
+            case (.advertInvitationPending, .advertConnecting) :
+                print("Show Connecting UI")
+                self.delegate?.handleShowConnectingWithServiceStore(self)
+                break
+            case (.advertConnecting, .advertSendingData) :
+                print("Show Sending Data UI")
+                self.delegate?.handleShowSendingDataUIWithServiceStore(self)
+                break
+            case (.advertSendingData, .advertComplete) :
+                print("Show Complete UI and hide after 2 sec delay")
+                self.delegate?.handleShowCompleteUIWithServiceStore(self)
+                break
+            default:
+                print("Invalid case for this event!")
+                break
+            }
+            
+            print("completed handler for \(ServiceEvent.advertProceed): \(fromState) => \(toState)")
         }
         
-        if let version = _info[MatchTransferDiscoveryInfo.VersionKey] {
-            print("Found Peer with protocol version: \(version)")
-            if let mtVersion = MatchTransferVersion(rawValue: version) {
-                switch mtVersion {
-                case .v0_1_0:
-                    print("Adding peer \(peerID.displayName) (\(String(describing: _info[MatchTransferDiscoveryInfo.DeviceName]))) with type \(String(describing: _info[MatchTransferDiscoveryInfo.MatchTypeKey]))")
-                    foundPeers[peerID] = _info
-                    browser.invitePeer(peerID, to: MatchTransfer.session, withContext: nil, timeout: 10.0)
-                default:
-                    print("Found Peer with invalid version: \(version)! Bypassing...")
-                }
+        // Add Advert Go Back Event Handlers
+        stateMachine.addHandler(event: .advertGoBack) {(event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
+            switch(fromState, toState) {
+            // Advert Go Back Events
+            case (.advertSelectingData, .notReady) :
+                print("Hide Data Selection Screen")
+                self.delegate?.handleHideDataSelectionUIWithServiceStore(self)
+                break
+            case (.advertReady, .advertSelectingData) :
+                print("Show Data Selection Screen")
+                self.delegate?.handleShowSendingDataUIWithServiceStore(self)
+                break
+            case (.advertRunning, .advertReady) :
+                print("Stop Advertiser")
+                self._handleStopAdvertising()
+                break
+            case (.advertInvitationPending, .advertRunning) :
+                // UI Shouldn't be necessary?
+                print("Show Dismissal UI for userInfo: \(userInfo.debugDescription)")
+                break
+            case (.advertConnecting, .advertInvitationPending) :
+                print("Show Invitation Pending UI")
+                self.delegate?.handleShowInvitationPendingUIWithServiceStore(self)
+                break
+            case (.advertSendingData, .advertConnecting) :
+                print("Show Connecting UI")
+                self.delegate?.handleShowConnectingWithServiceStore(self)
+                break
+            case (.advertComplete, .advertSendingData) :
+                print("Show Sending Data UI")
+                self.delegate?.handleShowSendingDataUIWithServiceStore(self)
+                break
+            default:
+                print("Invalid case for this event!")
+                break
             }
-        } else {
-            print("Found Peer with invalid version key! Bypassing...")
+            
+            print("completed handler for \(ServiceEvent.advertGoBack): \(fromState) => \(toState)")
         }
-    }
-    
-    func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
-        print("Did not start browsing for peers: \(error.localizedDescription)")
-    }
-    
-    func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-        let _info = foundPeers[peerID]
         
-        if let version = _info?[MatchTransferDiscoveryInfo.VersionKey] {
-            print("Lost Peer with protocol version: \(version)")
-            if let mtVersion = MatchTransferVersion(rawValue: version) {
-                switch mtVersion {
-                case .v0_1_0:
-                    print("Removing peer \(peerID.displayName) (\(String(describing: _info?[MatchTransferDiscoveryInfo.DeviceName]))) with type \(String(describing: _info?[MatchTransferDiscoveryInfo.MatchTypeKey]))")
-                    foundPeers.removeValue(forKey: peerID)
-                default:
-                    print("Lost Peer with invalid version: \(version)! Bypassing...")
-                }
+        // Add Advert Error Out Event Handlers
+        stateMachine.addHandler(event: .advertErrorOut) {(event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
+            switch(fromState, toState) {
+            // Advert Error Out Events
+            case (.advertRunning, .advertError) :
+                print("Show Run Error UI with user info: \(userInfo.debugDescription)")
+                self.delegate?.handleShowErrorUIWithServiceStore(self, fromState: fromState, withUserInfo: userInfo)
+                break
+            case (.advertConnecting, .advertError) :
+                print("Show Connect Error UI with user info: \(userInfo.debugDescription)")
+                self.delegate?.handleShowErrorUIWithServiceStore(self, fromState: fromState, withUserInfo: userInfo)
+                break
+            case (.advertSendingData, .advertError) :
+                print("Show Send Error UI with user info: \(userInfo.debugDescription)")
+                self.delegate?.handleShowErrorUIWithServiceStore(self, fromState: fromState, withUserInfo: userInfo)
+                break
+            default:
+                print("Invalid case for this event!")
+                break
             }
-        } else {
-            print("Lost Peer with invalid version key! Bypassing...")
+            
+            print("completed handler for \(ServiceEvent.advertErrorOut): \(fromState) => \(toState)")
         }
-    }
-}
-
-extension ServiceStore: MCSessionDelegate {
-    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        self.state = state
-        self.delegate?.serviceStore(self, withSession: session, didChangeState: state)
-        print("MCSession \(session.myPeerID.displayName) with did change state to \(state.stringValue)")
-    }
-    
-    func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        print("MCSession \(session.myPeerID.displayName) did receive data from peer \(peerID): \(data)")
-        self.delegate?.serviceStore(self, withSession: session, didReceiveData: data, fromPeer: peerID)
-    }
-    
-    func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
-        print("MCSession \(session.myPeerID.displayName) did receive stream \(streamName) from peer \(peerID.displayName)")
-    }
-    
-    func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-        print("MCSession \(session.myPeerID.displayName) did start receiving resource with name \(resourceName) from peer \(peerID.displayName) with progress \(progress)")
-    }
-    
-    func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
-        print("MCSession \(session.myPeerID.displayName) did finish receiving resource with name \(resourceName) from peer \(peerID.displayName) at \(localURL) with error \(String(describing: error?.localizedDescription))")
-    }
-    
-    func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
-        print("MCSession \(session.myPeerID.displayName) did receive certificate \(String(describing: certificate?.debugDescription)) from peer \(peerID.displayName)")
-        certificateHandler(true)
-    }
-}
-
-extension MCSessionState {
-    var stringValue:String {
-        return self == .connected ? "connected" :
-        self == .notConnected ? "notConnected" : "connecting"
+        
+        // Add Browse Proceed Event Handlers
+        stateMachine.addHandler(event: .browseProceed) {(event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
+            switch(fromState, toState) {
+            // Browse Proceed Events
+            case (.notReady, .browseRunning) :
+                print("Start Browser")
+                self._handleStartBrowser()
+                break
+            case (.browseRunning, .browseConnecting) :
+                print("Show Connecting UI")
+                self.delegate?.handleShowConnectingWithServiceStore(self)
+                break
+            case (.browseConnecting, .browseReceivingData) :
+                print("Show Receiving Data UI")
+                self.delegate?.handleShowReceivingDataUIWithServiceStore(self)
+                break
+            case (.browseReceivingData, .browseComplete) :
+                print("Show Complete UI and hide after 2 sec delay")
+                self.delegate?.handleShowCompleteUIWithServiceStore(self)
+                break
+            default:
+                print("Invalid case for this event!")
+                break
+            }
+            
+            print("completed handler for \(ServiceEvent.browseProceed): \(fromState) => \(toState)")
+        }
+        
+        // Add Browse Go Back Event Handlers
+        stateMachine.addHandler(event: .browseGoBack) {(event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
+            switch(fromState, toState) {
+            // Browse Go Back Events
+            case (.browseRunning, .notReady) :
+                print("Stop Browser")
+                self._handleStopBrowser()
+                break
+            case (.browseConnecting, .browseRunning) :
+                print("Hide Connecting UI")
+                // TODO: Need to create a function for this!
+                break
+            case (.browseReceivingData, .browseConnecting) :
+                print("Show Connecting UI")
+                self.delegate?.handleShowConnectingWithServiceStore(self)
+                break
+            case (.browseComplete, .browseReceivingData) :
+                print("Show Reveiving Data UI")
+                self.delegate?.handleShowReceivingDataUIWithServiceStore(self)
+                break
+            default:
+                print("Invalid case for this event!")
+                break
+            }
+            
+            print("completed handler for \(ServiceEvent.browseGoBack): \(fromState) => \(toState)")
+        }
+        
+        // Add Browse Error Out Event Handlers
+        stateMachine.addHandler(event: .browseErrorOut) {(event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
+            switch(fromState, toState) {
+            // Browse Error Out Events
+            case (.browseRunning, .browseError) :
+                print("Show Run Error UI with user info \(userInfo.debugDescription)")
+                self.delegate?.handleShowErrorUIWithServiceStore(self, fromState: fromState, withUserInfo: userInfo)
+                break
+            case (.browseConnecting, .browseError) :
+                print("Show Connect Error UI with user info \(userInfo.debugDescription)")
+                self.delegate?.handleShowErrorUIWithServiceStore(self, fromState: fromState, withUserInfo: userInfo)
+                break
+            case (.browseReceivingData, .browseError) :
+                print("Show Receive Error UI with user info \(userInfo.debugDescription)")
+                self.delegate?.handleShowErrorUIWithServiceStore(self, fromState: fromState, withUserInfo: userInfo)
+                break
+            default:
+                print("Invalid case for this event!")
+                break
+            }
+            
+            print("completed handler for \(ServiceEvent.browseErrorOut): \(fromState) => \(toState)")
+        }
     }
 }

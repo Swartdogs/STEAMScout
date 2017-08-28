@@ -32,23 +32,23 @@ class DataTransferViewController: UIViewController {
     
     @IBAction func advertisingSwitchChanged(_ sender: UISwitch) {
         if(sender.isOn) {
-            ServiceStore.shared.enableAdvertising()
+            ServiceStore.shared.startAdvertising()
             browsingSwitch.isOn = false
             browsingSwitch.isEnabled = false
         } else {
-            ServiceStore.shared.disableAdvertising()
+            ServiceStore.shared.stopAdvertising()
             browsingSwitch.isEnabled = true
         }
     }
     
     @IBAction func broadcastingSwitchChanged(_ sender: UISwitch) {
         if(sender.isOn) {
-            ServiceStore.shared.enableBrowsing()
+            ServiceStore.shared.startBrowsing()
             advertisingSwitch.isOn = false
             advertisingSwitch.isEnabled = false
             showBrowserButton.isEnabled = true
         } else {
-            ServiceStore.shared.disableBrowsing()
+            ServiceStore.shared.stopBrowsing()
             showBrowserButton.isEnabled = false
             advertisingSwitch.isEnabled = true
         }
@@ -95,5 +95,37 @@ extension DataTransferViewController: ServiceStoreDelegate {
                 }
             }
         }
+    }
+    
+    func handleShowCompleteUIWithServiceStore(_ serviceStore: ServiceStore) {
+        // TODO: Implement
+    }
+    
+    func handleShowConnectingWithServiceStore(_ serviceStore: ServiceStore) {
+        // TODO: Implement
+    }
+    
+    func handleShowSendingDataUIWithServiceStore(_ serviceStore: ServiceStore) {
+        // TODO: Implement
+    }
+    
+    func handleShowReceivingDataUIWithServiceStore(_ serviceStore: ServiceStore) {
+        // TODO: Implement
+    }
+    
+    func handleHideDataSelectionUIWithServiceStore(_ serviceStore: ServiceStore) {
+        // TODO: Implement
+    }
+    
+    func handleShowDataSelectionUIWithServiceStore(_ serviceStore: ServiceStore) {
+        // TODO: Implement
+    }
+    
+    func handleShowInvitationPendingUIWithServiceStore(_ serviceStore: ServiceStore) {
+        // TODO: Implement
+    }
+    
+    func handleShowErrorUIWithServiceStore(_ serviceStore: ServiceStore, fromState state: ServiceState, withUserInfo userInfo: Any?) {
+        // TODO: Implement
     }
 }

@@ -26,6 +26,7 @@ enum ServiceState: StateType {
     case browseComplete
 }
 
+// TODO: Add Reset Event to handle returning back to .notReady
 enum ServiceEvent: EventType {
     case advertProceed
     case advertGoBack

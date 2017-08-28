@@ -34,6 +34,8 @@
 		C44A81311E35D33800BA367B /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812B1E35D33800BA367B /* ScheduleCell.swift */; };
 		C44A81321E35D33800BA367B /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812C1E35D33800BA367B /* SelectionButton.swift */; };
 		C44A81331E35D33800BA367B /* themeDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A812D1E35D33800BA367B /* themeDefinitions.swift */; };
+		C451B9501F4E3F5600C574D1 /* ServiceStore+ProtocolHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451B94F1F4E3F5600C574D1 /* ServiceStore+ProtocolHandlers.swift */; };
+		C451B9521F4E465700C574D1 /* ServiceStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451B9511F4E465700C574D1 /* ServiceStoreDelegate.swift */; };
 		C48158AE1E7A449B0009A89B /* UINavigationController+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48158AD1E7A449B0009A89B /* UINavigationController+Rotation.swift */; };
 		C48158B01E7A57090009A89B /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48158AF1E7A57090009A89B /* AppUtility.swift */; };
 		C48158B31E7A7A500009A89B /* DataEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48158B11E7A7A500009A89B /* DataEntry.storyboard */; };
@@ -138,6 +140,8 @@
 		C44A812B1E35D33800BA367B /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ScheduleCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C44A812C1E35D33800BA367B /* SelectionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SelectionButton.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C44A812D1E35D33800BA367B /* themeDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = themeDefinitions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C451B94F1F4E3F5600C574D1 /* ServiceStore+ProtocolHandlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ServiceStore+ProtocolHandlers.swift"; sourceTree = "<group>"; };
+		C451B9511F4E465700C574D1 /* ServiceStoreDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceStoreDelegate.swift; sourceTree = "<group>"; };
 		C48158AD1E7A449B0009A89B /* UINavigationController+Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Rotation.swift"; sourceTree = "<group>"; };
 		C48158AF1E7A57090009A89B /* AppUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		C48158B21E7A7A500009A89B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DataEntry.storyboard; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 			children = (
 				C42478D41E7DE806002060DE /* Service.swift */,
 				C4BF65E81EF58C86002AE424 /* ServiceStore.swift */,
+				C451B94F1F4E3F5600C574D1 /* ServiceStore+ProtocolHandlers.swift */,
 				C40AAF701F284AD100F2CF37 /* ServiceState.swift */,
 			);
 			path = Bluetooth;
@@ -452,6 +457,7 @@
 				C48F38C11EEFA6DE00B884DD /* MatchCoding.swift */,
 				C48F38C21EEFA6DE00B884DD /* PropertyListReadable.swift */,
 				C48F38C31EEFA6DE00B884DD /* SessionStoreDelegate.swift */,
+				C451B9511F4E465700C574D1 /* ServiceStoreDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -684,6 +690,7 @@
 				C48F38AD1EEFA6C500B884DD /* MatchQueueData.swift in Sources */,
 				C48F38B01EEFA6C500B884DD /* ScoreLocation.swift in Sources */,
 				C4BF65E91EF58C86002AE424 /* ServiceStore.swift in Sources */,
+				C451B9501F4E3F5600C574D1 /* ServiceStore+ProtocolHandlers.swift in Sources */,
 				C48F38D71EEFA6DE00B884DD /* ScheduleItem.swift in Sources */,
 				C48F38A91EEFA6C500B884DD /* SectionType.swift in Sources */,
 				C48F389B1EEFA6C500B884DD /* Action.swift in Sources */,
@@ -720,6 +727,7 @@
 				C44A81321E35D33800BA367B /* SelectionButton.swift in Sources */,
 				C48F38CC1EEFA6DE00B884DD /* MatchImpl.swift in Sources */,
 				C402A8F11E77D243003817FF /* PenaltyViewController.swift in Sources */,
+				C451B9521F4E465700C574D1 /* ServiceStoreDelegate.swift in Sources */,
 				C48F389C1EEFA6C500B884DD /* ActionData.swift in Sources */,
 				C44A812F1E35D33800BA367B /* EventCell.swift in Sources */,
 				C48F38A71EEFA6C500B884DD /* PenaltyType.swift in Sources */,
