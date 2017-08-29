@@ -9,15 +9,8 @@
 import Foundation
 import MultipeerConnectivity
 
-protocol ServiceStoreDelegate {
+protocol ServiceStoreDelegate: class {
     func serviceStore(_ serviceStore:ServiceStore, withSession session:MCSession, didChangeState state:MCSessionState)
     func serviceStore(_ serviceStore:ServiceStore, withSession session:MCSession, didReceiveData data:Data, fromPeer peerId:MCPeerID)
-    func handleShowDataSelectionUIWithServiceStore(_ serviceStore: ServiceStore)
-    func handleHideDataSelectionUIWithServiceStore(_ serviceStore: ServiceStore)
-    func handleShowInvitationPendingUIWithServiceStore(_ serviceStore: ServiceStore)
-    func handleShowConnectingWithServiceStore(_ serviceStore: ServiceStore)
-    func handleShowSendingDataUIWithServiceStore(_ serviceStore: ServiceStore)
-    func handleShowReceivingDataUIWithServiceStore(_ serviceStore: ServiceStore)
-    func handleShowCompleteUIWithServiceStore(_ serviceStore: ServiceStore)
-    func handleShowErrorUIWithServiceStore(_ serviceStore: ServiceStore, fromState state: ServiceState, withUserInfo userInfo: Any?)
+    func serviceStore(_ serviceStore:ServiceStore, transitionedFromState fromState:ServiceState, toState:ServiceState, forEvent event:ServiceEvent, withUserInfo userInfo:Any?)
 }

@@ -23,9 +23,9 @@ class ServiceStore: NSObject {
                                                serviceType: MatchTransfer.serviceType)
     let stateMachine = createServiceStateMachine()
     
-    var delegate:ServiceStoreDelegate? = nil
+    weak var delegate:ServiceStoreDelegate?
     var foundPeers:[MCPeerID:[String:String]] = [:]
-    var state:MCSessionState = .notConnected
+    var sessionState:MCSessionState = .notConnected
     
     var machineState:ServiceState {
         return stateMachine.state
@@ -38,9 +38,7 @@ class ServiceStore: NSObject {
             ServiceState.advertRunning,
             ServiceState.advertInvitationPending,
             ServiceState.advertConnecting,
-            ServiceState.advertSendingData,
-            ServiceState.advertComplete,
-            ServiceState.advertError
+            ServiceState.advertSendingData
         ].contains(stateMachine.state)
     }
     
@@ -48,9 +46,7 @@ class ServiceStore: NSObject {
         return [
             ServiceState.browseRunning,
             ServiceState.browseConnecting,
-            ServiceState.browseReceivingData,
-            ServiceState.browseComplete,
-            ServiceState.browseError
+            ServiceState.browseReceivingData
         ].contains(stateMachine.state)
     }
     
@@ -72,8 +68,7 @@ class ServiceStore: NSObject {
     func stopAdvertising() {
         guard advertising else { return }
         
-        // TODO: call reset ServiceEvent when it's created
-        
+        stateMachine <-! ServiceEvent.reset
     }
     
     func startBrowsing() {
@@ -84,17 +79,16 @@ class ServiceStore: NSObject {
         }
         
         stateMachine <-! ServiceEvent.browseProceed
-        
     }
     
     func stopBrowsing() {
         guard browsing else { return }
         
-        // TODO: call reset ServiceEvent when it's created
+        stateMachine <-! ServiceEvent.reset
     }
     
     func sendData(_ data:Data) {
-        if(state != .connected) {
+        if(sessionState != .connected) {
             print("ERROR: state is not connected -- can't send data!")
             return
         }
@@ -139,36 +133,20 @@ class ServiceStore: NSObject {
     
     private func _setupStateMachineHandlers() {
         // Add Advert Proceed Event Handlers
-        stateMachine.addHandler(event: .advertProceed) {(event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
+        stateMachine.addHandler(event: .advertProceed) {[unowned self, weak delegate = self.delegate] (event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
             switch(fromState, toState) {
             // Advert Proceed Events
-            case (.notReady, .advertSelectingData) :
-                print("Show Data Selection Screen UI")
-                self.delegate?.handleShowDataSelectionUIWithServiceStore(self)
-                break
-            case (.advertSelectingData, .advertReady) :
-                print("Hide Data Selection Screen UI")
-                self.delegate?.handleHideDataSelectionUIWithServiceStore(self)
-                break
-            case (.advertReady, .advertRunning) :
+            case (.advertReady,             .advertRunning) :
                 print("Start Advertiser")
                 self._handleStartAdvertising()
-                break
-            case (.advertRunning, .advertInvitationPending) :
-                print("Show Invitation Pending UI")
-                self.delegate?.handleShowInvitationPendingUIWithServiceStore(self)
-                break
-            case (.advertInvitationPending, .advertConnecting) :
-                print("Show Connecting UI")
-                self.delegate?.handleShowConnectingWithServiceStore(self)
-                break
-            case (.advertConnecting, .advertSendingData) :
-                print("Show Sending Data UI")
-                self.delegate?.handleShowSendingDataUIWithServiceStore(self)
-                break
-            case (.advertSendingData, .advertComplete) :
-                print("Show Complete UI and hide after 2 sec delay")
-                self.delegate?.handleShowCompleteUIWithServiceStore(self)
+                fallthrough
+            case (.notReady,                .advertSelectingData)     : fallthrough
+            case (.advertSelectingData,     .advertReady)             : fallthrough
+            case (.advertRunning,           .advertInvitationPending) : fallthrough
+            case (.advertInvitationPending, .advertConnecting)        : fallthrough
+            case (.advertConnecting,        .advertSendingData)       : fallthrough
+            case (.advertSendingData,       .notReady) :
+                delegate?.serviceStore(self, transitionedFromState: fromState, toState: toState, forEvent: event!, withUserInfo: userInfo)
                 break
             default:
                 print("Invalid case for this event!")
@@ -179,38 +157,20 @@ class ServiceStore: NSObject {
         }
         
         // Add Advert Go Back Event Handlers
-        stateMachine.addHandler(event: .advertGoBack) {(event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
+        stateMachine.addHandler(event: .advertGoBack) {[unowned self, weak delegate = self.delegate] (event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
             switch(fromState, toState) {
             // Advert Go Back Events
-            case (.advertSelectingData, .notReady) :
-                print("Hide Data Selection Screen")
-                self.delegate?.handleHideDataSelectionUIWithServiceStore(self)
-                break
-            case (.advertReady, .advertSelectingData) :
-                print("Show Data Selection Screen")
-                self.delegate?.handleShowSendingDataUIWithServiceStore(self)
-                break
-            case (.advertRunning, .advertReady) :
+            case (.advertRunning,       .advertReady)         :
                 print("Stop Advertiser")
                 self._handleStopAdvertising()
-                break
-            case (.advertInvitationPending, .advertRunning) :
-                // UI Shouldn't be necessary?
-                print("Show Dismissal UI for userInfo: \(userInfo.debugDescription)")
-                break
-            case (.advertConnecting, .advertInvitationPending) :
-                print("Show Invitation Pending UI")
-                self.delegate?.handleShowInvitationPendingUIWithServiceStore(self)
-                break
-            case (.advertSendingData, .advertConnecting) :
-                print("Show Connecting UI")
-                self.delegate?.handleShowConnectingWithServiceStore(self)
-                break
-            case (.advertComplete, .advertSendingData) :
-                print("Show Sending Data UI")
-                self.delegate?.handleShowSendingDataUIWithServiceStore(self)
-                break
-            default:
+                fallthrough
+            case (.advertSelectingData, .notReady)            : fallthrough
+            case (.advertReady,         .advertSelectingData) : fallthrough
+            case (.advertInvitationPending, .advertRunning)   : fallthrough
+            case (.advertConnecting, .advertRunning) : fallthrough
+            case (.advertSendingData, .advertRunning) :
+                delegate?.serviceStore(self, transitionedFromState: fromState, toState: toState, forEvent: event!, withUserInfo: userInfo)
+            default :
                 print("Invalid case for this event!")
                 break
             }
@@ -219,20 +179,14 @@ class ServiceStore: NSObject {
         }
         
         // Add Advert Error Out Event Handlers
-        stateMachine.addHandler(event: .advertErrorOut) {(event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
+        stateMachine.addHandler(event: .advertErrorOut) {[unowned self, weak delegate = self.delegate] (event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
             switch(fromState, toState) {
             // Advert Error Out Events
-            case (.advertRunning, .advertError) :
-                print("Show Run Error UI with user info: \(userInfo.debugDescription)")
-                self.delegate?.handleShowErrorUIWithServiceStore(self, fromState: fromState, withUserInfo: userInfo)
-                break
-            case (.advertConnecting, .advertError) :
-                print("Show Connect Error UI with user info: \(userInfo.debugDescription)")
-                self.delegate?.handleShowErrorUIWithServiceStore(self, fromState: fromState, withUserInfo: userInfo)
-                break
-            case (.advertSendingData, .advertError) :
-                print("Show Send Error UI with user info: \(userInfo.debugDescription)")
-                self.delegate?.handleShowErrorUIWithServiceStore(self, fromState: fromState, withUserInfo: userInfo)
+            case (.advertRunning, .notReady) : fallthrough
+            case (.advertConnecting, .notReady) : fallthrough
+            case (.advertSendingData, .notReady) :
+                self._handleStopAdvertising()
+                delegate?.serviceStore(self, transitionedFromState: fromState, toState: toState, forEvent: event!, withUserInfo: userInfo)
                 break
             default:
                 print("Invalid case for this event!")
@@ -243,24 +197,17 @@ class ServiceStore: NSObject {
         }
         
         // Add Browse Proceed Event Handlers
-        stateMachine.addHandler(event: .browseProceed) {(event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
+        stateMachine.addHandler(event: .browseProceed) {[unowned self, weak delegate = self.delegate] (event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
             switch(fromState, toState) {
             // Browse Proceed Events
             case (.notReady, .browseRunning) :
                 print("Start Browser")
                 self._handleStartBrowser()
-                break
-            case (.browseRunning, .browseConnecting) :
-                print("Show Connecting UI")
-                self.delegate?.handleShowConnectingWithServiceStore(self)
-                break
-            case (.browseConnecting, .browseReceivingData) :
-                print("Show Receiving Data UI")
-                self.delegate?.handleShowReceivingDataUIWithServiceStore(self)
-                break
-            case (.browseReceivingData, .browseComplete) :
-                print("Show Complete UI and hide after 2 sec delay")
-                self.delegate?.handleShowCompleteUIWithServiceStore(self)
+                fallthrough
+            case (.browseRunning, .browseConnecting) : fallthrough
+            case (.browseConnecting, .browseReceivingData) : fallthrough
+            case (.browseReceivingData, .notReady) :
+                delegate?.serviceStore(self, transitionedFromState: fromState, toState: toState, forEvent: event!, withUserInfo: userInfo)
                 break
             default:
                 print("Invalid case for this event!")
@@ -271,25 +218,16 @@ class ServiceStore: NSObject {
         }
         
         // Add Browse Go Back Event Handlers
-        stateMachine.addHandler(event: .browseGoBack) {(event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
+        stateMachine.addHandler(event: .browseGoBack) {[unowned self, weak delegate = self.delegate] (event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
             switch(fromState, toState) {
             // Browse Go Back Events
             case (.browseRunning, .notReady) :
                 print("Stop Browser")
                 self._handleStopBrowser()
-                break
-            case (.browseConnecting, .browseRunning) :
-                print("Hide Connecting UI")
-                // TODO: Need to create a function for this!
-                break
-            case (.browseReceivingData, .browseConnecting) :
-                print("Show Connecting UI")
-                self.delegate?.handleShowConnectingWithServiceStore(self)
-                break
-            case (.browseComplete, .browseReceivingData) :
-                print("Show Reveiving Data UI")
-                self.delegate?.handleShowReceivingDataUIWithServiceStore(self)
-                break
+                fallthrough
+            case (.browseConnecting, .browseRunning) : fallthrough
+            case (.browseReceivingData, .browseRunning) :
+                delegate?.serviceStore(self, transitionedFromState: fromState, toState: toState, forEvent: event!, withUserInfo: userInfo)
             default:
                 print("Invalid case for this event!")
                 break
@@ -299,21 +237,50 @@ class ServiceStore: NSObject {
         }
         
         // Add Browse Error Out Event Handlers
-        stateMachine.addHandler(event: .browseErrorOut) {(event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
+        stateMachine.addHandler(event: .browseErrorOut) {[unowned self, weak delegate = self.delegate] (event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
             switch(fromState, toState) {
             // Browse Error Out Events
-            case (.browseRunning, .browseError) :
-                print("Show Run Error UI with user info \(userInfo.debugDescription)")
-                self.delegate?.handleShowErrorUIWithServiceStore(self, fromState: fromState, withUserInfo: userInfo)
+            case (.browseRunning, .notReady) : fallthrough
+            case (.browseConnecting, .notReady) : fallthrough
+            case (.browseReceivingData, .notReady) :
+                print("Stop Browser")
+                self._handleStopBrowser()
+                delegate?.serviceStore(self, transitionedFromState: fromState, toState: toState, forEvent: event!, withUserInfo: userInfo)
+            default:
+                print("Invalid case for this event!")
                 break
-            case (.browseConnecting, .browseError) :
-                print("Show Connect Error UI with user info \(userInfo.debugDescription)")
-                self.delegate?.handleShowErrorUIWithServiceStore(self, fromState: fromState, withUserInfo: userInfo)
+            }
+            
+            print("completed handler for \(ServiceEvent.browseErrorOut): \(fromState) => \(toState)")
+        }
+        
+        // Add Reset Event Handlers
+        stateMachine.addHandler(event: .browseErrorOut) {[unowned self, weak delegate = self.delegate] (event: ServiceEvent?, fromState: ServiceState, toState: ServiceState, userInfo: Any?) -> () in
+            switch(fromState, toState) {
+            // Advertise Reset Transitions
+            case (.advertRunning, .notReady) : fallthrough
+            case (.advertInvitationPending, .notReady) : fallthrough
+            case (.advertConnecting, .notReady) : fallthrough
+            case (.advertSendingData, .notReady) :
+                print("Stop Advertiser")
+                self._handleStopAdvertising()
+                fallthrough
+            case (.advertSelectingData, .notReady) : fallthrough
+            case (.advertReady, .notReady) :
+                delegate?.serviceStore(self, transitionedFromState: fromState, toState: toState, forEvent: event!, withUserInfo: userInfo)
+                print("Advertise State Reset")
                 break
-            case (.browseReceivingData, .browseError) :
-                print("Show Receive Error UI with user info \(userInfo.debugDescription)")
-                self.delegate?.handleShowErrorUIWithServiceStore(self, fromState: fromState, withUserInfo: userInfo)
+                
+            // Browse Reset Transitions
+            case (.browseRunning, .notReady) : fallthrough
+            case (.browseConnecting, .notReady) : fallthrough
+            case (.browseReceivingData, .notReady) :
+                print("Stop Browser")
+                self._handleStopBrowser()
+                delegate?.serviceStore(self, transitionedFromState: fromState, toState: toState, forEvent: event!, withUserInfo: userInfo)
+                print("Browse State Reset")
                 break
+                
             default:
                 print("Invalid case for this event!")
                 break

@@ -72,7 +72,7 @@ extension ServiceStore: MCNearbyServiceBrowserDelegate {
 
 extension ServiceStore: MCSessionDelegate {
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        self.state = state
+        self.sessionState = state
         self.delegate?.serviceStore(self, withSession: session, didChangeState: state)
         print("MCSession \(session.myPeerID.displayName) with did change state to \(String(describing: state))")
     }

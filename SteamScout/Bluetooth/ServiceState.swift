@@ -17,17 +17,13 @@ enum ServiceState: StateType {
     case advertInvitationPending
     case advertConnecting
     case advertSendingData
-    case advertError
-    case advertComplete
     case browseRunning
     case browseConnecting
     case browseReceivingData
-    case browseError
-    case browseComplete
 }
 
-// TODO: Add Reset Event to handle returning back to .notReady
 enum ServiceEvent: EventType {
+    case reset
     case advertProceed
     case advertGoBack
     case advertErrorOut
@@ -47,41 +43,144 @@ enum ServiceError: Error {
 
 func createServiceStateMachine() -> StateMachine<ServiceState, ServiceEvent> {
     return StateMachine<ServiceState, ServiceEvent>(state: .notReady, initClosure: { machine in
-        // Add Advertisement Transitions
-        machine.addRoute(.notReady                => .advertSelectingData)      // Select Data Before Ready State
-        machine.addRoute(.notReady                => .advertReady)              // Jump to Ready State (data already selected)
-        machine.addRoute(.advertSelectingData     => .advertReady)              // Ready to Advertise (after selecting data)
-        machine.addRoute(.advertSelectingData     => .notReady)                 // Cancel Selecting Data
-        machine.addRoute(.advertReady             => .notReady)                 // Cancel Advertising
-        machine.addRoute(.advertReady             => .advertRunning)            // Start Advertising
-        machine.addRoute(.advertRunning           => .advertReady)              // Stop Advertising
-        machine.addRoute(.advertRunning           => .advertError)              // Handle Advertise Runtime Error
-        machine.addRoute(.advertRunning           => .advertInvitationPending)  // On Receive Invitation
-        machine.addRoute(.advertInvitationPending => .advertRunning)            // Deny Invitation
-        machine.addRoute(.advertInvitationPending => .advertConnecting)         // Accept Invitation
-        machine.addRoute(.advertConnecting        => .advertError)              // on Connect Error
-        machine.addRoute(.advertConnecting        => .advertSendingData)        // on Connect Success
-        machine.addRoute(.advertSendingData       => .advertError)              // on Send Error
-        machine.addRoute(.advertSendingData       => .advertComplete)           // on Send Complete
-        machine.addRoute(.advertError             => .advertReady)              // After Error Handled -> keep select data
-        machine.addRoute(.advertError             => .notReady)                 // After Error Handled -> choose new data
-        machine.addRoute(.advertComplete          => .advertReady)              // After Send Complete
-        machine.addRoute(.advertComplete          => .notReady)                 // After Send Complete -> choose new data
+        // MARK: Add Advertisement Transitions
         
-        // Add Browse Transitions
-        machine.addRoute(.notReady            => .browseRunning)        // Start Browsing
-        machine.addRoute(.browseRunning       => .notReady)             // Stop Browsing
-        machine.addRoute(.browseRunning       => .browseError)          // Handle Browser Runtime Error
-        machine.addRoute(.browseRunning       => .browseConnecting)     // Attempt To Connect to Advertiser
-        machine.addRoute(.browseConnecting    => .browseRunning)        // on Request Denied
-        machine.addRoute(.browseConnecting    => .browseError)          // Handle Browser Connct Error
-        machine.addRoute(.browseConnecting    => .browseReceivingData)  // Data Receiving
-        machine.addRoute(.browseReceivingData => .browseError)          // Handle Browser Recieve Error
-        machine.addRoute(.browseReceivingData => .browseComplete)       // on Receive Complete
-        machine.addRoute(.browseError         => .browseRunning)        // After Error Handled -> keep browsing
-        machine.addRoute(.browseError         => .notReady)             // After Error Handled -> stop browsing
-        machine.addRoute(.browseComplete      => .browseRunning)        // After Recieve Complete -> keep browsing
-        machine.addRoute(.browseComplete      => .notReady)             // After Recieve Complete -> stop browsing
+        /// Not Ready => Selecting Data
+        /// Triggered by: Proceed
+        /// Handlers:     Proceed - Allow Delegate to handle selecting data and notify machine when data has been selected
+        machine.addRoute(.notReady => .advertSelectingData)
+        
+        /// Selecting Data => Ready
+        /// Triggered by: Proceed
+        /// Handlers:     Proceed - Update machine state
+        machine.addRoute(.advertSelectingData => .advertReady)
+        
+        /// Selecting Data => Not Ready
+        /// Triggered by: GoBack, Reset
+        /// Handlers:     GoBack - Allow Delegate to update UI
+        ///               Reset  - Allow Delegate to update UI
+        machine.addRoute(.advertSelectingData => .notReady)
+        
+        /// Ready => Running
+        /// Triggered by: Proceed
+        /// Handlers:     Proceed - Start Advertiser
+        machine.addRoute(.advertReady => .advertRunning)
+        
+        /// Ready => Selecting Data
+        /// Triggered by: GoBack
+        /// Handlers:     GoBack - Allow Delegate to select new data (delegate will notify machine when data has been selected)
+        machine.addRoute(.advertReady => .advertSelectingData)
+        
+        /// Ready => Not Ready
+        /// Triggered by: Reset
+        /// Handlers:     Reset - Allow Delegate to update UI, update state
+        machine.addRoute(.advertReady => .notReady)
+        
+        /// Running => Invitation Pending
+        /// Triggered by: Proceed
+        /// Handlers:     Proceed - Allow Delegate to update UI
+        machine.addRoute(.advertRunning => .advertInvitationPending)
+        
+        /// Running => Ready
+        /// Triggered by: GoBack
+        /// Handlers:     GoBack - Allow Delegate to update UI, stop advertiser
+        machine.addRoute(.advertRunning => .advertReady)
+        
+        /// Running => Not Ready
+        /// Triggered by: ErrorOut, Reset
+        /// Handlers:     ErrorOut - Allow Delegate to update UI, stop advertiser
+        ///               Reset    - Allow Delegate to update UI, stop advertiser
+        machine.addRoute(.advertRunning => .notReady)
+        
+        /// Invitation Pending => Connecting
+        /// Triggered by: Proceed
+        /// Handlers:     Proceed - Allow Delegate to update UI
+        machine.addRoute(.advertInvitationPending => .advertConnecting)
+        
+        /// Invitation Pending => Running
+        /// Triggered by: GoBack
+        /// Handlers:     GoBack - Allow Delegate to update UI, reset state back to running
+        machine.addRoute(.advertInvitationPending => .advertRunning)
+        
+        /// Invitation Pending => Not Ready
+        /// Triggered by: Reset
+        /// Handlers:     Reset - Allow Delegate to update UI, stop advertiser
+        machine.addRoute(.advertInvitationPending => .notReady)
+        
+        /// Connecting => Sending Data
+        /// Triggered by: Proceed
+        /// Handlers:     Proceed - Allow Delegate to update UI
+        machine.addRoute(.advertConnecting => .advertSendingData)
+        
+        /// Connecting => Running
+        /// Triggered by: GoBack 
+        /// Handlers:     GoBack - Allow Delegate to update UI, reset state back to running
+        machine.addRoute(.advertConnecting => .advertRunning)
+        
+        /// Connecting => Not Ready
+        /// Triggered by: ErrorOut, Reset
+        /// Handlers:     ErrorOut - Allow Delegate to update UI, stop advertiser
+        ///               Reset    - Allow Delegate to update UI, stop advertiser
+        machine.addRoute(.advertConnecting => .notReady)
+        
+        /// Sending Data => Not Ready
+        /// Triggered by: Proceed, ErrorOut, Reset
+        /// Handlers:     Proceed  - Allow Delegate to update UI, stop advertiser
+        ///               ErrorOut - Allow Delegate to update UI, stop advertiser
+        ///               Reset    - Allow Delegate to update UI, stop advertiser
+        machine.addRoute(.advertSendingData => .notReady)
+        
+        /// Sending Data => Running
+        /// Triggered by: GoBack
+        /// Handlers:     GoBack - Reset state back to running
+        machine.addRoute(.advertSendingData => .advertRunning)
+        
+        // MARK: Add Browse Transitions
+        
+        /// Not Ready => Running
+        /// Triggered by: Proceed
+        /// Handlers:     Proceed - Allow Delegate to update UI, start browser
+        machine.addRoute(.notReady => .browseRunning)
+        
+        /// Running => Connecting
+        /// Triggered by: Proceed
+        /// Handlers:     Proceed - Allow Delegate to update UI
+        machine.addRoute(.browseRunning => .browseConnecting)
+        
+        /// Running => Not Ready
+        /// Triggered by: GoBack, ErrorOut, Reset
+        /// Handlers:     GoBack   - Allow Delegate to update UI, stop browser
+        ///               ErrorOut - Allow Delegate to update UI, stop browser
+        ///               Reset    - Allow Delegate to update UI, stop browser
+        machine.addRoute(.browseRunning => .notReady)
+        
+        /// Connecting => Receiving Data
+        /// Triggered by: Proceed
+        /// Handlers:     Proceed - Allow Delegate to update UI
+        machine.addRoute(.browseConnecting => .browseReceivingData)
+        
+        /// Connecting => Running
+        /// Triggered by: GoBack
+        /// Handlers:     GoBack - Allow Delegate to update UI
+        machine.addRoute(.browseConnecting => .browseRunning)
+        
+        /// Connecting => Not Ready
+        /// Triggered by: ErrorOut, Reset
+        /// Handlers:     ErrorOut - Allow Delegate to update UI, stop browser
+        ///               Reset    - Allow Delegate to update UI, stop browser
+        machine.addRoute(.browseConnecting => .notReady)
+        
+        /// Receiving Data => Not Ready
+        /// Triggered by: Proceed, ErrorOut, Reset
+        /// Handlers:     Proceed  - Allow Delegate to update UI, stop browser
+        ///               ErrorOut - Allow Delegate to update UI, stop browser
+        ///               Reset    - Allow Delegate to update UI, stop browser
+        machine.addRoute(.browseReceivingData => .notReady)
+        
+        /// Receiving Data => Running
+        /// Triggered by: GoBack
+        /// Handlers:     GoBack - Allow Delegate to update UI, reset state back to running
+        machine.addRoute(.browseReceivingData => .browseRunning)
         
         // Add Default Error Handler
         machine.addErrorHandler { event, fromState, toState, userInfo in
@@ -99,39 +198,48 @@ func createServiceStateMachine() -> StateMachine<ServiceState, ServiceEvent> {
             case (.advertProceed, .advertRunning)           : return .advertInvitationPending
             case (.advertProceed, .advertInvitationPending) : return .advertConnecting
             case (.advertProceed, .advertConnecting)        : return .advertSendingData
-            case (.advertProceed, .advertSendingData)       : return .advertComplete
+            case (.advertProceed, .advertSendingData)       : return .notReady
                 
             // Advert GoBack Events
             case (.advertGoBack, .advertSelectingData)      : return .notReady
             case (.advertGoBack, .advertReady)              : return .advertSelectingData
             case (.advertGoBack, .advertRunning)            : return .advertReady
             case (.advertGoBack, .advertInvitationPending)  : return .advertRunning
-            case (.advertGoBack, .advertConnecting)         : return .advertInvitationPending
-            case (.advertGoBack, .advertSendingData)        : return .advertConnecting
-            case (.advertGoBack, .advertComplete)           : return .advertSendingData
+            case (.advertGoBack, .advertConnecting)         : return .advertRunning
+            case (.advertGoBack, .advertSendingData)        : return .advertRunning
                 
             // Advert ErrorOut Events
-            case (.advertErrorOut, .advertRunning)          : return .advertError
-            case (.advertErrorOut, .advertConnecting)       : return .advertError
-            case (.advertErrorOut, .advertSendingData)      : return .advertError
+            case (.advertErrorOut, .advertRunning)          : return .notReady
+            case (.advertErrorOut, .advertConnecting)       : return .notReady
+            case (.advertErrorOut, .advertSendingData)      : return .notReady
                 
             // Browse Proceed Events
             case (.browseProceed, .notReady)                : return .browseRunning
             case (.browseProceed, .browseRunning)           : return .browseConnecting
             case (.browseProceed, .browseConnecting)        : return .browseReceivingData
-            case (.browseProceed, .browseReceivingData)     : return .browseComplete
+            case (.browseProceed, .browseReceivingData)     : return .notReady
                 
             // Browse GoBack Events
             case (.browseGoBack, .browseRunning)            : return .notReady
             case (.browseGoBack, .browseConnecting)         : return .browseRunning
-            case (.browseGoBack, .browseReceivingData)      : return .browseConnecting
-            case (.browseGoBack, .browseComplete)           : return .browseReceivingData
+            case (.browseGoBack, .browseReceivingData)      : return .browseRunning
                 
             // Browse ErrorOut Events
-            case (.browseErrorOut, .browseRunning)          : return .browseError
-            case (.browseErrorOut, .browseConnecting)       : return .browseError
-            case (.browseErrorOut, .browseReceivingData)    : return .browseError
-            
+            case (.browseErrorOut, .browseRunning)          : return .notReady
+            case (.browseErrorOut, .browseConnecting)       : return .notReady
+            case (.browseErrorOut, .browseReceivingData)    : return .notReady
+                
+            // Reset Events
+            case (.reset, .advertSelectingData)             : return .notReady
+            case (.reset, .advertReady)                     : return .notReady
+            case (.reset, .advertRunning)                   : return .notReady
+            case (.reset, .advertInvitationPending)         : return .notReady
+            case (.reset, .advertConnecting)                : return .notReady
+            case (.reset, .advertSendingData)               : return .notReady
+            case (.reset, .browseRunning)                   : return .notReady
+            case (.reset, .browseConnecting)                : return .notReady
+            case (.reset, .browseReceivingData)             : return .notReady
+                
             default:
                 return nil
             }

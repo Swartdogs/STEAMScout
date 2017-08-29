@@ -8,6 +8,7 @@
 
 import UIKit
 import MultipeerConnectivity
+import SwiftState
 
 class DataTransferViewController: UIViewController {
     
@@ -18,6 +19,8 @@ class DataTransferViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ServiceStore.shared.delegate = self
 
         showBrowserButton.isEnabled = false
         pingButton.isEnabled = false
@@ -97,35 +100,81 @@ extension DataTransferViewController: ServiceStoreDelegate {
         }
     }
     
-    func handleShowCompleteUIWithServiceStore(_ serviceStore: ServiceStore) {
-        // TODO: Implement
-    }
-    
-    func handleShowConnectingWithServiceStore(_ serviceStore: ServiceStore) {
-        // TODO: Implement
-    }
-    
-    func handleShowSendingDataUIWithServiceStore(_ serviceStore: ServiceStore) {
-        // TODO: Implement
-    }
-    
-    func handleShowReceivingDataUIWithServiceStore(_ serviceStore: ServiceStore) {
-        // TODO: Implement
-    }
-    
-    func handleHideDataSelectionUIWithServiceStore(_ serviceStore: ServiceStore) {
-        // TODO: Implement
-    }
-    
-    func handleShowDataSelectionUIWithServiceStore(_ serviceStore: ServiceStore) {
-        // TODO: Implement
-    }
-    
-    func handleShowInvitationPendingUIWithServiceStore(_ serviceStore: ServiceStore) {
-        // TODO: Implement
-    }
-    
-    func handleShowErrorUIWithServiceStore(_ serviceStore: ServiceStore, fromState state: ServiceState, withUserInfo userInfo: Any?) {
-        // TODO: Implement
+    func serviceStore(_ serviceStore: ServiceStore, transitionedFromState fromState: ServiceState, toState: ServiceState, forEvent event: ServiceEvent, withUserInfo userInfo: Any?) {
+        // TODO: Implement Further
+        
+        switch(event, fromState, toState) {
+        // State Updates (no further action required)
+        case (.advertProceed, .advertReady, .advertRunning) :
+            print("Advertiser Started")
+            break
+        case (.advertGoBack, .advertRunning, .advertReady) :
+            print("Advertiser Stopped")
+            break
+        case (.browseProceed, .notReady, .browseRunning) :
+            print("Browser Started")
+            break
+        case (.browseGoBack, .browseRunning, .notReady) :
+            print("Browser Stopped")
+            break
+        case (.reset, .advertSelectingData, .notReady)      : fallthrough
+        case (.reset, .advertReady, .notReady)              : fallthrough
+        case (.reset, .advertRunning, .notReady)            : fallthrough
+        case (.reset, .advertInvitationPending, .notReady)  : fallthrough
+        case (.reset, .advertConnecting, .notReady)         : fallthrough
+        case (.reset, .advertSendingData, .notReady)        : fallthrough
+        case (.reset, .browseRunning, .notReady)            : fallthrough
+        case (.reset, .browseConnecting, .notReady)         : fallthrough
+        case (.reset, .browseReceivingData, .notReady)      :
+            print("Reset Event Ocurred")
+            break
+            
+        // UI Updates (need to update UI on main thread)
+        case (.advertProceed, .notReady, .advertSelectingData) : fallthrough
+        case (.advertGoBack, .advertReady, .advertSelectingData) :
+            print("Show Data Selection Screen UI")
+            break
+        case (.advertProceed, .advertSelectingData, .advertReady) : fallthrough
+        case (.advertGoBack,  .advertSelectingData, .notReady) :
+            print("Hide Data Selection Screen UI")
+            break
+        case (.advertProceed, .advertRunning, .advertInvitationPending) :
+            print("Show Invitation Pending UI")
+            break
+        case (.advertProceed, .advertInvitationPending, .advertConnecting) : fallthrough
+        case (.browseProceed, .browseRunning, .browseConnecting) :
+            print("Show Connecting UI")
+            break
+        case (.advertProceed, .advertConnecting, .advertSendingData) :
+            print("Show Sending Data UI")
+            break
+        case (.browseProceed, .browseConnecting, .browseReceivingData) :
+            print("Show Receiving Data UI")
+            break
+        case (.advertProceed, .advertSendingData, .notReady) : fallthrough
+        case (.browseProceed, .browseReceivingData, .notReady) :
+            print("Show Complete UI and hide after 2 sec delay")
+            break
+        case (.advertGoBack, .advertInvitationPending, .advertRunning) : fallthrough
+        case (.advertGoBack, .advertConnecting, .advertRunning) : fallthrough
+        case (.advertGoBack, .advertSendingData, .advertRunning) : fallthrough
+        case (.browseGoBack, .browseConnecting, .browseRunning) : fallthrough
+        case (.browseGoBack, .browseReceivingData, .browseRunning) :
+            // UI Might not be necesssary
+            print("Show Dismissal UI with userInfo: \(String(describing: userInfo))")
+            break
+        case (.advertErrorOut, .advertRunning, .notReady) : fallthrough
+        case (.advertErrorOut, .advertConnecting, .notReady) : fallthrough
+        case (.advertErrorOut, .advertSendingData, .notReady) : fallthrough
+        case (.browseErrorOut, .browseRunning, .notReady) : fallthrough
+        case (.browseErrorOut, .browseConnecting, .notReady) : fallthrough
+        case (.browseErrorOut, .browseReceivingData, .notReady) :
+            print("Show \(String(describing: fromState)) Error UI with user info: \(String(describing: userInfo))")
+            break
+        
+        default:
+            print("WARN: Unknown transition \(String(describing: fromState)) => \(String(describing: toState)) for \(String(describing: event))!")
+            break
+        }
     }
 }
