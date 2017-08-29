@@ -11,19 +11,17 @@ import MultipeerConnectivity
 import SwiftState
 
 class DataTransferViewController: UIViewController {
-    
-    @IBOutlet var showBrowserButton: UIButton!
-    @IBOutlet var pingButton: UIButton!
-    @IBOutlet var advertisingSwitch: UISwitch!
-    @IBOutlet var browsingSwitch: UISwitch!
+    @IBOutlet var sendAdvertProceed: UIButton!
+    @IBOutlet var sendAdvertGoBack: UIButton!
+    @IBOutlet var sendAdvertErrorOut: UIButton!
+    @IBOutlet var sendBrowseProceed: UIButton!
+    @IBOutlet var sendBrowseGoBack: UIButton!
+    @IBOutlet var sendBrowseErrorOut: UIButton!
+    @IBOutlet var sendReset: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ServiceStore.shared.delegate = self
-
-        showBrowserButton.isEnabled = false
-        pingButton.isEnabled = false
         ServiceStore.shared.delegate = self
         // Do any additional setup after loading the view.
     }
@@ -33,27 +31,31 @@ class DataTransferViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func advertisingSwitchChanged(_ sender: UISwitch) {
-        if(sender.isOn) {
-            ServiceStore.shared.startAdvertising()
-            browsingSwitch.isOn = false
-            browsingSwitch.isEnabled = false
-        } else {
-            ServiceStore.shared.stopAdvertising()
-            browsingSwitch.isEnabled = true
-        }
-    }
-    
-    @IBAction func broadcastingSwitchChanged(_ sender: UISwitch) {
-        if(sender.isOn) {
-            ServiceStore.shared.startBrowsing()
-            advertisingSwitch.isOn = false
-            advertisingSwitch.isEnabled = false
-            showBrowserButton.isEnabled = true
-        } else {
-            ServiceStore.shared.stopBrowsing()
-            showBrowserButton.isEnabled = false
-            advertisingSwitch.isEnabled = true
+    @IBAction func handleButtonSelect(_ sender: UIButton) {
+        switch sender {
+        case sendAdvertProceed:
+            ServiceStore.shared.proceedWithAdvertising()
+            break
+        case sendAdvertGoBack:
+            ServiceStore.shared.goBackWithAdvertising()
+            break
+        case sendAdvertErrorOut:
+            ServiceStore.shared.errorOutWithAdvertising()
+            break
+        case sendBrowseProceed:
+            ServiceStore.shared.proceedWithBrowsing()
+            break
+        case sendBrowseGoBack:
+            ServiceStore.shared.goBackWithBrowsing()
+            break
+        case sendBrowseErrorOut:
+            ServiceStore.shared.errorOutWithBrowsing()
+            break
+        case sendReset:
+            ServiceStore.shared.resetStateMachine()
+            break
+        default:
+            break
         }
     }
     
@@ -80,10 +82,11 @@ class DataTransferViewController: UIViewController {
 
 extension DataTransferViewController: ServiceStoreDelegate {
     func serviceStore(_ serviceStore: ServiceStore, withSession session: MCSession, didChangeState state: MCSessionState) {
-        let enable = state == .connected
-        DispatchQueue.main.async { [weak self, enable] in
-            self?.pingButton.isEnabled = enable
-        }
+        print("ServiceStore Session: \(session.debugDescription) did change state: \(state)")
+//        let enable = state == .connected
+//        DispatchQueue.main.async { [weak self, enable] in
+//            self?.pingButton.isEnabled = enable
+//        }
     }
     
     func serviceStore(_ serviceStore: ServiceStore, withSession session: MCSession, didReceiveData data: Data, fromPeer peerId: MCPeerID) {

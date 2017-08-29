@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="V4w-LE-xym">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="V4w-LE-xym">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,19 +23,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hox-Cg-h28">
-                                <rect key="frame" x="20" y="20" width="662.5" height="554.5"/>
+                                <rect key="frame" x="20" y="20" width="662" height="554.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="j6K-zn-dfH" userLabel="Welcome">
-                                        <rect key="frame" x="0.0" y="0.0" width="662.5" height="84"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="662" height="84"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Steam Scout!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tP-05-CbV">
-                                                <rect key="frame" x="0.0" y="0.0" width="662.5" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="662" height="33.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <color key="textColor" red="0.99810189010000006" green="0.41443628069999999" blue="0.0016002511839999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start by viewing your Match List.  Rotate to Landscape or click the &quot;Matches&quot; button at the top left. " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Op0-gE-wah">
-                                                <rect key="frame" x="0.0" y="41.5" width="662.5" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="41.5" width="662" height="42.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -43,16 +43,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Eej-Ot-o7S" userLabel="Tracking">
-                                        <rect key="frame" x="0.0" y="92" width="662.5" height="55"/>
+                                        <rect key="frame" x="0.0" y="92" width="662" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Tracking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTu-96-cap">
-                                                <rect key="frame" x="0.0" y="0.0" width="662.5" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="662" height="26.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To start tracking robots, tap the &quot;New Match&quot; button in the Matches view!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8c5-S3-Xqz">
-                                                <rect key="frame" x="0.0" y="34.5" width="662.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="34.5" width="662" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -60,16 +60,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WmY-sA-gdD" userLabel="Schedule">
-                                        <rect key="frame" x="0.0" y="155" width="662.5" height="77"/>
+                                        <rect key="frame" x="0.0" y="155" width="662" height="77"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Match Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4p-Zi-oQK">
-                                                <rect key="frame" x="0.0" y="0.0" width="662.5" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="662" height="26.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQM-nG-06l">
-                                                <rect key="frame" x="0.0" y="34.5" width="662.5" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="34.5" width="662" height="42.5"/>
                                                 <string key="text">Tap the "Schedule" button in the Matches view to view the schedule of your selected event.  (You can also select an event on this screen)</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,37 +78,37 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Out-jz-pYo" userLabel="Match Queue">
-                                        <rect key="frame" x="0.0" y="240" width="662.5" height="122.5"/>
+                                        <rect key="frame" x="0.0" y="240" width="662" height="122.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Build Match Queue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmo-8Q-f7T">
-                                                <rect key="frame" x="0.0" y="0.0" width="662.5" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="662" height="26.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="bottom" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="A8f-Ji-i5S" userLabel="Tools View Instructions">
-                                                <rect key="frame" x="0.0" y="34.5" width="662.5" height="88"/>
+                                                <rect key="frame" x="0.0" y="34.5" width="662" height="88"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the &quot;Tools&quot; button in the Matches view to perform multiple functions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CwX-fi-z3w">
-                                                        <rect key="frame" x="0.0" y="0.0" width="662.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="662" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Choose a FIRST Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXX-dx-qCz">
-                                                        <rect key="frame" x="16" y="22.5" width="646.5" height="20.5"/>
+                                                        <rect key="frame" x="16" y="22.5" width="646" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Fetch the Schedule of your selected event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prX-sc-eBx">
-                                                        <rect key="frame" x="16" y="45" width="646.5" height="20.5"/>
+                                                        <rect key="frame" x="16" y="45" width="646" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Build a queue of matches to scout based on the Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gb-9n-Dxd">
-                                                        <rect key="frame" x="16" y="67.5" width="646.5" height="20.5"/>
+                                                        <rect key="frame" x="16" y="67.5" width="646" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -124,16 +124,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UnK-Bf-ZXv" userLabel="Results">
-                                        <rect key="frame" x="0.0" y="370.5" width="662.5" height="77"/>
+                                        <rect key="frame" x="0.0" y="370.5" width="662" height="77"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cys-VX-S2i">
-                                                <rect key="frame" x="0.0" y="0.0" width="662.5" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="662" height="26.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll down the list in the Matches view to the completed section and select a match to view" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQa-2b-kDb">
-                                                <rect key="frame" x="0.0" y="34.5" width="662.5" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="34.5" width="662" height="42.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -141,16 +141,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AeC-FD-4eo" userLabel="Export">
-                                        <rect key="frame" x="0.0" y="455.5" width="662.5" height="99"/>
+                                        <rect key="frame" x="0.0" y="455.5" width="662" height="99"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Export Matches" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cH0-ha-tgs">
-                                                <rect key="frame" x="0.0" y="0.0" width="662.5" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="662" height="26.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I15-XD-xgZ">
-                                                <rect key="frame" x="0.0" y="34.5" width="662.5" height="64.5"/>
+                                                <rect key="frame" x="0.0" y="34.5" width="662" height="64.5"/>
                                                 <string key="text">Tap the "Export" Button in the Matches view to export your matches in a .csv format.  You can choose to export all matches or only new matches that haven't been exported yet.</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -187,73 +187,103 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DHW-CF-Q2b">
-                                <rect key="frame" x="20" y="84" width="662" height="148"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dRr-Uh-MBu">
+                                <rect key="frame" x="20" y="72" width="661.5" height="334"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XCe-Hs-YZk">
-                                        <rect key="frame" x="0.0" y="0.0" width="662" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh3-6X-BJW">
+                                        <rect key="frame" x="260.5" y="0.0" width="141" height="30"/>
+                                        <state key="normal" title="Reset State Machine"/>
+                                        <connections>
+                                            <action selector="handleButtonSelect:" destination="VKb-Tl-e5h" eventType="touchUpInside" id="VDK-OG-UoF"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DHW-CF-Q2b">
+                                        <rect key="frame" x="0.0" y="38" width="661.5" height="144"/>
                                         <subviews>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="84e-c7-n6Q">
-                                                <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
-                                                <connections>
-                                                    <action selector="broadcastingSwitchChanged:" destination="VKb-Tl-e5h" eventType="valueChanged" id="sQa-4m-7l9"/>
-                                                </connections>
-                                            </switch>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browsing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkG-ar-FG1">
-                                                <rect key="frame" x="57" y="0.0" width="605" height="31"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertise Controls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAa-DI-um2">
+                                                <rect key="frame" x="0.0" y="0.0" width="661.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-1D-8tQ">
+                                                <rect key="frame" x="0.0" y="38" width="661.5" height="30"/>
+                                                <state key="normal" title="Proceed"/>
+                                                <connections>
+                                                    <action selector="handleButtonSelect:" destination="VKb-Tl-e5h" eventType="touchUpInside" id="Zfx-ZV-NSZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBU-z6-0jK">
+                                                <rect key="frame" x="0.0" y="76" width="661.5" height="30"/>
+                                                <state key="normal" title="Go Back"/>
+                                                <connections>
+                                                    <action selector="handleButtonSelect:" destination="VKb-Tl-e5h" eventType="touchUpInside" id="sKO-yh-Kei"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lU-Ka-D0u">
+                                                <rect key="frame" x="0.0" y="114" width="661.5" height="30"/>
+                                                <state key="normal" title="Error Out"/>
+                                                <connections>
+                                                    <action selector="handleButtonSelect:" destination="VKb-Tl-e5h" eventType="touchUpInside" id="W2y-sY-yyA"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YBU-qF-fkp">
-                                        <rect key="frame" x="0.0" y="39" width="662" height="31"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RD5-Mu-Q5T">
+                                        <rect key="frame" x="0.0" y="190" width="661.5" height="144"/>
                                         <subviews>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zYv-y0-3dw">
-                                                <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
-                                                <connections>
-                                                    <action selector="advertisingSwitchChanged:" destination="VKb-Tl-e5h" eventType="valueChanged" id="BYf-vb-hOb"/>
-                                                </connections>
-                                            </switch>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertising" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlK-dx-Hnq">
-                                                <rect key="frame" x="57" y="0.0" width="605" height="31"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse Controls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBe-nb-2dk">
+                                                <rect key="frame" x="0.0" y="0.0" width="661.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRL-Yg-6UD">
+                                                <rect key="frame" x="0.0" y="38" width="661.5" height="30"/>
+                                                <state key="normal" title="Proceed"/>
+                                                <connections>
+                                                    <action selector="handleButtonSelect:" destination="VKb-Tl-e5h" eventType="touchUpInside" id="QEP-co-XZA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WyI-3V-VzK">
+                                                <rect key="frame" x="0.0" y="76" width="661.5" height="30"/>
+                                                <state key="normal" title="Go Back"/>
+                                                <connections>
+                                                    <action selector="handleButtonSelect:" destination="VKb-Tl-e5h" eventType="touchUpInside" id="aaS-Jg-Hx7"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x77-PE-EOt">
+                                                <rect key="frame" x="0.0" y="114" width="661.5" height="30"/>
+                                                <state key="normal" title="Error Out"/>
+                                                <connections>
+                                                    <action selector="handleButtonSelect:" destination="VKb-Tl-e5h" eventType="touchUpInside" id="CYw-yT-mGf"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-1D-8tQ">
-                                        <rect key="frame" x="0.0" y="78" width="662" height="31"/>
-                                        <state key="normal" title="Show UI Browser"/>
-                                        <connections>
-                                            <action selector="showBrowserView:" destination="VKb-Tl-e5h" eventType="touchUpInside" id="Eq3-dC-V37"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBU-z6-0jK">
-                                        <rect key="frame" x="0.0" y="117" width="662" height="31"/>
-                                        <state key="normal" title="Ping Connected Devices"/>
-                                        <connections>
-                                            <action selector="pingConnectedDevices:" destination="VKb-Tl-e5h" eventType="touchUpInside" id="v9X-xz-UKF"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="DHW-CF-Q2b" firstAttribute="width" secondItem="dRr-Uh-MBu" secondAttribute="width" id="hZ8-eF-Woe"/>
+                                    <constraint firstItem="RD5-Mu-Q5T" firstAttribute="width" secondItem="dRr-Uh-MBu" secondAttribute="width" id="q0X-Wz-aqB"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="DHW-CF-Q2b" secondAttribute="leading" id="AMs-Md-SAq"/>
-                            <constraint firstItem="DHW-CF-Q2b" firstAttribute="top" secondItem="o67-NK-fXf" secondAttribute="bottom" constant="20" id="U6z-oW-DY3"/>
-                            <constraint firstItem="DHW-CF-Q2b" firstAttribute="centerX" secondItem="T3Y-xQ-puT" secondAttribute="centerX" id="fhv-ev-O9s"/>
+                            <constraint firstItem="dRr-Uh-MBu" firstAttribute="top" secondItem="o67-NK-fXf" secondAttribute="bottom" constant="8" id="ar9-5S-ote"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="dRr-Uh-MBu" secondAttribute="leading" id="hIl-hZ-IGP"/>
+                            <constraint firstItem="dRr-Uh-MBu" firstAttribute="centerX" secondItem="T3Y-xQ-puT" secondAttribute="centerX" id="nOX-0a-n2V"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Transfer Data" id="hWs-gc-cKT"/>
                     <connections>
-                        <outlet property="advertisingSwitch" destination="zYv-y0-3dw" id="rlT-62-9ud"/>
-                        <outlet property="browsingSwitch" destination="84e-c7-n6Q" id="JO1-hR-HkA"/>
-                        <outlet property="pingButton" destination="eBU-z6-0jK" id="iNb-7d-XFS"/>
-                        <outlet property="showBrowserButton" destination="SrF-1D-8tQ" id="aKu-ZD-L1a"/>
+                        <outlet property="sendAdvertErrorOut" destination="8lU-Ka-D0u" id="iYG-MH-b5W"/>
+                        <outlet property="sendAdvertGoBack" destination="eBU-z6-0jK" id="Cy5-NP-ISW"/>
+                        <outlet property="sendAdvertProceed" destination="SrF-1D-8tQ" id="9gB-0g-D6O"/>
+                        <outlet property="sendBrowseErrorOut" destination="x77-PE-EOt" id="GOi-cz-qrz"/>
+                        <outlet property="sendBrowseGoBack" destination="WyI-3V-VzK" id="vxp-Tp-0Nn"/>
+                        <outlet property="sendBrowseProceed" destination="QRL-Yg-6UD" id="FDE-vJ-o2B"/>
+                        <outlet property="sendReset" destination="nh3-6X-BJW" id="XqI-SP-Run"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSm-OH-qez" userLabel="First Responder" sceneMemberID="firstResponder"/>
