@@ -31,6 +31,9 @@ class MatchImpl : AnyObject, Match {
     var finalRobot:RobotState  = .None
     var finalComments:String   = ""
     
+    // Match Manipulation Data
+    var selectedForDataTransfer:Bool = false
+    
     // Calculated Variables
     class var csvHeader:String {
         var matchHeader = ""
@@ -52,6 +55,7 @@ class MatchImpl : AnyObject, Match {
     var messageDictionary:Dictionary<String, AnyObject> {
         var data:[String:AnyObject]    = [String:AnyObject]()
         var team:[String:AnyObject]    = [String:AnyObject]()
+        var intern:[String:AnyObject]  = [String:AnyObject]()
         var final:[String:AnyObject]   = [String:AnyObject]()
         
         // Team Info
@@ -71,9 +75,12 @@ class MatchImpl : AnyObject, Match {
         final["robot"]      = finalRobot.toString()  as AnyObject?
         final["comments"]   = finalComments        as AnyObject?
         
+        intern["dataTransfer"] = selectedForDataTransfer as AnyObject?
+        
         // All Data
         data["team"]        = team  as AnyObject?
         data["final"]       = final as AnyObject?
+        data["internal"]    = intern as AnyObject?
         
         return data
     }
@@ -97,6 +104,7 @@ class MatchImpl : AnyObject, Match {
             let final = pList["final"] as? [String:AnyObject] else {
                 return
         }
+        var intern = pList["internal"] as? [String:AnyObject]
         
         // Team Info
         teamNumber         = team["teamNumber"]  as! Int
@@ -115,6 +123,8 @@ class MatchImpl : AnyObject, Match {
         finalRedCards      = final["rCards"]     as! Int
         finalRobot         = RobotState(rawValue: final["robot"] as! Int)
         finalComments      = final["comments"]   as! String
+        
+        selectedForDataTransfer = intern != nil ? (intern!["dataTransfer"] as! Bool) : false
     }
     
     // Required Functions

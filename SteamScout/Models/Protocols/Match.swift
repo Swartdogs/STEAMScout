@@ -30,6 +30,9 @@ protocol Match : CsvDataProvider, MatchCoding {
     var finalRobot:RobotState  { get set }
     var finalComments:String   { get set }
     
+    // Match Manipulation Data
+    var selectedForDataTransfer:Bool { get set }
+    
     // Calculated Variables
     var messageDictionary:Dictionary<String, AnyObject> { get }
     

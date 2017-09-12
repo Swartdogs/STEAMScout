@@ -51,6 +51,7 @@ class MatchEncodingHelper : NSObject, NSCoding {
     func propertyListRepresentation() throws -> [String:AnyObject] {
         var data = [String:AnyObject]()
         var team = [String:AnyObject]()
+        var intern = [String:AnyObject]()
         var final = [String:AnyObject]()
         
         guard let m = match else {
@@ -75,8 +76,11 @@ class MatchEncodingHelper : NSObject, NSCoding {
         final["robot"]      = m.finalRobot.rawValue  as AnyObject?
         final["comments"]   = m.finalComments        as AnyObject?
         
+        intern["dataTransfer"] = m.selectedForDataTransfer as AnyObject?
+        
         data["team"]        = team                   as AnyObject?
         data["final"]       = final                  as AnyObject?
+        data["internal"]    = intern                 as AnyObject?
         
         return data;
     }
